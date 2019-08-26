@@ -10,15 +10,15 @@
 			O.loc = src
 			src.notices++
 			src.icon_state = text("nboard0[]", src.notices) //update sprite
-			user << "\blue You pin the paper to the noticeboard."
+			user << "\blue Ты прикрепляешь бумагу к доске объявлений."
 		else
-			user << "\red You reach to pin your paper to the board but hesitate. You are certain your paper will not be seen among the many others already attached."
+			user << "\red Слишком много бумаги! Мою совсем не заметят."
 
 /obj/noticeboard/attack_hand(user as mob)
-	var/dat = "<B>Noticeboard</B><BR>"
+	var/dat = "<B>Доска объявлений</B><BR>"
 	for(var/obj/item/weapon/paper/P in src)
-		dat += text("<A href='?src=\ref[];read=\ref[]'>[]</A> <A href='?src=\ref[];write=\ref[]'>Write</A> <A href='?src=\ref[];remove=\ref[]'>Remove</A><BR>", src, P, P.name, src, P, src, P)
-	user << browse("<HEAD><TITLE>Notices</TITLE></HEAD>[dat]","window=noticeboard")
+		dat += text("<A href='?src=\ref[];read=\ref[]'>[]</A> <A href='?src=\ref[];write=\ref[]'>Write</A> <A href='?src=\ref[];remove=\ref[]'>Убрать</A><BR>", src, P, P.name, src, P, src, P)
+	user << browse("<HEAD><TITLE>Объявления</TITLE></HEAD>[dat]","window=noticeboard")
 	onclose(user, "noticeboard")
 
 
@@ -27,7 +27,7 @@
 	usr.machine = src
 	if (href_list["remove"])
 		if ((usr.stat || usr.restrained())) //For when a player is handcuffed while they have the notice window open
-			usr << "\red It's a bit hard to remove the notice when you're restrained like this."
+			usr << "\red Я не в том состоянии."
 			return
 		var/obj/item/P = locate(href_list["remove"])
 		if ((P && P.loc == src))
@@ -40,7 +40,7 @@
 
 	if(href_list["write"])
 		if ((usr.stat || usr.restrained())) //For when a player is handcuffed while they have the notice window open
-			usr << "\red It's a bit hard to write when you're restrained like this."
+			usr << "\red Я не в том состоянии."
 			return
 		var/obj/item/P = locate(href_list["write"])
 
@@ -53,7 +53,7 @@
 					src.add_fingerprint(usr)
 					P.attackby(usr.l_hand, usr)
 				else
-					usr << "\red You'll need something to write with!"
+					usr << "\red И ручечку бы!"
 
 	if (href_list["read"])
 		var/obj/item/weapon/paper/P = locate(href_list["read"])

@@ -147,12 +147,12 @@
 
 		if (istype(W, /obj/item/weapon/weldingtool) && W:welding)
 			if (W:get_fuel() < 2)
-				user << "\blue You need more welding fuel to complete this task."
+				user << "\blue Тебе нужно больше сварочного топлива для выполнения этой задачи."
 				return
 			W:use_fuel(1)
 			new /obj/item/weapon/sheet/metal(src.loc)
 			for (var/mob/M in viewers(src))
-				M.show_message("\red [src] has been cut apart by [user.name] with the weldingtool.", 3, "\red You hear welding.", 2)
+				M.show_message("\red <b>[user.name]</b> распаивает сварочным аппаратом <b>[src.nominative]</b>.", 3, "\red Ты слышишь сварочные работы.", 2)
 			del(src)
 			return
 
@@ -163,13 +163,13 @@
 
 	else if(istype(W, /obj/item/weapon/weldingtool) && W:welding)
 		if (W:get_fuel() < 2)
-			user << "\blue You need more welding fuel to complete this task."
+			user << "\blue Тебе нужно больше сварочного топлива для выполнения этой задачи."
 			return
 		W:eyecheck(user)
 		W:use_fuel(1)
 		src.welded =! src.welded
 		for(var/mob/M in viewers(src))
-			M.show_message("\red [src] has been [welded?"welded shut":"unwelded"] by [user.name].", 3, "\red You hear welding.", 2)
+			M.show_message("\red <b>[src.nominative]</b> [welded?"заваривается":"отваривается"] <b>[user.name]</b>.", 3, "\red Ты слышишь сварочные работы.", 2)
 	else
 		src.attack_hand(user)
 	return
@@ -188,7 +188,7 @@
 	if(istype(O, /obj/secure_closet) || istype(O, /obj/closet))
 		return
 	step_towards_3d(O, src.loc)
-	user.show_viewers(text("\red [] stuffs [] into []!", user, O, src))
+	user.show_viewers(text("\red <b>[]</b> помещает <b>[]</b> внутрь <b>[]</b>!", user, O, src.genitive))
 	src.add_fingerprint(user)
 	return
 
@@ -197,13 +197,13 @@
 		return
 
 	if (!src.open() && world.timeofday - bang_time >= 14)
-		user << "\blue It won't budge!"
+		user << "\blue Не сдвигается с места!"
 
 		for (var/mob/M in hearers(src, null))
 			if(!(M.sdisabilities & 4) && M.ear_deaf == 0)
-				M << text("<FONT size=[]>BANG, bang!</FONT>", max(0, 5 - get_dist(src, M)))
+				M << text("<FONT size=[]>БАХ, бах!</FONT>", max(0, 5 - get_dist(src, M)))
 
-		user.unlock_medal("It's a trap!", 0, "Get locked or welded into a locker...", "easy")
+		user.unlock_medal("Это ловушка!", 0, "Оказаться закрытым или заваренным в шкафчик", "просто")
 		bang_time = world.timeofday
 
 /obj/closet/attack_paw(mob/user as mob)
@@ -213,4 +213,4 @@
 	src.add_fingerprint(user)
 
 	if (!src.toggle())
-		usr << "\blue It won't budge!"
+		usr << "\blue Не сдвигается с места!"

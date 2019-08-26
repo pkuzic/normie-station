@@ -78,16 +78,16 @@
 /obj/displaycase/attack_hand(mob/user as mob)
 	if (src.destroyed && src.occupied)
 		new /obj/item/weapon/gun/energy/laser_gun/captain( src.loc )
-		user << "\b You deactivate the hover field built into the case."
+		user << "\b Ты деактивируешь защитное поле, встроенное в витрину."
 		src.occupied = 0
 		src.add_fingerprint(user)
 		update_icon()
 		return
 	else
-		usr << text("\blue You kick the display case.")
+		usr << text("\blue Ты пинаешь витрину.")
 		for(var/mob/O in oviewers())
 			if ((O.client && !( O.blinded )))
-				O << text("\red [] kicks the display case.", usr)
+				O << text("\red <b>[]</b> пинает витрину.", usr)
 		src.health -= 2
 		healthcheck()
 		return

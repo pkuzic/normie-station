@@ -13,8 +13,16 @@
 
 /obj/multiz/ladder
 	icon_state = "ladderdown"
-	name = "ladder"
-	desc = "A Ladder.  You climb up and down it."
+	name = "лестница"
+
+	nominative = "лестница" //Кто? Что? (есть)
+	genitive = "лестницы" //Кого? Чего? (нет)
+	dative = "лестнице"  //Кому? Чему? (дам)
+	accusative = "лестницу" //Кого? Что? (вижу)
+	instrumentative = "лестницей" //Кем? Чем? (горжусь)
+	prepositive = "лестнице" //О ком? О чем? (думаю)
+
+	desc = "И по этой я могу скатиться вниз!"
 
 /obj/multiz/ladder/New()
 	..()
@@ -41,8 +49,16 @@
 
 //Stairs.  var/dir on all four component objects should be the dir you'd walk from top to bottom
 /obj/multiz/stairs
-	name = "Stairs"
-	desc = "Stairs.  You walk up and down them."
+	name = "ступеньки"
+	desc = "Как бы не споткнуться."
+
+	nominative = "ступеньки" //Кто? Что? (есть)
+	genitive = "ступенек" //Кого? Чего? (нет)
+	dative = "ступенькам"  //Кому? Чему? (дам)
+	accusative = "ступеньки" //Кого? Что? (вижу)
+	instrumentative = "ступеньками" //Кем? Чем? (горжусь)
+	prepositive = "ступеньках" //О ком? О чем? (думаю)
+
 	icon_state = "ramptop"
 
 /obj/multiz/stairs/New()

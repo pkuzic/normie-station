@@ -32,43 +32,46 @@
 
 /obj/grille/attack_hand(var/obj/M)
 	if ((usr.mutations & 8)) // If hulk
-		usr << text("\blue You kick the grille.")
+		usr << text("\red Ты лупишь решётку.")
 		for(var/mob/O in oviewers())
 			if ((O.client && !( O.blinded )))
-				O << text("\red [] kicks the grille.", usr)
+				O << text("\red [] пинает решётку.", usr)
+		playsound(src.loc, 'grillehit.ogg', 80, 1)
 		src.health -= 2
 		healthcheck()
 		return
 	else if(istype(usr,/mob/living/carbon/human) && usr:zombie) // or zombie
-		usr << text("\blue You bang on the grille.")
+		usr << text("\red Ты стучишь по решётке.")
 		for(var/mob/O in oviewers())
 			if ((O.client && !( O.blinded )))
-				O << text("\red [] bangs on the grille.", usr)
+				O << text("\red [] стучит по решётке.", usr)
+		playsound(src.loc, 'grillehit.ogg', 80, 1)
 		src.health -= 2
 		healthcheck()
 		return
 	else if(!shock(usr, 70)) // or anyone else.
-		usr << text("\blue You kick the grille.")
+		usr << text("\red Ты лупишь решётку.")
 		for(var/mob/O in oviewers())
 			if ((O.client && !( O.blinded )))
-				O << text("\red [] kicks the grille.", usr)
+				O << text("\red [] стучит по решётке.", usr)
 		playsound(src.loc, 'grillehit.ogg', 80, 1)
 		src.health -= 1
 
 /obj/grille/attack_paw(var/obj/M)
 	if ((usr.mutations & 8))
-		usr << text("\blue You kick the grille.")
+		usr << text("\red Ты лупишь решётку.")
 		for(var/mob/O in oviewers())
 			if ((O.client && !( O.blinded )))
-				O << text("\red [] kicks the grille.", usr)
+				O << text("\red [] пинает решётку.", usr)
+		playsound(src.loc, 'grillehit.ogg', 80, 1)
 		src.health -= 2
 		healthcheck()
 		return
 	else if(!shock(usr, 70))
-		usr << text("\blue You kick the grille.")
+		usr << text("\red Ты лупишь решётку.")
 		for(var/mob/O in oviewers())
 			if ((O.client && !( O.blinded )))
-				O << text("\red [] kicks the grille.", usr)
+				O << text("\red [] пинает решетку.", usr)
 		playsound(src.loc, 'grillehit.ogg', 80, 1)
 		src.health -= 1
 
@@ -92,9 +95,9 @@
 		if(!shock(user, 90))
 			playsound(src.loc, 'Screwdriver.ogg', 100, 1)
 			src.anchored = !( src.anchored )
-			user << (src.anchored ? "You have fastened the grille to the floor." : "You have unfastened the grill.")
+			user << (src.anchored ? "Ты вкручиваешь решётку к полу." : "Ты откручиваешь решётку от пола.")
 			for(var/mob/O in oviewers())
-				O << text("\red [user] [src.anchored ? "fastens" : "unfastens"] the grille.")
+				O << text("\red <b>[user]</b> [src.anchored ? "вкручивает" : "откручивает"] решётку.")
 			return
 	else if(istype(W, /obj/item/weapon/shard))	// can't get a shock by attacking with glass shard
 		src.health -= W.force * 0.1

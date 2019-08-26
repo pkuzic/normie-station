@@ -6,17 +6,17 @@
 
 /obj/mopbucket/examine()
 	set src in usr
-	usr << text("\icon[] [] contains [] units of water left!", src, src.name, src.reagents.total_volume)
+	usr << text("\icon[] [] содержит ещё аж [] единиц воды!", src, src.name, src.reagents.total_volume)
 	..()
 
 /obj/mopbucket/attackby(obj/item/weapon/W as obj, mob/user as mob)
 	if (istype(W, /obj/item/weapon/mop))
 		if (src.reagents.total_volume >= 2)
 			src.reagents.trans_to(W, 2)
-			user << "\blue You wet the mop"
+			user << "\blue Ты намачиваешь швабру."
 			playsound(src.loc, 'slosh.ogg', 25, 1)
 		if (src.reagents.total_volume < 1)
-			user << "\blue Out of water!"
+			user << "\blue Водичка закончилась!"
 	return
 
 /obj/mopbucket/ex_act(severity)

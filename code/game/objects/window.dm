@@ -106,10 +106,10 @@
 
 /obj/window/attack_hand()
 	if ((usr.mutations & 8))
-		usr << text("\blue You smash through the window.")
+		usr << text("\blue Ты разбиваешь окно.")
 		for(var/mob/O in oviewers())
 			if ((O.client && !( O.blinded )))
-				O << text("\red [] smashes through the window.", usr)
+				O << text("\red <b>[]</b> разбивает окно.", usr)
 		src.health = 0
 		new /obj/item/weapon/shard( src.loc )
 		if(reinf) new /obj/item/weapon/rods( src.loc)
@@ -117,14 +117,14 @@
 		del(src)
 	if(istype(usr,/mob/living/carbon/human))
 		if(usr:zombie && !(locate(/turf/space) in view(1,src)))
-			usr << text("\blue You bang on the window.")
+			usr << text("\blue Ты стучишь по окну.")
 			for(var/mob/O in oviewers())
 				if ((O.client && !( O.blinded )))
-					O << text("\red [] bangs on the window.", usr)
+					O << text("\red [] стучит по окну.", usr)
 			if(prob(24))
 				for(var/mob/O in oviewers())
 					if ((O.client && !( O.blinded )))
-						O << text("\red [] smashes through the window.", usr)
+						O << text("\red [] разбивает окно.", usr)
 				src.health = 0
 				new /obj/item/weapon/shard( src.loc )
 				if(reinf) new /obj/item/weapon/rods( src.loc)
@@ -134,10 +134,10 @@
 
 /obj/window/attack_paw()
 	if ((usr.mutations & 8))
-		usr << text("\blue You smash through the window.")
+		usr << text("\blue Ты разбиваешь окно.")
 		for(var/mob/O in oviewers())
 			if ((O.client && !( O.blinded )))
-				O << text("\red [] smashes through the window.", usr)
+				O << text("\red [] разбивает окно.", usr)
 		src.health = 0
 		new /obj/item/weapon/shard( src.loc )
 		if(reinf) new /obj/item/weapon/rods( src.loc)
@@ -152,20 +152,20 @@
 		if(reinf && state >= 1)
 			state = 3 - state
 			playsound(src.loc, 'Screwdriver.ogg', 75, 1)
-			usr << ( state==1? "You have unfastened the window from the frame." : "You have fastened the window to the frame." )
+			usr << ( state==1? "Ты откручиваешь окно от рамы." : "Ты вкручиваешь окно в раму.")
 		else if(reinf && state == 0)
 			anchored = !anchored
 			playsound(src.loc, 'Screwdriver.ogg', 75, 1)
-			user << (src.anchored ? "You have fastened the frame to the floor." : "You have unfastened the frame from the floor.")
+			user << (src.anchored ? "Ты вкручиваешь раму к полу." : "Ты откручиваешь раму от пола.")
 		else if(!reinf)
 			src.anchored = !( src.anchored )
 			playsound(src.loc, 'Screwdriver.ogg', 75, 1)
-			user << (src.anchored ? "You have fastened the window to the floor." : "You have unfastened the window.")
+			user << (src.anchored ? "Ты вкручиваешь окно к полу." : "Ты откручиваешь окно от пола.")
 	else if(istype(W, /obj/item/weapon/crowbar) && reinf)
 		if(state <=1)
 			state = 1-state;
 			playsound(src.loc, 'Crowbar.ogg', 75, 1)
-			user << (state ? "You have pried the window into the frame." : "You have pried the window out of the frame.")
+			user << (state ? "Ты устанавливаешь окно в раму" : "Ты вынимаешь окно из рамы.")
 	else
 		var/aforce = W.force
 		if(reinf) aforce /= 2.0
@@ -193,11 +193,11 @@
 
 
 /obj/window/verb/rotate()
-	set category = "Object"
+	set category = "Взаимодействие"
 	set src in oview(1)
 
 	if (src.anchored)
-		usr << "It is fastened to the floor; therefore, you can't rotate it!"
+		usr << "Оно прикреплено к полу - развернуть-то нельзя!"
 		return 0
 
 	update_nearby_tiles(need_rebuild=1) //Compel updates before
@@ -222,8 +222,16 @@
 	src.ini_dir = src.dir
 	if(reinf)
 		icon_state = "rwindow"
-		desc = "A reinforced window."
-		name = "reinforced window"
+		desc = "Окно, которому нет равных."
+		name = "усиленное окно"
+
+		nominative = "усиленное окно" //Кто? Что? (есть)
+		genitive = "усиленного окна" //Кого? Чего? (нет)
+		dative = "усиленному окну"  //Кому? Чему? (дам)
+		accusative = "усиленное окно" //Кого? Что? (вижу)
+		instrumentative = "усиленным окном" //Кем? Чем? (горжусь)
+		prepositive = "усиленном окне" //О ком? О чем? (думаю)
+
 		state = 2*anchored
 		health = 40
 

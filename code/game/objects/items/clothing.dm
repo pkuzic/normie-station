@@ -277,7 +277,7 @@ DEATH COMMANDO GAS MASK
 
 /obj/item/clothing/head/helmet/welding/verb/toggle()
 	set name = "Adjust welding mask"
-	set category = "Object"
+	set category = "Взаимодействие"
 
 	if(src.up)
 		src.up = !src.up

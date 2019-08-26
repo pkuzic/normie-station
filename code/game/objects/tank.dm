@@ -21,11 +21,11 @@
 			using_internal = 1
 
 	var/message = {"
-<b>Tank</b><BR>
-<FONT color='blue'><b>Tank Pressure:</b> [air_contents.return_pressure()]</FONT><BR>
+<b>Резервуар</b><BR>
+<FONT color='blue'><b>Давление в резервуаре:</b> [air_contents.return_pressure()]</FONT><BR>
 <BR>
-<b>Mask Release Pressure:</b> <A href='?src=\ref[src];dist_p=-10'>-</A> <A href='?src=\ref[src];dist_p=-1'>-</A> [distribute_pressure] <A href='?src=\ref[src];dist_p=1'>+</A> <A href='?src=\ref[src];dist_p=10'>+</A><BR>
-<b>Mask Release Valve:</b> <A href='?src=\ref[src];stat=1'>[using_internal?("Open"):("Closed")]</A>
+<b>Выходное давление:</b> <A href='?src=\ref[src];dist_p=-10'>-</A> <A href='?src=\ref[src];dist_p=-1'>-</A> [distribute_pressure] <A href='?src=\ref[src];dist_p=1'>+</A> <A href='?src=\ref[src];dist_p=10'>+</A><BR>
+<b>Выходной клапан:</b> <A href='?src=\ref[src];stat=1'>[using_internal?("Открыт"):("Закрыт")]</A>
 "}
 	user << browse(message, "window=tank;size=600x300")
 	onclose(user, "tank")
@@ -47,13 +47,13 @@
 				if(location.internal == src)
 					location.internal = null
 					location.internals.icon_state = "internal0"
-					usr << "\blue You close the tank release valve."
+					usr << "\blue Ты закрываешь клапан резервуара."
 				else
 					if(location.wear_mask && (location.wear_mask.flags & MASKINTERNALS))
 						location.internal = src
-						usr << "\blue You open the tank valve."
+						usr << "\blue Ты открываешь клапан резервуара."
 					else
-						usr << "\blue The valve immediately closes."
+						usr << "\blue Клапан немедленно закрывается."
 
 		src.add_fingerprint(usr)
 		for(var/mob/M in viewers(1, src.loc))
@@ -122,7 +122,7 @@
 				del(src)
 				return
 			else
-				message_admins("Whoops a bomb fucked up, [loc]")
+				message_admins("Упс, бомба взрывается - [loc]")
 				del(src)
 				return
 
@@ -155,7 +155,7 @@
 // ******* Check
 
 		if ((istype(H, /mob/living/carbon/human) && istype(H, /obj/item/clothing/head) && H.flags & 8 && prob(80)))
-			M << "\red The helmet protects you from being hit hard in the head!"
+			M << "\red Шлем защищает тебя от сильного удара по голове!"
 			return
 		var/time = rand(2, 6)
 		if (prob(90))
@@ -167,7 +167,7 @@
 		if(M.stat != 2)	M.stat = 1
 		for(var/mob/O in viewers(M, null))
 			if ((O.client && !( O.blinded )))
-				O << text("\red <B>[] has been knocked unconscious!</B>", M)
+				O << text("\red <B>[] теряет сознание от удара!</B>", M)
 	return
 
 /obj/item/weapon/tank/attackby(obj/item/weapon/W as obj, mob/user as mob)
@@ -177,13 +177,13 @@
 	if ((istype(W, /obj/item/device/analyzer) || (istype(W, /obj/item/device/pda))) && get_dist(user, src) <= 1)
 
 		for (var/mob/O in viewers(user, null))
-			O << "\red [user] has used [W] on \icon[icon] [src]"
+			O << "\red [user] использовал [W] на \icon[icon] [src]"
 
 		var/pressure = air_contents.return_pressure()
 
 		var/total_moles = air_contents.total_moles()
 
-		user << "\blue Results of analysis of \icon[icon]"
+		user << "\blue Результат анализа \icon[icon]"
 		if (total_moles>0)
 			var/o2_concentration = air_contents.oxygen/total_moles
 			var/n2_concentration = air_contents.nitrogen/total_moles
@@ -192,16 +192,16 @@
 
 			var/unknown_concentration =  1-(o2_concentration+n2_concentration+co2_concentration+plasma_concentration)
 
-			user << "\blue Pressure: [round(pressure,0.1)] kPa"
-			user << "\blue Nitrogen: [round(n2_concentration*100)]%"
-			user << "\blue Oxygen: [round(o2_concentration*100)]%"
+			user << "\blue Давление: [round(pressure,0.1)] кПа"
+			user << "\blue Азот: [round(n2_concentration*100)]%"
+			user << "\blue Кислород: [round(o2_concentration*100)]%"
 			user << "\blue CO2: [round(co2_concentration*100)]%"
-			user << "\blue Plasma: [round(plasma_concentration*100)]%"
+			user << "\blue Плазма: [round(plasma_concentration*100)]%"
 			if(unknown_concentration>0.01)
-				user << "\red Unknown: [round(unknown_concentration*100)]%"
-			user << "\blue Temperature: [round(air_contents.temperature-T0C)]&deg;C"
+				user << "\red Неизвестно: [round(unknown_concentration*100)]%"
+			user << "\blue Температура: [round(air_contents.temperature-T0C)]&deg;C"
 		else
-			user << "\blue Tank is empty!"
+			user << "\blue Резервуар пуст!"
 
 		src.add_fingerprint(user)
 	return
@@ -230,26 +230,26 @@
 	if (istype(src.loc, /obj/item/assembly))
 		icon = src.loc
 		if (!in_range(src, usr))
-			if (icon == src) usr << "\blue It's a \icon[icon]! If you want any more information you'll need to get closer."
+			if (icon == src) usr << "\blue Это \icon[icon]! Чтобы разглядеть, нужно подойти поближе."
 			return
 
 		var/celsius_temperature = src.air_contents.temperature-T0C
 		var/descriptive
 
 		if (celsius_temperature < 20)
-			descriptive = "cold"
+			descriptive = "холодновато"
 		else if (celsius_temperature < 40)
-			descriptive = "room temperature"
+			descriptive = "примерно комнатной температурой"
 		else if (celsius_temperature < 80)
-			descriptive = "lukewarm"
+			descriptive = "тепловато"
 		else if (celsius_temperature < 100)
-			descriptive = "warm"
+			descriptive = "тепло"
 		else if (celsius_temperature < 300)
-			descriptive = "hot"
+			descriptive = "горячо"
 		else
-			descriptive = "furiously hot"
+			descriptive = "\red <b>ОЧЕНЬ ГОРЯЧО!</b>"
 
-		usr << text("\blue The \icon[] feels []", icon, descriptive)
+		usr << text("\blue \icon[] ощущается []", icon, descriptive)
 
 	return
 

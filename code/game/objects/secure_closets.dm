@@ -151,12 +151,12 @@
 			if (src.large)
 				src.MouseDrop_T(W:affecting, user)	//act like they were dragged onto the closet
 			else
-				user << "The locker is too small to stuff [W] into!"
+				user << "Шкафчик слишком маленький, чтобы вместить <b>[W]</b>"
 		user.drop_item()
 		if (W)
 			W.loc = src.loc
 	else if(src.broken)
-		user << "\red It appears to be broken."
+		user << "\red Упс! Кажется, сломано."
 		return
 	else if(istype(W, /obj/item/weapon/card/emag) && !src.broken)
 		src.broken = 1
@@ -164,19 +164,19 @@
 		src.icon_state = src.icon_broken
 		for(var/mob/O in viewers(user, 3))
 			if ((O.client && !( O.blinded )))
-				O << text("\blue The locker has been broken by [user] with an electromagnetic card!")
+				O << text("\blue Шкафчик сломан [user] с помощью электромагнитной карты!")
 	else if(src.allowed(user))
 		src.locked = !src.locked
 		for(var/mob/O in viewers(user, 3))
 			if ((O.client && !( O.blinded )))
-				O << text("\blue The locker has been []locked by [].", (src.locked ? null : "un"), user)
+				O << text("\blue шкафчик был []крыт <b>[]</b>.", (src.locked ? "за" : "от"), user)
 		if(src.locked)
 			src.icon_state = src.icon_locked
 		else
 			src.icon_state = src.icon_closed
 
 	else
-		user << "\red Access Denied"
+		user << "\red Отказано в доступе!"
 	return
 
 /obj/secure_closet/relaymove(mob/user as mob)
@@ -193,11 +193,11 @@
 		src.icon_state = src.icon_opened
 		src.opened = 1
 	else if(src.locked && world.timeofday - bang_time >= 14)
-		user << "\blue It's locked!"
+		user << "\blue Закрыто!"
 		for(var/mob/M in hearers(src, null))
 			if(!(M.sdisabilities & 4) && M.ear_deaf == 0)
-				M << text("<FONT size=[]>BANG, bang!</FONT>", max(0, 5 - get_dist(src, M)))
-		user.unlock_medal("It's a trap!", 0, "Get locked or welded into a locker...", "easy")
+				M << text("<FONT size=[]>БАХ, бах!</FONT>", max(0, 5 - get_dist(src, M)))
+		user.unlock_medal("Это ловушка!", 0, "Оказаться закрытым или заваренным в шкафчик", "просто")
 		bang_time = world.timeofday
 		return
 	return
@@ -215,7 +215,7 @@
 	if (user != O)
 		for(var/mob/B in viewers(user, 3))
 			if ((B.client && !( B.blinded )))
-				B << text("\red [] stuffs [] into []!", user, O, src)
+				B << text("\red <b>[]</b> помещает <b>[]</b> внутрь <b>[]</b>!", user, O, src.genitive)
 	src.add_fingerprint(user)
 	return
 /*

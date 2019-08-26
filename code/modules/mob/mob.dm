@@ -1850,7 +1850,7 @@ mob/verb/turnwest()
 	return
 
 /atom/movable/verb/pull()
-	set category = "Object"
+	set category = "Взаимодействие"
 	set src in oview(1)
 
 	if (!( usr ))
@@ -1860,7 +1860,7 @@ mob/verb/turnwest()
 	return
 
 /atom/verb/examine()
-	set category = "Object"
+	set category = "Взаимодействие"
 	set src in oview(12)	//make it work from farther away
 
 	if (!( usr ))

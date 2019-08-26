@@ -1,22 +1,22 @@
 /obj/item/temperature_expose(datum/gas_mixture/air, exposed_temperature, exposed_volume)
 	if(exposed_temperature >= 1643 && m_amt)
 		var/obj/item/weapon/meltedmetal/S = new(src.loc)
-		S.desc = "Looks like this was \an [src] some time ago."
+		S.desc = "Похоже, что это напоминает [src.nominative]."
 		S.m_amt = src.m_amt
 		for(var/mob/M in viewers(5, S))
-			M << "\red \the [src] melts."
+			M << "\red [src.nominative] расплавляется."
 		del(src)
 	else if(exposed_temperature >= 1650 && g_amt)
 		var/obj/item/weapon/meltedmetal/S = new(src.loc)
-		S.desc = "Looks like this was \an [src] some time ago."
+		S.desc = "Похоже, что это напоминает [src.nominative]."
 		S.g_amt = src.g_amt
 		for(var/mob/M in viewers(5, S))
-			M << "\red \the [src] melts."
+			M << "\red [src.nominative] расплавляется."
 		del(src)
 /obj/item/weapon/paper/temperature_expose(datum/gas_mixture/air, exposed_temperature, exposed_volume)
 	if(exposed_temperature >= 373.15)
 		for(var/mob/M in viewers(5, src))
-			M << "\red \the [src] burns up."
+			M << "\red [src.nominative] сгорает до тла."
 		del(src)
 /obj/item/weapon/bedsheet/ex_act(severity)
 	if (severity <= 2)
@@ -24,8 +24,16 @@
 		return
 	return
 /obj/item/weapon/pipesegment/
-	name = "Pipe segment"
-	desc = "used for emergency pipe repairs"
+	name = "сегмент трубы"
+
+	nominative = "сегмент трубы"
+	genitive = "сегмента трубы"
+	dative = "сегменту трубы"
+	accusative = "сегмент трубы"
+	instrumentative = "сегментом трубы"
+	prepositive = "сегменте трубы"
+
+	desc = "Используется для аварийной починки труб."
 	icon = 'pipes.dmi'
 	icon_state = "exposed"
 	m_amt = 50
@@ -34,19 +42,46 @@
 	src.layer = 5
 	add_fingerprint(user)
 	return
-obj/item/weapon/cane
-	name = "Cane"
+/obj/item/weapon/cane
+	name = "трость"
+
+	nominative = "трость" //Кто? Что? (есть)
+	genitive = "трости" //Кого? Чего? (нет)
+	dative = "трости"  //Кому? Чему? (дам)
+	accusative = "трость" //Кого? Что? (вижу)
+	instrumentative = "тростью" //Кем? Чем? (горжусь)
+	prepositive = "трости" //О ком? О чем? (думаю)
+
+	desc = "Незаменимый друг и верный товарищ каждого хромого человека."
 	icon = 'items.dmi'
 	icon_state = "cane"
 	m_amt = 5
 
 /obj/item/weapon/meltedmetal
-	name = "Ruined metal"
+	name = "разрушенный металл"
+
+	nominative = "разрушенный металл" //Кто? Что? (есть)
+	genitive = "разрушенного металла" //Кого? Чего? (нет)
+	dative = "разрушенному металлу"  //Кому? Чему? (дам)
+	accusative = "разрушенный металл" //Кого? Что? (вижу)
+	instrumentative = "разрушенным металлом" //Кем? Чем? (горжусь)
+	prepositive = "разрушенном металле" //О ком? О чем? (думаю)
+
+	desc = "Это случится и со мной."
 	icon = 'chemical.dmi'
 	icon_state = "molten"
 	m_amt = 0
 /obj/item/weapon/meltedglass
-	name = "Ruined glass"
+	name = "разбитое стекло"
+
+	nominative = "разбитое стекло" //Кто? Что? (есть)
+	genitive = "разбитого стекла" //Кого? Чего? (нет)
+	dative = "разбитому стеклу"  //Кому? Чему? (дам)
+	accusative = "разбитое стекло" //Кого? Что? (вижу)
+	instrumentative = "разбитым стеклом" //Кем? Чем? (горжусь)
+	prepositive = "разбитом стекле" //О ком? О чем? (думаю)
+
+	desc = "Разбитые надежды."
 	icon = 'chemical.dmi'
 	icon_state = "molten"
 	m_amt = 0
@@ -56,7 +91,7 @@ obj/item/weapon/cane
 	return
 /obj/item/weapon/handcuffs/attack(mob/M as mob, mob/user as mob)
 	if ((usr.mutations & 16) && prob(50))
-		usr << "\red Uh ... how do those things work?!"
+		usr << "\red Да как же этим пользоваться?!"
 		if (istype(M, /mob/living/carbon/human))
 			var/obj/equip_e/human/O = new /obj/equip_e/human(  )
 			O.source = user
@@ -71,7 +106,7 @@ obj/item/weapon/cane
 				return
 		return
 	if (!(istype(usr, /mob/living/carbon/human) || ticker) && ticker.mode.name != "monkey")
-		usr << "\red You don't have the dexterity to do this!"
+		usr << "\red Я недостаточно [usr.gender == 1 ? "ловок" : "ловка"] для этого!"
 		return
 	if (istype(M, /mob/living/carbon/human))
 		var/obj/equip_e/human/O = new /obj/equip_e/human(  )
@@ -112,7 +147,7 @@ obj/item/weapon/cane
 /obj/item/weapon/extinguisher/examine()
 	set src in usr
 
-	usr << text("\icon[] [] contains [] units of water left!", src, src.name, src.reagents.total_volume)
+	usr << text("\icon[] [] содержит ещё аж [] единиц воды!", src, src.name, src.reagents.total_volume)
 	..()
 	return
 
@@ -122,7 +157,7 @@ obj/item/weapon/cane
 	if( istype(target, (/obj/reagent_dispensers/watertank || /obj/reagent_dispensers/hvwatertank)) && get_dist(src,target) <= 1)
 		var/obj/o = target
 		o.reagents.trans_to(src, 50)
-		user << "\blue Extinguisher refilled"
+		user << "\blue Огнетушитель заправлен"
 		playsound(src.loc, 'zzzt.ogg', 50, 1, -6)
 		return
 
@@ -176,13 +211,13 @@ obj/item/weapon/cane
 /obj/item/weapon/extinguisher/attack_self(mob/user as mob)
 	if (safety)
 		src.icon_state = "fire_extinguisher1"
-		src.desc = "The safety is off."
-		user << "The safety is off."
+		src.desc = "Предохранитель снят."
+		user << "Предохранитель снят."
 		safety = 0
 	else
 		src.icon_state = "fire_extinguisher0"
-		src.desc = "The safety is on."
-		user << "The safety is on."
+		src.desc = "На предохранителе."
+		user << "На предохранителе."
 		safety = 1
 	return
 
@@ -204,7 +239,7 @@ obj/item/weapon/cane
 	if (reagents.total_volume)
 		//for(var/mob/O in viewers(M, null))
 		//	O.show_message(text("\red [] has been stabbed with [] by [].", M, src, user), 1)
-		user << "\red You stab [M] with the pen."
+		user << "\red Ты укалываешь [M] ручкой."
 	//	if(prob(50)) // Is this the best solution? Feels a bit illogical not to feel something. //Googol: Makes the sleepy pen USELESS though
 	//		M << "\red You feel a tiny prick!"
 		spawn(500)
@@ -222,12 +257,12 @@ obj/item/weapon/cane
 	return
 
 /obj/manifest/proc/manifest()
-	var/dat = "<B>Crew Manifest</B>:<BR>"
+	var/dat = "<B>Список экипажа</B>:<BR>"
 	for(var/mob/living/carbon/human/M in world)
-		dat += text("    <B>[]</B> -  []<BR>", M.name, (istype(M.wear_id, /obj/item/weapon/card/id) ? text("[]", M.wear_id.assignment) : "Unknown Position"))
+		dat += text("    <B>[]</B> -  []<BR>", M.name, (istype(M.wear_id, /obj/item/weapon/card/id) ? text("[]", M.wear_id.assignment) : "Местоположение неизвестно"))
 	var/obj/item/weapon/paper/P = new /obj/item/weapon/paper( src.loc )
 	P.info = dat
-	P.name = "paper- 'Crew Manifest'"
+	P.name = "бумага - 'Список экипажа'"
 	//SN src = null
 	del(src)
 	return
@@ -268,12 +303,12 @@ obj/item/weapon/cane
 
 /obj/item/weapon/teleportation_scroll/attack_self(mob/user as mob)
 	user.machine = src
-	var/dat = "<B>Teleportation Scroll:</B><BR>"
-	dat += "Number of uses: [src.uses]<BR>"
+	var/dat = "<B>Свиток телепортации:</B><BR>"
+	dat += "Количество зарядов: [src.uses]<BR>"
 	dat += "<HR>"
-	dat += "<B>Four uses use them wisely:</B><BR>"
-	dat += "<A href='byond://?src=\ref[src];spell_teleport=1'>Teleport</A><BR>"
-	dat += "Kind regards,<br>Wizards Federation<br><br>P.S. Don't forget to bring your gear, you'll need it to cast spells.<HR>"
+	dat += "<B>Четыре заряда, пользуйтесь с умом:</B><BR>"
+	dat += "<A href='byond://?src=\ref[src];spell_teleport=1'>Телепортация</A><BR>"
+	dat += "С уважением,<br>Федерация Магов<br><br>P.S.Не забудьте взять с собой свое снаряжение, оно понадобится Вам для наложения заклинаний.<HR>"
 	user << browse(dat, "window=scroll")
 	onclose(user, "scroll")
 	return
@@ -317,7 +352,7 @@ obj/item/weapon/cane
 	var/mob/living/carbon/human/H = M
 	if(istype(M, /mob/living/carbon/human) && ((H.head && H.head.flags & HEADCOVERSEYES) || (H.wear_mask && H.wear_mask.flags & MASKCOVERSEYES) || (H.glasses && H.glasses.flags & GLASSESCOVERSEYES)))
 		// you can't stab someone in the eyes wearing a mask!
-		user << "\blue You're going to need to remove that mask/helmet/glasses first."
+		user << "\blue Для начала стоит оголить голову."
 		return
 
 //since these people will be dead M != usr
@@ -327,15 +362,15 @@ obj/item/weapon/cane
 			if(O == (user || M))
 				continue
 			if(M == user)
-				O.show_message(text("\red [user] inserts [src] into his head!"), 1)
+				O.show_message(text("\red <b>[user]</b> вставляет <b>[src.nominative]</b> в свою голову!"), 1)
 			else
-				O.show_message(text("\red [M] has [src] inserted into his head by [user]."), 1)
+				O.show_message(text("\red <b>[user]</b> вставляет <b>[src.nominative]</b> в голову <b>[M]</b>."), 1)
 
 		if(M != user)
-			M << "\red [user] inserts [src] into your head!"
-			user << "\red You insert [src] into [M]'s head!"
+			M << "\red <b>[user]</b> вставляет <b>[src.nominative]</b> в твою голову!"
+			user << "\red Ты вставляешь <b>[src.nominative]</b> в голову <b>[M]</b>!"
 		else
-			user << "\red You insert [src] into your head!"
+			user << "\red Ты вставляешь <b>[src.nominative]</b> в свою голову!"
 
 		if(M.client)
 			M.client.mob = new/mob/dead/observer(M)

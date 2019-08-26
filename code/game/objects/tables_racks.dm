@@ -29,10 +29,10 @@
 
 /obj/table/attack_paw(mob/user as mob)
 	if ((usr.mutations & 8))
-		usr << text("\blue You destroy the table.")
+		usr << text("\blue Ты уничтожаешь стол.")
 		for(var/mob/O in oviewers())
 			if ((O.client && !( O.blinded )))
-				O << text("\red [] destroys the table.", usr)
+				O << text("\red <b>[]</b> уничтожает стол.", usr)
 		if(istype(src, /obj/table/reinforced))
 			new /obj/item/weapon/table_parts/reinforced( src.loc )
 		else
@@ -44,7 +44,7 @@
 		if (user.loc == src.loc)
 			user.layer = TURF_LAYER
 			for(var/mob/M in viewers(user, null))
-				M.show_message("The monkey hides under the table!", 1)
+				M.show_message("Обезьянка прячется под столом!", 1)
 				//Foreach goto(69)
 	return
 
@@ -55,15 +55,15 @@
 			if (user.loc == src.loc)
 				user.layer = TURF_LAYER
 				for(var/mob/M in viewers(user, null))
-					M.show_message("The alien larva hides under the table!", 1)
+					M.show_message("Личинка инопланетянина прячется под столом!", 1)
 	return
 
 /obj/table/attack_hand(mob/user as mob)
 	if ((usr.mutations & 8))
-		usr << text("\blue You destroy the table.")
+		usr << text("\blue Ты разрушаешь стол.")
 		for(var/mob/O in oviewers())
 			if ((O.client && !( O.blinded )))
-				O << text("\red [] destroys the table.", usr)
+				O << text("\red <b>[]</b> разрушает стол.", usr)
 		if(istype(src, /obj/table/reinforced))
 			new /obj/item/weapon/table_parts/reinforced( src.loc )
 		else
@@ -75,7 +75,7 @@
 		if (user.loc == src.loc)
 			user.layer = TURF_LAYER
 			for(var/mob/M in viewers(user, null))
-				M.show_message("The person hides under the table!", 1)
+				M.show_message("Человек прячется под столом!", 1)
 				//Foreach goto(69)
 	return
 
@@ -102,18 +102,18 @@
 	if (istype(W, /obj/item/weapon/grab) && get_dist(src,user)<2)
 		var/obj/item/weapon/grab/G = W
 		if(G.state<2)
-			user << "\red You need a better grip to do that!"
+			user << "\red Нужно схватить покрепче!"
 			return
 		G.affecting.loc = src.loc
 		G.affecting.weakened = 5
 		for(var/mob/O in viewers(world.view, src))
 			if (O.client)
-				O << text("\red [] puts [] on the table.", G.assailant, G.affecting)
+				O << text("\red <b>[]</b> кладет <b>[]</b> на стол.", G.assailant, G.affecting)
 		del(W)
 		return
 
 	if (istype(W, /obj/item/weapon/wrench))
-		user << "\blue Now disassembling table"
+		user << "\blue Сейчас разбираю стол..."
 		playsound(src.loc, 'Ratchet.ogg', 50, 1)
 		var/T = user.loc
 		sleep(50)
@@ -133,34 +133,34 @@
 	if (istype(W, /obj/item/weapon/grab) && get_dist(src,user)<2)
 		var/obj/item/weapon/grab/G = W
 		if(G.state<2)
-			user << "\red You need a better grip to do that!"
+			user << "\red Нужно схватить покрепче!"
 			return
 		G.affecting.loc = src.loc
 		G.affecting.weakened = 5
 		for(var/mob/O in viewers(world.view, src))
 			if (O.client)
-				O << text("\red [] puts [] on the table.", G.assailant, G.affecting)
+				O << text("\red <b>[]</b> кладет <b>[]</b> на стол.", G.assailant, G.affecting)
 		del(W)
 		return
 
 	if (istype(W, /obj/item/weapon/weldingtool))
 		if(src.status == 2)
-			user << "\blue Now weakening the reinforced table"
+			user << "\blue Сейчас ослабляю усиленный стол..."
 			playsound(src.loc, 'Welder.ogg', 50, 1)
 			sleep(50)
-			user << "\blue Table weakened"
+			user << "\blue Стол ослаблен."
 			src.status = 1
 		else
-			user << "\blue Now strengthening the reinforced table"
+			user << "\blue Теперь усиливаю стол..."
 			playsound(src.loc, 'Welder.ogg', 50, 1)
 			sleep(50)
-			user << "\blue Table strengthened"
+			user << "\blue Стол усилен."
 			src.status = 2
 		return
 
 	if (istype(W, /obj/item/weapon/wrench))
 		if(src.status == 1)
-			user << "\blue Now disassembling the reinforced table"
+			user << "\blue Теперь разбираю усиленный стол..."
 			playsound(src.loc, 'Ratchet.ogg', 50, 1)
 			sleep(50)
 			new /obj/item/weapon/table_parts/reinforced( src.loc )

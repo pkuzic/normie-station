@@ -12,6 +12,13 @@
 	var/list/overlayslist = list()
 	var/labels[0] //for labels
 
+	var/nominative = null
+	var/genitive = null
+	var/dative = null
+	var/accusative = null
+	var/instrumentative = null
+	var/prepositive = null
+
 	///Chemistry.
 	var/datum/reagents/reagents = null
 

@@ -1,5 +1,14 @@
 /obj/portal
-	name = "portal"
+	name = "портал"
+	desc = "Ага!"
+
+	nominative = "портал" //Кто? Что? (есть)
+	genitive = "портала" //Кого? Чего? (нет)
+	dative = "порталу"  //Кому? Чему? (дам)
+	accusative = "портал" //Кого? Что? (вижу)
+	instrumentative = "порталом" //Кем? Чем? (горжусь)
+	prepositive = "портале" //О ком? О чем? (думаю)
+
 	icon = 'stationobjs.dmi'
 	icon_state = "portal"
 	density = 1

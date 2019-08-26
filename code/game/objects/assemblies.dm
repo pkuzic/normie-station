@@ -1,8 +1,16 @@
 /obj/item/device/transfer_valve
 	icon = 'assemblies.dmi'
-	name = "Tank transfer valve" // because that's what it is exadv1 and don't you dare change it
+	name = "пропускной клапан" // because that's what it is exadv1 and don't you dare change it
+
+	nominative = "пропускной клапан" //Кто? Что? (есть)
+	genitive = "пропускного клапана" //Кого? Чего? (нет)
+	dative = "пропускному клапану"  //Кому? Чему? (дам)
+	accusative = "пропускной клапан" //Кого? Что? (вижу)
+	instrumentative = "пропускным клапаном" //Кем? Чем? (горжусь)
+	prepositive = "пропускном клапане" //О ком? О чем? (думаю)
+
 	icon_state = "valve_1"
-	desc = "Regulates the transfer of air between two tanks"
+	desc = "Регулирует передачу газа между двумя резервуарами."
 	var/obj/item/weapon/tank/tank_one
 	var/obj/item/weapon/tank/tank_two
 	var/obj/item/device/attached_device
@@ -14,35 +22,35 @@
 	attackby(obj/item/item, mob/user)
 		if(istype(item, /obj/item/weapon/tank))
 			if(tank_one && tank_two)
-				user << "\red There are already two tanks attached, remove one first!"
+				user << "\red Для начала следует убрать один из резервуаров!"
 				return
 
 			if(!tank_one)
 				tank_one = item
 				user.drop_item()
 				item.loc = src
-				user << "\blue You attach the tank to the transfer valve"
+				user << "\blue Ты присоединяешь резервуар к пропускному клапану!"
 			else if(!tank_two)
 				tank_two = item
 				user.drop_item()
 				item.loc = src
-				user << "\blue You attach the tank to the transfer valve!"
+				user << "\blue Ты присоединяешь резервуар к пропускному клапану!"
 
 			update_icon()
 
 		else if(istype(item, /obj/item/device/radio/signaler) || istype(item, /obj/item/device/timer) || istype(item, /obj/item/device/infra) || istype(item, /obj/item/device/prox_sensor))
 			if(attached_device)
-				user << "\red There is already an device attached to the valve, remove it first!"
+				user << "\red Для начала следует убрать одно из устройств из пропускного клапана!"
 				return
 
 			attached_device = item
 			user.drop_item()
 			item.loc = src
-			user << "\blue You attach the [item] to the valve controls!"
+			user << "\blue Ты подключаешь <b>[item.accusative]</b> к управлению пропускным клапаном!"
 			item.master = src
 
-			bombers += "[key_name(user)] attached a [item] to a transfer valve."
-			message_admins("[key_name_admin(user)] attached a [item] to a transfer valve.")
+			bombers += "<b>[key_name(user)]</b> подключает <b>[item.accusative]</b> к управлению пропускным клапаном."
+			message_admins("<b>[key_name_admin(user)]</b> подключает <b>[item.accusative]</b> к пропускному клапану.")
 			attacher = key_name(user)
 
 
@@ -52,11 +60,11 @@
 
 	attack_self(mob/user as mob)
 		user.machine = src
-		var/dat = {"<B> Valve properties: </B>
-		<BR> <B> Attachment one:</B> [tank_one] [tank_one ? "<A href='?src=\ref[src];tankone=1'>Remove</A>" : ""]
-		<BR> <B> Attachment two:</B> [tank_two] [tank_two ? "<A href='?src=\ref[src];tanktwo=1'>Remove</A>" : ""]
-		<BR> <B> Valve attachment:</B> [attached_device ? "<A href='?src=\ref[src];device=1'>[attached_device]</A>" : "None"] [attached_device ? "<A href='?src=\ref[src];rem_device=1'>Remove</A>" : ""]
-		<BR> <B> Valve status: </B> [ valve_open ? "<A href='?src=\ref[src];open=1'>Closed</A> <B>Open</B>" : "<B>Closed</B> <A href='?src=\ref[src];open=1'>Open</A>"]"}
+		var/dat = {"<B> Свойства клапана: </B>
+		<BR> <B> Первый резервуар:</B> [tank_one] [tank_one.nominative ? "<A href='?src=\ref[src];tankone=1'>Убрать</A>" : ""]
+		<BR> <B> Второй резервуар:</B> [tank_two] [tank_two.nominative ? "<A href='?src=\ref[src];tanktwo=1'>Убрать</A>" : ""]
+		<BR> <B> Прикреплено ко клапану:</B> [attached_device.nominative ? "<A href='?src=\ref[src];device=1'>[attached_device]</A>" : "Ничего"] [attached_device ? "<A href='?src=\ref[src];rem_device=1'>Убрать</A>" : ""]
+		<BR> <B> Состояние клапана: </B> [ valve_open ? "<A href='?src=\ref[src];open=1'>Закрыт</A> <B>Открыт</B>" : "<B>Закрыт</B> <A href='?src=\ref[src];open=1'>Открыт</A>"]"}
 
 		user << browse(dat, "window=trans_valve;size=600x300")
 		onclose(user, "trans_valve")
@@ -144,8 +152,8 @@
 				var/turf/bombturf = get_turf(src)
 				var/bombarea = bombturf.loc.name
 
-				bombers += "Bomb valve opened in [bombarea] with device attacher: [attacher]. Last touched by: [src.fingerprintslast]"
-				message_admins("Bomb valve opened in [bombarea] with device attacher: [attacher]. Last touched by: [src.fingerprintslast]")
+				bombers += "Клапан бомбы открыт в <b>[bombarea]</b>, крепление сделано: <b>[attacher]</b>. В последний раз трогал: <b>[src.fingerprintslast]</b>"
+				message_admins("Клапан бомбы открыт в <b>[bombarea]</b>, крепление сделано: <b>[attacher]</b>. В последний раз трогал: <b>[src.fingerprintslast]</b>")
 
 				var/datum/gas_mixture/temp
 				temp = tank_one.air_contents.remove_ratio(1)

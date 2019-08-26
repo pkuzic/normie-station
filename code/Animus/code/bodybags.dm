@@ -108,7 +108,7 @@
 		src.verbs += /obj/item/bodybag/verb/zip*/
 
 	change_tag()
-		set category = "Object"
+		set category = "Взаимодействие"
 		set name = "Flip the tag"
 		set src in oview(1)
 
@@ -151,7 +151,7 @@
 	verb
 		zipping()
 			set src in oview(1)
-			set category = "Object"
+			set category = "Взаимодействие"
 			set name = "Zip/unzip a bodybag"
 			if (usr.stat != 0)
 				return
@@ -168,7 +168,7 @@
 				src.zipped = 1
 
 /*/obj/item/bodybag/verb/zip()
-	set category = "Object"
+	set category = "Взаимодействие"
 	set name = "Zip a bodybag"
 	set src in oview(1)
 	if (usr.stat != 0)
@@ -182,7 +182,7 @@
 	src.zipped = 1*/
 
 		folding()
-			set category = "Object"
+			set category = "Взаимодействие"
 			set name = "Fold/unfold a bodybag"
 			set src in oview()
 

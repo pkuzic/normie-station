@@ -1,5 +1,14 @@
 /obj/item/weapon/tank/jetpack
-	name = "Jetpack (Oxygen)"
+	name = "ğåàêòèâíûé ğàíåö (Êèñëîğîä)"
+
+	nominative = "ğåàêòèâíûé ğàíåö" //Êòî? ×òî? (åñòü)
+	genitive = "ğåàêòèâíîãî ğàíöà" //Êîãî? ×åãî? (íåò)
+	dative = "ğåàêòèâíîìó ğàíöó"  //Êîìó? ×åìó? (äàì)
+	accusative = "ğåàêòèâíûé ğàíåö" //Êîãî? ×òî? (âèæó)
+	instrumentative = "ğåàêòèâíûì ğàíöîì" //Êåì? ×åì? (ãîğæóñü)
+	prepositive = "ğåàêòèâíîì ğàíöå" //Î êîì? Î ÷åì? (äóìàş)
+
+	desc = "Ñ ïîìîùüş íåãî ìîæíî ëåòàòü!"
 	icon_state = "jetpack0"
 	var/on = 0.0
 	w_class = 4.0
@@ -73,7 +82,7 @@
 // Note that this assumes the ship's top is at z=1 and bottom at z=4
 /obj/item/weapon/tank/jetpack/proc/move_z(cardinal, mob/user as mob)
 	if (user.z > 4)
-		user << "\red There is nothing of interest in that direction."
+		user << "\red Â ıòîì íàïğàâëåíèè íåò íè÷åãî èíòåğåñíîãî."
 		return
 	if(allow_thrust(0.01, user))
 		switch(cardinal)
@@ -84,9 +93,9 @@
 					if(T && istype(T, /turf/space) && (istype(user.loc, /turf/space) || istype(user.loc, /turf/space/hull)))
 						user.Move(T)
 					else
-						user << "\red You bump into the ship's plating."
+						user << "\red Òû íàòûêàåøüñÿ íà ïîêğûòèå êîğàáëÿ."
 				else
-					user << "\red The ship's gravity well keeps you in orbit!" // Assuming the ship starts on z level 1, you don't want to go past it
+					user << "\red Ãğàâèòàöèÿ ñóäíà õîğîøî äåğæèò òåáÿ íà îğáèòå!" // Assuming the ship starts on z level 1, you don't want to go past it
 
 			if (DOWN) // Going down!
 				if (user.z != 4 && user.z != 5) // If we aren't at the very bottom of the ship, or out in space
@@ -95,9 +104,9 @@
 					if(T && (istype(T, /turf/space) || istype(T, /turf/space/hull)) && istype(user.loc, /turf/space))
 						user.Move(T)
 					else
-						user << "\red You bump into the ship's plating."
+						user << "\red Òû íàòûêàåøüñÿ íà ïîêğûòèå êîğàáëÿ."
 				else
-					user << "\red The ship's gravity well keeps you in orbit!"
+					user << "\red Ãğàâèòàöèÿ ñóäíà õîğîøî äåğæèò òåáÿ íà îğáèòå!"
 
 
 /obj/item/weapon/tank/jetpack/verb/toggle()

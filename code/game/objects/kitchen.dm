@@ -5,7 +5,7 @@
 	if(!istype(G, /obj/item/weapon/grab))
 		return
 	if(!istype(G.affecting, /mob/living/carbon/monkey))
-		user << "\red They are too big for the spike, try something smaller!"
+		user << "\red Слишком велико для шипа, надо бы чего поменьше!"
 		return
 
 	if(src.occupied == 0)
@@ -14,7 +14,7 @@
 		src.meat = 5
 		var/mob/dead/observer/newmob
 		for(var/mob/O in viewers(src, null))
-			O.show_message(text("\red [user] has forced [G.affecting] onto the spike, killing them instantly!"))
+			O.show_message(text("\red <b>[user]</b> насаживает <b>[G.affecting]</b> на шип, таким образом убивая!"))
 		if (G.affecting.client)
 			newmob = new/mob/dead/observer(G.affecting)
 			G.affecting:client:mob = newmob
@@ -23,7 +23,7 @@
 		del(G)
 
 	else
-		user << "\red The spike already has a monkey on it, finish collecting his meat first!"
+		user << "\red На шипе и без того обезьяна, сначала бы собрать её мясо!"
 
 /obj/kitchenspike/attack_hand(mob/user as mob)
 	if(..())
@@ -32,11 +32,11 @@
 		if(src.meat > 1)
 			src.meat--
 			new /obj/item/weapon/reagent_containers/food/snacks/monkeymeat( src.loc )
-			usr << "You remove some meat from the monkey."
+			usr << "Ты снимаешь мясо с обезьяны."
 		else if(src.meat == 1)
 			src.meat--
 			new /obj/item/weapon/reagent_containers/food/snacks/monkeymeat(src.loc)
-			usr << "You remove the last piece of meat from the monkey!"
+			usr << "Ты снимаешь последний кусок мяса с обезьяны!"
 			src.icon_state = "spike"
 			src.occupied = 0
 

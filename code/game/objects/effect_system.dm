@@ -7,13 +7,29 @@ would spawn and follow the beaker, even if it is carried or thrown.
 
 
 /obj/effects
-	name = "effects"
+	name = "эффекты"
+
+	nominative = "эффекты" //Кто? Что? (есть)
+	genitive = "эффектов" //Кого? Чего? (нет)
+	dative = "эффектам"  //Кому? Чему? (дам)
+	accusative = "эффекты" //Кого? Что? (вижу)
+	instrumentative = "эффектами" //Кем? Чем? (горжусь)
+	prepositive = "эффектах" //О ком? О чем? (думаю)
+
 	icon = 'effects.dmi'
 	mouse_opacity = 0
 	flags = TABLEPASS
 
 /obj/effects/water
-	name = "water"
+	name = "вода"
+
+	nominative = "вода" //Кто? Что? (есть)
+	genitive = "воды" //Кого? Чего? (нет)
+	dative = "воде"  //Кому? Чему? (дам)
+	accusative = "воду" //Кого? Что? (вижу)
+	instrumentative = "водой" //Кем? Чем? (горжусь)
+	prepositive = "воде" //О ком? О чем? (думаю)
+
 	icon = 'effects.dmi'
 	icon_state = "extinguish"
 	var/life = 15.0
@@ -21,7 +37,15 @@ would spawn and follow the beaker, even if it is carried or thrown.
 	mouse_opacity = 0
 
 /obj/effects/smoke
-	name = "smoke"
+	name = "дым"
+
+	nominative = "дым" //Кто? Что? (есть)
+	genitive = "дыма" //Кого? Чего? (нет)
+	dative = "дыму"  //Кому? Чему? (дам)
+	accusative = "дым" //Кого? Что? (вижу)
+	instrumentative = "дымом" //Кем? Чем? (горжусь)
+	prepositive = "дыму" //О ком? О чем? (думаю)
+
 	icon = 'water.dmi'
 	icon_state = "smoke"
 	opacity = 1
@@ -75,9 +99,17 @@ steam.start() -- spawns the effect
 */
 /////////////////////////////////////////////
 /obj/effects/steam
-	name = "steam"
+	name = "пар"
+
+	nominative = "пар" //Кто? Что? (есть)
+	genitive = "пара" //Кого? Чего? (нет)
+	dative = "пару"  //Кому? Чему? (дам)
+	accusative = "пар" //Кого? Что? (вижу)
+	instrumentative = "паром" //Кем? Чем? (горжусь)
+	prepositive = "пару" //О ком? О чем? (думаю)
 	icon = 'effects.dmi'
 	icon_state = "extinguish"
+
 	density = 0
 
 /datum/effects/system/steam_spread
@@ -128,7 +160,15 @@ steam.start() -- spawns the effect
 /////////////////////////////////////////////
 
 /obj/effects/sparks
-	name = "sparks"
+	name = "искры"
+
+	nominative = "искры" //Кто? Что? (есть)
+	genitive = "искр" //Кого? Чего? (нет)
+	dative = "искрам"  //Кому? Чему? (дам)
+	accusative = "искры" //Кого? Что? (вижу)
+	instrumentative = "искрами" //Кем? Чем? (горжусь)
+	prepositive = "искрах" //О ком? О чем? (думаю)
+
 	icon_state = "sparks"
 	var/amount = 6.0
 	anchored = 1.0
@@ -206,7 +246,15 @@ steam.start() -- spawns the effect
 /////////////////////////////////
 ////////////////////////////
 /obj/effects/sparkels
-	name = "sparkel"
+	name = "искорки"
+
+	nominative = "искорки" //Кто? Что? (есть)
+	genitive = "искр" //Кого? Чего? (нет)
+	dative = "искрам"  //Кому? Чему? (дам)
+	accusative = "искры" //Кого? Что? (вижу)
+	instrumentative = "искрами" //Кем? Чем? (горжусь)
+	prepositive = "искрах" //О ком? О чем? (думаю)
+
 	icon = 'fireworks.dmi'//findback
 	icon_state = "sparkel"
 	var/amount = 6.0
@@ -218,7 +266,7 @@ steam.start() -- spawns the effect
 	var/r = rand(0,255)
 	var/g = rand(0,255)
 	var/b = rand(0,255)
-	world.log << "Colour , [r],[g],[b]"
+	world.log << "Цвет , [r],[g],[b]"
 	I.Blend(rgb(r,g,b),ICON_MULTIPLY)
 	src.icon = I
 	playsound(src.loc, "sparks", 100, 1)
@@ -297,7 +345,15 @@ steam.start() -- spawns the effect
 /////////////////////////////////////////////
 
 /obj/effects/harmless_smoke
-	name = "smoke"
+	name = "дым"
+
+	nominative = "дым" //Кто? Что? (есть)
+	genitive = "дыма" //Кого? Чего? (нет)
+	dative = "дыму"  //Кому? Чему? (дам)
+	accusative = "дым" //Кого? Что? (вижу)
+	instrumentative = "дымом" //Кем? Чем? (горжусь)
+	prepositive = "дыму" //О ком? О чем? (думаю)
+
 	icon_state = "smoke"
 	opacity = 1
 	anchored = 0.0
@@ -376,7 +432,15 @@ steam.start() -- spawns the effect
 /////////////////////////////////////////////
 
 /obj/effects/bad_smoke
-	name = "smoke"
+	name = "дым"
+
+	nominative = "дым" //Кто? Что? (есть)
+	genitive = "дыма" //Кого? Чего? (нет)
+	dative = "дыму"  //Кому? Чему? (дам)
+	accusative = "дым" //Кого? Что? (вижу)
+	instrumentative = "дымом" //Кем? Чем? (горжусь)
+	prepositive = "дыму" //О ком? О чем? (думаю)
+
 	icon_state = "smoke"
 	opacity = 1
 	anchored = 0.0
@@ -484,7 +548,15 @@ steam.start() -- spawns the effect
 
 
 /obj/effects/mustard_gas
-	name = "mustard gas"
+	name = "горчичный газ"
+
+	nominative = "горчичный газ" //Кто? Что? (есть)
+	genitive = "горчичного газа" //Кого? Чего? (нет)
+	dative = "горчичному газу"  //Кому? Чему? (дам)
+	accusative = "горчичный газ" //Кого? Что? (вижу)
+	instrumentative = "горчичным газом" //Кем? Чем? (горжусь)
+	prepositive = "горчичном газе" //О ком? О чем? (думаю)
+
 	icon_state = "mustard"
 	opacity = 1
 	anchored = 0.0
@@ -583,7 +655,15 @@ steam.start() -- spawns the effect
 /////////////////////////////////////////////
 
 /obj/effects/ion_trails
-	name = "ion trails"
+	name = "ионные следы"
+
+	nominative = "ионные следы" //Кто? Что? (есть)
+	genitive = "ионных следов" //Кого? Чего? (нет)
+	dative = "ионным следам"  //Кому? Чему? (дам)
+	accusative = "ионные следы" //Кого? Что? (вижу)
+	instrumentative = "ионными следами" //Кем? Чем? (горжусь)
+	prepositive = "ионных следах" //О ком? О чем? (думаю)
+
 	icon_state = "ion_trails"
 	anchored = 1.0
 
@@ -684,7 +764,15 @@ steam.start() -- spawns the effect
 // metal foams leave behind a foamed metal wall
 
 /obj/effects/foam
-	name = "foam"
+	name = "пена"
+
+	nominative = "пена" //Кто? Что? (есть)
+	genitive = "пены" //Кого? Чего? (нет)
+	dative = "пене"  //Кому? Чему? (дам)
+	accusative = "пену" //Кого? Что? (вижу)
+	instrumentative = "пеной" //Кем? Чем? (горжусь)
+	prepositive = "пене" //О ком? О чем? (думаю)
+
 	icon_state = "foam"
 	opacity = 0
 	anchored = 1
@@ -776,7 +864,7 @@ steam.start() -- spawns the effect
 			return
 
 		M.pulling = null
-		M << "\blue You slipped on the foam!"
+		M << "\blue Ты поскальзываешься на пене!"
 		playsound(src.loc, 'slip.ogg', 50, 1, -3)
 		M.stunned = 5
 		M.weakened = 2
@@ -839,8 +927,16 @@ steam.start() -- spawns the effect
 	density = 1
 	opacity = 0 	// changed in New()
 	anchored = 1
-	name = "foamed metal"
-	desc = "A lightweight foamed metal wall."
+	name = "вспененный металл"
+
+	nominative = "вспененный металл" //Кто? Что? (есть)
+	genitive = "вспененного металла" //Кого? Чего? (нет)
+	dative = "вспененному металлу"  //Кому? Чему? (дам)
+	accusative = "вспененный металл" //Кого? Что? (вижу)
+	instrumentative = "вспененным металлом" //Кем? Чем? (горжусь)
+	prepositive = "вспененном металле" //О ком? О чем? (думаю)
+
+	desc = "Лёгкая стена из вспененного металла."
 	var/metal = 1		// 1=aluminium, 2=iron
 
 	New()
@@ -878,14 +974,14 @@ steam.start() -- spawns the effect
 
 	attack_hand(var/mob/user)
 		if (user.mutations & 8 || (prob(75 - metal*25)))
-			user << "\blue You smash through the metal foam wall."
+			user << "\blue Ты разбиваешь стену из вспененного металла."
 			for(var/mob/O in oviewers(user))
 				if ((O.client && !( O.blinded )))
-					O << "\red [user] smashes through the foamed metal."
+					O << "\red <b>[user]</b> разбивает стену из вспененного металла."
 
 			del(src)
 		else
-			user << "\blue You hit the metal foam but bounce off it."
+			user << "\blue Ты попадаешь во вспененный металл, но отскакиваешь от него."
 		return
 
 
@@ -896,19 +992,19 @@ steam.start() -- spawns the effect
 			G.affecting.loc = src.loc
 			for(var/mob/O in viewers(src))
 				if (O.client)
-					O << "\red [G.assailant] smashes [G.affecting] through the foamed metal wall."
+					O << "\red <b>[G.assailant]</b> разбивает <b>[G.affecting]</b> через стену из вспененного металла."
 			del(I)
 			del(src)
 			return
 
 		if(prob(I.force*20 - metal*25))
-			user << "\blue You smash through the foamed metal with \the [I]."
+			user << "\blue Ты разбиваешь вспененный металл <b>[I.genitive]</b>."
 			for(var/mob/O in oviewers(user))
 				if ((O.client && !( O.blinded )))
 					O << "\red [user] smashes through the foamed metal."
 			del(src)
 		else
-			user << "\blue You hit the metal foam to no effect."
+			user << "\blue Ты бьешь стену из вспененного металла, да бестолку!"
 
 	// only air group geometry can pass
 	CanPass(atom/movable/mover, turf/target, height=1.5, air_group = 0)

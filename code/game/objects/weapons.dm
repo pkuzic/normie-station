@@ -76,7 +76,7 @@
 
 	if(istype(M, /mob/living/carbon/human) || istype(M, /mob/living/carbon/monkey))
 		for(var/mob/O in viewers(world.view, src.loc))
-			O << text("<font color='red'>[M] triggered the \icon[] [src]</font>", src)
+			O << text("<font color='red'>[M] активировал \icon[] [src]</font>", src)
 		triggered = 1
 		call(src,triggerproc)(M)
 
@@ -105,12 +105,12 @@
 
 /obj/item/assembly/time_ignite/receive_signal()
 	for(var/mob/O in hearers(1, src.loc))
-		O.show_message(text("\icon[] *beep* *beep*", src), 3, "*beep* *beep*", 2)
+		O.show_message(text("\icon[] *бип* *бип*", src), 3, "*бип* *бип*", 2)
 	src.part2.ignite()
 	return
 
 /obj/decal/ash/attack_hand(mob/user as mob)
-	usr << "\blue The ashes slip through your fingers."
+	usr << "\blue Пепел проскальзывает сквозь твои пальцы."
 	del(src)
 	return
 
@@ -132,9 +132,9 @@
 		return
 	src.status = !( src.status )
 	if (src.status)
-		user.show_message("\blue The timer is now secured!", 1)
+		user.show_message("\blue Таймер теперь закручен!", 1)
 	else
-		user.show_message("\blue The timer is now unsecured!", 1)
+		user.show_message("\blue Таймер теперь откручен!", 1)
 	src.part2.status = src.status
 	src.add_fingerprint(user)
 	return
@@ -162,9 +162,9 @@
 	if (( istype(W, /obj/item/weapon/screwdriver) ))
 		src.status = !( src.status )
 		if (src.status)
-			user.show_message("\blue The analyzer is now secured!", 1)
+			user.show_message("\blue Анализатор теперь закручен!", 1)
 		else
-			user.show_message("\blue The analyzer is now unsecured!", 1)
+			user.show_message("\blue Анализатор теперь откручен!", 1)
 		src.part2.status = src.status
 		src.add_fingerprint(user)
 	if(( istype(W, /obj/item/clothing/suit/armor/vest) ) && src.status)
@@ -214,9 +214,9 @@
 	if (( istype(W, /obj/item/weapon/screwdriver) ))
 		src.status = !( src.status )
 		if (src.status)
-			user.show_message("\blue The armor is now secured!", 1)
+			user.show_message("\blue Броня теперь вкручена!", 1)
 		else
-			user.show_message("\blue The armor is now unsecured!", 1)
+			user.show_message("\blue Броня теперь откручена!", 1)
 		src.add_fingerprint(user)
 
 /obj/item/assembly/a_i_a/Del()
@@ -256,9 +256,9 @@
 		return
 	src.status = !( src.status )
 	if (src.status)
-		user.show_message("\blue The signaler is now secured!", 1)
+		user.show_message("\blue Сигнализатор теперь вкручен!", 1)
 	else
-		user.show_message("\blue The signaler is now unsecured!", 1)
+		user.show_message("\blue Сигнализатор теперь откручен!", 1)
 	src.part1.b_stat = !( src.status )
 	src.add_fingerprint(user)
 	return
@@ -313,9 +313,9 @@
 		return
 	src.status = !( src.status )
 	if (src.status)
-		user.show_message("\blue The proximity sensor is now secured!", 1)
+		user.show_message("\blue Датчик движения теперь вкручен!", 1)
 	else
-		user.show_message("\blue The proximity sensor is now unsecured!", 1)
+		user.show_message("\blue Датчик движения теперь откручен!", 1)
 	src.part1.b_stat = !( src.status )
 	src.add_fingerprint(user)
 	return
@@ -374,9 +374,9 @@
 		return
 	src.status = !( src.status )
 	if (src.status)
-		user.show_message("\blue The infrared laser is now secured!", 1)
+		user.show_message("\blue Инфракрасный лазер теперь вкручен!", 1)
 	else
-		user.show_message("\blue The infrared laser is now unsecured!", 1)
+		user.show_message("\blue Инфракрасный лазер теперь откручен!", 1)
 	src.part1.b_stat = !( src.status )
 	src.add_fingerprint(user)
 	return
@@ -461,9 +461,9 @@
 		return
 	src.status = !( src.status )
 	if (src.status)
-		user.show_message("\blue The proximity sensor is now secured! The igniter now works!", 1)
+		user.show_message("\blue Инфракрасный лазер теперь вкручен! Воспламенитель будет работать.", 1)
 	else
-		user.show_message("\blue The proximity sensor is now unsecured! The igniter will not work.", 1)
+		user.show_message("\blue Инфракрасный лазер теперь откручен! Воспланитель не будет работать.", 1)
 	src.part2.status = src.status
 	src.add_fingerprint(user)
 	return
@@ -476,7 +476,7 @@
 
 /obj/item/assembly/prox_ignite/receive_signal()
 	for(var/mob/O in hearers(1, src.loc))
-		O.show_message(text("\icon[] *beep* *beep*", src), 3, "*beep* *beep*", 2)
+		O.show_message(text("\icon[] *бип* *бип*", src), 3, "*бип* *бип*", 2)
 	src.part2.ignite()
 	return
 
@@ -505,9 +505,9 @@
 		return
 	src.status = !( src.status )
 	if (src.status)
-		user.show_message("\blue The radio is now secured! The igniter now works!", 1)
+		user.show_message("\blue Рация теперь вкручена! Воспламенитель будет работать!", 1)
 	else
-		user.show_message("\blue The radio is now unsecured! The igniter will not work.", 1)
+		user.show_message("\blue Рация теперь откручен! Воспланитель не будет работать.", 1)
 	src.part2.status = src.status
 	src.part1.b_stat = !( src.status )
 	src.add_fingerprint(user)
@@ -521,7 +521,7 @@
 
 /obj/item/assembly/rad_ignite/receive_signal()
 	for(var/mob/O in hearers(1, src.loc))
-		O.show_message(text("\icon[] *beep* *beep*", src), 3, "*beep* *beep*", 2)
+		O.show_message(text("\icon[] *бип* *бип*", src), 3, "*бип* *бип*", 2)
 	src.part2.ignite()
 	return
 
@@ -623,13 +623,13 @@
 		return
 	if (!( src.status ))
 		src.status = 1
-		bombers += "[key_name(user)] welded a prox bomb. Temp: [src.part3.air_contents.temperature-T0C]"
-		message_admins("[key_name_admin(user)] welded a prox bomb. Temp: [src.part3.air_contents.temperature-T0C]")
-		user.show_message("\blue A pressure hole has been bored to the plasma tank valve. The plasma tank can now be ignited.", 1)
+		bombers += "[key_name(user)] установил бомбу с датчиком движения. Температура: [src.part3.air_contents.temperature-T0C]"
+		message_admins("[key_name_admin(user)] установил бомбу с датчиком движения. Температура: [src.part3.air_contents.temperature-T0C]")
+		user.show_message("\blue В клапане плазменного бака пробурено отверстие под давлением. Плазменный бак теперь может быть зажжен.", 1)
 	else
 		src.status = 0
-		bombers += "[key_name(user)] unwelded a prox bomb. Temp: [src.part3.air_contents.temperature-T0C]"
-		user << "\blue The hole has been closed."
+		bombers += "[key_name(user)] убрал бомбу с датчиком движения. Температура: [src.part3.air_contents.temperature-T0C]"
+		user << "\blue Отверстие закрыто."
 	src.part2.status = src.status
 	src.add_fingerprint(user)
 	return
@@ -644,7 +644,7 @@
 /obj/item/assembly/m_i_ptank/receive_signal()
 	//world << "miptank [src] got signal"
 	for(var/mob/O in hearers(1, null))
-		O.show_message(text("\icon[] *beep* *beep*", src), 3, "*beep* *beep*", 2)
+		O.show_message(text("\icon[] *бип* *бип*", src), 3, "*бип* *бип*", 2)
 		//Foreach goto(19)
 
 	if ((src.status && prob(90)))
@@ -716,13 +716,13 @@
 		return
 	if (!( src.status ))
 		src.status = 1
-		bombers += "[key_name(user)] welded a time bomb. Temp: [src.part3.air_contents.temperature-T0C]"
-		message_admins("[key_name_admin(user)] welded a time bomb. Temp: [src.part3.air_contents.temperature-T0C]")
-		user.show_message("\blue A pressure hole has been bored to the plasma tank valve. The plasma tank can now be ignited.", 1)
+		bombers += "[key_name(user)] установил бомбу с таймером. Температура: [src.part3.air_contents.temperature-T0C]"
+		message_admins("[key_name_admin(user)] установил бомбу с датчиком движения. Температура: [src.part3.air_contents.temperature-T0C]")
+		user.show_message("\blue В клапане плазменного бака пробурено отверстие под давлением. Плазменный бак теперь может быть зажжен.", 1)
 	else
 		src.status = 0
-		bombers += "[key_name(user)] unwelded a time bomb. Temp: [src.part3.air_contents.temperature-T0C]"
-		user << "\blue The hole has been closed."
+		bombers += "[key_name(user)] убрал бомбу с таймером. Температура: [src.part3.air_contents.temperature-T0C]"
+		user << "\blue Отверстие закрыто."
 	src.part2.status = src.status
 
 	src.add_fingerprint(user)
@@ -739,7 +739,7 @@
 /obj/item/assembly/t_i_ptank/receive_signal()
 	//world << "tiptank [src] got signal"
 	for(var/mob/O in hearers(1, null))
-		O.show_message(text("\icon[] *beep* *beep*", src), 3, "*beep* *beep*", 2)
+		O.show_message(text("\icon[] *бип* *бип*", src), 3, "*бип* *бип*", 2)
 		//Foreach goto(19)
 	if ((src.status && prob(90)))
 		//world << "sent ignite() to [src.part3]"
@@ -801,13 +801,13 @@
 		return
 	if (!( src.status ))
 		src.status = 1
-		bombers += "[key_name(user)] welded a radio bomb. Temp: [src.part3.air_contents.temperature-T0C]"
-		message_admins("[key_name_admin(user)] welded a radio bomb. Temp: [src.part3.air_contents.temperature-T0C]")
-		user.show_message("\blue A pressure hole has been bored to the plasma tank valve. The plasma tank can now be ignited.", 1)
+		bombers += "[key_name(user)] установил бомбу с рацией. Температура: [src.part3.air_contents.temperature-T0C]"
+		message_admins("[key_name_admin(user)] установил бомбу с рацией. Температура: [src.part3.air_contents.temperature-T0C]")
+		user.show_message("\blue В клапане плазменного бака пробурено отверстие под давлением. Плазменный бак теперь может быть зажжен.", 1)
 	else
 		src.status = 0
-		bombers += "[key_name(user)] unwelded a radio bomb. Temp: [src.part3.air_contents.temperature-T0C]"
-		user << "\blue The hole has been closed."
+		bombers += "[key_name(user)] убрал бомбу с рацией. Температура: [src.part3.air_contents.temperature-T0C]"
+		user << "\blue Отверстие закрыто."
 	src.part2.status = src.status
 	src.part1.b_stat = !( src.status )
 	src.add_fingerprint(user)
@@ -853,13 +853,13 @@
 		return
 	if (!( src.status ))
 		src.status = 1
-		bombers += "[key_name(user)] welded a suicide bomb. Temp: [src.part4.air_contents.temperature-T0C]"
-		message_admins("[key_name_admin(user)] welded a suicide bomb. Temp: [src.part4.air_contents.temperature-T0C]")
-		user.show_message("\blue A pressure hole has been bored to the plasma tank valve. The plasma tank can now be ignited.", 1)
+		bombers += "[key_name(user)] установил бомбу самоубийцы. Температура: [src.part4.air_contents.temperature-T0C]"
+		message_admins("[key_name_admin(user)] установил бомбу самоубийцы. Температура: [src.part4.air_contents.temperature-T0C]")
+		user.show_message("\blue В клапане плазменного бака пробурено отверстие под давлением. Плазменный бак теперь может быть зажжен.", 1)
 	else
 		src.status = 0
-		bombers += "[key_name(user)] unwelded a suicide bomb. Temp: [src.part4.air_contents.temperature-T0C]"
-		user << "\blue The hole has been closed."
+		bombers += "[key_name(user)] убрал бомбу самоубийцы. Температура: [src.part4.air_contents.temperature-T0C]"
+		user << "\blue Отверствие закрыто."
 //	src.part3.status = src.status
 	src.add_fingerprint(user)
 	return
@@ -875,7 +875,7 @@
 /obj/item/assembly/r_i_ptank/receive_signal()
 	//world << "riptank [src] got signal"
 	for(var/mob/O in hearers(1, null))
-		O.show_message(text("\icon[] *beep* *beep*", src), 3, "*beep* *beep*", 2)
+		O.show_message(text("\icon[] *бип* *бип*", src), 3, "*бип* *бип*", 2)
 		//Foreach goto(19)
 	if ((src.status && prob(90)))
 		//world << "sent ignite() to [src.part3]"
@@ -1149,7 +1149,7 @@
 	set src in oview(12)
 	..()
 	if(armed)
-		usr << "\red It looks like it's armed."
+		usr << "\red Похоже, что заряжено"
 
 /obj/item/weapon/mousetrap/proc/triggered(mob/target as mob, var/type = "feet")
 	if(!armed)
@@ -1181,7 +1181,7 @@
 /obj/item/weapon/mousetrap/attack_self(mob/user as mob)
 	if(!armed)
 		icon_state = "mousetraparmed"
-		user << "\blue You arm the mousetrap."
+		user << "\blue Ты заряжаешь мышеловку."
 	else
 		icon_state = "mousetrap"
 		if((user.brainloss >= 60 || user.mutations & 16) && prob(50))
@@ -1189,13 +1189,13 @@
 			if(!user.hand)
 				which_hand = "r_hand"
 			src.triggered(user, which_hand)
-			user << "\red <B>You accidentally trigger the mousetrap!</B>"
+			user << "\red <B>Ты случайно активируешь мышеловку!</B>"
 			for(var/mob/O in viewers(user, null))
 				if(O == user)
 					continue
-				O.show_message(text("\red <B>[user] accidentally sets off the mousetrap, breaking their fingers.</B>"), 1)
+				O.show_message(text("\red <B>[user] случайно активирует мышеловку, ломая свои пальцы!</B>"), 1)
 			return
-		user << "\blue You disarm the mousetrap."
+		user << "\blue Ты деактивируешь мышеловку."
 	armed = !armed
 	playsound(user.loc, 'handcuffs.ogg', 30, 1, -3)
 
@@ -1206,11 +1206,11 @@
 			if(!user.hand)
 				which_hand = "r_hand"
 			src.triggered(user, which_hand)
-			user << "\red <B>You accidentally trigger the mousetrap!</B>"
+			user << "\red <B>Ты случайно активируешь мышеловку!</B>"
 			for(var/mob/O in viewers(user, null))
 				if(O == user)
 					continue
-				O.show_message(text("\red <B>[user] accidentally sets off the mousetrap, breaking their fingers.</B>"), 1)
+				O.show_message(text("\red <B>[user] случайно активирует мышеловку, ломая свои пальцы!</B>"), 1)
 			return
 	..()
 
@@ -1219,16 +1219,16 @@
 		var/mob/living/carbon/H = AM
 		if(H.m_intent == "run")
 			src.triggered(H)
-			H << "\red <B>You accidentally step on the mousetrap!</B>"
+			H << "\red <B>Ты случайно наступаешь на мышеловку!</B>"
 			for(var/mob/O in viewers(H, null))
 				if(O == H)
 					continue
-				O.show_message(text("\red <B>[H] accidentally steps on the mousetrap.</B>"), 1)
+				O.show_message(text("\red <B>[H] случайно наступант на мышеловку!</B>"), 1)
 	..()
 
 /obj/item/weapon/mousetrap/hitby(A as mob|obj)
 	if(!armed)
 		return ..()
 	for(var/mob/O in viewers(src, null))
-		O.show_message(text("\red <B>The mousetrap is triggered by [A].</B>"), 1)
+		O.show_message(text("\red <B>Мышеловка активируется [A].</B>"), 1)
 	src.triggered(null)
