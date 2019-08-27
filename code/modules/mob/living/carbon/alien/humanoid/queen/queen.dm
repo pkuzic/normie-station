@@ -6,7 +6,6 @@
 /mob/living/carbon/alien/humanoid/queen/New()
 	..()
 	stand_icon = new /icon('alien.dmi', "queen_s")
-	lying_icon = new /icon('alien.dmi', "queen_l")
 	icon = stand_icon
 
 //Queen verbs

@@ -1,5 +1,4 @@
 /mob/var/lastbreathT = 0
-/mob/living/carbon/var/lyingcheck = 0
 
 /mob/living/carbon/Life()
 	set background = 1
@@ -51,9 +50,6 @@
 
 	// Update clothing
 	//update_clothing()		Strumpet - Removing this to see if it's really necessary.  Could save some processing.
-	if(lyingcheck != lying)		//This is a fix for falling down / standing up not updating icons.  Instead of going through and changing every
-		update_clothing()		//instance in the code where lying is modified, I've just added a new variable "lyingcheck" which will be compared
-		lyingcheck = lying		//to lying, so if lying ever changes, update_clothing() will run like normal.
 
 	if(client)
 		handle_regular_hud_updates()
@@ -401,12 +397,12 @@
 				stat = 0
 			if (weakened > 0)
 				weakened--
-				lying = 1
+				update_lying(90)
 				stat = 0
 			if (paralysis > 0)
 				paralysis--
 				blinded = 1
-				lying = 1
+				update_lying(90)
 				stat = 1
 			var/h = hand
 			hand = 0
@@ -415,11 +411,12 @@
 			drop_item()
 			hand = h
 		else	//Not stunned.
-			lying = 0
+			if(!(istype(buckled, /obj/stool/bed)))
+				update_lying(0)
 			stat = 0
 
 	else //Dead.
-		lying = 1
+		update_lying(90)
 		blinded = 1
 		stat = 2
 
@@ -460,8 +457,8 @@
 
 /mob/living/carbon/proc/check_if_buckled()
 	if (buckled)
-		lying = istype(buckled, /obj/stool/bed) || istype(buckled, /obj/machinery/conveyor)
-		if(lying)
+		var/is_lying = istype(buckled, /obj/stool/bed) || istype(buckled, /obj/machinery/conveyor)
+		if(is_lying)
 			drop_item()
 		density = 1
 		if(istype(buckled,/obj/stool/chair))

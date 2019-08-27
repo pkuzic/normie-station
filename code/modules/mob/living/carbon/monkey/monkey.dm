@@ -270,9 +270,9 @@
 
 	if(buckled)
 		if(istype(buckled, /obj/stool/bed))
-			lying = 1
+			update_lying(90)
 		else
-			lying = 0
+			update_lying(0)
 
 	if (!( lying ))
 		icon_state = "monkey1"

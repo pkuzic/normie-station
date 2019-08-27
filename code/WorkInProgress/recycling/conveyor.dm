@@ -110,7 +110,7 @@
 			src.add_fingerprint(user)
 			CableType = I.type
 			I:UseCable(1)
-			M.lying = 1
+			M.update_lying(90)
 			return
 
 			// else if no mob in loc, then allow coil to be placed

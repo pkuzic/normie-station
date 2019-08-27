@@ -82,6 +82,7 @@
 /mob/var/sleeping = 0.0
 /mob/var/resting = 0.0
 /mob/var/lying = 0.0
+/mob/var/lying_prev = 0.0
 /mob/var/canmove = 1.0
 /mob/var/eye_stat = null
 /mob/var/oxyloss = 0.0
@@ -1850,7 +1851,7 @@ mob/verb/turnwest()
 	return
 
 /atom/movable/verb/pull()
-	set category = "Âçàèìîäåéñòâèå"
+	set category = "˜˜˜˜˜˜˜˜˜˜˜˜˜˜"
 	set src in oview(1)
 
 	if (!( usr ))
@@ -1860,7 +1861,7 @@ mob/verb/turnwest()
 	return
 
 /atom/verb/examine()
-	set category = "Âçàèìîäåéñòâèå"
+	set category = "˜˜˜˜˜˜˜˜˜˜˜˜˜˜"
 	set src in oview(12)	//make it work from farther away
 
 	if (!( usr ))
@@ -2440,3 +2441,11 @@ mob/verb/turnwest()
 	var/sound/S = sound(null)
 	S.channel = 0
 	usr << S
+
+/mob/proc/update_transform()
+	return
+
+/mob/proc/update_lying(var/new_lying)
+	src.lying = new_lying
+	src.update_transform()
+	src.lying_prev = src.lying

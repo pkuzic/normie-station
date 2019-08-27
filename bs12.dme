@@ -77,6 +77,7 @@
 #include "code\stylesheet.dm"
 #include "code\TakePicture.dm"
 #include "code\Ticklag.dm"
+#include "code\_helpers\matrices.dm"
 #include "code\Animus\medals.dm"
 #include "code\Aryn\Airflow.dm"
 #include "code\Aryn\Atmos-ZAS3-Zones.dm"

@@ -288,7 +288,7 @@
 
 	usr << "\blue We will regenerate our form."
 
-	usr.lying = 1
+	usr.update_lying(90)
 	usr.canmove = 0
 	usr.changeling_fakedeath = 1
 	usr.remove_changeling_powers()
@@ -317,7 +317,7 @@
 			usr.health = 100
 			usr.updatehealth()
 			usr.reagents.clear_reagents()
-			usr.lying = 0
+			usr.update_lying(0)
 			usr.canmove = 1
 			usr << "\blue We have regenerated."
 			usr.visible_message(text("\red <B>[usr] appears to wake from the dead, having healed all wounds.</B>"))

@@ -4,8 +4,8 @@
 
 /mob/living/carbon/alien/check_if_buckled()
 	if (buckled)
-		lying = (istype(buckled, /obj/stool/bed) ? 1 : 0)
-		if(lying)
+		var/is_lying = (istype(buckled, /obj/stool/bed) ? 1 : 0)
+		if(is_lying)
 			drop_item()
 		density = 1
 	else

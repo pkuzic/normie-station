@@ -165,12 +165,12 @@
 				stat = 0
 			if (weakened > 0)
 				weakened--
-				lying = 1
+				update_lying(90)
 				stat = 0
 			if (paralysis > 0)
 				paralysis--
 				blinded = 1
-				lying = 1
+				update_lying(90)
 				stat = 1
 			var/h = hand
 			hand = 0
@@ -180,11 +180,11 @@
 			hand = h
 
 		else	//Not stunned.
-			lying = 0
+			update_lying(0)
 			stat = 0
 
 	else //Dead.
-		lying = 1
+		update_lying(90)
 		blinded = 1
 		stat = 2
 

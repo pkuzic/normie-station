@@ -8,7 +8,7 @@
 	sight |= SEE_OBJS
 	see_in_dark = 8
 	see_invisible = 2
-	lying = 1
+	update_lying(90)
 	icon_state = "ai-crash"
 
 	for(var/obj/machinery/ai_status_display/O in world) //change status

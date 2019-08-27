@@ -5,7 +5,6 @@
 /mob/living/carbon/alien/humanoid/var/obj/item/weapon/l_store = null
 
 /mob/living/carbon/alien/humanoid/var/icon/stand_icon = null
-/mob/living/carbon/alien/humanoid/var/icon/lying_icon = null
 
 /mob/living/carbon/alien/humanoid/var/last_b_state = 1.0
 
@@ -19,7 +18,6 @@
 	..()
 	if(!istype(src, /mob/living/carbon/alien/humanoid/queen))
 		stand_icon = new /icon('alien.dmi', "alien_s")
-		lying_icon = new /icon('alien.dmi', "alien_l")
 	icon = stand_icon
 
 	if(name == "alien") name = text("alien ([rand(1, 1000)])")
@@ -227,9 +225,9 @@
 
 	if(buckled)
 		if(istype(buckled, /obj/stool/bed))
-			lying = 1
+			update_lying(90)
 		else
-			lying = 0
+			update_lying(0)
 
 	// Automatically drop anything in store / id / belt if you're not wearing a uniform.
 	if (zone_sel)
@@ -237,20 +235,12 @@
 		zone_sel.overlays += body_standing
 		zone_sel.overlays += image("icon" = 'zone_sel.dmi', "icon_state" = text("[]", zone_sel.selecting))
 
-	if (lying)
-		icon = lying_icon
+	icon = stand_icon
 
-		overlays += body_lying
+	overlays += body_standing
 
-		if (face_lying)
-			overlays += face_lying
-	else
-		icon = stand_icon
-
-		overlays += body_standing
-
-		if (face_standing)
-			overlays += face_standing
+	if (face_standing)
+		overlays += face_standing
 
 	// Uniform
 	if (client)
@@ -551,6 +541,3 @@
 	user << browse(dat, text("window=mob[name];size=340x480"))
 	onclose(user, "mob[name]")
 	return
-
-
-

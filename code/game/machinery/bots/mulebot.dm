@@ -742,7 +742,7 @@
 					M.pulling = null
 					M.stunned = 8
 					M.weakened = 5
-					M.lying = 1
+					M.update_lying(90)
 		..()
 
 	alter_health()
@@ -904,6 +904,3 @@
 		kv["retn"] = auto_return
 		kv["pick"] = auto_pickup
 		post_signal_multiple(control_freq, kv)
-
-
-

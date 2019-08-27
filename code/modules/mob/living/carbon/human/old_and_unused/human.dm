@@ -27,7 +27,6 @@
 /mob/living/carbon/human/var/obj/item/weapon/l_store = null
 
 /mob/living/carbon/human/var/icon/stand_icon = null
-/mob/living/carbon/human/var/icon/lying_icon = null
 
 /mob/living/carbon/human/var/last_b_state = 1.0
 
@@ -845,9 +844,9 @@
 
 	if(buckled)
 		if(istype(buckled, /obj/stool/bed))
-			lying = 1
+			update_lying(90)
 		else
-			lying = 0
+			update_lying(0)
 
 	// Automatically drop anything in store / id / belt if you're not wearing a uniform.
 	if (!w_uniform)

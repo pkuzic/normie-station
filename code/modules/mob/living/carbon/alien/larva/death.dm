@@ -11,7 +11,7 @@
 		canmove = 0
 		if(src.client)
 			blind.invisibility = 101
-		lying = 1
+		update_lying(90)
 		var/h = src.hand
 		hand = 0
 		drop_item()
