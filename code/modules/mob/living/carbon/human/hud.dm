@@ -524,12 +524,14 @@
 	mymob.flash.name = "flash"
 	mymob.flash.screen_loc = "1,1 to 15,15"
 	mymob.flash.layer = 17
+	mymob.flash.mouse_opacity = 0
 
 	mymob.pain = new /obj/screen( null )
 	mymob.pain.icon_state = "blank"
 	mymob.pain.name = "pain"
 	mymob.pain.screen_loc = "1,1 to 15,15"
 	mymob.pain.layer = 17
+	mymob.pain.mouse_opacity = 0
 
 	mymob.hands = new /obj/screen( null )
 	mymob.hands.icon_state = "hand"
