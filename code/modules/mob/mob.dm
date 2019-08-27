@@ -82,7 +82,7 @@
 /mob/var/sleeping = 0.0
 /mob/var/resting = 0.0
 /mob/var/lying = 0.0
-/mob/var/lying_prev = 0.0
+/mob/var/lying_prev = 0
 /mob/var/canmove = 1.0
 /mob/var/eye_stat = null
 /mob/var/oxyloss = 0.0
@@ -1851,7 +1851,7 @@ mob/verb/turnwest()
 	return
 
 /atom/movable/verb/pull()
-	set category = "˜˜˜˜˜˜˜˜˜˜˜˜˜˜"
+	set category = "Âçàèìîäåéñòâèå"
 	set src in oview(1)
 
 	if (!( usr ))
@@ -1861,7 +1861,7 @@ mob/verb/turnwest()
 	return
 
 /atom/verb/examine()
-	set category = "˜˜˜˜˜˜˜˜˜˜˜˜˜˜"
+	set category = "Âçàèìîäåéñòâèå"
 	set src in oview(12)	//make it work from farther away
 
 	if (!( usr ))
