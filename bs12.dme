@@ -69,6 +69,7 @@
 // END_PREFERENCES
 
 // BEGIN_INCLUDE
+#include "code\_macros.dm"
 #include "code\mapLoader.dm"
 #include "code\names.dm"
 #include "code\nlog.dm"
@@ -490,6 +491,9 @@
 #include "code\modules\admin\verbs\randomverbs.dm"
 #include "code\modules\admin\verbs\switch.dm"
 #include "code\modules\admin\verbs\ticklag.dm"
+#include "code\modules\admin\view_variables\helpers.dm"
+#include "code\modules\admin\view_variables\topic.dm"
+#include "code\modules\admin\view_variables\view_variables.dm"
 #include "code\modules\Chemistry\Chemistry-Holder.dm"
 #include "code\modules\Chemistry\Chemistry-Machinery.dm"
 #include "code\modules\Chemistry\Chemistry-Readme.dm"
