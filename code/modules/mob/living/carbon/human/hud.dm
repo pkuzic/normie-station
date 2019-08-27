@@ -514,7 +514,7 @@
 	mymob.pullin.screen_loc = ui_pull
 
 	mymob.blind = new /obj/screen( null )
-	mymob.blind.icon_state = "blank"
+	mymob.blind.icon_state = "black"
 	mymob.blind.name = " "
 	mymob.blind.screen_loc = "1,1 to 15,15"
 	mymob.blind.invisibility = 101
