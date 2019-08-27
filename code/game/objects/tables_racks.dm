@@ -44,7 +44,7 @@
 		if (user.loc == src.loc)
 			user.layer = TURF_LAYER
 			for(var/mob/M in viewers(user, null))
-				M.show_message("Обезьянка прячется под столом!", 1)
+				M.show_message("Обезь&#255;нка пр&#255;четс&#255; под столом!", 1)
 				//Foreach goto(69)
 	return
 
@@ -55,7 +55,7 @@
 			if (user.loc == src.loc)
 				user.layer = TURF_LAYER
 				for(var/mob/M in viewers(user, null))
-					M.show_message("Личинка инопланетянина прячется под столом!", 1)
+					M.show_message("Личинка инопланет&#255;нина пр&#255;четс&#255; под столом!", 1)
 	return
 
 /obj/table/attack_hand(mob/user as mob)
@@ -75,7 +75,7 @@
 		if (user.loc == src.loc)
 			user.layer = TURF_LAYER
 			for(var/mob/M in viewers(user, null))
-				M.show_message("Человек прячется под столом!", 1)
+				M.show_message("Человек пр&#255;четс&#255; под столом!", 1)
 				//Foreach goto(69)
 	return
 
@@ -145,7 +145,7 @@
 
 	if (istype(W, /obj/item/weapon/weldingtool))
 		if(src.status == 2)
-			user << "\blue Сейчас ослабляю усиленный стол..."
+			user << "\blue Сейчас ослабл&#255;ю усиленный стол..."
 			playsound(src.loc, 'Welder.ogg', 50, 1)
 			sleep(50)
 			user << "\blue Стол ослаблен."

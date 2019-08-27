@@ -10,15 +10,15 @@
 			O.loc = src
 			src.notices++
 			src.icon_state = text("nboard0[]", src.notices) //update sprite
-			user << "\blue Ты прикрепляешь бумагу к доске объявлений."
+			user << "\blue Ты прикрепл&#255;ешь бумагу к доске объ&#255;влений."
 		else
-			user << "\red Слишком много бумаги! Мою совсем не заметят."
+			user << "\red Слишком много бумаги! Мою совсем не замет&#255;т."
 
 /obj/noticeboard/attack_hand(user as mob)
-	var/dat = "<B>Доска объявлений</B><BR>"
+	var/dat = "<B>Доска объ&#255;влений</B><BR>"
 	for(var/obj/item/weapon/paper/P in src)
 		dat += text("<A href='?src=\ref[];read=\ref[]'>[]</A> <A href='?src=\ref[];write=\ref[]'>Write</A> <A href='?src=\ref[];remove=\ref[]'>Убрать</A><BR>", src, P, P.name, src, P, src, P)
-	user << browse("<HEAD><TITLE>Объявления</TITLE></HEAD>[dat]","window=noticeboard")
+	user << browse("<HEAD><TITLE>Объ&#255;влени&#255;</TITLE></HEAD>[dat]","window=noticeboard")
 	onclose(user, "noticeboard")
 
 
@@ -27,7 +27,7 @@
 	usr.machine = src
 	if (href_list["remove"])
 		if ((usr.stat || usr.restrained())) //For when a player is handcuffed while they have the notice window open
-			usr << "\red Я не в том состоянии."
+			usr << "\red Я не в том состо&#255;нии."
 			return
 		var/obj/item/P = locate(href_list["remove"])
 		if ((P && P.loc == src))
@@ -40,7 +40,7 @@
 
 	if(href_list["write"])
 		if ((usr.stat || usr.restrained())) //For when a player is handcuffed while they have the notice window open
-			usr << "\red Я не в том состоянии."
+			usr << "\red Я не в том состо&#255;нии."
 			return
 		var/obj/item/P = locate(href_list["write"])
 

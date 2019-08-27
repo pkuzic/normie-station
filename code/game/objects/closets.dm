@@ -147,7 +147,7 @@
 
 		if (istype(W, /obj/item/weapon/weldingtool) && W:welding)
 			if (W:get_fuel() < 2)
-				user << "\blue Тебе нужно больше сварочного топлива для выполнения этой задачи."
+				user << "\blue Тебе нужно больше сварочного топлива дл&#255; выполнени&#255; этой задачи."
 				return
 			W:use_fuel(1)
 			new /obj/item/weapon/sheet/metal(src.loc)
@@ -163,13 +163,13 @@
 
 	else if(istype(W, /obj/item/weapon/weldingtool) && W:welding)
 		if (W:get_fuel() < 2)
-			user << "\blue Тебе нужно больше сварочного топлива для выполнения этой задачи."
+			user << "\blue Тебе нужно больше сварочного топлива дл&#255; выполнени&#255; этой задачи."
 			return
 		W:eyecheck(user)
 		W:use_fuel(1)
 		src.welded =! src.welded
 		for(var/mob/M in viewers(src))
-			M.show_message("\red <b>[src.nominative]</b> [welded?"заваривается":"отваривается"] <b>[user.name]</b>.", 3, "\red Ты слышишь сварочные работы.", 2)
+			M.show_message("\red <b>[src.nominative]</b> [welded?"завариваетс&#255;":"отвариваетс&#255;"] <b>[user.name]</b>.", 3, "\red Ты слышишь сварочные работы.", 2)
 	else
 		src.attack_hand(user)
 	return
@@ -197,13 +197,13 @@
 		return
 
 	if (!src.open() && world.timeofday - bang_time >= 14)
-		user << "\blue Не сдвигается с места!"
+		user << "\blue Не сдвигаетс&#255; с места!"
 
 		for (var/mob/M in hearers(src, null))
 			if(!(M.sdisabilities & 4) && M.ear_deaf == 0)
 				M << text("<FONT size=[]>БАХ, бах!</FONT>", max(0, 5 - get_dist(src, M)))
 
-		user.unlock_medal("Это ловушка!", 0, "Оказаться закрытым или заваренным в шкафчик", "просто")
+		user.unlock_medal("Это ловушка!", 0, "Оказатьс&#255; закрытым или заваренным в шкафчик", "просто")
 		bang_time = world.timeofday
 
 /obj/closet/attack_paw(mob/user as mob)
@@ -213,4 +213,4 @@
 	src.add_fingerprint(user)
 
 	if (!src.toggle())
-		usr << "\blue Не сдвигается с места!"
+		usr << "\blue Не сдвигаетс&#255; с места!"

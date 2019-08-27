@@ -53,7 +53,7 @@
 						location.internal = src
 						usr << "\blue Ты открываешь клапан резервуара."
 					else
-						usr << "\blue Клапан немедленно закрывается."
+						usr << "\blue Клапан немедленно закрываетс&#255;."
 
 		src.add_fingerprint(usr)
 		for(var/mob/M in viewers(1, src.loc))
@@ -122,7 +122,7 @@
 				del(src)
 				return
 			else
-				message_admins("Упс, бомба взрывается - [loc]")
+				message_admins("Упс, бомба взрываетс&#255; - [loc]")
 				del(src)
 				return
 
@@ -155,7 +155,7 @@
 // ******* Check
 
 		if ((istype(H, /mob/living/carbon/human) && istype(H, /obj/item/clothing/head) && H.flags & 8 && prob(80)))
-			M << "\red Шлем защищает тебя от сильного удара по голове!"
+			M << "\red Шлем защищает теб&#255; от сильного удара по голове!"
 			return
 		var/time = rand(2, 6)
 		if (prob(90))
@@ -167,7 +167,7 @@
 		if(M.stat != 2)	M.stat = 1
 		for(var/mob/O in viewers(M, null))
 			if ((O.client && !( O.blinded )))
-				O << text("\red <B>[] теряет сознание от удара!</B>", M)
+				O << text("\red <B>[] тер&#255;ет сознание от удара!</B>", M)
 	return
 
 /obj/item/weapon/tank/attackby(obj/item/weapon/W as obj, mob/user as mob)
@@ -230,7 +230,7 @@
 	if (istype(src.loc, /obj/item/assembly))
 		icon = src.loc
 		if (!in_range(src, usr))
-			if (icon == src) usr << "\blue Это \icon[icon]! Чтобы разглядеть, нужно подойти поближе."
+			if (icon == src) usr << "\blue Это \icon[icon]! Чтобы разгл&#255;деть, нужно подойти поближе."
 			return
 
 		var/celsius_temperature = src.air_contents.temperature-T0C
@@ -245,11 +245,11 @@
 		else if (celsius_temperature < 100)
 			descriptive = "тепло"
 		else if (celsius_temperature < 300)
-			descriptive = "горячо"
+			descriptive = "гор&#255;чо"
 		else
 			descriptive = "\red <b>ОЧЕНЬ ГОРЯЧО!</b>"
 
-		usr << text("\blue \icon[] ощущается []", icon, descriptive)
+		usr << text("\blue \icon[] ощущаетс&#255; []", icon, descriptive)
 
 	return
 

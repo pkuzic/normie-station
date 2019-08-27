@@ -77,13 +77,13 @@
 			if (M != user)
 				M.visible_message(\
 					"\blue <b>[user.name]</b> отстегивает от стула <b>[M.name]</b>!",\
-					"<b>[user.name]</b> отстегивает тебя от <b>[src.genitive]<b>.",\
-					"Ты слышишь лязг металла.")
+					"<b>[user.name]</b> отстегивает теб&#255; от <b>[src.genitive]<b>.",\
+					"Ты слышишь л&#255;зг металла.")
 			else
 				M.visible_message(\
-					"\blue <b>[M.name]</b> отстегивает себя от стула!",\
-					"Ты отстегиваешь себя от <b>[src.genitive]</b>.",\
-					"Ты слышишь лязг металла.")
+					"\blue <b>[M.name]</b> отстегивает себ&#255; от стула!",\
+					"Ты отстегиваешь себ&#255; от <b>[src.genitive]</b>.",\
+					"Ты слышишь л&#255;зг металла.")
 //			world << "[M] is no longer buckled to [src]"
 			M.anchored = 0
 			M.buckled = null
@@ -97,14 +97,14 @@
 		return
 	if (M == usr)
 		M.visible_message(\
-			"\blue <b>[M.name]</b> застегивается!",\
-			"Ты застегиваешь себя к <b>[src.genitive]</b>.",\
-			"Ты слышишь лязг металла.")
+			"\blue <b>[M.name]</b> застегиваетс&#255;!",\
+			"Ты застегиваешь себ&#255; к <b>[src.genitive]</b>.",\
+			"Ты слышишь л&#255;зг металла.")
 	else
 		M.visible_message(\
 			"\blue <b>[user.name]</b> застегивает <b>[M.name]</b> к <b>[src.genitive]</b>!",\
-			"<b>[user.name]</b> застёгивает тебя к <b>[src.genitive]</b>.",\
-			"Ты слышишь лязг металла.")
+			"<b>[user.name]</b> застёгивает теб&#255; к <b>[src.genitive]</b>.",\
+			"Ты слышишь л&#255;зг металла.")
 	M.anchored = 1
 	M.buckled = src
 	M.loc = src.loc
@@ -193,13 +193,13 @@
 	s.start()
 	for(var/mob/living/M in src.loc)
 		M.burn_skin(85)
-		M << "\red <B>Ты ощущаешь электрический разряд, проходящий через твоё тело.</B>"
+		M << "\red <B>Ты ощущаешь электрический разр&#255;д, проход&#255;щий через твоё тело.</B>"
 		sleep(1)
 		M.burn_skin(85)
 		if(M.stunned < 600)
 			M.stunned = 600
 	for(var/mob/M in hearers(src, null))
-		M.show_message("\red Электрическое кресло отключается.", 3, "\red Ты слышишь резкий звук электрического разряда!", 2)
+		M.show_message("\red Электрическое кресло отключаетс&#255;.", 3, "\red Ты слышишь резкий звук электрического разр&#255;да!", 2)
 
 	A.power_light = light
 	A.updateicon()
@@ -276,7 +276,7 @@
 
 /obj/stool/bed/roller
 	name = "носилки"
-	desc = "И ты на них окажешься."
+	desc = "И ты на них окажешьс&#255;."
 
 	nominative = "носилки" //Кто? Что? (есть)
 	genitive = "носилок" //Кого? Чего? (нет)
@@ -303,14 +303,14 @@
 			return 0
 		if (M == usr)
 			M.visible_message(\
-				"\blue <b>[M.name]</b> застёгивается!",\
-				"Ты застёгиваешься к <b>[src.dative]</b>.",\
-				"Ты слышишь лязг металла.")
+				"\blue <b>[M.name]</b> застёгиваетс&#255;!",\
+				"Ты застёгиваешьс&#255; к <b>[src.dative]</b>.",\
+				"Ты слышишь л&#255;зг металла.")
 		else
 			M.visible_message(\
 				"\blue <b>[user.name]</b> застегивает <b>[M.name]</b> к <b>[src.dative]</b>!",\
-				"<b>[user.name]</b> застегивает тебя к <b>[src.dative]</b>.",\
-				"Ты слышишь лязг металла.")
+				"<b>[user.name]</b> застегивает теб&#255; к <b>[src.dative]</b>.",\
+				"Ты слышишь л&#255;зг металла.")
 		M.anchored = 1
 		M.buckled = src
 		M.loc = src.loc
@@ -330,12 +330,12 @@
 					M.visible_message(\
 						"\blue <b>[user.name]</b> отстёгивает <b>[M.name]</b>!",\
 						"Ты отстёгиваешь <b>[user.name]</b> от <b>[src.genitive]</b>.",\
-						"Ты слышишь лязг металла.")
+						"Ты слышишь л&#255;зг металла.")
 				else
 					M.visible_message(\
-						"\blue <b>[M.name]</b> отстёгивается!",\
-						"Ты отстёгиваешься от <b>[src.genitive]</b>.",\
-						"Ты слышишь лязг металла.")
+						"\blue <b>[M.name]</b> отстёгиваетс&#255;!",\
+						"Ты отстёгиваешьс&#255; от <b>[src.genitive]</b>.",\
+						"Ты слышишь л&#255;зг металла.")
 				M.pixel_y = 0
 				M.anchored = 0
 				M.buckled = null

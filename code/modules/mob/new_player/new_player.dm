@@ -34,7 +34,7 @@ mob/new_player
 			src.client.showmotd()
 		spawn(25)
 			new_player_panel()
-		src << "<b>We now have <a href='http://whoopshop.com/index.php/topic,1632.0.html'>guidelines</a>. Read them before playing or fear the wrath of the banhammer!"
+		src << "<b></b>"
 		var/starting_loc = pick(newplayer_start)
 		loc = starting_loc
 		sight |= SEE_TURFS
@@ -65,23 +65,23 @@ mob/new_player
 		new_player_panel()
 			set src = usr
 
-			var/output = "<HR><B>New Player Options</B><BR><HR>"
+			var/output = "<HR><B>Настройки Нового Игрока</B><BR><HR>"
 			var/readiness
-			if(ready) readiness = "<B>READY</B>"
-			else readiness = "<B>NOT READY</B>"
-			output += "STATUS: [readiness]<br>"
-			output += "<br><a href='byond://?src=\ref[src];show_preferences=1'>Setup Character</A><BR><BR>"
+			if(ready) readiness = "<B>ГОТОВ</B>"
+			else readiness = "<B>НЕ ГОТОВ</B>"
+			output += "СТАТУС: [readiness]<br>"
+			output += "<br><a href='byond://?src=\ref[src];show_preferences=1'>Настройка Персонажа</A><BR><BR>"
 			//if(istester(key))
 			if(!ticker || ticker.current_state <= GAME_STATE_PREGAME)
 				if(!ready)
-					output += "<a href='byond://?src=\ref[src];ready=1'>Declare Ready</A><BR>"
+					output += "<a href='byond://?src=\ref[src];ready=1'>Объ&#255;вить Готовность</A><BR>"
 				else
-					output += "<a href='byond://?src=\ref[src];ready=0'>Undeclare Ready</A><BR>"
+					output += "<a href='byond://?src=\ref[src];ready=0'>Убрать Готовность</A><BR>"
 			else
-				output += "<a href='byond://?src=\ref[src];manifest=1'>View the Crew Manifest</A><BR><BR>"
-				output += "<a href='byond://?src=\ref[src];late_join=1'>Join Game!</A><BR>"
+				output += "<a href='byond://?src=\ref[src];manifest=1'>Посмотреть Список Экипажа</A><BR><BR>"
+				output += "<a href='byond://?src=\ref[src];late_join=1'>Присоединитьс&#255; к игре!</A><BR>"
 
-			output += "<BR><a href='byond://?src=\ref[src];observe=1'>Observe</A><BR>"
+			output += "<BR><a href='byond://?src=\ref[src];observe=1'>Наблюдать</A><BR>"
 
 			if(!ticker || ticker.current_state <= GAME_STATE_PREGAME)
 				src << browse(output,"window=playersetup;size=250x233;can_close=0")
@@ -91,21 +91,21 @@ mob/new_player
 	Stat()
 		..()
 
-		statpanel("Game")
-		if(client.statpanel=="Game" && ticker)
+		statpanel("Игра")
+		if(client.statpanel=="Игра" && ticker)
 			if(ticker.hide_mode)
-				stat("Game Mode:", "Hidden")
+				stat("Режим:", "Скрыт")
 			else
-				stat("Game Mode:", "[master_mode]")
+				stat("Режим:", "[master_mode]")
 
 			if(ticker.current_state == GAME_STATE_PREGAME)
-				stat("Time To Start:", ticker.pregame_timeleft)
+				stat("Врем&#255; до начала:", ticker.pregame_timeleft)
 
-		statpanel("Lobby")
-		if(client.statpanel=="Lobby" && ticker)
+		statpanel("Лобби")
+		if(client.statpanel=="Лобби" && ticker)
 			if(ticker.current_state == GAME_STATE_PREGAME)
 				for(var/mob/new_player/player in world)
-					stat("[player.key]", (player.ready)?("(Playing)"):(null))
+					stat("[player.key]", (player.ready)?("(играет)"):(null))
 
 	Topic(href, href_list[])
 		if(href_list["show_preferences"])
@@ -116,25 +116,25 @@ mob/new_player
 		if(href_list["ready"])
 			if (config.invite_only)
 				if(!invite_isallowed(src))
-					src << "\blue This is an invite only game"
+					src << "\blue К игре присоединитьс&#255; можно только по инвайту"
 					return
 
 			if(!ready)
-				if(alert(src,"Are you sure want to be ready? This will lock-in your preferences.","Player Setup","Yes","No") == "Yes")
+				if(alert(src,"Действительно ли объ&#255;вить готовность? Это заблокирует создание персонажа.","Игровые настройки","Да","Нет") == "Да")
 					ready = 1
 			else if(ready)
-				if(alert(src,"Are you dont want to be ready? This will un-lock your preferences.","Player Setup","Yes","No") == "Yes")
+				if(alert(src,"Действительно ли отказатьс&#255; от готовности? Это заблокирует создание персонажа.","Игровые настройки","Да","Нет") == "Да")
 					ready = 0
 
 		if(href_list["observe"])
-			if(alert(src,"Are you sure you wish to observe? You will not be able to play this round!","Player Setup","Yes","No") == "Yes")
+			if(alert(src,"Действительно ли наблюдать? Тогда нельз&#255; будет играть в раунде!","Игровые настройки","Да","Нет") == "Да")
 				var/mob/dead/observer/observer = new()
 
 				close_spawn_windows()
 				startup.status = SOUND_PAUSED
 				src << startup
 				var/obj/O = locate("landmark*Observer-Start")
-				src << "\blue Now teleporting."
+				src << "\blue Перемещаемс&#255;."
 				observer.loc = O.loc
 				observer.key = key
 				if(preferences.be_random_name)
@@ -149,11 +149,11 @@ mob/new_player
 		if(href_list["late_join"])
 			//LateChoices()
 			if (!enter_allowed)
-				usr << "\blue There is an administrative lock on entering the game!"
+				usr << "\blue Администратор закрыл доступ в игру!"
 				return
 			if (config.invite_only)
 				if(!invite_isallowed(src))
-					src << "\blue This is an invite only game"
+					src << "\blue К игре присоединитьс&#255; можно только по инвайту"
 					return
 			startup.status = SOUND_PAUSED
 			src << startup
@@ -256,9 +256,9 @@ mob/new_player
 
 			if (ticker.current_state == GAME_STATE_PLAYING)
 				if(rank == "Unassigned")
-					radioalert("Arrivals Notice", "[character.real_name] has arrived on the ship.")	//unassigneds are not special
+					radioalert("Уведомление о прибытии", "[character.real_name] прибыл на судно.")	//unassigneds are not special
 				else
-					radioalert("Arrivals Notice", "[character.real_name], the [rank] has arrived on the ship..")	//oh no engineers
+					radioalert("Уведомление о прибытии", "[rank] [character.real_name] прибыл на судно..")	//oh no engineers
 
 				/*for (var/mob/living/silicon/ai/A in world) // Use this if we want to revert to the AI announcing new arrivals
 					if (!A.stat)
@@ -270,7 +270,7 @@ mob/new_player
 			del(src)
 
 		else
-			src << alert("[rank] is not available. Please try another.")
+			src << alert("[rank] недоступен. Попробуйте выбрать иную роль.")
 
 // This fxn creates positions for unassigned people based on existing positions. This could be more elegant.
 /*	proc/LateChoices()
@@ -364,7 +364,7 @@ mob/new_player
 
 	proc/ViewManifest()
 		var/dat = "<html><body>"
-		dat += "<h4>Crew Manifest</h4>"
+		dat += "<h4>Список Экипажа</h4>"
 		for (var/datum/data/record/t in data_core.general)
 			dat += "[t.fields["name"]] - [t.fields["rank"]]<br>"
 		dat += "<br>"

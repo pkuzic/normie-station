@@ -156,7 +156,7 @@
 		if (W)
 			W.loc = src.loc
 	else if(src.broken)
-		user << "\red Упс! Кажется, сломано."
+		user << "\red Упс! Кажетс&#255;, сломано."
 		return
 	else if(istype(W, /obj/item/weapon/card/emag) && !src.broken)
 		src.broken = 1
@@ -197,7 +197,7 @@
 		for(var/mob/M in hearers(src, null))
 			if(!(M.sdisabilities & 4) && M.ear_deaf == 0)
 				M << text("<FONT size=[]>БАХ, бах!</FONT>", max(0, 5 - get_dist(src, M)))
-		user.unlock_medal("Это ловушка!", 0, "Оказаться закрытым или заваренным в шкафчик", "просто")
+		user.unlock_medal("Это ловушка!", 0, "Оказатьс&#255; закрытым или заваренным в шкафчик", "просто")
 		bang_time = world.timeofday
 		return
 	return

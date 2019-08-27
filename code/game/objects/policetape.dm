@@ -14,7 +14,7 @@
 			for(var/Y=tapestarty,Y>=tapeendy,Y--)
 				var/turf/T = get_turf(locate(tapestartx,Y,tapestartz))
 				if(T.density == 1)
-					usr << "\blue Через стену не получится!"
+					usr << "\blue Через стену не получитс&#255;!"
 					icon_state = "rollstart"
 					return
 			for(var/Y=tapestarty,Y>=tapeendy,Y--)
@@ -32,7 +32,7 @@
 			for(var/Y=tapestarty,Y<=tapeendy,Y++)
 				var/turf/T = get_turf(locate(tapestartx,Y,tapestartz))
 				if(T.density == 1)
-					usr << "\blue Через стену не получится!"
+					usr << "\blue Через стену не получитс&#255;!"
 					icon_state = "rollstart"
 					return
 			for(var/Y=tapestarty,Y<=tapeendy,Y++)
@@ -50,7 +50,7 @@
 			for(var/X=tapestartx,X>=tapeendx,X--)
 				var/turf/T = get_turf(locate(X,tapestarty,tapestartz))
 				if(T.density == 1)
-					usr << "\blue Через стену не получится!"
+					usr << "\blue Через стену не получитс&#255;!"
 					icon_state = "rollstart"
 					return
 			for(var/X=tapestartx,X>=tapeendx,X--)
@@ -68,7 +68,7 @@
 			for(var/X=tapestartx,X<=tapeendx,X++)
 				var/turf/T = get_turf(locate(X,tapestarty,tapestartz))
 				if(T.density == 1)
-					usr << "\blue Через стену не получится!"
+					usr << "\blue Через стену не получитс&#255;!"
 					icon_state = "rollstart"
 					return
 			for(var/X=tapestartx,X<=tapeendx,X++)
@@ -83,7 +83,7 @@
 			usr << "\blue Ты заканчиваешь крепить полицейскую ленту."
 
 		if(tapestarty != tapeendy && tapestartx != tapeendx)
-			usr << "\blue Полицейская лента может быть проложена только вертикально или горизонтально."
+			usr << "\blue Полицейска&#255; лента может быть проложена только вертикально или горизонтально."
 		icon_state = "rollstart"
 
 /obj/item/policetape/Bumped(M as mob)

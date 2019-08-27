@@ -197,7 +197,7 @@
 	set src in oview(1)
 
 	if (src.anchored)
-		usr << "ќно прикреплено к полу - развернуть-то нельз€!"
+		usr << "ќно прикреплено к полу - развернуть-то нельз&#255;!"
 		return 0
 
 	update_nearby_tiles(need_rebuild=1) //Compel updates before

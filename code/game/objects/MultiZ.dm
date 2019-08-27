@@ -22,7 +22,7 @@
 	instrumentative = "лестницей" //Кем? Чем? (горжусь)
 	prepositive = "лестнице" //О ком? О чем? (думаю)
 
-	desc = "И по этой я могу скатиться вниз!"
+	desc = "И по этой &#255; могу скатитьс&#255; вниз!"
 
 /obj/multiz/ladder/New()
 	..()
@@ -50,7 +50,7 @@
 //Stairs.  var/dir on all four component objects should be the dir you'd walk from top to bottom
 /obj/multiz/stairs
 	name = "ступеньки"
-	desc = "Как бы не споткнуться."
+	desc = "Как бы не споткнутьс&#255;."
 
 	nominative = "ступеньки" //Кто? Что? (есть)
 	genitive = "ступенек" //Кого? Чего? (нет)

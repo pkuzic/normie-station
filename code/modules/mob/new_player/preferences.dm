@@ -10,14 +10,14 @@ datum/preferences
 	var/be_random_name = 0
 	var/underwear = 1
 
-	var/occupation1 = "No Preference"
-	var/occupation2 = "No Preference"
-	var/occupation3 = "No Preference"
+	var/occupation1 = "Нет предпочтений"
+	var/occupation2 = "Нет предпочтений"
+	var/occupation3 = "Нет предпочтений"
 	var/title1
 	var/title2
 	var/title3
-	var/h_style = "Short Hair"
-	var/f_style = "Shaved"
+	var/h_style = "Короткие волосы"
+	var/f_style = "Побрит"
 	var/slotname
 	var/r_hair = 0.0
 	var/g_hair = 0.0
@@ -26,7 +26,7 @@ datum/preferences
 	var/r_facial = 0.0
 	var/g_facial = 0.0
 	var/b_facial = 0.0
-	var/bio = "bio goes here"
+	var/bio = "биографи&#255; тут"
 	var/s_tone = 0.0
 	var/r_eyes = 0.0
 	var/g_eyes = 0.0
@@ -71,54 +71,54 @@ datum/preferences
 
 		var/h_style_r = null
 		switch(h_style)
-			if("Short Hair")
+			if("Короткие волосы")
 				h_style_r = "hair_a"
-			if("Long Hair")
+			if("Длинные волосы")
 				h_style_r = "hair_b"
-			if("Cut Hair")
+			if("Стрижка")
 				h_style_r = "hair_c"
-			if("Mohawk")
+			if("Могавк")
 				h_style_r = "hair_d"
-			if("Balding")
+			if("Стрижка")
 				h_style_r = "hair_e"
-			if("Wave")
+			if("Волна")
 				h_style_r = "hair_f"
-			if("Bedhead")
+			if("Нерасчесанные волосы")
 				h_style_r = "hair_bedhead"
-			if("Dreadlocks")
+			if("Дредлоки")
 				h_style_r = "hair_dreads"
-			if("Ponytail")
+			if("Хвостик")
 				h_style_r = "hair_ponytail"
 			else
 				h_style_r = "bald"
 
 		var/f_style_r = null
 		switch(f_style)
-			if ("Watson")
+			if ("Ватсон")
 				f_style_r = "facial_watson"
-			if ("Chaplin")
+			if ("Чаплин")
 				f_style_r = "facial_chaplin"
-			if ("Selleck")
+			if ("Селлек")
 				f_style_r = "facial_selleck"
-			if ("Neckbeard")
+			if ("Борода без усов")
 				f_style_r = "facial_neckbeard"
-			if ("Full Beard")
+			if ("Полна&#255; борода")
 				f_style_r = "facial_fullbeard"
-			if ("Long Beard")
+			if ("Длинна&#255; борода")
 				f_style_r = "facial_longbeard"
-			if ("Van Dyke")
+			if ("Ван Дайк")
 				f_style_r = "facial_vandyke"
-			if ("Elvis")
+			if ("Элвис")
 				f_style_r = "facial_elvis"
-			if ("Abe")
+			if ("Абэ")
 				f_style_r = "facial_abe"
-			if ("Chinstrap")
+			if ("Ремень")
 				f_style_r = "facial_chin"
-			if ("Hipster")
+			if ("Хипстер")
 				f_style_r = "facial_hip"
-			if ("Goatee")
+			if ("Козлина&#255; бородка")
 				f_style_r = "facial_gt"
-			if ("Hogan")
+			if ("Хоган")
 				f_style_r = "facial_hogan"
 			else
 				f_style_r = "bald"
@@ -148,18 +148,18 @@ datum/preferences
 
 		var/list/destructive = assistant_occupations.Copy()
 		var/dat = "<html><body>"
-		dat += "<b>Name:</b> "
+		dat += "<b>Им&#255;:</b> "
 		dat += "<a href=\"byond://?src=\ref[user];preferences=1;real_name=input\"><b>[real_name]</b></a> "
 		dat += "(<a href=\"byond://?src=\ref[user];preferences=1;real_name=random\">&reg;</A>) "
 		dat += "(&reg; = <a href=\"byond://?src=\ref[user];preferences=1;b_random_name=1\">[be_random_name ? "Yes" : "No"]</a>)"
 		dat += "<br>"
 
-		dat += "<b>Gender:</b> <a href=\"byond://?src=\ref[user];preferences=1;gender=input\"><b>[gender == MALE ? "Male" : "Female"]</b></a><br>"
-		dat += "<b>Age:</b> <a href='byond://?src=\ref[user];preferences=1;age=input'>[age]</a>"
+		dat += "<b>Пол:</b> <a href=\"byond://?src=\ref[user];preferences=1;gender=input\"><b>[gender == MALE ? "Male" : "Female"]</b></a><br>"
+		dat += "<b>Возраст:</b> <a href='byond://?src=\ref[user];preferences=1;age=input'>[age]</a>"
 
 		//dat += "<b>UI Style:</b> <a href=\"byond://?src=\ref[user];preferences=1;UI=input\"><b>[UI == B12 ? "B12" : "AGrey": "AGreen"]</b></a><br>" // UI CHOICES!
 
-		dat += "<hr><b>Occupation Choices</b><br>"
+		dat += "<hr><b>Зан&#255;тость</b><br>"
 		if (destructive.Find(occupation1))
 			dat += "\t<a href=\"byond://?src=\ref[user];preferences=1;occ=1\"><b>[occupation1]</b></a><br>"
 		else
@@ -169,43 +169,43 @@ datum/preferences
 				occupation2 = "Unassigned"
 			if (jobban_isbanned(user, occupation3))
 				occupation3 = "Unassigned"
-			if (occupation1 != "No Preference")
-				dat += "\tFirst Choice: <a href=\"byond://?src=\ref[user];preferences=1;occ=1\"><b>[occupation1]</b></a><br>"
+			if (occupation1 != "Нет предпочтений")
+				dat += "\tПервый выбор: <a href=\"byond://?src=\ref[user];preferences=1;occ=1\"><b>[occupation1]</b></a><br>"
 				/*if(HasTitles(occupation1))
 					if(!title1)
 						title1 = occupation1*/
 					//dat += "\t [occupation1] Title: <a href=\"byond://?src=\ref[user];preferences=1;occ=1;showtitle=1\"><b>[title1]</b></a><br>"
 				if (destructive.Find(occupation2))
-					dat += "\tSecond Choice: <a href=\"byond://?src=\ref[user];preferences=1;occ=2\"><b>[occupation2]</b></a><BR>"
+					dat += "\tВторой выбор: <a href=\"byond://?src=\ref[user];preferences=1;occ=2\"><b>[occupation2]</b></a><BR>"
 
 				else
 					if (occupation2 != "No Preference")
-						dat += "\tSecond Choice: <a href=\"byond://?src=\ref[user];preferences=1;occ=2\"><b>[occupation2]</b></a><BR>"
+						dat += "\tТретий выбор: <a href=\"byond://?src=\ref[user];preferences=1;occ=2\"><b>[occupation2]</b></a><BR>"
 						/*if(HasTitles(occupation2))
 							if(!title2)
 								title2 = occupation2*/
 							//dat += "\t [occupation2] Title: <a href=\"byond://?src=\ref[user];preferences=1;occ=2;showtitle=1\"><b>[title2]</b></a><br>"
-						dat += "\tLast Choice: <a href=\"byond://?src=\ref[user];preferences=1;occ=3\"><b>[occupation3]</b></a><BR	>"
+						dat += "\tПоследний выбор: <a href=\"byond://?src=\ref[user];preferences=1;occ=3\"><b>[occupation3]</b></a><BR	>"
 						/*if(HasTitles(occupation3))
 							if(!title3)
 								title3 = occupation3*/
 							//dat += "\t [occupation3] Title: <a href=\"byond://?src=\ref[user];preferences=1;occ=3;showtitle=1\"><b>[title3]</b></a><br>"
 
 					else
-						dat += "\tSecond Choice: <a href=\"byond://?src=\ref[user];preferences=1;occ=2\">No Preference</a><br>"
+						dat += "\tВторой выбор: <a href=\"byond://?src=\ref[user];preferences=1;occ=2\">No Preference</a><br>"
 			else
-				dat += "\t<a href=\"byond://?src=\ref[user];preferences=1;occ=1\">No Preference</a><br>"
+				dat += "\t<a href=\"byond://?src=\ref[user];preferences=1;occ=1\">Нет предпочтений</a><br>"
 
-		dat += "<hr><table><tr><td><b>Body</b><br>"
-		dat += "Blood Type: <a href='byond://?src=\ref[user];preferences=1;b_type=input'>[b_type]</a><br>"
-		dat += "Skin Tone: <a href='byond://?src=\ref[user];preferences=1;s_tone=input'>[-s_tone + 35]/220</a><br>"
+		dat += "<hr><table><tr><td><b>Тело</b><br>"
+		dat += "Группа крови: <a href='byond://?src=\ref[user];preferences=1;b_type=input'>[b_type]</a><br>"
+		dat += "Цвет кожи: <a href='byond://?src=\ref[user];preferences=1;s_tone=input'>[-s_tone + 35]/220</a><br>"
 		if (!IsGuestKey(user.key))
-			dat += "Underwear: <a href =\"byond://?src=\ref[user];preferences=1;underwear=1\"><b>[underwear == 1 ? "Yes" : "No"]</b></a><br>"
-		dat += "</td><td><b>Preview</b><br><img src=previewicon.png height=64 width=64></td></tr></table>"
+			dat += "Нижнее белье: <a href =\"byond://?src=\ref[user];preferences=1;underwear=1\"><b>[underwear == 1 ? "Yes" : "No"]</b></a><br>"
+		dat += "</td><td><b>Превью</b><br><img src=previewicon.png height=64 width=64></td></tr></table>"
 
-		dat += "<hr><b>Hair</b><br>"
+		dat += "<hr><b>Волосы</b><br>"
 
-		dat += "<a href='byond://?src=\ref[user];preferences=1;hair=input'>Change Color</a> <font face=\"fixedsys\" size=\"3\" color=\"#[num2hex(r_hair, 2)][num2hex(g_hair, 2)][num2hex(b_hair, 2)]\"><table bgcolor=\"#[num2hex(r_hair, 2)][num2hex(g_hair, 2)][num2hex(b_hair)]\"><tr><td>IM</td></tr></table></font>"
+		dat += "<a href='byond://?src=\ref[user];preferences=1;hair=input'>Изменить цвет</a> <font face=\"fixedsys\" size=\"3\" color=\"#[num2hex(r_hair, 2)][num2hex(g_hair, 2)][num2hex(b_hair, 2)]\"><table bgcolor=\"#[num2hex(r_hair, 2)][num2hex(g_hair, 2)][num2hex(b_hair)]\"><tr><td>IM</td></tr></table></font>"
 /*
 		dat += " <font color=\"#[num2hex(r_hair, 2)]0000\">Red</font> - <a href='byond://?src=\ref[user];preferences=1;r_hair=input'>[r_hair]</a>"
 		dat += " <font color=\"#00[num2hex(g_hair, 2)]00\">Green</font> - <a href='byond://?src=\ref[user];preferences=1;g_hair=input'>[g_hair]</a>"
@@ -213,45 +213,45 @@ datum/preferences
 */
 		dat += "Style: <a href='byond://?src=\ref[user];preferences=1;h_style=input'>[h_style]</a>"
 
-		dat += "<hr><b>Facial</b><br>"
+		dat += "<hr><b>Лицо</b><br>"
 
-		dat += "<a href='byond://?src=\ref[user];preferences=1;facial=input'>Change Color</a> <font face=\"fixedsys\" size=\"3\" color=\"#[num2hex(r_facial, 2)][num2hex(g_facial, 2)][num2hex(b_facial, 2)]\"><table bgcolor=\"#[num2hex(r_facial, 2)][num2hex(g_facial, 2)][num2hex(b_facial)]\"><tr><td>GO</td></tr></table></font>"
+		dat += "<a href='byond://?src=\ref[user];preferences=1;facial=input'>Изменить цвет</a> <font face=\"fixedsys\" size=\"3\" color=\"#[num2hex(r_facial, 2)][num2hex(g_facial, 2)][num2hex(b_facial, 2)]\"><table bgcolor=\"#[num2hex(r_facial, 2)][num2hex(g_facial, 2)][num2hex(b_facial)]\"><tr><td>GO</td></tr></table></font>"
 /*
 		dat += " <font color=\"#[num2hex(r_facial, 2)]0000\">Red</font> - <a href='byond://?src=\ref[user];preferences=1;r_facial=input'>[r_facial]</a>"
 		dat += " <font color=\"#00[num2hex(g_facial, 2)]00\">Green</font> - <a href='byond://?src=\ref[user];preferences=1;g_facial=input'>[g_facial]</a>"
 		dat += " <font color=\"#0000[num2hex(b_facial, 2)]\">Blue</font> - <a href='byond://?src=\ref[user];preferences=1;b_facial=input'>[b_facial]</a><br>"
 */
-		dat += "Style: <a href='byond://?src=\ref[user];preferences=1;f_style=input'>[f_style]</a>"
+		dat += "Стиль: <a href='byond://?src=\ref[user];preferences=1;f_style=input'>[f_style]</a>"
 
-		dat += "<hr><b>Eyes</b><br>"
-		dat += "<a href='byond://?src=\ref[user];preferences=1;eyes=input'>Change Color</a> <font face=\"fixedsys\" size=\"3\" color=\"#[num2hex(r_eyes, 2)][num2hex(g_eyes, 2)][num2hex(b_eyes, 2)]\"><table bgcolor=\"#[num2hex(r_eyes, 2)][num2hex(g_eyes, 2)][num2hex(b_eyes)]\"><tr><td>KU</td></tr></table></font>"
+		dat += "<hr><b>Глаза</b><br>"
+		dat += "<a href='byond://?src=\ref[user];preferences=1;eyes=input'>Изменить цвет</a> <font face=\"fixedsys\" size=\"3\" color=\"#[num2hex(r_eyes, 2)][num2hex(g_eyes, 2)][num2hex(b_eyes, 2)]\"><table bgcolor=\"#[num2hex(r_eyes, 2)][num2hex(g_eyes, 2)][num2hex(b_eyes)]\"><tr><td>KU</td></tr></table></font>"
 /*
 		dat += " <font color=\"#[num2hex(r_eyes, 2)]0000\">Red</font> - <a href='byond://?src=\ref[user];preferences=1;r_eyes=input'>[r_eyes]</a>"
 		dat += " <font color=\"#00[num2hex(g_eyes, 2)]00\">Green</font> - <a href='byond://?src=\ref[user];preferences=1;g_eyes=input'>[g_eyes]</a>"
 		dat += " <font color=\"#0000[num2hex(b_eyes, 2)]\">Blue</font> - <a href='byond://?src=\ref[user];preferences=1;b_eyes=input'>[b_eyes]</a>"
 */
 		dat += "<hr>"
-		if(!jobban_isbanned(user, "Syndicate"))
-			dat += "<b>Be syndicate?:</b> <a href =\"byond://?src=\ref[user];preferences=1;b_syndicate=1\"><b>[(be_syndicate ? "Yes" : "No")]</b></a><br>"
-			dat += "<b>Be nuke agent?:</b> <a href =\"byond://?src=\ref[user];preferences=1;b_nuke_agent=1\"><b>[(be_nuke_agent ? "Yes" : "No")]</b></a><br>"
-			dat += "<b>Be takeover agent?:</b> <a href =\"byond://?src=\ref[user];preferences=1;b_takeover_agent=1\"><b>[(be_takeover_agent ? "Yes" : "No")]</b></a><br>"
+		if(!jobban_isbanned(user, "Синдикат"))
+			dat += "<b>Быть предателем?:</b> <a href =\"byond://?src=\ref[user];preferences=1;b_syndicate=1\"><b>[(be_syndicate ? "Yes" : "No")]</b></a><br>"
+			dat += "<b>Быть подрывником?:</b> <a href =\"byond://?src=\ref[user];preferences=1;b_nuke_agent=1\"><b>[(be_nuke_agent ? "Yes" : "No")]</b></a><br>"
+			dat += "<b>Быть агентом поглощени&#255;?:</b> <a href =\"byond://?src=\ref[user];preferences=1;b_takeover_agent=1\"><b>[(be_takeover_agent ? "Yes" : "No")]</b></a><br>"
 		else
-			dat += "<b> You are banned from being syndicate.</b>"
+			dat += "<b> Ты не можешь быть предателем.</b>"
 			be_syndicate = 0
 			be_nuke_agent = 0
 			be_takeover_agent = 0
-		dat += "<a href =\"byond://?src=\ref[user];preferences=1;editbio=1\">Edit Biography</a><br>"
+		dat += "<a href =\"byond://?src=\ref[user];preferences=1;editbio=1\">Изменить Биографию</a><br>"
 		//dat += "<b>Show Profile?:</b> <a href =\"byond://?src=\ref[user];preferences=1;b_syndicate=1\"><b>[(be_syndicate ? "Yes" : "No")]</b></a><br>
 		dat += "<hr>"
 
 		if (!IsGuestKey(user.key))
 			if(!curslot)
-				dat += "<a href='byond://?src=\ref[user];preferences=1;saveslot=1'>Save Slot 1</a><br>"
+				dat += "<a href='byond://?src=\ref[user];preferences=1;saveslot=1'>Сохранить Слот 1</a><br>"
 			else
-				dat += "<a href='byond://?src=\ref[user];preferences=1;saveslot=[curslot]'>Save Slot [curslot]</a><br>"
-			dat += "<a href='byond://?src=\ref[user];preferences=1;loadslot2=1'>Load</a><br>"
-		dat += "<a href='byond://?src=\ref[user];preferences=1;createslot=1'>Create New Slot</a><br>"
-		dat += "<a href='byond://?src=\ref[user];preferences=1;reset_all=1'>Reset Setup</a><br>"
+				dat += "<a href='byond://?src=\ref[user];preferences=1;saveslot=[curslot]'>Сохранить Слот [curslot]</a><br>"
+			dat += "<a href='byond://?src=\ref[user];preferences=1;loadslot2=1'>Загрузить</a><br>"
+		dat += "<a href='byond://?src=\ref[user];preferences=1;createslot=1'>Создать Новый Слот</a><br>"
+		dat += "<a href='byond://?src=\ref[user];preferences=1;reset_all=1'>Сбросить Настройки</a><br>"
 		dat += "</body></html>"
 
 		user << browse(dat, "window=preferences;size=300x640")
@@ -269,9 +269,9 @@ datum/preferences
 			var/T = row["slot"]
 			var/K = row["slotname"]
 			slots += row["slotname"]
-			dat += "<a href='byond://?src=\ref[user];preferences=1;loadslot=[T]'>Load Slot [T]([K]) </a><a href='byond://?src=\ref[user];preferences=1;removeslot=[T]'>(R)</a><br><br>"
+			dat += "<a href='byond://?src=\ref[user];preferences=1;loadslot=[T]'>Загрузить Слот [T]([K]) </a><a href='byond://?src=\ref[user];preferences=1;removeslot=[T]'>(R)</a><br><br>"
 
-		dat += "<a href='byond://?src=\ref[user];preferences=1;loadslot=CLOSE'>Close</a><br>"
+		dat += "<a href='byond://?src=\ref[user];preferences=1;loadslot=CLOSE'>Закрыть</a><br>"
 		dat += "</center></tt>"
 		user << browse(dat, "window=saves;size=300x640")
 	proc/closesave(mob/user)
@@ -281,18 +281,18 @@ datum/preferences
 		HTML += "<tt><center>"
 		switch(occ)
 			if(1.0)
-				HTML += "<b>Which occupation would you like most?</b><br><br>"
+				HTML += "<b>Какое Ваше первое предпочтение?</b><br><br>"
 			if(2.0)
-				HTML += "<b>Which occupation would you like if you couldn't have your first?</b><br><br>"
+				HTML += "<b>Какое Ваше второе предпочтениеt?</b><br><br>"
 			if(3.0)
-				HTML += "<b>Which occupation would you like if you couldn't have the others?</b><br><br>"
+				HTML += "<b>Какое Ваше третье предпочтение?</b><br><br>"
 			else
 		for(var/job in uniquelist(occupations + assistant_occupations) )
 			if ((job!="AI" || config.allow_ai) && !jobban_isbanned(user, job))
 				HTML += "<a href=\"byond://?src=\ref[user];preferences=1;occ=[occ];job=[job]\">[job]</a><br>"
 
 		if(!jobban_isbanned(user, "Captain"))
-			HTML += "<a href=\"byond://?src=\ref[user];preferences=1;occ=[occ];job=Captain\">Captain</a><br>"
+			HTML += "<a href=\"byond://?src=\ref[user];preferences=1;occ=[occ];job=Captain\">Капитан</a><br>"
 		HTML += "<br>"
 		HTML += "<a href=\"byond://?src=\ref[user];preferences=1;occ=[occ];job=No Preference\">\[No Preference\]</a><br>"
 		HTML += "<a href=\"byond://?src=\ref[user];preferences=1;occ=[occ];cancel=1\">\[Cancel\]</a>"
@@ -307,19 +307,19 @@ datum/preferences
 		HTML += "<tt><center>"
 		switch(choice)
 			if(1.0)
-				HTML += "<b>Which title would you for [occupation1].</b><br><br>"
+				HTML += "<b>Предпочтимое название дл&#255; [occupation1].</b><br><br>"
 				for(var/datum/title/T in titles)
 					if(T.jobname == occupation1)
 						for(var/A in T.title)
 							HTML += "<a href=\"byond://?src=\ref[user];preferences=1;occ=[choice];title=[A]\">[A]</a><br>"
 			if(2.0)
-				HTML += "<b>Which title would you for [occupation2].</b><br><br>"
+				HTML += "<b>Предпочтимое название дл&#255; [occupation2].</b><br><br>"
 				for(var/datum/title/T in titles)
 					if(T.jobname == occupation2)
 						for(var/A in T.title)
 							HTML += "<a href=\"byond://?src=\ref[user];preferences=1;occ=[choice];title=[A]\">[A]</a><br>"
 			if(3.0)
-				HTML += "<b>Which title would you for [occupation3].</b><br><br>"
+				HTML += "<b>Предпочтимое название дл&#255; [occupation3].</b><br><br>"
 				for(var/datum/title/T in titles)
 					if(T.jobname == occupation3)
 						for(var/A in T.title)
@@ -354,8 +354,8 @@ datum/preferences
 					user << browse(null, "window=mob_occupation")
 					return
 				else
-					if (job == "No Preference")
-						occupation1 = "No Preference"
+					if (job == "Нет предпочтений")
+						occupation1 = "Нет предпочтений"
 						ShowChoices(user)
 					else
 						if (job == occupation2)
@@ -374,15 +374,15 @@ datum/preferences
 					user << browse(null, "window=mob_occupation")
 					ShowChoices(user)
 				else
-					if (job == "No Preference")
-						if (occupation3 != "No Preference")
+					if (job == "Нет предпочтений")
+						if (occupation3 != "Нет предпочтений")
 							occupation2 = occupation3
-							occupation3 = "No Preference"
+							occupation3 = "Нет предпочтений"
 						else
-							occupation2 = "No Preference"
+							occupation2 = "Нет предпочтений"
 					else
 						if (job == occupation1)
-							if (occupation2 == "No Preference")
+							if (occupation2 == "Нет предпочтений")
 								user << browse(null, "window=mob_occupation")
 								return
 							job = occupation2
@@ -400,11 +400,11 @@ datum/preferences
 					user << browse(null, "window=mob_occupation")
 					ShowChoices(user)
 				else
-					if (job == "No Preference")
-						occupation3 = "No Preference"
+					if (job == "Нет предпочтений")
+						occupation3 = "Нет предпочтений"
 					else
 						if (job == occupation1)
-							if (occupation3 == "No Preference")
+							if (occupation3 == "Нет предпочтений")
 								user << browse(null, "window=mob_occupation")
 								return
 							job = occupation3
@@ -412,7 +412,7 @@ datum/preferences
 							occupation1 = job
 						else
 							if (job == occupation2)
-								if (occupation3 == "No Preference")
+								if (occupation3 == "Нет предпочтений")
 									user << browse(null, "window=mob_occupation")
 									return
 								job = occupation3
@@ -448,12 +448,12 @@ datum/preferences
 
 			switch(link_tags["real_name"])
 				if("input")
-					new_name = input(user, "Please select a name:", "Character Generation")  as text
+					new_name = input(user, "Пожалуйста, выберите им&#255;:", "Создание Персонажа")  as text
 					var/list/bad_characters = list("_", "'", "\"", "<", ">", ";", "[", "]", "{", "}", "|", "\\")
 					for(var/c in bad_characters)
 						new_name = dd_replacetext(new_name, c, "")
 					if(!new_name || (new_name == "Unknown"))
-						alert("Don't do this")
+						alert("Нельз&#255; так делать.")
 						return
 
 				if("random")
@@ -475,19 +475,19 @@ datum/preferences
 				real_name = new_name
 
 		if (link_tags["age"])
-			var/new_age = input(user, "Please select type in age: 20-45", "Character Generation")  as num
+			var/new_age = input(user, "Возраст в пределах: 20-45", "Создание Персонажа")  as num
 
 			if(new_age)
 				age = max(min(round(text2num(new_age)), 45), 20)
 
 		if (link_tags["b_type"])
-			var/new_b_type = input(user, "Please select a blood type:", "Character Generation")  as null|anything in list( "A+", "A-", "B+", "B-", "AB+", "AB-", "O+", "O-" )
+			var/new_b_type = input(user, "Группа крови:", "Создание Персонажа")  as null|anything in list( "A+", "A-", "B+", "B-", "AB+", "AB-", "O+", "O-" )
 
 			if (new_b_type)
 				b_type = new_b_type
 
 		if (link_tags["hair"])
-			var/new_hair = input(user, "Please select hair color.", "Character Generation") as color
+			var/new_hair = input(user, "Цвет волос.", "Создание Персонажа") as color
 			if(new_hair)
 				r_hair = hex2num(copytext(new_hair, 2, 4))
 				g_hair = hex2num(copytext(new_hair, 4, 6))
@@ -513,7 +513,7 @@ datum/preferences
 */
 
 		if (link_tags["facial"])
-			var/new_facial = input(user, "Please select facial hair color.", "Character Generation") as color
+			var/new_facial = input(user, "Цвет волос&#255;ного покрова на лице.", "Создание Персонажа") as color
 			if(new_facial)
 				r_facial = hex2num(copytext(new_facial, 2, 4))
 				g_facial = hex2num(copytext(new_facial, 4, 6))
@@ -538,7 +538,7 @@ datum/preferences
 				b_facial = max(min(round(text2num(new_component)), 255), 1)
 */
 		if (link_tags["eyes"])
-			var/new_eyes = input(user, "Please select eye color.", "Character Generation") as color
+			var/new_eyes = input(user, "Цвет глаз.", "Создание Персонажа") as color
 			if(new_eyes)
 				r_eyes = hex2num(copytext(new_eyes, 2, 4))
 				g_eyes = hex2num(copytext(new_eyes, 4, 6))
@@ -563,20 +563,20 @@ datum/preferences
 				b_eyes = max(min(round(text2num(new_component)), 255), 1)
 */
 		if (link_tags["s_tone"])
-			var/new_tone = input(user, "Please select skin tone level: 1-220 (1=albino, 35=caucasian, 150=black, 220='very' black)", "Character Generation")  as text
+			var/new_tone = input(user, "Цвет кожи: 1-220 (1=альбинос, 35=европеец, 150=чёрный, 220='очень' чёрный)", "Создание Персонажа")  as text
 
 			if (new_tone)
 				s_tone = max(min(round(text2num(new_tone)), 220), 1)
 				s_tone =  -s_tone + 35
 
 		if (link_tags["h_style"])
-			var/new_style = input(user, "Please select hair style", "Character Generation")  as null|anything in list( "Cut Hair", "Short Hair", "Long Hair", "Mohawk", "Balding", "Wave", "Bedhead", "Dreadlocks", "Ponytail", "Bald" )
+			var/new_style = input(user, "Тип волос", "Создание Персонажа")  as null|anything in list( "Стрижка", "Короткие волосы", "Длинные волос", "Могавк", "Лысина", "Волна", "Нерасчесанные волосы", "Дредлоки", "Хвостик", "Лысина" )
 
 			if (new_style)
 				h_style = new_style
 
 		if (link_tags["f_style"])
-			var/new_style = input(user, "Please select facial style", "Character Generation")  as null|anything in list("Watson", "Chaplin", "Selleck", "Full Beard", "Long Beard", "Neckbeard", "Van Dyke", "Elvis", "Abe", "Chinstrap", "Hipster", "Goatee", "Hogan", "Shaved")
+			var/new_style = input(user, "Тип волос&#255;ного покрова на лице", "Создание Персонажа")  as null|anything in list("Ватсон", "Чаплин", "Селлек", "Полна&#255; борода", "Длинна&#255; борода", "Борода без усов", "Ван Дайк", "Элвис", "Абэ", "Ремень", "Хипстер", "Козлина&#255; бородка", "Хоган", "Бритый")
 
 			if (new_style)
 				f_style = new_style
@@ -614,7 +614,7 @@ datum/preferences
 		if (link_tags["b_random_name"])
 			be_random_name = !be_random_name
 		if(link_tags["editbio"])
-			bio = input(usr,"Write your biography.","Biography",bio) as message
+			bio = input(usr,"Напишите свою биографию.","Биографи&#255;",bio) as message
 		if(!IsGuestKey(user.key))
 			if(link_tags["saveslot"])
 				var/slot = link_tags["saveslot"]
@@ -625,7 +625,7 @@ datum/preferences
 					usr << query.ErrorMsg()
 					usr << "Report this."
 				else
-					usr << "Saved"
+					usr << "Сохранено"
 
 			else if(link_tags["loadslot"])
 				var/slot = link_tags["loadslot"]
@@ -633,7 +633,7 @@ datum/preferences
 					closesave(user)
 					return
 				if(!savefile_load(user, 0,slot))
-					alert(user, "You do not have a savefile.")
+					alert(user, "У Вас нет файла сохранени&#255;.")
 				else
 					curslot = slot
 					loadsave(user)
@@ -646,7 +646,7 @@ datum/preferences
 				usr << query.ErrorMsg()
 				usr << "Report this."
 			else
-				usr << "Slot [slot] Deleted."
+				usr << "Слот [slot] Удален."
 				loadsave(usr)
 		if(link_tags["loadslot2"])
 			loadsave(user)
@@ -661,18 +661,18 @@ datum/preferences
 			var/count = slot.len
 			count++
 			if(count > 10)
-				usr << "You have reached the character limit."
+				usr << "Вы достигли лимита персонажей."
 				return
-			var/slotname = input(usr,"Choose a name for your slot","Name","Default")
+			var/slotname = input(usr,"Выберите им&#255; дл&#255; своего слота","Им&#255;","По умолчанию")
 			slotname = dbcon.Quote(slotname)
 			var/DBQuery/query = dbcon.NewQuery("REPLACE INTO `players` (`ckey`,`slot`,`slotname`,`real_name`, `gender`, `ages`, `occupation1`, `occupation2`, `occupation3`,`hair_red`, `hair_green`, `hair_blue`, `facial_red`, `facial_green`, `facial_blue`, `skin_tone`, `hair_style_name`, `facial_style_name`, `eyes_red`,`eyes_green`, `eyes_blue`, `blood_type`, `be_syndicate`, `be_nuke_agent`, `be_takeover_agent`, `underwear`,`name_is_always_random`,`bios`) VALUES ('[user.ckey]','[count]',[slotname] ,'New Char', 'MALE', '30', 'No Preference','No Preference', 'No Preference', '0', '0', '0', '0', '0', '0', '0', 'Short Hair', 'Shaved', '0', '0', '0', 'A+', '0', '0', '0', '1','0','Nothing here yet...');")
 			if(!query.Execute())
 				usr << query.ErrorMsg()
 				usr << "Report this."
 			else
-				usr << "Saved"
+				usr << "Сохранено"
 			if(!savefile_load(user, 0,count))
-				alert(user, "You do not have a savefile.")
+				alert(user, "У Вас нет файла сохранени&#255;.")
 			else
 				curslot = count
 				closesave(user)
@@ -681,9 +681,9 @@ datum/preferences
 			randomize_name()
 
 			age = 30
-			occupation1 = "No Preference"
-			occupation2 = "No Preference"
-			occupation3 = "No Preference"
+			occupation1 = "Нет предпочтений"
+			occupation2 = "Нет предпочтений"
+			occupation3 = "Нет предпочтений"
 			underwear = 1
 			be_syndicate = 0
 			be_random_name = 0
@@ -693,8 +693,8 @@ datum/preferences
 			r_facial = 0.0
 			g_facial = 0.0
 			b_facial = 0.0
-			h_style = "Short Hair"
-			f_style = "Shaved"
+			h_style = "Короткие волосы"
+			f_style = "Бритый"
 			r_eyes = 0.0
 			g_eyes = 0.0
 			b_eyes = 0.0
@@ -741,53 +741,54 @@ datum/preferences
 				character.UI = 'screen1_agreen.dmi'*/
 
 		switch(h_style)
-			if("Short Hair")
+			if("Короткие волосы")
 				character.hair_icon_state = "hair_a"
-			if("Long Hair")
+			if("Длинные волосы")
 				character.hair_icon_state = "hair_b"
-			if("Cut Hair")
+			if("Стрижка")
 				character.hair_icon_state = "hair_c"
-			if("Mohawk")
+			if("Могавк")
 				character.hair_icon_state = "hair_d"
-			if("Balding")
+			if("Лысина")
 				character.hair_icon_state = "hair_e"
-			if("Wave")
+			if("Волна")
 				character.hair_icon_state = "hair_f"
-			if("Bedhead")
+			if("Нерасчесанные волосы")
 				character.hair_icon_state = "hair_bedhead"
-			if("Dreadlocks")
+			if("Дредлоки")
 				character.hair_icon_state = "hair_dreads"
-			if("Ponytail")
+			if("Хвостик")
 				character.hair_icon_state = "hair_ponytail"
 			else
 				character.hair_icon_state = "bald"
 
+
 		switch(f_style)
-			if ("Watson")
+			if ("Ватсон")
 				character.face_icon_state = "facial_watson"
-			if ("Chaplin")
+			if ("Чаплин")
 				character.face_icon_state = "facial_chaplin"
-			if ("Selleck")
+			if ("Селлек")
 				character.face_icon_state = "facial_selleck"
-			if ("Neckbeard")
+			if ("Борода без усов")
 				character.face_icon_state = "facial_neckbeard"
-			if ("Full Beard")
+			if ("Полна&#255; борода")
 				character.face_icon_state = "facial_fullbeard"
-			if ("Long Beard")
+			if ("Длинна&#255; борода")
 				character.face_icon_state = "facial_longbeard"
-			if ("Van Dyke")
+			if ("Ван Дайк")
 				character.face_icon_state = "facial_vandyke"
-			if ("Elvis")
+			if ("Элвис")
 				character.face_icon_state = "facial_elvis"
-			if ("Abe")
+			if ("Абэ")
 				character.face_icon_state = "facial_abe"
-			if ("Chinstrap")
+			if ("Ремень")
 				character.face_icon_state = "facial_chin"
-			if ("Hipster")
+			if ("Хипстер")
 				character.face_icon_state = "facial_hip"
-			if ("Goatee")
+			if ("Козлина&#255; бородка")
 				character.face_icon_state = "facial_gt"
-			if ("Hogan")
+			if ("Хоган")
 				character.face_icon_state = "facial_hogan"
 			else
 				character.face_icon_state = "bald"

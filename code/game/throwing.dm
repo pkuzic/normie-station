@@ -76,7 +76,7 @@
 /atom/var/throwpass = 0
 /atom/proc/throw_impact(atom/hit_atom)
 	if(ismob(hit_atom))
-		hit_atom.visible_message("\red </b>[src.nominative]</b> попадает прямо в <b>[hit_atom]</b>!")
+		hit_atom.visible_message("\red </b>[src.nominative]</b> попадает пр&#255;мо в <b>[hit_atom]</b>!")
 		var/mob/M = hit_atom
 		if(src.vars.Find("throwforce"))
 			M.bruteloss += src:throwforce

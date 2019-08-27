@@ -214,9 +214,9 @@
 	if (( istype(W, /obj/item/weapon/screwdriver) ))
 		src.status = !( src.status )
 		if (src.status)
-			user.show_message("\blue Броня теперь вкручена!", 1)
+			user.show_message("\blue Брон&#255; теперь вкручена!", 1)
 		else
-			user.show_message("\blue Броня теперь откручена!", 1)
+			user.show_message("\blue Брон&#255; теперь откручена!", 1)
 		src.add_fingerprint(user)
 
 /obj/item/assembly/a_i_a/Del()
@@ -313,9 +313,9 @@
 		return
 	src.status = !( src.status )
 	if (src.status)
-		user.show_message("\blue Датчик движения теперь вкручен!", 1)
+		user.show_message("\blue Датчик движени&#255; теперь вкручен!", 1)
 	else
-		user.show_message("\blue Датчик движения теперь откручен!", 1)
+		user.show_message("\blue Датчик движени&#255; теперь откручен!", 1)
 	src.part1.b_stat = !( src.status )
 	src.add_fingerprint(user)
 	return
@@ -505,9 +505,9 @@
 		return
 	src.status = !( src.status )
 	if (src.status)
-		user.show_message("\blue Рация теперь вкручена! Воспламенитель будет работать!", 1)
+		user.show_message("\blue Раци&#255; теперь вкручена! Воспламенитель будет работать!", 1)
 	else
-		user.show_message("\blue Рация теперь откручен! Воспланитель не будет работать.", 1)
+		user.show_message("\blue Раци&#255; теперь откручен! Воспланитель не будет работать.", 1)
 	src.part2.status = src.status
 	src.part1.b_stat = !( src.status )
 	src.add_fingerprint(user)
@@ -623,12 +623,12 @@
 		return
 	if (!( src.status ))
 		src.status = 1
-		bombers += "[key_name(user)] установил бомбу с датчиком движения. Температура: [src.part3.air_contents.temperature-T0C]"
-		message_admins("[key_name_admin(user)] установил бомбу с датчиком движения. Температура: [src.part3.air_contents.temperature-T0C]")
+		bombers += "[key_name(user)] установил бомбу с датчиком движени&#255;. Температура: [src.part3.air_contents.temperature-T0C]"
+		message_admins("[key_name_admin(user)] установил бомбу с датчиком движени&#255;. Температура: [src.part3.air_contents.temperature-T0C]")
 		user.show_message("\blue В клапане плазменного бака пробурено отверстие под давлением. Плазменный бак теперь может быть зажжен.", 1)
 	else
 		src.status = 0
-		bombers += "[key_name(user)] убрал бомбу с датчиком движения. Температура: [src.part3.air_contents.temperature-T0C]"
+		bombers += "[key_name(user)] убрал бомбу с датчиком движени&#255;. Температура: [src.part3.air_contents.temperature-T0C]"
 		user << "\blue Отверстие закрыто."
 	src.part2.status = src.status
 	src.add_fingerprint(user)
@@ -717,7 +717,7 @@
 	if (!( src.status ))
 		src.status = 1
 		bombers += "[key_name(user)] установил бомбу с таймером. Температура: [src.part3.air_contents.temperature-T0C]"
-		message_admins("[key_name_admin(user)] установил бомбу с датчиком движения. Температура: [src.part3.air_contents.temperature-T0C]")
+		message_admins("[key_name_admin(user)] установил бомбу с датчиком движени&#255;. Температура: [src.part3.air_contents.temperature-T0C]")
 		user.show_message("\blue В клапане плазменного бака пробурено отверстие под давлением. Плазменный бак теперь может быть зажжен.", 1)
 	else
 		src.status = 0
@@ -1149,7 +1149,7 @@
 	set src in oview(12)
 	..()
 	if(armed)
-		usr << "\red Похоже, что заряжено"
+		usr << "\red Похоже, что зар&#255;жено"
 
 /obj/item/weapon/mousetrap/proc/triggered(mob/target as mob, var/type = "feet")
 	if(!armed)
@@ -1181,7 +1181,7 @@
 /obj/item/weapon/mousetrap/attack_self(mob/user as mob)
 	if(!armed)
 		icon_state = "mousetraparmed"
-		user << "\blue Ты заряжаешь мышеловку."
+		user << "\blue Ты зар&#255;жаешь мышеловку."
 	else
 		icon_state = "mousetrap"
 		if((user.brainloss >= 60 || user.mutations & 16) && prob(50))
@@ -1193,7 +1193,7 @@
 			for(var/mob/O in viewers(user, null))
 				if(O == user)
 					continue
-				O.show_message(text("\red <B>[user] случайно активирует мышеловку, ломая свои пальцы!</B>"), 1)
+				O.show_message(text("\red <B>[user] случайно активирует мышеловку, лома&#255; свои пальцы!</B>"), 1)
 			return
 		user << "\blue Ты деактивируешь мышеловку."
 	armed = !armed
@@ -1210,7 +1210,7 @@
 			for(var/mob/O in viewers(user, null))
 				if(O == user)
 					continue
-				O.show_message(text("\red <B>[user] случайно активирует мышеловку, ломая свои пальцы!</B>"), 1)
+				O.show_message(text("\red <B>[user] случайно активирует мышеловку, лома&#255; свои пальцы!</B>"), 1)
 			return
 	..()
 
@@ -1230,5 +1230,5 @@
 	if(!armed)
 		return ..()
 	for(var/mob/O in viewers(src, null))
-		O.show_message(text("\red <B>Мышеловка активируется [A].</B>"), 1)
+		O.show_message(text("\red <B>Мышеловка активируетс&#255; [A].</B>"), 1)
 	src.triggered(null)

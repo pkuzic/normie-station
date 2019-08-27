@@ -93,9 +93,9 @@
 					if(T && istype(T, /turf/space) && (istype(user.loc, /turf/space) || istype(user.loc, /turf/space/hull)))
 						user.Move(T)
 					else
-						user << "\red Ты натыкаешься на покрытие корабля."
+						user << "\red Ты натыкаешьс&#255; на покрытие корабл&#255;."
 				else
-					user << "\red Гравитация судна хорошо держит тебя на орбите!" // Assuming the ship starts on z level 1, you don't want to go past it
+					user << "\red Гравитаци&#255; судна хорошо держит теб&#255; на орбите!" // Assuming the ship starts on z level 1, you don't want to go past it
 
 			if (DOWN) // Going down!
 				if (user.z != 4 && user.z != 5) // If we aren't at the very bottom of the ship, or out in space
@@ -104,9 +104,9 @@
 					if(T && (istype(T, /turf/space) || istype(T, /turf/space/hull)) && istype(user.loc, /turf/space))
 						user.Move(T)
 					else
-						user << "\red Ты натыкаешься на покрытие корабля."
+						user << "\red Ты натыкаешьс&#255; на покрытие корабл&#255;."
 				else
-					user << "\red Гравитация судна хорошо держит тебя на орбите!"
+					user << "\red Гравитаци&#255; судна хорошо держит теб&#255; на орбите!"
 
 
 /obj/item/weapon/tank/jetpack/verb/toggle()

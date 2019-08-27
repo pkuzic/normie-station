@@ -10,7 +10,7 @@
 	prepositive = "пропускном клапане" //О ком? О чем? (думаю)
 
 	icon_state = "valve_1"
-	desc = "Регулирует передачу газа между двумя резервуарами."
+	desc = "Регулирует передачу газа между двум&#255; резервуарами."
 	var/obj/item/weapon/tank/tank_one
 	var/obj/item/weapon/tank/tank_two
 	var/obj/item/device/attached_device
@@ -22,25 +22,25 @@
 	attackby(obj/item/item, mob/user)
 		if(istype(item, /obj/item/weapon/tank))
 			if(tank_one && tank_two)
-				user << "\red Для начала следует убрать один из резервуаров!"
+				user << "\red Дл&#255; начала следует убрать один из резервуаров!"
 				return
 
 			if(!tank_one)
 				tank_one = item
 				user.drop_item()
 				item.loc = src
-				user << "\blue Ты присоединяешь резервуар к пропускному клапану!"
+				user << "\blue Ты присоедин&#255;ешь резервуар к пропускному клапану!"
 			else if(!tank_two)
 				tank_two = item
 				user.drop_item()
 				item.loc = src
-				user << "\blue Ты присоединяешь резервуар к пропускному клапану!"
+				user << "\blue Ты присоедин&#255;ешь резервуар к пропускному клапану!"
 
 			update_icon()
 
 		else if(istype(item, /obj/item/device/radio/signaler) || istype(item, /obj/item/device/timer) || istype(item, /obj/item/device/infra) || istype(item, /obj/item/device/prox_sensor))
 			if(attached_device)
-				user << "\red Для начала следует убрать одно из устройств из пропускного клапана!"
+				user << "\red Дл&#255; начала следует убрать одно из устройств из пропускного клапана!"
 				return
 
 			attached_device = item
@@ -64,7 +64,7 @@
 		<BR> <B> Первый резервуар:</B> [tank_one] [tank_one.nominative ? "<A href='?src=\ref[src];tankone=1'>Убрать</A>" : ""]
 		<BR> <B> Второй резервуар:</B> [tank_two] [tank_two.nominative ? "<A href='?src=\ref[src];tanktwo=1'>Убрать</A>" : ""]
 		<BR> <B> Прикреплено ко клапану:</B> [attached_device.nominative ? "<A href='?src=\ref[src];device=1'>[attached_device]</A>" : "Ничего"] [attached_device ? "<A href='?src=\ref[src];rem_device=1'>Убрать</A>" : ""]
-		<BR> <B> Состояние клапана: </B> [ valve_open ? "<A href='?src=\ref[src];open=1'>Закрыт</A> <B>Открыт</B>" : "<B>Закрыт</B> <A href='?src=\ref[src];open=1'>Открыт</A>"]"}
+		<BR> <B> Состо&#255;ние клапана: </B> [ valve_open ? "<A href='?src=\ref[src];open=1'>Закрыт</A> <B>Открыт</B>" : "<B>Закрыт</B> <A href='?src=\ref[src];open=1'>Открыт</A>"]"}
 
 		user << browse(dat, "window=trans_valve;size=600x300")
 		onclose(user, "trans_valve")

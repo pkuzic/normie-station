@@ -8,7 +8,7 @@ proc/Intoxicated(phrase) // using cp1251!
 		leng=lentext(phrase)
 		counter=lentext(phrase)
 		newphrase="";newletter=""
-	
+
 	while(counter>=1)
 		newletter=copytext(phrase,(leng-counter)+1,(leng-counter)+2)
 		if(rand(1,3)==3)

@@ -61,7 +61,7 @@ obj/structure
 		user << "\blue Наконец креплю балки..."
 		sleep(40)
 		if(get_turf(user) == T)
-			user << "\blue Ты закрепляешь балки!"
+			user << "\blue Ты закрепл&#255;ешь балки!"
 			new/obj/structure/girder( src.loc )
 			del(src)
 
@@ -70,7 +70,7 @@ obj/structure
 		user << "\blue Вот теперь добавлю обшивочку..."
 		sleep(40)
 		if (W && get_turf(user) == T)
-			user << "\blue Ты добавляешь обшивку!"
+			user << "\blue Ты добавл&#255;ешь обшивку!"
 			var/turf/Tsrc = get_turf(src)
 			Tsrc.ReplaceWithWall()
 			W:amount -= 2
@@ -94,7 +94,7 @@ obj/structure
 				del(src)
 				return
 		else
-			user << "\blue Сейчас укрепляю балочки..."
+			user << "\blue Сейчас укрепл&#255;ю балочки..."
 			sleep(60)
 			user << "\blue Балки усилены!"
 			new/obj/structure/girder/reinforced( src.loc )

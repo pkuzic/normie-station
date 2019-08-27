@@ -864,7 +864,7 @@ steam.start() -- spawns the effect
 			return
 
 		M.pulling = null
-		M << "\blue Ты поскальзываешься на пене!"
+		M << "\blue Ты поскальзываешьс&#255; на пене!"
 		playsound(src.loc, 'slip.ogg', 50, 1, -3)
 		M.stunned = 5
 		M.weakened = 2
@@ -936,7 +936,7 @@ steam.start() -- spawns the effect
 	instrumentative = "вспененным металлом" //Кем? Чем? (горжусь)
 	prepositive = "вспененном металле" //О ком? О чем? (думаю)
 
-	desc = "Лёгкая стена из вспененного металла."
+	desc = "Лёгка&#255; стена из вспененного металла."
 	var/metal = 1		// 1=aluminium, 2=iron
 
 	New()
