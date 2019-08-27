@@ -262,7 +262,7 @@
 	mymob.blind.icon_state = "black"
 	mymob.blind.name = " "
 	mymob.blind.screen_loc = "1,1 to 15,15"
-	mymob.blind.layer = 0
+	mymob.blind.invisibility = 101
 
 	mymob.flash = new /obj/screen( null )
 	mymob.flash.icon = 'screen1_alien.dmi'
@@ -299,4 +299,3 @@
 
 	mymob.client.screen += list( mymob.throw_icon, mymob.zone_sel, mymob.oxygen, mymob.toxin, mymob.fire, mymob.hands, mymob.healths, mymob.pullin, mymob.blind, mymob.flash, mymob.rest, mymob.sleep) //, mymob.mach )
 	mymob.client.screen += adding + other
-

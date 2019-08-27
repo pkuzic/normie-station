@@ -517,7 +517,7 @@
 	mymob.blind.icon_state = "blank"
 	mymob.blind.name = " "
 	mymob.blind.screen_loc = "1,1 to 15,15"
-	mymob.blind.layer = 0
+	mymob.blind.invisibility = 101
 
 	mymob.flash = new /obj/screen( null )
 	mymob.flash.icon_state = "blank"
