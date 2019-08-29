@@ -2397,9 +2397,30 @@ mob/verb/turnwest()
 
 	statpanel("Status")
 
-	if (client && client.holder)
-		stat(null, "([x], [y], [z])")
-		stat(null, "CPU: [world.cpu]")
+	if(client && client.holder)
+		if(statpanel("MC"))
+			//var/turf/T = get_turf(client.eye)
+			stat("Location:", "([x], [y], [z])")
+			stat("CPU:", "[world.cpu]")
+			stat("Instances:", "[num2text(world.contents.len, 10)]")
+			stat("World Time:", "[world.time]")
+			stat(null)
+			if(Master)
+				Master.stat_entry()
+			else
+				stat("Master Controller:", "ERROR")
+			if(Failsafe)
+				Failsafe.stat_entry()
+			else
+				stat("Failsafe Controller:", "ERROR")
+			if(Master)
+				stat(null)
+				for(var/datum/controller/subsystem/SS in Master.subsystems)
+					SS.stat_entry()
+
+		if(statpanel("Status"))
+			stat("Status", "([x], [y], [z])")
+			stat("Status", "CPU: [world.cpu]")
 
 /client/proc/station_explosion_cinematic()
 	if(mob)
