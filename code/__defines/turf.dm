@@ -211,7 +211,7 @@ turf/space/hull/New()
 						var/turf/simulated/floor/plating/F = new(src)				//Then change to a floor tile (no falling into unknown crap)
 						F.name = F.name
 						return*/
-		Del()
+		Destroy()
 			if(zone)
 				zone.Disconnect(src,floorbelow)
 			. = ..()

@@ -53,7 +53,7 @@
 			health = maxhealth
 			src.process()
 		else
-			del(src)
+			qdel(src)
 
 	examine()
 		set src in view()
@@ -381,4 +381,3 @@
 	proc/healthcheck()
 		if (src.health <= 0)
 			src.death()
-

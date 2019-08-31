@@ -315,7 +315,7 @@ No Implant Specifics"}
 		var/turf/t = find_loc(src)
 		if(t)
 			t.hotspot_expose(SPARK_TEMP,125)
-		del(src)
+		qdel(src)
 
 /obj/item/weapon/implant/timplant/trigger(emote, mob/source as mob)
 	if (emote == src.activation_emote)
@@ -473,6 +473,3 @@ mob/proc/endmindcontrol()
 	usr.mholder:m:loc:key = usr.key
 	usr.key = usr.mholder:d:key
 	usr.mholder:d:key = ""
-
-
-

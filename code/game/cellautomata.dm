@@ -130,7 +130,7 @@
 	return
 
 /*
-/world/Del()
+/world/Destroy()
 	world.Export("http://127.0.0.1:31338")
 	..()
 */
@@ -139,7 +139,7 @@
 	var/turf/t = locate(38,56,7)
 	for(var/area/a in t.loc:related)
 		for(var/obj/o in a)
-			o.Del()
+			o.Destroy()
 
 proc/ClearClosetSave()
 	var/list/l = new /list
@@ -205,7 +205,7 @@ proc/ClearClosetSave()
 
 	var/P = new /obj/decal/point(tile)
 	spawn (20)
-		del(P)
+		qdel(P)
 
 	usr.visible_message("<b>[usr]</b> points to [src]")
 

@@ -2,12 +2,12 @@
 	if(prob(25))
 		var/turf/location = src.loc
 		if (!( istype(location, /turf) ))
-			del(src)
+			qdel(src)
 
 		if(src.air_contents)
 			location.assume_air(air_contents)
 
-		del(src)
+		qdel(src)
 
 /obj/item/weapon/tank/attack_self(mob/user as mob)
 	user.machine = src
@@ -119,11 +119,11 @@
 			//world << "\blue Exploding Pressure: [pressure] kPa, intensity: [range]"
 			if(epicenter)
 				explosion(epicenter, round(range*0.25), round(range*0.5), round(range), round(range*1.5), 1)
-				del(src)
+				qdel(src)
 				return
 			else
 				message_admins("”пс, бомба взрываетс&#255; - [loc]")
-				del(src)
+				qdel(src)
 				return
 
 
@@ -132,7 +132,7 @@
 			if(integrity <= 0)
 				loc.assume_air(air_contents)
 				//TODO: make pop sound
-				del(src)
+				qdel(src)
 			else
 				integrity--
 
@@ -217,9 +217,9 @@
 
 	return
 
-/obj/item/weapon/tank/Del()
+/obj/item/weapon/tank/Destroy()
 	if(air_contents)
-		del(air_contents)
+		qdel(air_contents)
 
 	processing_items.Remove(src)
 
@@ -320,8 +320,8 @@
 		ground_zero.assume_air(air_contents)
 		ground_zero.hotspot_expose(1000, 125)
 
-	if(src.master) del(src.master)
-	del(src)
+	if(src.master) qdel(src.master)
+	qdel(src)
 
 /obj/item/weapon/tank/plasma/attackby(obj/item/weapon/W as obj, mob/user as mob)
 	..()
@@ -357,7 +357,7 @@
 		S.part1 = null
 		S.part2 = null
 		//S = null
-		del(S)
+		qdel(S)
 	if (istype(W, /obj/item/assembly/prox_ignite))
 		var/obj/item/assembly/prox_ignite/S = W
 		if (!( S.status ))
@@ -390,7 +390,7 @@
 		S.part1 = null
 		S.part2 = null
 		//S = null
-		del(S)
+		qdel(S)
 
 	if (istype(W, /obj/item/assembly/time_ignite))
 		var/obj/item/assembly/time_ignite/S = W
@@ -424,7 +424,7 @@
 		S.part1 = null
 		S.part2 = null
 		//S = null
-		del(S)
+		qdel(S)
 	if (istype(W, /obj/item/assembly/a_i_a))
 		var/obj/item/assembly/a_i_a/S = W
 		if (!( S.status ))
@@ -461,7 +461,7 @@
 		S.part2 = null
 		S.part3 = null
 		//S = null
-		del(S)
+		qdel(S)
 // PantsNote: More flamethrower assembly code. WOO!
 	if (istype(W, /obj/item/assembly/w_r_ignite))
 		var/obj/item/assembly/w_r_ignite/S = W
@@ -499,6 +499,6 @@
 		S.part2 = null
 		S.part3 = null
 		//S = null
-		del(S)
+		qdel(S)
 
 	return

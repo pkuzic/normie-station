@@ -158,7 +158,7 @@ datum
 					else
 						burned_fuel = fuel_store.moles
 						oxygen -= fuel_store.moles
-						del(fuel_store)
+						qdel(fuel_store)
 
 					energy_released += FIRE_CARBON_ENERGY_RELEASED * burned_fuel
 					carbon_dioxide += burned_fuel
@@ -360,7 +360,7 @@ datum
 						trace_gases += corresponding
 					corresponding.moles += trace_gas.moles//*giver.group_multiplier/group_multiplier
 
-			//del(giver)
+			//qdel(giver)
 			return 1
 
 		remove(amount)

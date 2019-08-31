@@ -14,21 +14,21 @@
 			for(var/atom/movable/A as mob|obj in src)
 				A.loc = src.loc
 				ex_act(severity)
-			del(src)
+			qdel(src)
 			return
 		if(2.0)
 			if (prob(50))
 				for(var/atom/movable/A as mob|obj in src)
 					A.loc = src.loc
 					ex_act(severity)
-				del(src)
+				qdel(src)
 				return
 		if(3.0)
 			if (prob(5))
 				for(var/atom/movable/A as mob|obj in src)
 					A.loc = src.loc
 					ex_act(severity)
-				del(src)
+				qdel(src)
 				return
 	return
 
@@ -45,7 +45,7 @@
 				A.loc = src
 		playsound(src.loc, 'Deconstruct.ogg', 50, 1)
 		//src.connected = null
-		del(src.connected)
+		qdel(src.connected)
 	else
 		playsound(src.loc, 'Deconstruct.ogg', 50, 1)
 		src.connected = new /obj/m_tray( src.loc )
@@ -60,7 +60,7 @@
 			src.connected.icon_state = "morguet"
 		else
 			//src.connected = null
-			del(src.connected)
+			qdel(src.connected)
 	src.add_fingerprint(user)
 	update()
 	return
@@ -96,7 +96,7 @@
 		src.connected.icon_state = "morguet"
 	else
 		//src.connected = null
-		del(src.connected)
+		qdel(src.connected)
 	return
 
 /obj/m_tray/CanPass(atom/movable/mover, turf/target, height=0, air_group=0)
@@ -118,7 +118,7 @@
 		src.connected.update()
 		add_fingerprint(user)
 		//SN src = null
-		del(src)
+		qdel(src)
 		return
 	return
 
@@ -149,21 +149,21 @@
 			for(var/atom/movable/A as mob|obj in src)
 				A.loc = src.loc
 				ex_act(severity)
-			del(src)
+			qdel(src)
 			return
 		if(2.0)
 			if (prob(50))
 				for(var/atom/movable/A as mob|obj in src)
 					A.loc = src.loc
 					ex_act(severity)
-				del(src)
+				qdel(src)
 				return
 		if(3.0)
 			if (prob(5))
 				for(var/atom/movable/A as mob|obj in src)
 					A.loc = src.loc
 					ex_act(severity)
-				del(src)
+				qdel(src)
 				return
 	return
 
@@ -189,7 +189,7 @@
 				A.loc = src
 		playsound(src.loc, 'Deconstruct.ogg', 50, 1)
 		//src.connected = null
-		del(src.connected)
+		qdel(src.connected)
 	else if (src.locked == 0)
 		playsound(src.loc, 'Deconstruct.ogg', 50, 1)
 		src.connected = new /obj/c_tray( src.loc )
@@ -204,7 +204,7 @@
 			src.connected.icon_state = "cremat"
 		else
 			//src.connected = null
-			del(src.connected)
+			qdel(src.connected)
 	src.add_fingerprint(user)
 	update()
 
@@ -239,7 +239,7 @@
 		src.connected.icon_state = "cremat"
 	else
 		//src.connected = null
-		del(src.connected)
+		qdel(src.connected)
 	return
 
 /obj/crematorium/proc/cremate(atom/A, mob/user as mob)
@@ -279,7 +279,7 @@
 				for (var/obj/item/weapon/W in M)
 					if (prob(10))
 						W.loc = M:loc
-				del(M)
+				qdel(M)
 			else if (istype(M,/mob/living) && !(M:client)) //
 				spawn(0)
 					var/i
@@ -293,7 +293,7 @@
 					for (var/obj/item/weapon/W in M)
 						if (prob(10))
 							W.loc = M:loc
-					del(M)
+					qdel(M)
 		for (var/mob/M in viewers(user))
 			M.show_message("\red You hear a roar as the crematorium activates.", 1)
 		spawn(100)
@@ -322,7 +322,7 @@
 		src.connected.update()
 		add_fingerprint(user)
 		//SN src = null
-		del(src)
+		qdel(src)
 		return
 	return
 
@@ -346,4 +346,3 @@
 	else
 		usr << "\red Access denied."
 	return
-

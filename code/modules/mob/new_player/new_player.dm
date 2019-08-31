@@ -143,7 +143,7 @@ mob/new_player
 				observer.real_name = observer.name
 
 
-				del(src)
+				qdel(src)
 				return 1
 
 		if(href_list["late_join"])
@@ -267,7 +267,7 @@ mob/new_player
 			var/starting_loc = pick(latejoin)
 			character.loc = starting_loc
 			ticker.mode.latespawn(character)
-			del(src)
+			qdel(src)
 
 		else
 			src << alert("[rank] недоступен. Попробуйте выбрать иную роль.")

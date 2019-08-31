@@ -33,7 +33,7 @@
 					C << uploaded_sound
 		else
 			usr << "You already used up your jukebox monies this round!"
-			del(uploaded_sound)
+			qdel(uploaded_sound)
 //	else
 //		usr << "Can't play Sound."
 

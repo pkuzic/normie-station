@@ -64,7 +64,7 @@ RCD
 		if ((matter + 10) > 30)
 			user << "The RCD can't hold any more matter."
 			return
-		del(W)
+		qdel(W)
 		matter += 10
 		playsound(src.loc, 'click.ogg', 50, 1)
 		user << "The RCD now holds [matter]/30 matter-units."
@@ -185,7 +185,7 @@ RCD
 				spark_system.set_up(5, 0, src)
 				src.spark_system.start()
 				matter -= 10
-				del(A)
+				qdel(A)
 				playsound(src.loc, 'Deconstruct.ogg', 50, 1)
 				user << "The RCD now holds [matter]/30 matter-units."
 				desc = "A RCD. It currently holds [matter]/30 matter-units."
@@ -202,5 +202,5 @@ RCD
 			playsound(src.loc, 'click.ogg', 50, 1)
 			user << "The RCD now holds [N.matter]/30 matter-units."
 			desc = "A RCD. It currently holds [N.matter]/30 matter-units."
-			del(src)
+			qdel(src)
 			return

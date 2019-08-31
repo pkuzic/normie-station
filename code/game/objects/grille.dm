@@ -5,12 +5,12 @@
 /obj/grille/ex_act(severity)
 	switch(severity)
 		if(1.0)
-			del(src)
+			qdel(src)
 			return
 		if(2.0)
 			if (prob(50))
 				//SN src = null
-				del(src)
+				qdel(src)
 				return
 		if(3.0)
 			if (prob(25))
@@ -127,7 +127,7 @@
 			if (src.health <= -10.0)
 				new /obj/item/weapon/rods( src.loc )
 				//SN src = null
-				del(src)
+				qdel(src)
 				return
 	return
 

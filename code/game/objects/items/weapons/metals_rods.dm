@@ -32,7 +32,7 @@ LATTICE
 		F.add_fingerprint(user)
 		if (src.amount < 1)
 			//SN src = null
-			del(src)
+			qdel(src)
 			return
 	else
 		..()
@@ -54,7 +54,7 @@ LATTICE
 
 		amount -= 2
 		if(amount == 0)
-			del(src)
+			qdel(src)
 		return
 	if (istype(W, /obj/item/weapon/rods))
 		if (W:amount == 60)
@@ -65,7 +65,7 @@ LATTICE
 		else
 			W:amount += src:amount
 			//SN src = null
-			del(src)
+			qdel(src)
 			return
 	return
 
@@ -85,7 +85,7 @@ LATTICE
 		src.amount -= 2
 		new /obj/grille( usr.loc )
 	if (src.amount < 1)
-		del(src)
+		qdel(src)
 		return
 	src.add_fingerprint(user)
 	return
@@ -112,7 +112,7 @@ LATTICE
 		F.layer = 20
 		F.add_fingerprint(user)
 		if (src.amount < 1)
-			del(src)
+			qdel(src)
 			return
 	else
 		..()
@@ -130,7 +130,7 @@ LATTICE
 	else
 		W.amount += src.amount
 		//SN src = null
-		del(src)
+		qdel(src)
 		return
 	return
 
@@ -178,7 +178,7 @@ LATTICE
 	if (href_list["make"])
 		if (src.amount < 1)
 			//SN src = null
-			del(src)
+			qdel(src)
 			return
 		switch(href_list["make"])
 			if("rods")
@@ -314,7 +314,7 @@ LATTICE
 			usr << browse(null, "window=met_sheet")
 			onclose(usr, "met_sheet")
 			usr.u_equip(src)
-			del(src)
+			qdel(src)
 
 
 			return
@@ -354,7 +354,7 @@ LATTICE
 	else
 		W.amount += src.amount
 		//SN src = null
-		del(src)
+		qdel(src)
 		return
 	return
 
@@ -365,7 +365,7 @@ LATTICE
 	if (href_list["make"])
 		if (src.amount < 1)
 			//SN src = null
-			del(src)
+			qdel(src)
 			return
 		switch(href_list["make"])
 			if("table")
@@ -387,7 +387,7 @@ LATTICE
 			usr << browse(null, "window=met_sheet")
 			onclose(usr, "met_sheet")
 			usr.u_equip(src)
-			del(src)
+			qdel(src)
 
 
 			return
@@ -403,16 +403,16 @@ LATTICE
 
 /obj/lattice/blob_act()
 	if(prob(75))
-		del(src)
+		qdel(src)
 		return
 
 /obj/lattice/ex_act(severity)
 	switch(severity)
 		if(1.0)
-			del(src)
+			qdel(src)
 			return
 		if(2.0)
-			del(src)
+			qdel(src)
 			return
 		if(3.0)
 			return
@@ -430,13 +430,13 @@ LATTICE
 
 		if (C:amount < 1)
 			user.u_equip(C)
-			del(C)
-		del(src)
+			qdel(C)
+		qdel(src)
 		return
 	if (istype(C, /obj/item/weapon/weldingtool) && C:welding)
 		user << "\blue Slicing lattice joints ..."
 		C:eyecheck(user)
 		new /obj/item/weapon/rods(src.loc)
-		del(src)
+		qdel(src)
 
 	return

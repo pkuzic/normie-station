@@ -284,12 +284,12 @@ Do deserunt Ut cillum in ad Duis et laboris dolore do voluptate anim Excepteur m
 			updateicon()
 			user << "\blue You remove the broken APC parts"
 		else if(repair_state == 1 && istype(W,/obj/item/weapon/circuitry))
-			del(W)
+			qdel(W)
 			repair_state = 2
 			updateicon()
 			user << "\blue You add a circuit board.  You need one more"
 		else if(repair_state == 2 && istype(W,/obj/item/weapon/circuitry))
-			del(W)
+			qdel(W)
 			repair_state = 3
 			updateicon()
 			user << "\blue You finish adding the APC circuits."
@@ -1015,7 +1015,7 @@ Do deserunt Ut cillum in ad Duis et laboris dolore do voluptate anim Excepteur m
 	switch(severity)
 		if(1.0)
 			set_broken()
-			del(src)
+			qdel(src)
 			return
 		if(2.0)
 			if (prob(50))

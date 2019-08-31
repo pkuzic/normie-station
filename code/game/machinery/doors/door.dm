@@ -85,7 +85,7 @@
 
 		update_nearby_tiles(need_rebuild=1)
 
-	Del()
+	Destroy()
 		update_nearby_tiles()
 
 		..()
@@ -98,7 +98,7 @@
 
 		update_nearby_tiles(need_rebuild=1)
 
-	Del()
+	Destroy()
 		update_nearby_tiles()
 
 		..()
@@ -158,15 +158,15 @@
 	return
 /obj/machinery/door/blob_act()
 	if(prob(20))
-		del(src)
+		qdel(src)
 
 /obj/machinery/door/ex_act(severity)
 	switch(severity)
 		if(1.0)
-			del(src)
+			qdel(src)
 		if(2.0)
 			if(prob(25))
-				del(src)
+				qdel(src)
 			else
 				src.forceopen()
 				src.operating = -1

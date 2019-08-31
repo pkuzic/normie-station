@@ -92,19 +92,19 @@
 			for (var/atom/movable/A as mob|obj in src)
 				A.loc = src.loc
 				ex_act(severity)
-			del(src)
+			qdel(src)
 		if (2)
 			if (prob(50))
 				for (var/atom/movable/A as mob|obj in src)
 					A.loc = src.loc
 					ex_act(severity)
-				del(src)
+				qdel(src)
 		if (3)
 			if (prob(5))
 				for (var/atom/movable/A as mob|obj in src)
 					A.loc = src.loc
 					ex_act(severity)
-				del(src)
+				qdel(src)
 
 /obj/closet/bullet_act(flag)
 
@@ -125,7 +125,7 @@
 	if(prob(4))
 		for (var/atom/movable/A as mob|obj in src)
 			A.loc = src.loc
-		del(src)
+		qdel(src)
 	return
 
 // this should probably use dump_contents()
@@ -133,12 +133,12 @@
 	if (prob(50))
 		for(var/atom/movable/A as mob|obj in src)
 			A.loc = src.loc
-		del(src)
+		qdel(src)
 
 /obj/closet/meteorhit(obj/O as obj)
 	if (O.icon_state == "flaming")
 		src.dump_contents()
-		del(src)
+		qdel(src)
 
 /obj/closet/attackby(obj/item/weapon/W as obj, mob/user as mob)
 	if (src.opened)
@@ -153,7 +153,7 @@
 			new /obj/item/weapon/sheet/metal(src.loc)
 			for (var/mob/M in viewers(src))
 				M.show_message("\red <b>[user.name]</b> распаивает сварочным аппаратом <b>[src.nominative]</b>.", 3, "\red Ты слышишь сварочные работы.", 2)
-			del(src)
+			qdel(src)
 			return
 
 		usr.drop_item()

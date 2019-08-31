@@ -7,7 +7,7 @@
 			signal.source = src
 			signal.data["message"] = "ACTIVATE"
 			src.master.receive_signal(signal)
-			del(signal)
+			qdel(signal)
 			return
 	else
 		for(var/mob/O in hearers(null, null))

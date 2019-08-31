@@ -61,7 +61,7 @@ var/list/postsetuphooks = list()
 	var/can_continue = src.mode.pre_setup()
 
 	if(!can_continue)
-		del(mode)
+		qdel(mode)
 
 		current_state = GAME_STATE_PREGAME
 		world << "<B>Error setting up [master_mode].</B> Reverting to pre-game lobby."
@@ -102,7 +102,7 @@ var/list/postsetuphooks = list()
 		for(var/obj/landmark/start/S in world)
 			//Deleting Startpoints but we need the ai point to AI-ize people later
 			if (S.name != "AI")
-				del(S)
+				qdel(S)
 
 		//Start master_controller.process()
 		world << "<FONT color='blue'><B>Enjoy the game!</B></FONT>"
@@ -126,7 +126,7 @@ var/list/postsetuphooks = list()
 					player.AIize()
 				else if(player.mind)
 					player.create_character()
-					del(player)
+					qdel(player)
 	proc/add_minds()
 		for(var/mob/living/carbon/human/player in world)
 			if(player.mind)
@@ -278,4 +278,3 @@ var/list/postsetuphooks = list()
 			return
 //Anything else, like sandbox, return.
 */
-

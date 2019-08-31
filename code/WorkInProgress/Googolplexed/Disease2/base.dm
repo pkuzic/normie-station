@@ -16,7 +16,7 @@
 
 	New()
 		..()
-		spawn(300) del(src)
+		spawn(300) qdel(src)
 
 /mob/living/carbon/proc/get_infection_chance()
 	var/score = 0

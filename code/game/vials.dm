@@ -60,7 +60,7 @@
 /obj/item/weapon/vial/green/drink(user)
 	var/A = src
 	src = null
-	del(A)
+	qdel(A)
 	switch(pick(1,2,3))
 		if(1)
 			spawn(300)
@@ -75,7 +75,7 @@
 	var/A = src
 	var/atom/sourceloc = get_turf(src.loc)
 	src = null
-	del(A)
+	qdel(A)
 	var/obj/overlay/O = new /obj/overlay( sourceloc )
 	var/obj/overlay/O2 = new /obj/overlay( sourceloc )
 	O.name = "green liquid"
@@ -98,7 +98,7 @@
 	flick("greenshatter2",O)
 	O.icon_state = "nothing"
 	sleep(5)
-	del(O)
+	qdel(O)
 /////////////////////////////////////////////////////green
 
 /////////////////////////////////////////////////////blue
@@ -106,7 +106,7 @@
 	var/A = src
 	var/atom/sourceloc = get_turf(src.loc)
 	src = null
-	del(A)
+	qdel(A)
 
 	var/obj/overlay/O = new /obj/overlay( sourceloc )
 	var/obj/overlay/O2 = new /obj/overlay( sourceloc )
@@ -128,14 +128,14 @@
 	flick("blueshatter2",O)
 	O.icon_state = "nothing"
 	sleep(5)
-	del(O)
+	qdel(O)
 
 /obj/item/weapon/vial/blue/shatter()
 
 	var/A = src
 	var/atom/sourceloc = get_turf(src.loc)
 	src = null
-	del(A)
+	qdel(A)
 
 	var/obj/overlay/O = new /obj/overlay( sourceloc )
 	var/obj/overlay/O2 = new /obj/overlay( sourceloc )
@@ -159,7 +159,7 @@
 	O.icon_state = "nothing"
 	sleep(5)
 
-	del(O)
+	qdel(O)
 
 /proc/liquify(var/mob/H, time = 150)
 
@@ -195,7 +195,7 @@
 						sleep(5)
 						step(water1,direction)
 					spawn(20)
-						del(water1)
+						qdel(water1)
 
 		sleep(time)
 		H.canmove = 0
@@ -215,7 +215,7 @@
 				water2.icon_state = "extinguish"
 				walk_to(water2,mobloc,-1,5)
 				sleep(20)
-				del(water2)
+				qdel(water2)
 
 		sleep(20)
 		flick("reappear",animation)
@@ -223,8 +223,8 @@
 		H.loc = mobloc
 		H.canmove = 1
 		H.client.eye = H
-		del(animation)
-		del(holder)
+		qdel(animation)
+		qdel(holder)
 
 
 /obj/dummy/liquid/relaymove(var/mob/user, direction)

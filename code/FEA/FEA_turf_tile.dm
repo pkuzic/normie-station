@@ -17,7 +17,7 @@ turf
 //		if(istype(movable_on_me))
 //			return movable_on_me.assume_air(giver)
 
-		del(giver)
+		qdel(giver)
 		return 0
 
 	return_air()
@@ -170,7 +170,7 @@ turf
 						if(istype(target))
 							air_master.tiles_to_update.Add(target)
 
-		Del()
+		Destroy()
 			if(air_master)
 				if(zone && !stop_zones)
 					zone.RemoveTurf(src)
@@ -180,7 +180,7 @@ turf
 				else
 					air_master.active_singletons.Remove(src)
 			if(active_hotspot)
-				del(active_hotspot)
+				qdel(active_hotspot)
 			if(blocks_air)
 				for(var/direction in list(NORTH, SOUTH, EAST, WEST, UP, DOWN))
 					var/turf/simulated/tile = get_step_3d(src,direction)

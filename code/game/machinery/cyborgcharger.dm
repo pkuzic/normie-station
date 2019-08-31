@@ -26,23 +26,23 @@
 			//	R.module_state_1 = null
 			//	R.module_state_2 = null
 			//	R.module_state_3 = null
-			//	del(R.module)
+			//	qdel(R.module)
 			//	R.module = new /obj/item/weapon/robot_module/standard(src)
 			if(R.class == "engineer")
 				R.deactivate_all_modules()
-				del(R.module)
+				qdel(R.module)
 				R.module = new /obj/item/weapon/robot_module/engineering(src)
 			if(R.class == "medical")
 				R.deactivate_all_modules()
-				del(R.module)
+				qdel(R.module)
 				R.module = new /obj/item/weapon/robot_module/medical(src)
 			if(R.class == "security")
 				R.deactivate_all_modules()
-				del(R.module)
+				qdel(R.module)
 				R.module = new /obj/item/weapon/robot_module/security(src)
 			if(R.class == "janitor")
 				R.deactivate_all_modules()
-				del(R.module)
+				qdel(R.module)
 				R.module = new /obj/item/weapon/robot_module/janitor(src)
 	return ..()
 

@@ -22,7 +22,7 @@
 	for(var/datum/data/row/R in src.db)
 		if(name == names)
 			src.db -= R
-			del(R)
+			qdel(R)
 			return 1
 	return 0
 datum/data/row/employee

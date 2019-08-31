@@ -146,7 +146,7 @@
 		B.health -= damage
 		B.update()
 	sleep(80)
-	del(src)
+	qdel(src)
 	return
 
 /obj/item/weapon/incendiarygrenade/proc/prime()
@@ -176,7 +176,7 @@
 		B.update()
 
 	sleep(10)
-	del(src)
+	qdel(src)
 	return
 
 
@@ -260,7 +260,7 @@
 		B.health -= damage
 		B.update()
 	sleep(100)
-	del(src)
+	qdel(src)
 	return
 
 /obj/item/weapon/mustardbomb/attack_self(mob/user as mob)
@@ -384,5 +384,3 @@
 		src.icon_state = "trashcan"
 		user << "\blue Due to conservation measures, the unit is unable to start until it is completely filled."
 		return
-
-

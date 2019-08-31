@@ -73,7 +73,7 @@
 		else
 			return 0
 	//G = null
-	del(G)
+	qdel(G)
 	return
 
 

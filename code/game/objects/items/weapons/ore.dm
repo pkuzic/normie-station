@@ -5,7 +5,7 @@
 	processing_items+=src
 	..()
 
-/obj/item/weapon/ore/Del()
+/obj/item/weapon/ore/Destroy()
 	processing_items -= src
 	..()
 

@@ -53,8 +53,8 @@
 		H.loc = mobloc
 		H.canmove = 1
 		H.client.eye = H
-		del(animation)
-		del(holder)
+		qdel(animation)
+		qdel(holder)
 
 /obj/dummy/spell_invis
 	name = "water"

@@ -130,7 +130,7 @@ datum
 					if (R.id == reagent)
 						if(amount == 0 || amount >= R.volume)
 							reagent_list -= A
-							del(A)
+							qdel(A)
 						else
 							R.volume -= amount
 						update_total()

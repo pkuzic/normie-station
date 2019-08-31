@@ -36,7 +36,7 @@
 	if (client.statpanel == "Status")
 		if (internal)
 			if (!internal.air_contents)
-				del(internal)
+				qdel(internal)
 			else
 				stat("Internal Atmosphere Info", internal.name)
 				stat("Tank Pressure", internal.air_contents.return_pressure())
@@ -76,7 +76,7 @@
 
 	else if (stat == 2 && !client)
 		gibs(loc, virus)
-		del(src)
+		qdel(src)
 		return
 
 	var/shielded = 0

@@ -81,7 +81,7 @@
 	var/t = 10 * src.wound_size
 	src.owner:bloodloss -= t
 	src.bleeding = 0
-	del(src)
+	qdel(src)
 
 /datum/organ/external/chest
 	name = "chest"

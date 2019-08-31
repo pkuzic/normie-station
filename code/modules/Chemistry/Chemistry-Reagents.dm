@@ -178,7 +178,7 @@ datum
 					lowertemp.temperature = max( min(lowertemp.temperature-2000,lowertemp.temperature / 2) ,0)
 					lowertemp.react()
 					T.assume_air(lowertemp)
-					del(hotspot)
+					qdel(hotspot)
 				return
 
 			reaction_obj(var/obj/O, var/volume)
@@ -190,7 +190,7 @@ datum
 					lowertemp.temperature = max( min(lowertemp.temperature-2000,lowertemp.temperature / 2) ,0)
 					lowertemp.react()
 					T.assume_air(lowertemp)
-					del(hotspot)
+					qdel(hotspot)
 				return
 
 		blood
@@ -561,7 +561,7 @@ datum
 					I.desc = "Looks like this was \an [O] some time ago."
 					for(var/mob/M in viewers(5, O))
 						M << "\red \the [O] melts."
-					del(O)
+					qdel(O)
 
 
 		pacid
@@ -619,7 +619,7 @@ datum
 					I.desc = "Looks like this was \an [O] some time ago."
 					for(var/mob/M in viewers(5, O))
 						M << "\red \the [O] melts."
-					del(O)
+					qdel(O)
 
 		radium
 			name = "Radium"
@@ -750,14 +750,14 @@ datum
 			reaction_obj(var/obj/O, var/volume)
 				if(!O) return
 				if(istype(O,/obj/decal/cleanable))
-					del(O)
+					qdel(O)
 				else
 					O.clean_blood()
 			reaction_turf(var/turf/T, var/volume)
 				T.overlays = null
 				T.clean_blood()
 				for(var/obj/decal/cleanable/C in src)
-					del(C)
+					qdel(C)
 			reaction_mob(var/mob/M, var/method=TOUCH, var/volume)
 				M.clean_blood()
 				if(istype(M, /mob/living/carbon))

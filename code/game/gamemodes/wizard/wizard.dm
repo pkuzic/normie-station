@@ -75,7 +75,7 @@
 	for (var/obj/landmark/A in world)
 		if (A.name == "Teleport-Scroll")
 			new /obj/item/weapon/teleportation_scroll(A.loc)
-			del(A)
+			qdel(A)
 			continue
 
 	switch(rand(1,100))
@@ -164,10 +164,10 @@
 	// generate a passcode if the uplink is hidden in a PDA
 	var/pda_pass = "[rand(100,999)] [pick("Morgan","Circe","Prospero","Merlin")]"
 
-	del(wizard_mob.wear_suit)
-	del(wizard_mob.head)
-	del(wizard_mob.shoes)
-	del(wizard_mob.r_hand)
+	qdel(wizard_mob.wear_suit)
+	qdel(wizard_mob.head)
+	qdel(wizard_mob.shoes)
+	qdel(wizard_mob.r_hand)
 	wizard_mob.wear_suit = new /obj/item/clothing/suit/wizrobe(wizard_mob)
 	wizard_mob.wear_suit.layer = 20
 	wizard_mob.head = new /obj/item/clothing/head/wizard(wizard_mob)

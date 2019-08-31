@@ -16,7 +16,7 @@ datum/controller/game_controller
 	setup()
 		set background = 1
 		if(master_controller && (master_controller != src))
-			del(src) // There can be only one master.
+			qdel(src) // There can be only one master.
 		world << "Initializing world.."
 		diary << "World initialization started at [time2text(world.timeofday, "hh:mm.ss")]"
 		var/start_worldinit = world.timeofday

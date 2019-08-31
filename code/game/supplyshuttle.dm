@@ -421,13 +421,13 @@ var/supply_shuttle_points = 50
 /obj/plasticflaps/ex_act(severity)
 	switch(severity)
 		if (1)
-			del(src)
+			qdel(src)
 		if (2)
 			if (prob(50))
-				del(src)
+				qdel(src)
 		if (3)
 			if (prob(5))
-				del(src)
+				qdel(src)
 
 /area/supplyshuttle/
 	name = "Supply Shuttle"
@@ -499,7 +499,7 @@ var/supply_shuttle_points = 50
 	for(var/turf/T in get_area_turfs(shuttleat) )
 		var/crate = locate(/obj/crate) in T
 		if (crate)
-			del(crate)
+			qdel(crate)
 			supply_shuttle_points += SUPPLY_POINTSPERCRATE
 
 /proc/process_supply_order()

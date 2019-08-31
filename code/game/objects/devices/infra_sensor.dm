@@ -73,7 +73,7 @@
 			var/datum/signal/signal = new
 			signal.data["message"] = "ACTIVATE"
 			src.master.receive_signal(signal)
-			del(signal)
+			qdel(signal)
 			return
 	else
 		for(var/mob/O in hearers(null, null))
@@ -107,7 +107,7 @@
 				return
 	if (!( src.state ))
 		//src.first = null
-		del(src.first)
+		qdel(src.first)
 	return
 
 /obj/item/device/infra/attackby(obj/item/device/radio/signaler/S as obj, mob/user as mob)
@@ -192,7 +192,7 @@
 
 /obj/item/device/infra/attack_hand()
 	//src.first = null
-	del(src.first)
+	qdel(src.first)
 	..()
 	return
 
@@ -201,7 +201,7 @@
 	..()
 	src.dir = t
 	//src.first = null
-	del(src.first)
+	qdel(src.first)
 	return
 
 /obj/item/device/infra/verb/rotate()

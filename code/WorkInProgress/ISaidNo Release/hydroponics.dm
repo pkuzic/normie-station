@@ -669,9 +669,9 @@
 							newmob = new/mob/dead/observer(M)
 							M:client:mob = newmob
 							newmob:client:eye = newmob
-							del(M)
+							qdel(M)
 						else
-							del(M)
+							qdel(M)
 						playsound(src.loc, 'eatfood.ogg', 30, 1, -2)
 						src.reagents.add_reagent("blood", 60)
 						sleep(25)
@@ -1952,7 +1952,7 @@
 
 	New()
 		if(istype(src.loc, /turf/space))
-			del(src)
+			qdel(src)
 			return
 
 	attackby(obj/item/weapon/W as obj, mob/user as mob)
@@ -2004,15 +2004,15 @@
 /obj/spacevine/ex_act(severity)
 	switch(severity)
 		if(1.0)
-			del(src)
+			qdel(src)
 			return
 		if(2.0)
 			if (prob(66))
-				del(src)
+				qdel(src)
 				return
 		if(3.0)
 			if (prob(33))
-				del(src)
+				qdel(src)
 				return
 		else
 	return

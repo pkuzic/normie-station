@@ -604,8 +604,8 @@
 			user << "\blue You create an apple on a stick..."
 			new/obj/item/weapon/reagent_containers/food/snacks/plant/apple/stick(get_turf(src))
 			W:amount--
-			if(!W:amount) del(W)
-			del(src)
+			if(!W:amount) qdel(W)
+			qdel(src)
 		else ..()
 */
 /obj/item/weapon/reagent_containers/food/snacks/plant/banana/
@@ -980,7 +980,7 @@
 			user << "\blue You cut [src] into smaller pieces..."
 			for(var/i = 1, i <= 4, i++)
 				new /obj/item/weapon/reagent_containers/food/snacks/ingredient/dough_cookie(get_turf(src))
-			del(src)
+			qdel(src)
 		else ..()
 
 /obj/item/weapon/reagent_containers/food/snacks/ingredient/pizza1
@@ -999,7 +999,7 @@
 			user << "\blue You cut [src] into smaller pieces..."
 			for(var/i = 1, i <= 3, i++)
 				new /obj/item/weapon/reagent_containers/food/snacks/ingredient/tortilla(get_turf(src))
-			del(src)
+			qdel(src)
 		else ..()
 
 	attack_self(var/mob/user as mob)

@@ -6,7 +6,7 @@
 	randmutb(obj)
 	domutcheck(obj,null)
 	spawn(0)
-		del(src)
+		qdel(src)
 
 /obj/mine/proc/triggerstun(obj)
 	obj:stunned += 30
@@ -14,7 +14,7 @@
 	s.set_up(3, 1, src)
 	s.start()
 	spawn(0)
-		del(src)
+		qdel(src)
 
 /obj/mine/proc/triggern2o(obj)
 	//example: n2o triggerproc
@@ -34,7 +34,7 @@
 			target.air.merge(payload)
 
 	spawn(0)
-		del(src)
+		qdel(src)
 
 /obj/mine/proc/triggerplasma(obj)
 	for (var/turf/simulated/floor/target in range(1,src))
@@ -51,20 +51,20 @@
 			target.hotspot_expose(1000, CELL_VOLUME)
 
 	spawn(0)
-		del(src)
+		qdel(src)
 
 /obj/mine/proc/triggerkick(obj)
 	var/datum/effects/system/spark_spread/s = new /datum/effects/system/spark_spread
 	s.set_up(3, 1, src)
 	s.start()
-	del(obj:client)
+	qdel(obj:client)
 	spawn(0)
-		del(src)
+		qdel(src)
 
 /obj/mine/proc/explode(obj)
 	explosion(loc, 0, 1, 2, 3, 1)
 	spawn(0)
-		del(src)
+		qdel(src)
 
 
 /obj/mine/HasEntered(AM as mob|obj)
@@ -93,9 +93,9 @@
 		part1 = new(src)
 		part2 = new(src)
 
-/obj/item/assembly/time_ignite/Del()
-	del(part1)
-	del(part2)
+/obj/item/assembly/time_ignite/Destroy()
+	qdel(part1)
+	qdel(part2)
 	..()
 
 /obj/item/assembly/time_ignite/attack_self(mob/user as mob)
@@ -111,7 +111,7 @@
 
 /obj/decal/ash/attack_hand(mob/user as mob)
 	usr << "\blue Пепел проскальзывает сквозь твои пальцы."
-	del(src)
+	qdel(src)
 	return
 
 /obj/item/assembly/time_ignite/attackby(obj/item/weapon/W as obj, mob/user as mob)
@@ -126,7 +126,7 @@
 		src.part1 = null
 		src.part2 = null
 
-		del(src)
+		qdel(src)
 		return
 	if (!( istype(W, /obj/item/weapon/screwdriver) ))
 		return
@@ -157,7 +157,7 @@
 		src.part1 = null
 		src.part2 = null
 
-		del(src)
+		qdel(src)
 		return
 	if (( istype(W, /obj/item/weapon/screwdriver) ))
 		src.status = !( src.status )
@@ -209,7 +209,7 @@
 		src.part2 = null
 		src.part3 = null
 
-		del(src)
+		qdel(src)
 		return
 	if (( istype(W, /obj/item/weapon/screwdriver) ))
 		src.status = !( src.status )
@@ -219,21 +219,21 @@
 			user.show_message("\blue Брон&#255; теперь откручена!", 1)
 		src.add_fingerprint(user)
 
-/obj/item/assembly/a_i_a/Del()
+/obj/item/assembly/a_i_a/Destroy()
 	//src.part1 = null
-	del(src.part1)
+	qdel(src.part1)
 	//src.part2 = null
-	del(src.part2)
-	del(src.part3)
+	qdel(src.part2)
+	qdel(src.part3)
 	..()
 	return
 //*****
 
-/obj/item/assembly/rad_time/Del()
+/obj/item/assembly/rad_time/Destroy()
 	//src.part1 = null
-	del(src.part1)
+	qdel(src.part1)
 	//src.part2 = null
-	del(src.part2)
+	qdel(src.part2)
 	..()
 	return
 
@@ -250,7 +250,7 @@
 		src.part1 = null
 		src.part2 = null
 		//SN src = null
-		del(src)
+		qdel(src)
 		return
 	if (!( istype(W, /obj/item/weapon/screwdriver) ))
 		return
@@ -279,11 +279,11 @@
 	src.icon_state = "prox-radio[n]"
 	return
 
-/obj/item/assembly/rad_prox/Del()
+/obj/item/assembly/rad_prox/Destroy()
 	//src.part1 = null
-	del(src.part1)
+	qdel(src.part1)
 	//src.part2 = null
-	del(src.part2)
+	qdel(src.part2)
 	..()
 	return
 
@@ -307,7 +307,7 @@
 		src.part1 = null
 		src.part2 = null
 		//SN src = null
-		del(src)
+		qdel(src)
 		return
 	if (!( istype(W, /obj/item/weapon/screwdriver) ))
 		return
@@ -349,9 +349,9 @@
 	src.icon_state = text("infrared-radio[]", n)
 	return
 
-/obj/item/assembly/rad_infra/Del()
-	del(src.part1)
-	del(src.part2)
+/obj/item/assembly/rad_infra/Destroy()
+	qdel(src.part1)
+	qdel(src.part2)
 	..()
 	return
 
@@ -368,7 +368,7 @@
 		src.part1 = null
 		src.part2 = null
 		//SN src = null
-		del(src)
+		qdel(src)
 		return
 	if (!( istype(W, /obj/item/weapon/screwdriver) ))
 		return
@@ -408,14 +408,14 @@
 	..()
 	src.dir = t
 	//src.part2.first = null
-	del(src.part2.first)
+	qdel(src.part2.first)
 	return
 
 /obj/item/assembly/rad_infra/attack_paw(mob/user as mob)
 	return src.attack_hand(user)
 
 /obj/item/assembly/rad_infra/attack_hand(M)
-	del(src.part2.first)
+	qdel(src.part2.first)
 	..()
 	return
 
@@ -433,9 +433,9 @@
 		return
 	return
 
-/obj/item/assembly/prox_ignite/Del()
-	del(src.part1)
-	del(src.part2)
+/obj/item/assembly/prox_ignite/Destroy()
+	qdel(src.part1)
+	qdel(src.part2)
 	..()
 	return
 
@@ -455,7 +455,7 @@
 		src.part1 = null
 		src.part2 = null
 		//SN src = null
-		del(src)
+		qdel(src)
 		return
 	if (!( istype(W, /obj/item/weapon/screwdriver) ))
 		return
@@ -480,9 +480,9 @@
 	src.part2.ignite()
 	return
 
-/obj/item/assembly/rad_ignite/Del()
-	del(src.part1)
-	del(src.part2)
+/obj/item/assembly/rad_ignite/Destroy()
+	qdel(src.part1)
+	qdel(src.part2)
 	..()
 	return
 
@@ -499,7 +499,7 @@
 		src.part1 = null
 		src.part2 = null
 		//SN src = null
-		del(src)
+		qdel(src)
 		return
 	if (!( istype(W, /obj/item/weapon/screwdriver) ))
 		return
@@ -576,14 +576,14 @@
 	..()
 	src.part3.examine()
 
-/obj/item/assembly/m_i_ptank/Del()
+/obj/item/assembly/m_i_ptank/Destroy()
 
 	//src.part1 = null
-	del(src.part1)
+	qdel(src.part1)
 	//src.part2 = null
-	del(src.part2)
+	qdel(src.part2)
 	//src.part3 = null
-	del(src.part3)
+	qdel(src.part3)
 	..()
 	return
 
@@ -617,7 +617,7 @@
 		src.part2 = null
 		src.part3 = null
 		//SN src = null
-		del(src)
+		qdel(src)
 		return
 	if (!( istype(W, /obj/item/weapon/weldingtool) ))
 		return
@@ -668,14 +668,14 @@
 	..()
 	src.part3.examine()
 
-/obj/item/assembly/t_i_ptank/Del()
+/obj/item/assembly/t_i_ptank/Destroy()
 
 	//src.part1 = null
-	del(src.part1)
+	qdel(src.part1)
 	//src.part2 = null
-	del(src.part2)
+	qdel(src.part2)
 	//src.part3 = null
-	del(src.part3)
+	qdel(src.part3)
 	..()
 	return
 
@@ -710,7 +710,7 @@
 		src.part2 = null
 		src.part3 = null
 		//SN src = null
-		del(src)
+		qdel(src)
 		return
 	if (!( istype(W, /obj/item/weapon/weldingtool) ))
 		return
@@ -753,14 +753,14 @@
 	..()
 	src.part3.examine()
 
-/obj/item/assembly/r_i_ptank/Del()
+/obj/item/assembly/r_i_ptank/Destroy()
 
 	//src.part1 = null
-	del(src.part1)
+	qdel(src.part1)
 	//src.part2 = null
-	del(src.part2)
+	qdel(src.part2)
 	//src.part3 = null
-	del(src.part3)
+	qdel(src.part3)
 	..()
 	return
 
@@ -795,7 +795,7 @@
 		src.part2 = null
 		src.part3 = null
 		//SN src = null
-		del(src)
+		qdel(src)
 		return
 	if (!( istype(W, /obj/item/weapon/weldingtool) ))
 		return
@@ -847,7 +847,7 @@
 		src.part3 = null
 		src.part4 = null
 		//SN src = null
-		del(src)
+		qdel(src)
 		return
 	if (( istype(W, /obj/item/weapon/weldingtool) ))
 		return
@@ -893,7 +893,7 @@
 				for(var/obj/O in A)
 					O.bullet_act(PROJECTILE_BULLET, src)
 
-		del(src)
+		qdel(src)
 	return
 
 /obj/bullet/CanPass(atom/movable/mover, turf/target, height=0, air_group=0)
@@ -912,7 +912,7 @@
 				for(var/obj/O in A)
 					O.bullet_act(PROJECTILE_WEAKBULLET, src)
 
-		del(src)
+		qdel(src)
 	return
 
 /obj/bullet/electrode/Bump(atom/A as mob|obj|turf|area)
@@ -922,10 +922,10 @@
 				A.bullet_act(PROJECTILE_TASER,src.dir)
 				for(var/obj/O in A)
 					O.bullet_act(PROJECTILE_TASER, src)
-				del(src)
+				qdel(src)
 				return
 			A.bullet_act(PROJECTILE_TASER)
-		del(src)
+		qdel(src)
 	return
 
 /obj/bullet/cbbolt/Bump(atom/A as mob|obj|turf|area)
@@ -935,7 +935,7 @@
 			if(istype(A,/turf))
 				for(var/obj/O in A)
 					O.bullet_act(PROJECTILE_BOLT, src)
-		del(src)
+		qdel(src)
 	return
 
 /obj/bullet/teleshot/Bump(atom/A as mob|obj|turf|area)
@@ -948,7 +948,7 @@
 		if(turfs)
 			src.target = pick(turfs)
 	if (!src.target)
-		del(src)
+		qdel(src)
 		return
 	spawn(0)
 		if(A)
@@ -966,7 +966,7 @@
 						do_teleport(M, locate(rand(5, world.maxx - 5), rand(5, world.maxy -5), getZLevel(Z_SPACE)), 0)
 					else
 						do_teleport(M, src.target, 2)
-		del(src)
+		qdel(src)
 	return
 
 /obj/bullet/proc/process()
@@ -974,7 +974,7 @@
 		src.current = locate(min(max(src.x + src.xo, 1), world.maxx), min(max(src.y + src.yo, 1), world.maxy), src.z)
 	if ((src.x == 1 || src.x == world.maxx || src.y == 1 || src.y == world.maxy))
 		//SN src = null
-		del(src)
+		qdel(src)
 		return
 	step_towards_3d(src, src.current)
 	spawn( 1 )
@@ -986,7 +986,7 @@
 	spawn(0)
 		if(A)
 			A.bullet_act(PROJECTILE_LASER, src)
-		del(src)
+		qdel(src)
 
 /obj/beam/a_laser/proc/process()
 	//world << text("laser at [] []:[], target is [] []:[]", src.loc, src.x, src.y, src:current, src.current:x, src.current:y)
@@ -996,7 +996,7 @@
 	if ((src.x == 1 || src.x == world.maxx || src.y == 1 || src.y == world.maxy))
 		//world << text("off-world, deleting")
 		//SN src = null
-		del(src)
+		qdel(src)
 		return
 	step_towards_3d(src, src.current)
 	// make it able to hit lying-down folk
@@ -1009,7 +1009,7 @@
 	src.life--
 	if (src.life <= 0)
 		//SN src = null
-		del(src)
+		qdel(src)
 		return
 
 	spawn(1)
@@ -1023,7 +1023,7 @@
 		//world << "beam hit \ref[src]: calling master \ref[master].hit"
 		src.master.hit()
 	//SN src = null
-	del(src)
+	qdel(src)
 	return
 
 /obj/beam/i_beam/proc/vis_spread(v)
@@ -1042,7 +1042,7 @@
 	if ((src.loc.density || !( src.master )))
 		//SN src = null
 	//	world << "beam hit loc [loc] or no master [master], deleting"
-		del(src)
+		qdel(src)
 		return
 	//world << "proccess: [src.left] left"
 
@@ -1083,18 +1083,18 @@
 		else
 			//world << "is a next: \ref[next], deleting beam \ref[I]"
 			//I = null
-			del(I)
+			qdel(I)
 	else
 		//src.next = null
 		//world << "step failed, deleting \ref[src.next]"
-		del(src.next)
+		qdel(src.next)
 	spawn( 10 )
 		src.process()
 		return
 	return
 
 /obj/beam/i_beam/Bump()
-	del(src)
+	qdel(src)
 	return
 
 /obj/beam/i_beam/Bumped()
@@ -1109,8 +1109,8 @@
 		return
 	return
 
-/obj/beam/i_beam/Del()
-	del(src.next)
+/obj/beam/i_beam/Destroy()
+	qdel(src.next)
 	..()
 	return
 

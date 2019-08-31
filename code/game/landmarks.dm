@@ -6,7 +6,7 @@
 
 	if (name == "shuttle")
 		shuttle_z = src.z
-		del(src)
+		qdel(src)
 
 	if (name == "airtunnel_stop")
 		airtunnel_stop = src.x
@@ -19,26 +19,26 @@
 
 	if (name == "monkey")
 		monkeystart += src.loc
-		del(src)
+		qdel(src)
 	if (name == "start")
 		newplayer_start += src.loc
-		del(src)
+		qdel(src)
 
 	if (name == "wizard")
 		wizardstart += src.loc
-		del(src)
+		qdel(src)
 	if (name == "DerelictStart")
 		derelictstart += src.loc
-		del(src)
+		qdel(src)
 
 	if (name == "JoinLate")
 		latejoin += src.loc
-		del(src)
+		qdel(src)
 
 	//prisoners
 	if (name == "prisonwarp")
 		prisonwarp += src.loc
-		del(src)
+		qdel(src)
 	if (name == "mazewarp")
 		mazewarp += src.loc
 	if (name == "tdome1")
@@ -48,18 +48,18 @@
 	//not prisoners
 	if (name == "prisonsecuritywarp")
 		prisonsecuritywarp += src.loc
-		del(src)
+		qdel(src)
 
 	if (name == "blobstart")
 		blobstart += src.loc
-		del(src)
+		qdel(src)
 
 /*	Strumpetplaya - Commenting this block of code out for now.  It appears PersonalEscapePods.dm didn't get added to the git, so the server is not compiling.  This should fix it.
 	//Pod Spawn point.
 	//Place this 20 or so tiles NORTH of an escape pod dock in centcom or elsewhere.
 	if(name == "Pod-Spawn")
 		podspawns += src.loc
-		del(src)
+		qdel(src)
 
 	//Pod Dock point
 	//Place this in the middle of a pod dock in order to have it properly accept escape pods.
@@ -68,7 +68,7 @@
 	//After air has entered the lock from the south, the player can leave the pod and figure out where they are.
 	if(name == "Pod-Dock")
 		poddocks += src.loc
-		del(src)
+		qdel(src)
 
 	return 1
 

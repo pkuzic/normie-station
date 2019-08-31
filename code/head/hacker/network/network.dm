@@ -73,7 +73,7 @@ datum/www/
 	var/list/extrainfo
 /datum/packet/New(infos,wheres,froms,list)
 	if(!infos || !wheres)
-		del(src)
+		qdel(src)
 		return 0
 	info = infos
 	where = wheres

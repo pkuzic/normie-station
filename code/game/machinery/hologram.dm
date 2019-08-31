@@ -65,7 +65,7 @@
 				src.icon_state = "hologram0"
 
 			//src.projector.projection = null
-			del(src.projection)
+			qdel(src.projection)
 		else
 			src.projection = new /obj/projection( src.loc )
 			src.projection.icon = 'human.dmi'

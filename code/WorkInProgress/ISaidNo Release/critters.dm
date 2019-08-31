@@ -388,7 +388,7 @@
 			newmob = new/mob/dead/observer(M)
 			M.client:mob = newmob
 			M.mind.transfer_to(newmob)
-		del(M)
+		qdel(M)
 		src.task = "thinking"
 		src.seek_target()
 		src.attacking = 0
@@ -469,7 +469,7 @@
 						newmob = new/mob/dead/observer(M)
 						M.client:mob = newmob
 						M.mind.transfer_to(newmob)
-					del(M)
+					qdel(M)
 					sleep(25)
 					src.target = null
 					src.task = "thinking"
@@ -954,7 +954,7 @@
 		if(istype(M, /obj/item/weapon/ore/))
 			src.visible_message("\red <b>[src]</b> hungrily eats [src.target]!")
 			playsound(src.loc, 'eatfood.ogg', 30, 1, -2)
-			del(src.target)
+			qdel(src.target)
 			src.eaten++
 			src.target = null
 			src.task = "thinking"

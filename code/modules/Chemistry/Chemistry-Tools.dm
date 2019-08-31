@@ -30,7 +30,7 @@
 		if(istype(W,/obj/item/assembly/time_ignite) && !stage)
 			user << "\blue You add [W] to the metal casing."
 			playsound(src.loc, 'Screwdriver2.ogg', 25, -3)
-			del(W) //Okay so we're not really adding anything here. cheating.
+			qdel(W) //Okay so we're not really adding anything here. cheating.
 			icon_state = "chemg2"
 			name = "unsecured grenade"
 			stage = 1
@@ -113,7 +113,7 @@
 
 			invisibility = 100 //Why am i doing this?
 			spawn(50)		   //To make sure all reagents can work
-				del(src)	   //correctly before deleting the grenade.
+				qdel(src)	   //correctly before deleting the grenade.
 
 
 /obj/item/weapon/chem_grenade/metalfoam
@@ -227,7 +227,7 @@
 				var/obj/item/weapon/reagent_containers/syringe/S = syringes[1]
 				S.reagents.trans_to(user, S.reagents.total_volume)
 				syringes -= S
-				del(S)
+				qdel(S)
 				for(var/mob/O in viewers(world.view, user))
 					O.show_message(text("\red [] shot \himself with a syringe gun!", user), 1)
 		else
@@ -240,7 +240,7 @@
 			var/obj/item/weapon/reagent_containers/syringe/S = syringes[1]
 			S.reagents.trans_to(D, S.reagents.total_volume)
 			syringes -= S
-			del(S)
+			qdel(S)
 			D.icon_state = "syringeproj"
 			D.name = "syringe"
 			playsound(user.loc, 'syringeproj.ogg', 50, 1)
@@ -258,19 +258,19 @@
 						for(var/mob/O in viewers(world.view, D))
 							O.show_message(text("\red [] was hit by the syringe!", M), 1)
 
-						del(D)
+						qdel(D)
 						break shoot
 
 					for(var/atom/A in D.loc)
 						if(A == user) continue
 						if(A.density)
-							del(D)
+							qdel(D)
 							break shoot
 
 					sleep(1)
 
 			spawn(10)
-				del(D)
+				qdel(D)
 
 			return
 
@@ -315,17 +315,17 @@
 	ex_act(severity)
 		switch(severity)
 			if(1.0)
-				del(src)
+				qdel(src)
 				return
 			if(2.0)
 				if (prob(50))
 					new /obj/effects/water(src.loc)
-					del(src)
+					qdel(src)
 					return
 			if(3.0)
 				if (prob(5))
 					new /obj/effects/water(src.loc)
-					del(src)
+					qdel(src)
 					return
 			else
 		return
@@ -333,7 +333,7 @@
 	blob_act()
 		if(prob(25))
 			new /obj/effects/water(src.loc)
-			del(src)
+			qdel(src)
 
 
 
@@ -646,7 +646,7 @@
 							for(var/mob/O in viewers(world.view, user))
 								O.show_message(text("\red [] injects [] with the syringe!", user, target), 1)
 							R.trans_to(H.vessel,5)
-							del(R)
+							qdel(R)
 							spawn(5)
 								user << "\blue You inject 5 units of the solution. The syringe now contains [src.reagents.total_volume] units."
 							return
@@ -686,7 +686,7 @@
 							if(!do_mob(user, target)) return
 							for(var/mob/O in viewers(world.view, user))
 								O.show_message(text("\red [] injects [] with the syringe!", user, target), 1)
-							del(R)
+							qdel(R)
 							spawn(5)
 								user << "\blue You inject 5 units of the solution. The syringe now contains [src.reagents.total_volume] units."
 							return
@@ -740,9 +740,9 @@
 				reagents.reaction(M, INGEST)
 				spawn(5)
 					reagents.trans_to(M, reagents.total_volume)
-					del(src)
+					qdel(src)
 			else
-				del(src)
+				qdel(src)
 			return 1
 
 		else if(istype(M, /mob/living/carbon/human) )
@@ -759,9 +759,9 @@
 				reagents.reaction(M, INGEST)
 				spawn(5)
 					reagents.trans_to(M, reagents.total_volume)
-					del(src)
+					qdel(src)
 			else
-				del(src)
+				qdel(src)
 
 			return 1
 
@@ -781,7 +781,7 @@
 			for(var/mob/O in viewers(2, user))
 				O.show_message("\red [user] puts something in [target].", 1)
 			spawn(5)
-				del(src)
+				qdel(src)
 
 		return
 
@@ -821,8 +821,8 @@
 				user.l_hand = B
 			B.layer = 20
 			user << "You add the sensor to the bucket"
-			del(D)
-			del(src)
+			qdel(D)
+			qdel(src)
 
 /obj/item/weapon/reagent_containers/glass/dispenser
 	name = "reagent glass"

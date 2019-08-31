@@ -80,7 +80,7 @@
          M << "\blue [user] puts a label on [A]."
       A.name = "[A.name] ([label])"
       A.labels += label
-      del(src)
+      qdel(src)
 
 /obj/item/weapon/label/attack_self(mob/user as mob)
    if(backing)

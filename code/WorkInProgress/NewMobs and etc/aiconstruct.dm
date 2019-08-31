@@ -35,7 +35,7 @@ obj/machinery/aiconstruct/attackby(obj/item/weapon/W as obj, mob/user as mob)
 		if(0)
 			if(istype(W,/obj/item/weapon/circuitry))
 				user << "You place the [W] inside the [src]."
-				del(W)
+				qdel(W)
 				buildstate++
 				icon_state = "ai_new1"
 		if(1)
@@ -57,7 +57,7 @@ obj/machinery/aiconstruct/attackby(obj/item/weapon/W as obj, mob/user as mob)
 		if(3)
 			if(istype(W,/obj/item/weapon/cell))
 				user << "You place the [W] inside the [src]."
-				del(W)
+				qdel(W)
 				buildstate++
 				icon_state = "ai_new3"
 		if(4)
@@ -68,7 +68,7 @@ obj/machinery/aiconstruct/attackby(obj/item/weapon/W as obj, mob/user as mob)
 				user << "You place the [W] inside the [src]."
 				W:amount -= 1
 				if(W:amount <= 0)
-					del(W)
+					qdel(W)
 				buildstate++
 				icon_state = "ai_new4"
 		if(5)
@@ -79,7 +79,7 @@ obj/machinery/aiconstruct/attackby(obj/item/weapon/W as obj, mob/user as mob)
 				//W.dropped()
 				//W.loc = src
 				bb = W:owner
-				del(W)
+				qdel(W)
 				buildstate++
 				icon_state = "ai_new5"
 obj/machinery/aiconstruct/proc/boot()
@@ -99,7 +99,7 @@ obj/machinery/aiconstruct/proc/boot()
 		log_admin("Starting AI construct (2/3)")
 		A.AIize()
 		log_admin("Starting AI construct (3/3)")
-		del(src)
+		qdel(src)
 mob/living/verb/head()
 	set hidden = 1
 	usr.unlock_medal("Find Head", 1)

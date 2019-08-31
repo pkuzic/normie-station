@@ -151,7 +151,7 @@
 						P.dpdir = dpdir
 						P.updateicon()
 
-						del(src)
+						qdel(src)
 					else
 						user << "You must stay still while welding."
 						return

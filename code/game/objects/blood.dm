@@ -7,7 +7,7 @@
 	if(fi_amount > 900000.0)
 		src.virus = null
 	sleep(11)
-	del(src)
+	qdel(src)
 	return
 */
 
@@ -49,4 +49,4 @@
 		ul_SetLuminosity(1)
 
 		spawn(1200)		// 2 minutes
-			del(src)
+			qdel(src)

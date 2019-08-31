@@ -174,7 +174,7 @@
 
 	if (!( istype(U, /turf) ))
 		//A = null
-		del(A)
+		qdel(A)
 		return
 	A.current = U
 	A.yo = U.y - T.y
@@ -209,11 +209,11 @@
 	src.stat |= BROKEN
 	src.icon_state = "destroyed_target_prism"
 	if (cover!=null)
-		del(cover)
+		qdel(cover)
 	sleep(3)
 	flick("explosion", src)
 	spawn(13)
-		del(src)
+		qdel(src)
 
 /obj/machinery/turretid
 	name = "Turret deactivation control"

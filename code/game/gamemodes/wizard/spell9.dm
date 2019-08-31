@@ -26,7 +26,7 @@
 	B.layer = 4
 	M.canmove = 0
 	spawn(5*tick_multiplier)
-		del(B)
+		qdel(B)
 		M.canmove = 1
 	M << text("\blue Your eyes cry out in pain!")
 	M.disabilities |= 1

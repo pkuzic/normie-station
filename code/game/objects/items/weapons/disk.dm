@@ -46,7 +46,7 @@
 	icon_state = "nucleardisk"
 	item_state = "card-id"
 
-/obj/item/weapon/disk/nuclear/Del()
+/obj/item/weapon/disk/nuclear/Destroy()
 	if (ticker.mode && ticker.mode.name == "nuclear emergency")
 		if(blobstart.len > 0)
 			var/obj/D = new /obj/item/weapon/disk/nuclear(pick(blobstart))

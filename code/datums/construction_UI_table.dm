@@ -24,7 +24,7 @@
 
 /datum/construction_UI/table/Topic(href, href_list[])
 	if(!user || !standing || !parts || user.loc != standing)
-		del(src)
+		qdel(src)
 	else
 		return ..()
 
@@ -33,7 +33,7 @@
 	T.icon_state = state
 	T.dir = dir
 	T.add_fingerprint(user)
-	del(parts)
+	qdel(parts)
 
 
 
@@ -58,4 +58,4 @@
 	T.icon_state = state
 	T.dir = dir
 	T.add_fingerprint(user)
-	del(parts)
+	qdel(parts)

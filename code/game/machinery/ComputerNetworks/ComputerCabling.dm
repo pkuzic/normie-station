@@ -85,7 +85,7 @@ obj/computercable/New()
 	if(level==1) hide(T.intact)
 
 
-/obj/computercable/Del()		// called when a cable is deleted
+/obj/computercable/Destroy()		// called when a cable is deleted
 
 	if(!defer_powernet_rebuild)	// set if network will be rebuilt manually
 
@@ -122,7 +122,7 @@ obj/computercable/New()
 		for(var/mob/O in viewers(src, null))
 			O.show_message("\red [user] cuts the networking cable.", 1)
 
-		del(src)
+		qdel(src)
 
 	else if(istype(W, /obj/item/weapon/computercable_coil))
 		var/obj/item/weapon/computercable_coil/coil = W
@@ -140,16 +140,16 @@ obj/computercable/New()
 /obj/computercable/ex_act(severity)
 	switch(severity)
 		if(1.0)
-			del(src)
+			qdel(src)
 		if(2.0)
 			if (prob(50))
 				new/obj/item/weapon/computercable_coil(src.loc, src.d1 ? 2 : 1)
-				del(src)
+				qdel(src)
 
 		if(3.0)
 			if (prob(25))
 				new/obj/item/weapon/computercable_coil(src.loc, src.d1 ? 2 : 1)
-				del(src)
+				qdel(src)
 	return
 
 // the cable coil object, used for laying cable
@@ -207,7 +207,7 @@ obj/computercable/New()
 			C.amount += src.amount
 			user << "You join the cable coils together."
 			C.updateicon()
-			del(src)
+			qdel(src)
 			return
 
 		else
@@ -222,7 +222,7 @@ obj/computercable/New()
 	if(src.amount < used)
 		return 0
 	else if (src.amount == used)
-		del(src)
+		qdel(src)
 	else
 		amount -= used
 		updateicon()
@@ -332,7 +332,7 @@ obj/computercable/New()
 			if(LC.d1 == nd1 || LC.d2 == nd1 || LC.d1 == nd2 || LC.d2 == nd2)	// make sure no cable matches either direction
 				user << "There's already cabling there."
 				return
-		del(C)
+		qdel(C)
 		var/obj/computercable/NC = new(T)
 		NC.d1 = nd1
 		NC.d2 = nd2

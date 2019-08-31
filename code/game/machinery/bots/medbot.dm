@@ -508,7 +508,7 @@
 	var/datum/effects/system/spark_spread/s = new /datum/effects/system/spark_spread
 	s.set_up(3, 1, src)
 	s.start()
-	del(src)
+	qdel(src)
 	return
 
 /obj/machinery/bot/medbot/Bump(M as mob|obj) //Leave no door unopened!
@@ -597,8 +597,8 @@
 			user.l_hand = A
 		A.layer = 20
 		user << "You add the robot arm to the first aid kit"
-		del(S)
-		del(src)
+		qdel(S)
+		qdel(src)
 
 /obj/item/weapon/firstaid_arm_assembly/attackby(obj/item/weapon/W as obj, mob/user as mob)
 	if ((istype(W, /obj/item/device/healthanalyzer)) && (!src.build_step))
@@ -606,7 +606,7 @@
 		user << "You add the health sensor to [src]!"
 		src.name = "First aid/robot arm/health analyzer assembly"
 		src.overlays += image('aibots.dmi', "na_scanner")
-		del(W)
+		qdel(W)
 
 	else if ((istype(W, /obj/item/device/prox_sensor)) && (src.build_step == 1))
 		src.build_step++
@@ -615,8 +615,8 @@
 		S.skin = src.skin
 		S.loc = get_turf(src)
 		S.name = src.created_name
-		del(W)
-		del(src)
+		qdel(W)
+		qdel(src)
 
 	else if (istype(W, /obj/item/weapon/pen))
 		var/t = input(user, "Enter new robot name", src.name, src.created_name) as text

@@ -60,11 +60,11 @@ would spawn and follow the beaker, even if it is carried or thrown.
 	//if (istype(T, /turf))
 	//	T.firelevel = 0 //TODO: FIX
 	spawn( 70 )
-		del(src)
+		qdel(src)
 		return
 	return
 
-/obj/effects/water/Del()
+/obj/effects/water/Destroy()
 	//var/turf/T = src.loc
 	//if (istype(T, /turf))
 	//	T.firelevel = 0 //TODO: FIX
@@ -77,7 +77,7 @@ would spawn and follow the beaker, even if it is carried or thrown.
 	//	T.firelevel = 0 //TODO: FIX
 	if (--src.life < 1)
 		//SN src = null
-		del(src)
+		qdel(src)
 	if(newloc.density)
 		return 0
 	.=..()
@@ -144,7 +144,7 @@ steam.start() -- spawns the effect
 				sleep(5)
 				step(steam,direction)
 			spawn(20)
-				del(steam)
+				qdel(steam)
 
 
 
@@ -181,10 +181,10 @@ steam.start() -- spawns the effect
 	if (istype(T, /turf))
 		T.hotspot_expose(3000,100)
 	spawn (100)
-		del(src)
+		qdel(src)
 	return
 
-/obj/effects/sparks/Del()
+/obj/effects/sparks/Destroy()
 	var/turf/T = src.loc
 	if (istype(T, /turf))
 		T.hotspot_expose(3000,100)
@@ -237,7 +237,7 @@ steam.start() -- spawns the effect
 				sleep(5)
 				step(sparks,direction)
 			spawn(20)
-				del(sparks)
+				qdel(sparks)
 				src.total_sparks--
 
 
@@ -274,10 +274,10 @@ steam.start() -- spawns the effect
 	if (istype(T, /turf))
 		T.hotspot_expose(3000,100)
 	spawn (100)
-		del(src)
+		qdel(src)
 	return
 
-/obj/effects/sparkels/Del()
+/obj/effects/sparkels/Destroy()
 	var/turf/T = src.loc
 	if (istype(T, /turf))
 		T.hotspot_expose(3000,100)
@@ -330,7 +330,7 @@ steam.start() -- spawns the effect
 				sleep(5)
 				step(sparks,direction)
 			spawn(20)
-				del(sparks)
+				qdel(sparks)
 				src.total_sparks--
 
 
@@ -367,7 +367,7 @@ steam.start() -- spawns the effect
 /obj/effects/harmless_smoke/New()
 	..()
 	spawn (100)
-		del(src)
+		qdel(src)
 	return
 
 /obj/effects/harmless_smoke/Move()
@@ -418,7 +418,7 @@ steam.start() -- spawns the effect
 				sleep(10)
 				step(smoke,direction)
 			spawn(75+rand(10,30))
-				del(smoke)
+				qdel(smoke)
 				src.total_smoke--
 
 
@@ -454,7 +454,7 @@ steam.start() -- spawns the effect
 /obj/effects/bad_smoke/New()
 	..()
 	spawn (200+rand(10,30))
-		del(src)
+		qdel(src)
 	return
 
 /obj/effects/bad_smoke/Move()
@@ -538,7 +538,7 @@ steam.start() -- spawns the effect
 			for(var/datum/reagent/RE in src.carried_reagents)
 				smoke.reagents.add_reagent(RE, 5)
 			spawn(150+rand(10,30))
-				del(smoke)
+				qdel(smoke)
 				src.total_smoke--
 
 
@@ -566,7 +566,7 @@ steam.start() -- spawns the effect
 /obj/effects/mustard_gas/New()
 	..()
 	spawn (100)
-		del(src)
+		qdel(src)
 	return
 
 /obj/effects/mustard_gas/Move()
@@ -640,7 +640,7 @@ steam.start() -- spawns the effect
 				sleep(10)
 				step(smoke,direction)
 			spawn(100)
-				del(smoke)
+				qdel(smoke)
 				src.total_smoke--
 
 
@@ -693,7 +693,7 @@ steam.start() -- spawns the effect
 					flick("ion_fade", I)
 					I.icon_state = "blank"
 					spawn( 20 )
-						del(I)
+						qdel(I)
 				spawn(2)
 					if(src.on)
 						src.processing = 1
@@ -741,7 +741,7 @@ steam.start() -- spawns the effect
 				src.oldposition = get_turf(holder)
 				I.dir = src.holder.dir
 				spawn(10)
-					del(I)
+					qdel(I)
 					src.number--
 				spawn(2)
 					if(src.on)
@@ -803,11 +803,11 @@ steam.start() -- spawns the effect
 
 		flick("[icon_state]-disolve", src)
 		sleep(5)
-		del(src)
+		qdel(src)
 	return
 
 // on delete, transfer any reagents to the floor
-/obj/effects/foam/Del()
+/obj/effects/foam/Destroy()
 	if(!metal && reagents)
 		for(var/atom/A in oview(0,src))
 			if(A == src)
@@ -851,7 +851,7 @@ steam.start() -- spawns the effect
 		flick("[icon_state]-disolve", src)
 
 		spawn(5)
-			del(src)
+			qdel(src)
 
 
 /obj/effects/foam/HasEntered(var/atom/movable/AM)
@@ -945,7 +945,7 @@ steam.start() -- spawns the effect
 		spawn(1)
 			ul_SetOpacity(1)
 
-	Del()
+	Destroy()
 		ul_SetOpacity(0)
 		density = 0
 		update_nearby_tiles(1)
@@ -959,14 +959,14 @@ steam.start() -- spawns the effect
 
 
 	ex_act(severity)
-		del(src)
+		qdel(src)
 
 	blob_act()
-		del(src)
+		qdel(src)
 
 	bullet_act()
 		if(metal==1 || prob(50))
-			del(src)
+			qdel(src)
 
 	attack_paw(var/mob/user)
 		attack_hand(user)
@@ -979,7 +979,7 @@ steam.start() -- spawns the effect
 				if ((O.client && !( O.blinded )))
 					O << "\red <b>[user]</b> разбивает стену из вспененного металла."
 
-			del(src)
+			qdel(src)
 		else
 			user << "\blue Ты попадаешь во вспененный металл, но отскакиваешь от него."
 		return
@@ -993,8 +993,8 @@ steam.start() -- spawns the effect
 			for(var/mob/O in viewers(src))
 				if (O.client)
 					O << "\red <b>[G.assailant]</b> разбивает <b>[G.affecting]</b> через стену из вспененного металла."
-			del(I)
-			del(src)
+			qdel(I)
+			qdel(src)
 			return
 
 		if(prob(I.force*20 - metal*25))
@@ -1002,7 +1002,7 @@ steam.start() -- spawns the effect
 			for(var/mob/O in oviewers(user))
 				if ((O.client && !( O.blinded )))
 					O << "\red [user] smashes through the foamed metal."
-			del(src)
+			qdel(src)
 		else
 			user << "\blue Ты бьешь стену из вспененного металла, да бестолку!"
 
@@ -1056,5 +1056,3 @@ steam.start() -- spawns the effect
 			if(istype(west)) air_master.tiles_to_update += west
 
 		return 1
-
-

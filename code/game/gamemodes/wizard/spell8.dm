@@ -35,15 +35,15 @@
 				B.density = 0
 				B.layer = 3
 				spawn(5)
-					del(B)
+					qdel(B)
 				step_to(A,M,0)
 				if (get_dist(A,M) == 0)
 					M.weakened += 5
 					M.fireloss += 10
-					del(A)
+					qdel(A)
 					return
 				sleep(5*tick_multiplier)
-			del(A)
+			qdel(A)
 
 	usr.verbs -= /client/proc/magicmissile
 	spawn(100*tick_multiplier)

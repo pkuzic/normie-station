@@ -65,7 +65,7 @@
 					O.icon_state = "nothing"
 					flick("empdisable",O)
 					spawn(5)
-						del(O)
+						qdel(O)
 
 
 				return 1

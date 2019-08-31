@@ -77,7 +77,7 @@
 		src.client.holder.state = 1
 		src.client.update_admins(rank)
 	src.client.mob = corpse
-	del(src)
+	qdel(src)
 
 /mob/observer/proc/dead_tele()
 	set category = "Special Verbs"
@@ -166,5 +166,3 @@
 				L+=T
 
 	usr.loc = pick(L)
-
-

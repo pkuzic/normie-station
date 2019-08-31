@@ -86,7 +86,7 @@ text("<A href='?src=\ref[src];operation=make'>[src.maketiles ? "Yes" : "No"]</A>
 		else
 			src.amount += T.amount
 			loaded = T.amount
-			del(T)
+			qdel(T)
 		user << "\red You load [loaded] tiles into the floorbot. He now contains [src.amount] tiles!"
 		src.updateicon()
 	if(istype(W, /obj/item/weapon/card/id))
@@ -306,7 +306,7 @@ text("<A href='?src=\ref[src];operation=make'>[src.maketiles ? "Yes" : "No"]</A>
 		spawn(50)
 			target.ReplaceWithFloor()
 			for(var/obj/lattice/L in target)
-				del(L)
+				qdel(L)
 				src.amount++
 			src.repairing = 0
 			src.amount -= 1
@@ -364,7 +364,7 @@ text("<A href='?src=\ref[src];operation=make'>[src.maketiles ? "Yes" : "No"]</A>
 			T.amount -= i
 		else
 			src.amount += T.amount
-			del(T)
+			qdel(T)
 		src.updateicon()
 		src.target = null
 		src.repairing = 0
@@ -387,7 +387,7 @@ text("<A href='?src=\ref[src];operation=make'>[src.maketiles ? "Yes" : "No"]</A>
 		var/obj/item/weapon/tile/T = new /obj/item/weapon/tile
 		T.amount = 4
 		T.loc = M.loc
-		del(M)
+		qdel(M)
 		src.target = null
 		src.repairing = 0
 
@@ -418,8 +418,8 @@ text("<A href='?src=\ref[src];operation=make'>[src.maketiles ? "Yes" : "No"]</A>
 		user.l_hand = B
 	B.layer = 20
 	user << "You add the tiles into the empty toolbox. They stick oddly out the top."
-	del(T)
-	del(src)
+	qdel(T)
+	qdel(src)
 
 /obj/item/weapon/toolbox_tiles/attackby(var/obj/item/device/prox_sensor/D, mob/user as mob)
 	if(!istype(D, /obj/item/device/prox_sensor))
@@ -434,8 +434,8 @@ text("<A href='?src=\ref[src];operation=make'>[src.maketiles ? "Yes" : "No"]</A>
 		user.l_hand = B
 	B.layer = 20
 	user << "You add the sensor to the toolbox and tiles!"
-	del(D)
-	del(src)
+	qdel(D)
+	qdel(src)
 
 /obj/item/weapon/toolbox_tiles_sensor/attackby(var/obj/item/W, mob/user as mob)
 	if (istype(W, /obj/item/weapon/pen))
@@ -457,5 +457,5 @@ text("<A href='?src=\ref[src];operation=make'>[src.maketiles ? "Yes" : "No"]</A>
 	if(created_name)
 		A.name = created_name
 	user << "You add the robot arm to the odd looking toolbox assembly! Boop beep!"
-	del(W)
-	del(src)
+	qdel(W)
+	qdel(src)

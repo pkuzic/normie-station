@@ -47,7 +47,7 @@ var/opt_inactive = null
 	for(var/client/C)
 		if(!C.holder && ((C.inactivity/10)/60) >= 15)
 			C << "\red You have been inactive for more than 15 minutes and have been disconnected."
-			del(C)
+			qdel(C)
 
 /// EXPERIMENTAL STUFF
 
@@ -85,13 +85,13 @@ proc/countJob(rank)
 	//warning: icky code
 	var/equipped = 0
 	if((slot == l_store || slot == r_store || slot == belt || slot == wear_id) && !src.w_uniform)
-		del(W)
+		qdel(W)
 		return
 	if(slot == s_store && !src.wear_suit)
-		del(W)
+		qdel(W)
 		return
 	if(slot == h_store && !src.head)
-		del(W)
+		qdel(W)
 		return
 	switch(slot)
 		if(slot_back)
@@ -179,7 +179,7 @@ proc/countJob(rank)
 		if(!(slot == slot_in_backpack))
 			W.loc = src
 	else
-		del(W)
+		qdel(W)
 
 /proc/AutoUpdateAI(obj/subject)
 	if (subject!=null)

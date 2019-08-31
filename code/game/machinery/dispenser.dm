@@ -2,12 +2,12 @@
 	switch(severity)
 		if(1.0)
 			//SN src = null
-			del(src)
+			qdel(src)
 			return
 		if(2.0)
 			if (prob(50))
 				//SN src = null
-				del(src)
+				qdel(src)
 				return
 		if(3.0)
 			if (prob(25))
@@ -28,7 +28,7 @@
 		while(src.pltanks > 0)
 			new /obj/item/weapon/tank/plasma( src.loc )
 			src.pltanks--
-		del(src)
+		qdel(src)
 
 /obj/machinery/dispenser/meteorhit()
 	while(src.o2tanks > 0)
@@ -37,7 +37,7 @@
 	while(src.pltanks > 0)
 		new /obj/item/weapon/tank/plasma( src.loc )
 		src.pltanks--
-	del(src)
+	qdel(src)
 	return
 
 /obj/machinery/dispenser/process()
@@ -97,4 +97,3 @@
 		usr << browse(null, "window=dispenser")
 		return
 	return
-

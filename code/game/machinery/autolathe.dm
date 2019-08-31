@@ -33,7 +33,7 @@
 						count++
 
 					if (O:amount < 1)
-						del(O)
+						qdel(O)
 
 					user << "You insert [count] metal sheet\s into the autolathe."
 					updateDialog()
@@ -53,7 +53,7 @@
 						count++
 
 					if (O:amount < 1)
-						del(O)
+						qdel(O)
 
 					user << "You insert [count] glass sheet\s into the autolathe."
 					updateDialog()

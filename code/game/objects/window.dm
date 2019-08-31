@@ -5,14 +5,14 @@
 			//SN src = null
 			src.density = 0
 
-			del(src)
+			qdel(src)
 		else
 			health -= 35
 			if(health <=0)
 				new /obj/item/weapon/shard( src.loc )
 				new /obj/item/weapon/rods( src.loc )
 				src.density = 0
-				del(src)
+				qdel(src)
 
 		return
 	return
@@ -24,20 +24,20 @@
 /obj/window/ex_act(severity)
 	switch(severity)
 		if(1.0)
-			del(src)
+			qdel(src)
 			return
 		if(2.0)
 			new /obj/item/weapon/shard( src.loc )
 			if(reinf) new /obj/item/weapon/rods( src.loc)
 			//SN src = null
-			del(src)
+			qdel(src)
 			return
 		if(3.0)
 			if (prob(50))
 				new /obj/item/weapon/shard( src.loc )
 				if(reinf) new /obj/item/weapon/rods( src.loc)
 
-				del(src)
+				qdel(src)
 				return
 	return
 
@@ -46,7 +46,7 @@
 		new /obj/item/weapon/shard( src.loc )
 		if(reinf) new /obj/item/weapon/rods( src.loc)
 		density = 0
-		del(src)
+		qdel(src)
 
 /obj/window/CanPass(atom/movable/mover, turf/source, height=0, air_group=0)
 	if(istype(mover, /obj/beam))
@@ -75,7 +75,7 @@
 	src.density = 0
 
 
-	del(src)
+	qdel(src)
 	return
 
 
@@ -99,7 +99,7 @@
 		new /obj/item/weapon/shard( src.loc )
 		if(reinf) new /obj/item/weapon/rods( src.loc)
 		src.density = 0
-		del(src)
+		qdel(src)
 		return
 	..()
 	return
@@ -114,7 +114,7 @@
 		new /obj/item/weapon/shard( src.loc )
 		if(reinf) new /obj/item/weapon/rods( src.loc)
 		src.density = 0
-		del(src)
+		qdel(src)
 	if(istype(usr,/mob/living/carbon/human))
 		if(usr:zombie && !(locate(/turf/space) in view(1,src)))
 			usr << text("\blue Ты стучишь по окну.")
@@ -129,7 +129,7 @@
 				new /obj/item/weapon/shard( src.loc )
 				if(reinf) new /obj/item/weapon/rods( src.loc)
 				src.density = 0
-				del(src)
+				qdel(src)
 	return
 
 /obj/window/attack_paw()
@@ -142,7 +142,7 @@
 		new /obj/item/weapon/shard( src.loc )
 		if(reinf) new /obj/item/weapon/rods( src.loc)
 		src.density = 0
-		del(src)
+		qdel(src)
 	return
 
 /obj/window/attackby(obj/item/weapon/W as obj, mob/user as mob)
@@ -186,7 +186,7 @@
 				new /obj/item/weapon/shard( src.loc )
 				if(reinf) new /obj/item/weapon/rods( src.loc)
 			src.density = 0
-			del(src)
+			qdel(src)
 			return
 		..()
 	return
@@ -245,7 +245,7 @@
 
 	return
 
-/obj/window/Del()
+/obj/window/Destroy()
 	density = 0
 
 	update_nearby_tiles()

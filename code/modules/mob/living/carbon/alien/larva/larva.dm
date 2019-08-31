@@ -29,7 +29,7 @@
 
 	else if (stat == 2 && !client)
 		gibs(loc, virus)
-		del(src)
+		qdel(src)
 		return
 
 	var/b_loss = null
@@ -298,4 +298,3 @@
 	user << browse(dat, text("window=mob[name];size=340x480"))
 	onclose(user, "mob[name]")
 	return
-

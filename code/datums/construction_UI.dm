@@ -26,7 +26,7 @@
 	..()
 
 	if(!user.client)
-		del(src)
+		qdel(src)
 		return
 
 	user.construction_UI = src
@@ -74,23 +74,23 @@
 		selected = href_list["state"]
 		selected_dir = text2num(href_list["direction"])
 
-		del(tile_image)
+		qdel(tile_image)
 		tile_image = image(tile_image_icon, loc, selected, FLY_LAYER, selected_dir)
 		user << tile_image
 
 	else if(href_list["cancel-build"])
-		del(src)
+		qdel(src)
 
 	else if(href_list["use-selected"])
 
 		build(selected, selected_dir)
-		del(src)
+		qdel(src)
 
 
-/datum/construction_UI/Del()
+/datum/construction_UI/Destroy()
 	user << browse(null, "window=construction_UI")
-	del(tile_image_icon)
-	del(tile_image)
+	qdel(tile_image_icon)
+	qdel(tile_image)
 	..()
 
 /datum/construction_UI/proc/build(state, dir)

@@ -363,7 +363,7 @@ turf/simulated/wall/bullet_act(flag,dir)
 			F.to_plating()
 			F.burn_tile()
 			user << "\red The thermite melts the wall."
-			spawn(100) del(O)
+			spawn(100) qdel(O)
 			return
 
 		if (W:get_fuel() < 5)
@@ -409,7 +409,7 @@ turf/simulated/wall/bullet_act(flag,dir)
 			F.to_plating()
 			F.burn_tile()
 			user << "\red The thermite melts the wall."
-			spawn(100) del(O)
+			spawn(100) qdel(O)
 			return
 
 		if (src.d_state == 2)
@@ -487,7 +487,7 @@ turf/simulated/wall/bullet_act(flag,dir)
 			if (W:amount > 1)
 				W:amount--
 			else
-				del(W)
+				qdel(W)
 
 	if(src.d_state > 0)
 		src.icon_state = "r_wall-[d_state]"
@@ -662,7 +662,7 @@ turf/simulated/floor/proc/update_icon()
 			F.to_plating()
 			F.burn_tile()
 			user << "\red The thermite melts the wall."
-			spawn(100) del(O)
+			spawn(100) qdel(O)
 			return
 
 		if (W:get_fuel() < 5)
@@ -682,7 +682,7 @@ turf/simulated/floor/proc/update_icon()
 						C:amount -= 2
 						if (C:amount <= 0)
 							user.u_equip(C)
-							del(C) //wtf
+							qdel(C) //wtf
 						playsound(src.loc, 'Deconstruct.ogg', 80, 1)
 			else
 				user << "\red You need more rods."
@@ -694,14 +694,14 @@ turf/simulated/floor/proc/update_icon()
 		if(istype(src,/turf/simulated/floor/open)) //Act like space if open.
 			if(locate(/obj/lattice, src))
 				var/obj/lattice/L = locate(/obj/lattice, src)
-				del(L)
+				qdel(L)
 				playsound(src.loc, 'Genhit.ogg', 50, 1)
 				C:build(src)
 				C:amount--
 
 				if (C:amount < 1)
 					user.u_equip(C)
-					del(C)
+					qdel(C)
 					return
 				return
 			else
@@ -712,7 +712,7 @@ turf/simulated/floor/proc/update_icon()
 			playsound(src.loc, 'Genhit.ogg', 50, 1)
 			if(--T.amount < 1)
 				user.u_equip(C)
-				del(T)
+				qdel(T)
 				return
 
 	if(istype(C, /obj/item/weapon/table_parts))
@@ -781,21 +781,21 @@ turf/simulated/floor/proc/update_icon()
 
 		if (C:amount < 1)
 			user.u_equip(C)
-			del(C)
+			qdel(C)
 			return
 		return
 
 	if (istype(C, /obj/item/weapon/tile))
 		if(locate(/obj/lattice, src))
 			var/obj/lattice/L = locate(/obj/lattice, src)
-			del(L)
+			qdel(L)
 			playsound(src.loc, 'Genhit.ogg', 50, 1)
 			C:build(src)
 			C:amount--
 
 			if (C:amount < 1)
 				user.u_equip(C)
-				del(C)
+				qdel(C)
 				return
 			return
 		else
@@ -812,7 +812,7 @@ turf/simulated/floor/proc/update_icon()
 
 		if (C:amount < 1)
 			user.u_equip(C)
-			del(C)
+			qdel(C)
 			return
 		return
 	return
@@ -890,7 +890,7 @@ turf/simulated/floor/proc/update_icon()
 	//Copied from old code
 	if (A.x <= 2 || A.x >= (world.maxx - 1) || A.y <= 2 || A.y >= (world.maxy - 1))
 		if(istype(A, /obj/meteor))
-			del(A)
+			qdel(A)
 			return
 
 		if(A.x <= 2)
@@ -967,7 +967,7 @@ turf/simulated/floor/proc/update_icon()
 
 		if (C:amount < 1)
 			user.u_equip(C)
-			del(C)
+			qdel(C)
 			return
 		return
 	return

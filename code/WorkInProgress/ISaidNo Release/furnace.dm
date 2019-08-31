@@ -51,9 +51,9 @@
 						newmob = new/mob/dead/observer(M)
 						M:client:mob = newmob
 						newmob:client:eye = newmob
-						del(M)
-					else del(M)
-					del(W)
+						qdel(M)
+					else qdel(M)
+					qdel(W)
 					src.fuel += 200
 					if(src.fuel > src.maxfuel)
 						src.fuel = src.maxfuel

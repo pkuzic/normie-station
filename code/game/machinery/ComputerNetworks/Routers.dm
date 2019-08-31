@@ -77,7 +77,7 @@ Servicing [connectednets.len + disconnectednets.len] Networks<BR>
 		dat += "Network [net.id] \[<A href='?src=\ref[src];toggle=[net.id]'>Connect</A>]<BR>"
 	return dat
 
-/obj/machinery/network/router/Del()
+/obj/machinery/network/router/Destroy()
 	..()
 	for(var/turf/T in range(100,src))
 		if(T.wireless.Find(src))
@@ -97,4 +97,3 @@ Servicing [connectednets.len + disconnectednets.len] Networks<BR>
 	for(var/datum/computernet/CN in connectednets)
 		c += CN.id
 	return "SERVICING \[[dd_list2text(c," ")]\] AT [replace(loc.loc.name," ","")]"
-

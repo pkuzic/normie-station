@@ -24,7 +24,7 @@ obj/structure
 		if(get_turf(user) == T)
 			user << "\blue Ты разбираешь балку!"
 			new /obj/item/weapon/sheet/metal(get_turf(src))
-			del(src)
+			qdel(src)
 
 	else if(istype(W, /obj/item/weapon/screwdriver) && state == 2 && istype(src,/obj/structure/girder/reinforced))
 		playsound(src.loc, 'Screwdriver.ogg', 100, 1)
@@ -43,7 +43,7 @@ obj/structure
 		if(get_turf(user) == T)
 			user << "\blue Ты убираешь опорные стойки!"
 			new/obj/structure/girder( src.loc )
-			del(src)
+			qdel(src)
 
 	else if(istype(W, /obj/item/weapon/crowbar) && state == 0 && anchored )
 		playsound(src.loc, 'Crowbar.ogg', 100, 1)
@@ -53,7 +53,7 @@ obj/structure
 		if(get_turf(user) == T)
 			user << "\blue Ты смещаешь балки!"
 			new/obj/structure/girder/displaced( src.loc )
-			del(src)
+			qdel(src)
 
 	else if(istype(W, /obj/item/weapon/wrench) && state == 0 && !anchored )
 		playsound(src.loc, 'Ratchet.ogg', 100, 1)
@@ -63,7 +63,7 @@ obj/structure
 		if(get_turf(user) == T)
 			user << "\blue Ты закрепл&#255;ешь балки!"
 			new/obj/structure/girder( src.loc )
-			del(src)
+			qdel(src)
 
 	else if((istype(W, /obj/item/weapon/sheet/metal)) && (W:amount >= 2))
 		var/turf/T = get_turf(user)
@@ -75,8 +75,8 @@ obj/structure
 			Tsrc.ReplaceWithWall()
 			W:amount -= 2
 			if(W:amount <= 0)
-				del(W)
-			del(src)
+				qdel(W)
+			qdel(src)
 		return
 
 	else if (istype(W, /obj/item/weapon/sheet/r_metal))
@@ -90,15 +90,15 @@ obj/structure
 				Tsrc.ReplaceWithRWall()
 				W:amount--
 				if (W:amount <= 0)
-					del(W)
-				del(src)
+					qdel(W)
+				qdel(src)
 				return
 		else
 			user << "\blue Сейчас укрепл&#255;ю балочки..."
 			sleep(60)
 			user << "\blue Балки усилены!"
 			new/obj/structure/girder/reinforced( src.loc )
-			del(src)
+			qdel(src)
 			return
 	else
 		..()

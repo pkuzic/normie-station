@@ -121,7 +121,7 @@
 			for (var/obj/item/policetape/P in T)
 				N = 0
 				if(P.icon_state == "horizontal")
-					del(P)
+					qdel(P)
 			X += 1
 
 		X = OX - 1
@@ -132,7 +132,7 @@
 			for (var/obj/item/policetape/P in T)
 				N = 0
 				if(P.icon_state == "horizontal")
-					del(P)
+					qdel(P)
 			X -= 1
 
 	if(src.icon_state == "vertical")
@@ -145,7 +145,7 @@
 			for (var/obj/item/policetape/P in T)
 				N = 0
 				if(P.icon_state == "vertical")
-					del(P)
+					qdel(P)
 			Y += 1
 
 		Y = OY - 1
@@ -156,9 +156,9 @@
 			for (var/obj/item/policetape/P in T)
 				N = 0
 				if(P.icon_state == "vertical")
-					del(P)
+					qdel(P)
 			Y -= 1
 
-	del(src)
+	qdel(src)
 
 	return

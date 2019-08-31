@@ -16,7 +16,7 @@
 	invisibility = 101
 	for(var/t in organs)
 		//organs[text("[]", t)] = null
-		del(organs[text("[]", t)])
+		qdel(organs[text("[]", t)])
 	var/atom/movable/overlay/animation = new /atom/movable/overlay( loc )
 	animation.icon_state = "blank"
 	animation.icon = 'mob.dmi'
@@ -24,7 +24,7 @@
 	flick("h2monkey", animation)
 	sleep(48 * tick_multiplier)
 	//animation = null
-	del(animation)
+	qdel(animation)
 	var/mob/living/carbon/monkey/O = new /mob/living/carbon/monkey( loc )
 
 	O.name = "monkey"
@@ -43,7 +43,7 @@
 		O << "<B>Follow your objective.</B>"
 	//SN src = null
 	*/
-	del(src)
+	qdel(src)
 	return
 
 /mob/living/carbon/AIize()
@@ -57,14 +57,14 @@
 			W.loc = loc
 			W.dropped(src)
 			W.layer = initial(W.layer)
-			del(W)
+			qdel(W)
 	update_clothing()
 	monkeyizing = 1
 	canmove = 0
 	icon = null
 	invisibility = 101
 	for(var/t in organs)
-		del(organs[text("[]", t)])
+		qdel(organs[text("[]", t)])
 
 
 	..()
@@ -153,7 +153,7 @@
 			if (aisprite == "Angry Face")
 				O.icon_state = "ai-angryface"
 		world << text("<b>[O.real_name] is the AI!</b>")
-		del(src)
+		qdel(src)
 
 	return O
 
@@ -171,14 +171,14 @@
 			W.loc = loc
 			W.dropped(src)
 			W.layer = initial(W.layer)
-			del(W)
+			qdel(W)
 	update_clothing()
 	monkeyizing = 1
 	canmove = 0
 	icon = null
 	invisibility = 101
 	for(var/t in organs)
-		del(organs[text("[t]")])
+		qdel(organs[text("[t]")])
 	//client.screen -= main_hud1.contents
 	client.screen -= hud_used.contents
 	client.screen -= hud_used.adding
@@ -211,7 +211,7 @@
 
 
 
-	del(src)
+	qdel(src)
 	return O
 
 //human -> alien
@@ -232,14 +232,14 @@
 	icon = null
 	invisibility = 101
 	for(var/t in organs)
-		del(organs[t])
+		qdel(organs[t])
 //	var/atom/movable/overlay/animation = new /atom/movable/overlay( loc )
 //	animation.icon_state = "blank"
 //	animation.icon = 'mob.dmi'
 //	animation.master = src
 //	flick("h2alien", animation)
 //	sleep(48 * tick_multiplier)
-//	del(animation)
+//	qdel(animation)
 	var/mob/living/carbon/alien/humanoid/O = new /mob/living/carbon/alien/humanoid( loc )
 	O.name = "alien"
 	O.dna = dna
@@ -251,5 +251,5 @@
 	O.loc = loc
 	O.a_intent = "hurt"
 	O << "<B>You are now an alien.</B>"
-	del(src)
+	qdel(src)
 	return

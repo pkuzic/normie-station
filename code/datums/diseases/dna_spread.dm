@@ -56,7 +56,7 @@
 
 	return
 
-/datum/disease/dnaspread/Del()
+/datum/disease/dnaspread/Destroy()
 	if ((original_dna["name"]) && (original_dna["UI"]) && (original_dna["SE"]))
 		affected_mob.dna.uni_identity = original_dna["UI"]
 		updateappearance(affected_mob, affected_mob.dna.uni_identity)

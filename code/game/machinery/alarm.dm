@@ -374,7 +374,7 @@ obj/machinery/alarm/proc
 			if(B.air_doors_activated != 1)
 				var/turf/C = E.loc
 				for (var/obj/alertlighting/atmoslight/G in C)
-					del(G)
+					qdel(G)
 				if((!E.arePowerSystemsOn()) || (E.stat & NOPOWER)) continue
 					//E.air_locked = 0
 				if(E.air_locked) //Don't mess with doors locked for other reasons.
@@ -393,7 +393,7 @@ obj/machinery/alarm/proc
 		for(var/area/RA in A.related)
 			for(var/turf/T in RA)
 				for (var/obj/alertlighting/atmoslight/F in T)
-					del(F)
+					qdel(F)
 			RA.deactivate_air_doors(manual*5)
 
 
@@ -567,7 +567,7 @@ obj/machinery/alarm/proc
 		if(B.fire != 1)
 			var/turf/C = E.loc
 			for (var/obj/alertlighting/firelight/G in C)
-				del(G)
+				qdel(G)
 			if(!E.blocked)
 				if(E.operating)
 					E.nextstate = OPEN
@@ -578,7 +578,7 @@ obj/machinery/alarm/proc
 		for(var/turf/T in RA)
 			if(T.density != 1)
 				for (var/obj/alertlighting/firelight/F in T)
-					del(F)
+					qdel(F)
 
 		RA.firereset()
 	return

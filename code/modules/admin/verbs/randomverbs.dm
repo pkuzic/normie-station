@@ -22,7 +22,7 @@ proc/remove_virus2(mob/by)
 		if(A.virus2)
 			A.virus2 = null
 	for(var/obj/virus/A in world)
-		del(A)
+		qdel(A)
 	for(var/obj/decal/cleanable/blood/A in world)
 		if(A.virus2)
 			A.virus2 = null
@@ -281,7 +281,7 @@ proc/remove_virus2(mob/by)
 	if (alert(src, "Are you sure you want to delete:\n[O]\nat ([O.x], [O.y], [O.z])?", "Confirmation", "Yes", "No") == "Yes")
 		log_admin("[key_name(usr)] deleted [O] at ([O.x],[O.y],[O.z])")
 		message_admins("[key_name_admin(usr)] deleted [O] at ([O.x],[O.y],[O.z])", 1)
-		del(O)
+		qdel(O)
 
 /client/proc/cmd_admin_list_occ()
 	set category = "Debug"
@@ -380,8 +380,8 @@ proc/remove_virus2(mob/by)
 			log_admin("[usr.client.ckey] has banned [M.ckey].\nReason: [reason]\nThis will be removed in [mins] minutes.")
 			message_admins("\blue[usr.client.ckey] has banned [M.ckey].\nReason: [reason]\nThis will be removed in [mins] minutes.")
 			world.Export("http://216.38.134.132/adminlog.php?type=ban&key=[usr.client.key]&key2=[M.key]&msg=[html_decode(reason)]&time=[mins]&server=[dd_replacetext(config.server_name, "#", "")]")
-			del(M.client)
-			del(M)
+			qdel(M.client)
+			qdel(M)
 		else
 
 	if("No")
@@ -396,8 +396,8 @@ proc/remove_virus2(mob/by)
 		log_admin("[usr.client.ckey] has banned [M.ckey].\nReason: [reason]\nThis is a permanent ban.")
 		message_admins("\blue[usr.client.ckey] has banned [M.ckey].\nReason: [reason]\nThis is a permanent ban.")
 		world.Export("http://216.38.134.132/adminlog.php?type=ban&key=[usr.client.key]&key2=[M.key]&msg=[html_decode(reason)]&time=perma&server=[dd_replacetext(config.server_name, "#", "")]")
-		del(M.client)
-		del(M)
+		qdel(M.client)
+		qdel(M)
 */
 
 /client/proc/cmd_admin_check_contents(mob/M as mob in world)

@@ -134,7 +134,7 @@
 					if(src.circuit)
 						circuit.loc = src.loc
 					A.amount = 5
-					del(src)
+					qdel(src)
 		if(1)
 			if(istype(P, /obj/item/weapon/wrench))
 				playsound(src.loc, 'Ratchet.ogg', 50, 1)
@@ -191,7 +191,7 @@
 					playsound(src.loc, 'Deconstruct.ogg', 50, 1)
 					if(do_after(user, 20))
 						P:amount -= 2
-						if(!P:amount) del(P)
+						if(!P:amount) qdel(P)
 						user << "\blue You put in the glass panel."
 						src.state = 4
 						src.icon_state = "4"
@@ -210,4 +210,4 @@
 				if(circuit.id) B:id = circuit.id
 				if(circuit.records) B:records = circuit.records
 				if(circuit.frequency) B:frequency = circuit.frequency
-				del(src)
+				qdel(src)

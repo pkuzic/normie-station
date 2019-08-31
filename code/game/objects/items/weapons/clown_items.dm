@@ -15,7 +15,7 @@ BIKE HORN
 		M.r_hand = W
 	W.layer = 20
 	W.add_fingerprint(M)
-	del(src)
+	qdel(src)
 	return
 
 /obj/item/weapon/bananapeel/HasEntered(AM as mob|obj)

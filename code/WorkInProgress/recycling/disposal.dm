@@ -98,7 +98,7 @@
 				GM.loc = src
 				for (var/mob/C in viewers(src))
 					C.show_message("\red [GM.name] has been placed in the [src] by [user].", 3)
-				del(G)
+				qdel(G)
 
 
 		else
@@ -389,7 +389,7 @@
 					AM.throw_at(target, 5, 1)
 
 		H.vent_gas(loc)
-		del(H)
+		qdel(H)
 
 
 
@@ -502,7 +502,7 @@
 
 		if(other.has_fat_guy)
 			has_fat_guy = 1
-		del(other)
+		qdel(other)
 
 
 	// called when player tries to move while in a pipe
@@ -545,7 +545,7 @@
 
 	// pipe is deleted
 	// ensure if holder is present, it is expelled
-	Del()
+	Destroy()
 		var/obj/disposalholder/H = locate() in src
 		if(H)
 			// holder was present
@@ -558,7 +558,7 @@
 				for(var/atom/movable/AM in H)
 					AM.loc = T
 					AM.pipe_eject(0)
-				del(H)
+				qdel(H)
 				..()
 				return
 
@@ -680,7 +680,7 @@
 					if(AM)
 						AM.throw_at(target, 100, 1)
 			H.vent_gas(T)
-			del(H)
+			qdel(H)
 
 		else	// no specified direction, so throw in random direction
 
@@ -695,7 +695,7 @@
 						AM.throw_at(target, 5, 1)
 
 			H.vent_gas(T)	// all gas vent to turf
-			del(H)
+			qdel(H)
 
 		return
 
@@ -723,14 +723,14 @@
 				for(var/atom/movable/AM in H)
 					AM.loc = T
 					AM.pipe_eject(0)
-				del(H)
+				qdel(H)
 				return
 
 			// otherswise, do normal expel from turf
 			expel(H, T, 0)
 
 		spawn(2)	// delete pipe after 2 ticks to ensure expel proc finished
-			del(src)
+			qdel(src)
 
 
 	// pipe affected by explosion
@@ -811,7 +811,7 @@
 		C.dir = dir
 		C.update()
 
-		del(src)
+		qdel(src)
 
 // *** TEST verb
 //client/verb/dispstop()
@@ -976,7 +976,7 @@
 	welded()
 		var/obj/item/scrap/S = new(src.loc)
 		S.set_components(200,0,0)
-		del(src)
+		qdel(src)
 
 // the disposal outlet machine
 
@@ -1012,7 +1012,7 @@
 			spawn(1)
 				AM.throw_at(target, 3, 1)
 		//H.vent_gas(src.loc) //Mloc: Complaints forced me to do this.  Just imagine it's stored somehow.
-		del(H)
+		qdel(H)
 
 		return
 

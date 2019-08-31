@@ -29,7 +29,7 @@
 	if (!hud_used)
 		hud_used = new/obj/hud( src )
 	else
-		del(hud_used)
+		qdel(hud_used)
 		hud_used = new/obj/hud( src )
 	world.makejson()
 	next_move = 1

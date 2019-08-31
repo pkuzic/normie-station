@@ -5,22 +5,22 @@
 		S.m_amt = src.m_amt
 		for(var/mob/M in viewers(5, S))
 			M << "\red [src.nominative] расплавл&#255;етс&#255;."
-		del(src)
+		qdel(src)
 	else if(exposed_temperature >= 1650 && g_amt)
 		var/obj/item/weapon/meltedmetal/S = new(src.loc)
 		S.desc = "Похоже, что это напоминает [src.nominative]."
 		S.g_amt = src.g_amt
 		for(var/mob/M in viewers(5, S))
 			M << "\red [src.nominative] расплавл&#255;етс&#255;."
-		del(src)
+		qdel(src)
 /obj/item/weapon/paper/temperature_expose(datum/gas_mixture/air, exposed_temperature, exposed_volume)
 	if(exposed_temperature >= 373.15)
 		for(var/mob/M in viewers(5, src))
 			M << "\red [src.nominative] сгорает до тла."
-		del(src)
+		qdel(src)
 /obj/item/weapon/bedsheet/ex_act(severity)
 	if (severity <= 2)
-		del(src)
+		qdel(src)
 		return
 	return
 /obj/item/weapon/pipesegment/
@@ -264,7 +264,7 @@
 	P.info = dat
 	P.name = "бумага - 'Список экипажа'"
 	//SN src = null
-	del(src)
+	qdel(src)
 	return
 
 /obj/screen/close/DblClick()
@@ -389,12 +389,12 @@
 					//find their ghost
 						O.client.mob = M
 						//put their mob in M
-						del(O)
+						qdel(O)
 						//delete thier ghost
 
 		M:brain_op_stage = 3.0
 
-		del(src)
+		qdel(src)
 	else
 		..()
 	return

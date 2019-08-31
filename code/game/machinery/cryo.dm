@@ -138,7 +138,7 @@
 			src.occupant = M
 			src.add_fingerprint(user)
 			build_icon()
-			del(G)
+			qdel(G)
 		src.updateUsrDialog()
 		return
 

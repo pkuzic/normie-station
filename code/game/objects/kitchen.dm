@@ -19,8 +19,8 @@
 			newmob = new/mob/dead/observer(G.affecting)
 			G.affecting:client:mob = newmob
 			newmob:client:eye = newmob
-		del(G.affecting)
-		del(G)
+		qdel(G.affecting)
+		qdel(G)
 
 	else
 		user << "\red На шипе и без того обезь&#255;на, сначала бы собрать её м&#255;со!"
@@ -39,5 +39,3 @@
 			usr << "Ты снимаешь последний кусок м&#255;са с обезь&#255;ны!"
 			src.icon_state = "spike"
 			src.occupied = 0
-
-

@@ -36,7 +36,7 @@
 			src.power_change()		// all machines set to current power level, also updates lighting icon
 			alldoors = get_doors(src)
 
-/area/Del()
+/area/Destroy()
 	related -= src
 	..()
 

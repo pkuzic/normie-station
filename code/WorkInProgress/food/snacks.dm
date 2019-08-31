@@ -46,7 +46,7 @@
 			return
 		if(!src.amount)
 			user << "\red None of [src] left, oh no!"
-			del(src)
+			qdel(src)
 			return 0
 		if(istype(M, /mob/living/carbon/human) && src.edible)
 			if(M == user)
@@ -63,7 +63,7 @@
 				if(!src.amount)
 					user << "\red You finish eating [src]."
 					user.u_equip(src)
-					del(src)
+					qdel(src)
 				return 1
 			else
 				for(var/mob/O in viewers(world.view, user))
@@ -84,7 +84,7 @@
 				if(!src.amount)
 					user << "\red [M] finishes eating [src]."
 					user.u_equip(src)
-					del(src)
+					qdel(src)
 				return 1
 
 
@@ -633,7 +633,7 @@
 		new /obj/item/weapon/reagent_containers/food/snacks/pizzaslice(spawnloc)
 		user << "You cut the pizza."
 		amount--
-		del(src)
+		qdel(src)
 
 /obj/item/weapon/reagent_containers/food/snacks/pizzapotato/attackby(obj/item/weapon/W as obj, mob/user as mob)
 	if(istype(W,/obj/item/weapon/kitchen/utensil/knife))
@@ -644,7 +644,7 @@
 		new /obj/item/weapon/reagent_containers/food/snacks/pizzapotatoslice(spawnloc)
 		user << "You cut the pizza."
 		amount--
-		del(src)
+		qdel(src)
 
 /obj/item/weapon/reagent_containers/food/snacks/pizzashroom/attackby(obj/item/weapon/W as obj, mob/user as mob)
 	if(istype(W,/obj/item/weapon/kitchen/utensil/knife))
@@ -655,7 +655,7 @@
 		new /obj/item/weapon/reagent_containers/food/snacks/pizzashroomslice(spawnloc)
 		user << "You cut the pizza."
 		amount--
-		del(src)
+		qdel(src)
 
 /obj/item/weapon/reagent_containers/food/snacks/pizzameat/attackby(obj/item/weapon/W as obj, mob/user as mob)
 	if(istype(W,/obj/item/weapon/kitchen/utensil/knife))
@@ -666,7 +666,7 @@
 		new /obj/item/weapon/reagent_containers/food/snacks/pizzameatslice(spawnloc)
 		user << "You cut the pizza."
 		amount--
-		del(src)
+		qdel(src)
 
 /obj/item/weapon/reagent_containers/food/snacks/pizzameatshroom/attackby(obj/item/weapon/W as obj, mob/user as mob)
 	if(istype(W,/obj/item/weapon/kitchen/utensil/knife))
@@ -677,7 +677,7 @@
 		new /obj/item/weapon/reagent_containers/food/snacks/pizzameatshroomslice(spawnloc)
 		user << "You cut the pizza."
 		amount--
-		del(src)
+		qdel(src)
 
 /obj/item/weapon/reagent_containers/food/snacks/pizzasalami/attackby(obj/item/weapon/W as obj, mob/user as mob)
 	if(istype(W,/obj/item/weapon/kitchen/utensil/knife))
@@ -688,7 +688,7 @@
 		new /obj/item/weapon/reagent_containers/food/snacks/pizzasalamislice(spawnloc)
 		user << "You cut the pizza."
 		amount--
-		del(src)
+		qdel(src)
 
 /obj/item/weapon/reagent_containers/food/snacks/pizzasalamishroom/attackby(obj/item/weapon/W as obj, mob/user as mob)
 	if(istype(W,/obj/item/weapon/kitchen/utensil/knife))
@@ -699,7 +699,7 @@
 		new /obj/item/weapon/reagent_containers/food/snacks/pizzasalamishroomslice(spawnloc)
 		user << "You cut the pizza."
 		amount--
-		del(src)
+		qdel(src)
 
 ///////////////////////////////////////////////////////
 //           Cutting other food items .              //
@@ -713,7 +713,7 @@
 		new /obj/item/weapon/reagent_containers/food/snacks/doughslice(spawnloc)
 		new /obj/item/weapon/reagent_containers/food/snacks/doughslice(spawnloc)
 		user << "You cut the flat dough into slices."
-		del(src)
+		qdel(src)
 
 // Potato in potato sticks
 /obj/item/weapon/reagent_containers/food/snacks/potato/attackby(obj/item/weapon/W as obj, mob/user as mob)
@@ -721,7 +721,7 @@
 		var/turf/spawnloc = foodloc(user, src)
 		new /obj/item/weapon/reagent_containers/food/snacks/rawsticks(spawnloc)
 		user << "You cut the potato."
-		del(src)
+		qdel(src)
 
 
 // Meat into raw cutlets (x3)
@@ -732,7 +732,7 @@
 		new /obj/item/weapon/reagent_containers/food/snacks/rawcutlet(spawnloc)
 		new /obj/item/weapon/reagent_containers/food/snacks/rawcutlet(spawnloc)
 		user << "You cut the meat into slices."
-		del(src)
+		qdel(src)
 
 // Steak into cutlets (x3)
 /obj/item/weapon/reagent_containers/food/snacks/steak/attackby(obj/item/weapon/kitchen/utensil/knife/W as obj, mob/user as mob)
@@ -742,7 +742,7 @@
 		new /obj/item/weapon/reagent_containers/food/snacks/cutlet(spawnloc)
 		new /obj/item/weapon/reagent_containers/food/snacks/cutlet(spawnloc)
 		user << "You cut the steak into slices."
-		del(src)
+		qdel(src)
 		return
 	..()
 
@@ -754,7 +754,7 @@
 		new /obj/item/weapon/reagent_containers/food/snacks/cutlet(spawnloc)
 		new /obj/item/weapon/reagent_containers/food/snacks/cutlet(spawnloc)
 		user << "You cut the steak into slices."
-		del(src)
+		qdel(src)
 
 ///////////////////////////////////////////////////////
 //                                                   //
@@ -768,8 +768,8 @@
 		var/turf/spawnloc = foodloc(user, src)
 		new /obj/item/weapon/reagent_containers/food/snacks/breadsys/ontop/butterbread(spawnloc)
 		user << "You place butter on the bread."
-		del(W)
-		del(src)
+		qdel(W)
+		qdel(src)
 
 /obj/item/weapon/reagent_containers/food/snacks/breadsys/ontop/butterbread/attackby(obj/item/weapon/W as obj, mob/user as mob)
 	var/turf/spawnloc = foodloc(user, src)
@@ -778,21 +778,21 @@
 	if(istype(W,/obj/item/weapon/reagent_containers/food/snacks/breadsys/ontop/cheese))
 		new /obj/item/weapon/reagent_containers/food/snacks/breadsys/ontop/chsandwich(spawnloc)
 		user << "You make a cheese sandwich."
-		del(W)
-		del(src)
+		qdel(W)
+		qdel(src)
 
 	// Bread and butter + cutlet = meat sandwich
 	else if(istype(W,/obj/item/weapon/reagent_containers/food/snacks/cutlet))
 		new /obj/item/weapon/reagent_containers/food/snacks/breadsys/ontop/msandwich(spawnloc)
 		user << "You make a meat sandwich."
-		del(W)
-		del(src)
+		qdel(W)
+		qdel(src)
 
 	else if(istype(W, /obj/item/weapon/reagent_containers/food/snacks/breadsys/ontop/salami))
 		new /obj/item/weapon/reagent_containers/food/snacks/breadsys/ontop/salsandwich(spawnloc)
 		user << "You make a salami sandwich."
-		del(W)
-		del(src)
+		qdel(W)
+		qdel(src)
 
 
 // Cheese sandwich + meat sandwich = sammich
@@ -801,8 +801,8 @@
 		var/turf/spawnloc = foodloc(user, src)
 		new /obj/item/weapon/reagent_containers/food/snacks/breadsys/ontop/sammich(spawnloc)
 		user << "You make a sammich,"
-		del(W)
-		del(src)
+		qdel(W)
+		qdel(src)
 
 // Meat sandwich + cheese sandwich = sammich
 /obj/item/weapon/reagent_containers/food/snacks/breadsys/ontop/msandwich/attackby(obj/item/weapon/W as obj, mob/user as mob)
@@ -810,8 +810,8 @@
 		var/turf/spawnloc = foodloc(user, src)
 		new /obj/item/weapon/reagent_containers/food/snacks/breadsys/ontop/sammich(spawnloc)
 		user << "You make a sammich,"
-		del(W)
-		del(src)
+		qdel(W)
+		qdel(src)
 
 // Flour + egg = dough
 /obj/item/weapon/reagent_containers/food/snacks/flour/attackby(obj/item/weapon/W as obj, mob/user as mob)
@@ -819,8 +819,8 @@
 		var/turf/spawnloc = foodloc(user, src)
 		new /obj/item/weapon/reagent_containers/food/snacks/dough(spawnloc)
 		user << "You make a dough."
-		del(W)
-		del(src)
+		qdel(W)
+		qdel(src)
 
 // Dough + rolling pin = flat dough
 /obj/item/weapon/reagent_containers/food/snacks/dough/attackby(obj/item/weapon/W as obj, mob/user as mob)
@@ -828,7 +828,7 @@
 		var/turf/spawnloc = foodloc(user, src)
 		new /obj/item/weapon/reagent_containers/food/snacks/flatdough(spawnloc)
 		user << "You flatten the dough."
-		del(src)
+		qdel(src)
 
 
 /obj/item/weapon/reagent_containers/food/snacks/bun/attackby(obj/item/weapon/W as obj, mob/user as mob)
@@ -837,24 +837,24 @@
 		var/turf/spawnloc = foodloc(user, src)
 		new /obj/item/weapon/reagent_containers/food/snacks/burger(spawnloc)
 		user << "You make a burger."
-		del(W)
-		del(src)
+		qdel(W)
+		qdel(src)
 
 	// Bun + cutlet = hamburger
 	else if(istype(W,/obj/item/weapon/reagent_containers/food/snacks/cutlet))
 		var/turf/spawnloc = foodloc(user, src)
 		new /obj/item/weapon/reagent_containers/food/snacks/hamburger(spawnloc)
 		user << "You make a hamburger."
-		del(W)
-		del(src)
+		qdel(W)
+		qdel(src)
 
 	// Bun + sausage = hotdog
 	else if(istype(W,/obj/item/weapon/reagent_containers/food/snacks/sausage))
 		var/turf/spawnloc = foodloc(user, src)
 		new /obj/item/weapon/reagent_containers/food/snacks/hotdog(spawnloc)
 		user << "You make a hotdog."
-		del(W)
-		del(src)
+		qdel(W)
+		qdel(src)
 
 // Burger + cheese slice = cheeseburger
 /obj/item/weapon/reagent_containers/food/snacks/burger/attackby(obj/item/weapon/reagent_containers/food/snacks/breadsys/ontop/cheese/W as obj, mob/user as mob)
@@ -862,8 +862,8 @@
 		var/turf/spawnloc = foodloc(user, src)
 		new /obj/item/weapon/reagent_containers/food/snacks/cheeseburger(spawnloc)
 		user << "You make a cheeseburger."
-		del(W)
-		del(src)
+		qdel(W)
+		qdel(src)
 		return
 	..()
 
@@ -873,8 +873,8 @@
 		var/turf/spawnloc = foodloc(user, src)
 		new /obj/item/weapon/reagent_containers/food/snacks/cheeseburger(spawnloc)
 		user << "You make a cheeseburger."
-		del(W)
-		del(src)
+		qdel(W)
+		qdel(src)
 		return
 	..()
 
@@ -884,8 +884,8 @@
 		var/turf/spawnloc = foodloc(user, src)
 		new /obj/item/weapon/reagent_containers/food/snacks/scheeseburger(spawnloc)
 		user << "You make a sauced cheeseburger."
-		del(W)
-		del(src)
+		qdel(W)
+		qdel(src)
 
 // Sauced hamburger + cheese slice = sauced cheeseburger
 /obj/item/weapon/reagent_containers/food/snacks/shamburger/attackby(obj/item/weapon/W as obj, mob/user as mob)
@@ -893,8 +893,8 @@
 		var/turf/spawnloc = foodloc(user, src)
 		new /obj/item/weapon/reagent_containers/food/snacks/scheeseburger(spawnloc)
 		user << "You make a sauced cheeseburger."
-		del(W)
-		del(src)
+		qdel(W)
+		qdel(src)
 
 // Spaghetti + meatball = spaghetti with meatballs
 /obj/item/weapon/reagent_containers/food/snacks/spaghetti/attackby(obj/item/weapon/reagent_containers/food/snacks/meatball/W as obj, mob/user as mob)
@@ -902,8 +902,8 @@
 		var/turf/spawnloc = foodloc(user, src)
 		new /obj/item/weapon/reagent_containers/food/snacks/meatspaghetti(spawnloc)
 		user << "You add meatballs to spaghetti."
-		del(W)
-		del(src)
+		qdel(W)
+		qdel(src)
 		return
 	..()
 
@@ -913,8 +913,8 @@
 		var/turf/spawnloc = foodloc(user, src)
 		new /obj/item/weapon/reagent_containers/food/snacks/smeatspaghetti(spawnloc)
 		user << "You add meatballs to sauced spaghetti."
-		del(W)
-		del(src)
+		qdel(W)
+		qdel(src)
 
 ///////////////////////////////////////////////////////
 //                                                   //
@@ -929,7 +929,7 @@
 		var/turf/spawnloc = foodloc(user, src)
 		new /obj/item/weapon/reagent_containers/food/snacks/ssteak(spawnloc)
 		user << "You put ketchup on the steak."
-		del(src)
+		qdel(src)
 		return
 	..()
 
@@ -939,7 +939,7 @@
 		var/turf/spawnloc = foodloc(user, src)
 		new /obj/item/weapon/reagent_containers/food/snacks/sbakedpotato(spawnloc)
 		user << "You add ketchup to the baked potato."
-		del(src)
+		qdel(src)
 
 // Spaghetti + ketchup
 /obj/item/weapon/reagent_containers/food/snacks/spaghetti/attackby(obj/item/weapon/reagent_containers/food/snacks/ketchup/W as obj, mob/user as mob)
@@ -947,7 +947,7 @@
 		var/turf/spawnloc = foodloc(user, src)
 		new /obj/item/weapon/reagent_containers/food/snacks/sspaghetti(spawnloc)
 		user << "You put ketchup in spaghetti."
-		del(src)
+		qdel(src)
 		return
 	..()
 
@@ -957,7 +957,7 @@
 		var/turf/spawnloc = foodloc(user, src)
 		new /obj/item/weapon/reagent_containers/food/snacks/smeatspaghetti(spawnloc)
 		user << "You put ketchup in meat spaghetti."
-		del(src)
+		qdel(src)
 
 // Burger + ketchup
 /obj/item/weapon/reagent_containers/food/snacks/burger/attackby(obj/item/weapon/reagent_containers/food/snacks/ketchup/W as obj, mob/user as mob)
@@ -965,7 +965,7 @@
 		var/turf/spawnloc = foodloc(user, src)
 		new /obj/item/weapon/reagent_containers/food/snacks/sburger(spawnloc)
 		user << "You add ketchup to the burger."
-		del(src)
+		qdel(src)
 		return
 	..()
 
@@ -975,7 +975,7 @@
 		var/turf/spawnloc = foodloc(user, src)
 		new /obj/item/weapon/reagent_containers/food/snacks/shamburger(spawnloc)
 		user << "You add ketchup to the hamburger."
-		del(src)
+		qdel(src)
 		return
 	..()
 
@@ -985,7 +985,7 @@
 		var/turf/spawnloc = foodloc(user, src)
 		new /obj/item/weapon/reagent_containers/food/snacks/scheeseburger(spawnloc)
 		user << "You add ketchup to the cheeseburger."
-		del(src)
+		qdel(src)
 
 // Hotdog + ketchup
 /obj/item/weapon/reagent_containers/food/snacks/hotdog/attackby(obj/item/weapon/W as obj, mob/user as mob)
@@ -993,7 +993,7 @@
 		var/turf/spawnloc = foodloc(user, src)
 		new /obj/item/weapon/reagent_containers/food/snacks/shotdog(spawnloc)
 		user << "You add ketchup to the hotdog."
-		del(src)
+		qdel(src)
 
 // Burger + omelette
 /obj/item/weapon/reagent_containers/food/snacks/omelette/attackby(obj/item/weapon/W as obj, mob/user as mob)
@@ -1001,7 +1001,7 @@
 		var/turf/spawnloc = foodloc(user, src)
 		new /obj/item/weapon/reagent_containers/food/snacks/somelette(spawnloc)
 		user << "You add ketchup to the omelette."
-		del(src)
+		qdel(src)
 
 ///////////////////////////////////////////////////////
 //                                                   //
@@ -1147,7 +1147,7 @@
 			icon_state = "loaf1"
 		if(amount <= 1)
 			new /obj/item/weapon/reagent_containers/food/snacks/breadsys/ontop/bread(spawnloc)
-			del(src)
+			qdel(src)
 
 //	 Cheese code
 /obj/item/weapon/reagent_containers/food/snacks/breadsys/bigcheese/attackby(obj/item/weapon/W as obj, mob/user as mob)
@@ -1158,7 +1158,7 @@
 		new /obj/item/weapon/reagent_containers/food/snacks/breadsys/ontop/cheese(spawnloc)
 		user << "You slice the cheese"
 		amount--
-		del(src)
+		qdel(src)
 
 //	 Salami code
 /obj/item/weapon/reagent_containers/food/snacks/breadsys/salamistick/attackby(obj/item/weapon/W as obj, mob/user as mob)
@@ -1175,7 +1175,7 @@
 			icon_state = "salamistick0"
 		if(amount <= 1)
 			new /obj/item/weapon/reagent_containers/food/snacks/breadsys/ontop/salami(spawnloc)
-			del(src)
+			qdel(src)
 
 
 //	 Butterpack code
@@ -1187,7 +1187,7 @@
 			user << "You cut some butter"
 			amount--
 		if(amount < 1)
-			del(src)
+			qdel(src)
 
 // *** Sandwich assembling code. Watch the overloading on bread/attackby ***
 /*

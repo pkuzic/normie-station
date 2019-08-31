@@ -213,7 +213,7 @@
 				log_admin("[key_name(usr)] booted [key_name(M)].")
 				message_admins("\blue [key_name_admin(usr)] booted [key_name_admin(M)].", 1)
 				//M.client = null
-				del(M.client)
+				qdel(M.client)
 
 	/*if (href_list["removejobban"])
 		if ((src.rank in list("Coder", "Host"  )))
@@ -247,8 +247,8 @@
 					log_admin("[usr.client.ckey] has banned [M.ckey].\nReason: [sanitize_spec(reason)]\nThis will be removed in [mins] minutes.")
 					message_admins("\blue[usr.client.ckey] has banned [M.ckey].\nReason: [reason]\nThis will be removed in [mins] minutes.")
 
-					del(M.client)
-					del(M)
+					qdel(M.client)
+					qdel(M)
 				if("No")
 					var/reason = input(usr,"Reason?","reason","Griefer") as text
 					if(!reason)
@@ -260,8 +260,8 @@
 					log_admin("[usr.client.ckey] has banned [M.ckey].\nReason: [reason]\nThis is a permanent ban.")
 					message_admins("\blue[usr.client.ckey] has banned [M.ckey].\nReason: [reason]\nThis is a permanent ban.")
 
-					del(M.client)
-					del(M)
+					qdel(M.client)
+					qdel(M)
 
 	if (href_list["removeinvitek"])
 		if ((src.rank in list( "Administrator", "Primary Administrator", "Super Administrator", "Coder", "Host"  )))
@@ -888,24 +888,24 @@
 			switch(href_list["secretsfun"])
 				if("sec_clothes")
 					for(var/obj/item/clothing/under/O in world)
-						del(O)
+						qdel(O)
 					ok = 1
 				if("sec_all_clothes")
 					for(var/obj/item/clothing/O in world)
-						del(O)
+						qdel(O)
 					ok = 1
 				if("sec_classic1")
 					for(var/obj/item/clothing/suit/fire/O in world)
-						del(O)
+						qdel(O)
 					for(var/obj/grille/O in world)
-						del(O)
+						qdel(O)
 					for(var/obj/machinery/vehicle/pod/O in world)
 						for(var/mob/M in src)
 							M.loc = src.loc
 							if (M.client)
 								M.client.perspective = MOB_PERSPECTIVE
 								M.client.eye = M
-						del(O)
+						qdel(O)
 					ok = 1
 				/*if("toxic")
 					for(var/obj/machinery/atmoalter/siphs/fullairsiphon/O in world)
@@ -1138,11 +1138,11 @@
 			switch(href_list["secretsadmin"])
 				if("clear_bombs")
 					for(var/obj/item/assembly/r_i_ptank/O in world)
-						del(O)
+						qdel(O)
 					for(var/obj/item/assembly/m_i_ptank/O in world)
-						del(O)
+						qdel(O)
 					for(var/obj/item/assembly/t_i_ptank/O in world)
-						del(O)
+						qdel(O)
 					ok = 1
 				if("list_bombers")
 					var/dat = "<B>Bombing List<HR>"

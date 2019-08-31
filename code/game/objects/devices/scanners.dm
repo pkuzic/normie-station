@@ -60,7 +60,7 @@ GAS ANALYZER
 		else
 			src.amount += W.amount
 			//W = null
-			del(W)
+			qdel(W)
 		src.add_fingerprint(user)
 		if (W)
 			W.add_fingerprint(user)

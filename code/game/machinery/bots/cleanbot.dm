@@ -218,7 +218,7 @@ text("<A href='?src=\ref[src];operation=oddbutton'>[src.oddbutton ? "Yes" : "No"
 	src.cleaning = 1
 	spawn(50)
 		src.cleaning = 0
-		del(target)
+		qdel(target)
 		src.icon_state = "cleanbot[src.on]"
 		src.anchored = 0
 		src.target = null
@@ -243,10 +243,5 @@ text("<A href='?src=\ref[src];operation=oddbutton'>[src.oddbutton ? "Yes" : "No"
 	if(created_name)
 		A.name = created_name
 	user << "You add the robot arm to the bucket and sensor assembly! Beep boop!"
-	del(W)
-	del(src)
-
-
-
-
-
+	qdel(W)
+	qdel(src)

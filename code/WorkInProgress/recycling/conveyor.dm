@@ -92,7 +92,7 @@
 	if(istype(I, /obj/item/weapon/grab))	// special handling if grabbing a mob
 		var/obj/item/weapon/grab/G = I
 		G.affecting.Move(src.loc)
-		del(G)
+		qdel(G)
 		return
 	else if(istype(I, /obj/item/weapon/CableCoil))	// if cable, see if a mob is present
 		var/mob/M = locate() in src.loc
@@ -245,7 +245,7 @@
 		conv = locate() in src.loc
 		if(conv)	// divert_from dir must match possible conveyor movement
 			if(conv.basedir != divert_from && conv.basedir != turn(divert_from,180) )
-				del(src)	// if no dir match, then delete self
+				qdel(src)	// if no dir match, then delete self
 		set_divert()
 		update()
 

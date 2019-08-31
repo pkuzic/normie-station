@@ -162,7 +162,7 @@
 	animation.master = src
 	flick("h2monkey", animation)
 	sleep(48*tick_multiplier)
-	del(animation)
+	qdel(animation)
 
 	var/mob/living/carbon/monkey/O = new /mob/living/carbon/monkey( usr.loc )
 	O.name = "monkey"
@@ -171,9 +171,9 @@
 	O.absorbed_dna = usr.absorbed_dna
 
 	for(var/obj/T in usr)
-		del(T)
+		qdel(T)
 	for(var/R in usr.organs)
-		del(usr.organs[text("[]", R)])
+		qdel(usr.organs[text("[]", R)])
 
 	O.name = text("monkey ([])",copytext(md5(usr.real_name), 2, 6))
 	O.toxloss = usr.toxloss
@@ -191,7 +191,7 @@
 
 	O.make_lesser_changeling()
 
-	del(src.mob)
+	qdel(src.mob)
 	return
 
 /client/proc/changeling_lesser_transform()
@@ -241,7 +241,7 @@
 	animation.master = src
 	flick("monkey2h", animation)
 	sleep(48*tick_multiplier)
-	del(animation)
+	qdel(animation)
 
 	var/mob/living/carbon/human/O = new /mob/living/carbon/human( src )
 	if (isblockon(getblock(usr.dna.uni_identity, 11,3),11))
@@ -254,7 +254,7 @@
 	O.real_name = S
 
 	for(var/obj/T in usr)
-		del(T)
+		qdel(T)
 
 	O.loc = usr.loc
 
@@ -275,7 +275,7 @@
 
 	O.make_changeling()
 
-	del(usr)
+	qdel(usr)
 	return
 
 /client/proc/changeling_fakedeath()

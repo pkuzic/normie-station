@@ -78,11 +78,11 @@
 
 	for(var/obj/landmark/synd_spawn/S in world)
 		synd_spawns += S.loc
-		del(S)
+		qdel(S)
 
 	for(var/obj/landmark/disk_spawn/D in world)
 		disk_spawns += D.loc
-		del(D)
+		qdel(D)
 
 	var/obj/landmark/nuke_spawn = locate("landmark*Nuclear-Bomb")
 	var/obj/landmark/closet_spawn = locate("landmark*Nuclear-Closet")
@@ -128,17 +128,17 @@
 	for (var/obj/landmark/A in world)
 		if (A.name == "Syndicate-Gear-Closet")
 			new /obj/closet/syndicate/personal(A.loc)
-			del(A)
+			qdel(A)
 			continue
 
 		if (A.name == "Syndicate-Bomb")
 			new /obj/item/weapon/syndie/c4explosive(A.loc)
-			del(A)
+			qdel(A)
 			continue
 
 		if (A.name == "Syndicate-Bomb-Strong")
 			new /obj/item/weapon/syndie/c4explosive/heavy(A.loc)
-			del(A)
+			qdel(A)
 			continue
 
 	spawn (rand(waittime_l, waittime_h)*tick_multiplier)

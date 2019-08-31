@@ -30,7 +30,7 @@
 			R.assemblyparts += P
 			P.loc = R
 			P.master = R
-		del(N)
+		qdel(N)
 	else
 		R.assemblyparts += N
 		N.loc = R
@@ -41,7 +41,7 @@
 			P.loc = R
 			P.master = R
 		R.add_fingerprint(user)
-		del(S)
+		qdel(S)
 	else
 		R.assemblyparts += S
 		S.loc = R

@@ -45,7 +45,7 @@ MEDICAL
 	set src in view(1)
 
 	if (src.amount <= 0)
-		del(src)
+		qdel(src)
 		return
 
 	..()
@@ -68,7 +68,7 @@ MEDICAL
 		split.add_fingerprint(user)
 
 		if (src.amount < 1)
-			del(src)
+			qdel(src)
 			return
 	else
 		..()
@@ -85,7 +85,7 @@ MEDICAL
 		W.amount = 5
 	else
 		W.amount += src.amount
-		del(src)
+		qdel(src)
 
 /obj/item/weapon/medical/attack(mob/M as mob, mob/user as mob)
 	if (M.health < 0)
@@ -140,4 +140,4 @@ MEDICAL
 
 	src.amount--
 	if (src.amount <= 0)
-		del(src)
+		qdel(src)

@@ -104,7 +104,7 @@
 
 /proc/do_teleport(atom/movable/M as mob|obj, atom/destination, precision)
 	if(istype(M, /obj/effects))
-		del(M)
+		qdel(M)
 		return
 
 	var/turf/destturf = get_turf(destination)

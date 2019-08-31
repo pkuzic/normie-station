@@ -280,7 +280,7 @@
 			var/obj/landmark/random_asteroid/newrandom = new(westborder)
 			newrandom.randomness = src.randomness - 4
 			//world << "west at [randomness] randomness"
-		del(src)
+		qdel(src)
 
 /area/asteroid/randomzone			//Strumpetplaya - added to limit totally random asteroids
 	name = "Asteroid Zone"
@@ -479,7 +479,7 @@
 			if(1.0)
 				//SN src = null
 				src.ReplaceWithSpace()
-				del(src)
+				qdel(src)
 				return
 			if(2.0)
 				src.destroy_asteroid()
@@ -1000,8 +1000,8 @@
 							//boom()	Strumpetplaya - Commented out as it is currently unsupported
 							if(target)
 								if(istype(target,/obj/machinery))
-									del(target)
-							del(src)
+									qdel(target)
+							qdel(src)
 							return
 					else if (src.emagged) ..()
 					else user << "\red These will only work on asteroids."*/

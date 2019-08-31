@@ -240,7 +240,7 @@
 				user << "You insert the [L.name]."
 				switchcount = L.switchcount
 				rigged = L.rigged
-				del(L)
+				qdel(L)
 
 				on = has_power()
 				update()
@@ -373,7 +373,7 @@
 /obj/machinery/light/ex_act(severity)
 	switch(severity)
 		if(1.0)
-			del(src)
+			qdel(src)
 			return
 		if(2.0)
 			if (prob(75))
@@ -440,7 +440,7 @@
 		sleep(2)
 		explosion(T, 0, 1, 2, 2, 1)
 		sleep(1)
-		del(src)
+		qdel(src)
 
 
 

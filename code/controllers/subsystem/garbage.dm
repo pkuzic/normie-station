@@ -9,7 +9,7 @@ SUBSYSTEM_DEF(garbage)
 	var/list/collection_timeout = list(0, 2 MINUTES, 10 SECONDS)	// deciseconds to wait before moving something up in the queue to the next level
 
 	//Stat tracking
-	var/delslasttick = 0			// number of del()'s we've done this tick
+	var/delslasttick = 0			// number of qdel()'s we've done this tick
 	var/gcedlasttick = 0			// number of things that gc'ed last tick
 	var/totaldels = 0
 	var/totalgcs = 0
@@ -60,7 +60,7 @@ SUBSYSTEM_DEF(garbage)
 	..(msg)
 
 /datum/controller/subsystem/garbage/Shutdown()
-	//Adds the del() log to the qdel log file
+	//Adds the qdel() log to the qdel log file
 	var/list/dellog = list()
 
 	//sort by how long it's wasted hard deleting

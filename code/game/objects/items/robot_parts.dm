@@ -187,7 +187,7 @@
 				for(var/mob/dead/observer/G in world)
 					if(G.corpse == src.brain.owner && G.client)
 						G.client.mob = O
-						del(G)
+						qdel(G)
 						break
 
 			src.brain.owner.mind.transfer_to(O)		//Added to fix robot gibbing disconnecting the player. - Strumpetplaya
@@ -204,8 +204,8 @@
 			O.cell = src.chest.cell
 			O.cell.loc = O
 
-			del(W)
-			del(src)
+			qdel(W)
+			qdel(src)
 		else
 			user << "\blue The brain must go in after everything else!"
 
@@ -251,4 +251,3 @@
 			src.opt1 = W
 			user << "\blue You insert the optical sensor into the eye socket!"
 	return
-

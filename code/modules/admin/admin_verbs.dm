@@ -140,7 +140,7 @@
 			src.admin_observe()
 			return
 		else
-			del(src.holder)
+			qdel(src.holder)
 			return
 
 	switch (rank)
@@ -305,11 +305,11 @@
 			src.averbs += /client/proc/cmd_admin_gib_self
 
 		if ("Banned")
-			del(src)
+			qdel(src)
 			return
 
 		else
-			del(src.holder)
+			qdel(src.holder)
 			return
 
 	if (src.holder)
@@ -616,8 +616,8 @@
 		log_admin("[src.ckey] warned [M.ckey], resulting in a 10 minute autoban.")
 		message_admins("\blue [src.ckey] warned [M.ckey], resulting in a 10 minute autoban.")
 
-		del(M.client)
-		del(M)
+		qdel(M.client)
+		qdel(M)
 
 /client/proc/givedisease(var/mob/living/carbon/M in world)
 	set category = "Debug"

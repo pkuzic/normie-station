@@ -274,6 +274,6 @@ A list of items and costs is stored under the datum of every game mode, alongsid
 		location.hotspot_expose(SPARK_TEMP,125)
 		explosion(location, 0, 0, 2, 4, 1)
 
-	del(src.master)
-	del(src)
+	qdel(src.master)
+	qdel(src)
 	return

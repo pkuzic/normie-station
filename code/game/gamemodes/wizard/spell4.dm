@@ -32,8 +32,8 @@
 			T.fireloss += 25
 
 			explosion(T.loc, -1, -1, 2, 2, 1)
-			del(A)
+			qdel(A)
 			return
 		sleep(2)
-	del(A)
+	qdel(A)
 	return

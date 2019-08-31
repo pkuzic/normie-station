@@ -96,7 +96,7 @@ WELDINGTOOOL
 		var/obj/item/weapon/rods/R = W
 		R.amount = R.amount - 1
 		if (R.amount == 0)
-			del(R)
+			qdel(R)
 		var/obj/item/assembly/weld_rod/F = new /obj/item/assembly/weld_rod( user )
 		src.loc = F
 		F.part1 = src

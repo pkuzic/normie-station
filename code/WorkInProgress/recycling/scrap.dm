@@ -151,7 +151,7 @@
 
 		if (total + other_total)
 			blood = (total*blood + other_total*other.blood) / (total + other_total)
-		del(other)
+		qdel(other)
 
 	else
 		var/space = limit - total
@@ -213,7 +213,7 @@
 // attack with hand removes a single piece from a pile
 /obj/item/scrap/attack_hand(mob/user)
 	if(!m_amt && !g_amt && !w_amt)
-		del(src)
+		qdel(src)
 	add_fingerprint(user)
 	if(src.is_single_piece())
 		return ..(user)
@@ -296,5 +296,3 @@
 
 
 	return S
-
-

@@ -83,7 +83,7 @@
 		client.holder.state = 1
 		client.update_admins(rank)
 	client.mob = corpse
-	del(src)
+	qdel(src)
 
 /mob/dead/observer/proc/dead_tele()
 	set category = "Special Verbs"
@@ -182,5 +182,3 @@
 	if (!L.len)
 		log_admin("TELEPORT ERROR ([t])")
 	usr.loc = pick(L)
-
-

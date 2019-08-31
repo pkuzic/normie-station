@@ -106,17 +106,17 @@
 			if(prob(15) && !istype(A, /obj/grille))
 				explosion(loc, 2, 5, 8, 10, 1)
 				playsound(src.loc, "explosion", 50, 1)
-			del(src)
+			qdel(src)
 	return
 
 
 /obj/meteor/ex_act(severity)
 
 	if (severity < 4)
-		del(src)
+		qdel(src)
 	return
 
-/obj/meteor/Del()
+/obj/meteor/Destroy()
 	if(src.dest.name == "METEORTARGET_THIS_IS_A_HACK")
 		del src.dest
 

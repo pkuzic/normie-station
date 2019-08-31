@@ -95,7 +95,7 @@
 
 /obj/beam/e_beam/Bump(atom/Obstacle)
 	Obstacle.laser_act(src)
-	del(src)
+	qdel(src)
 	return
 
 
@@ -117,9 +117,9 @@
 		return
 	return
 
-/obj/beam/e_beam/Del()
+/obj/beam/e_beam/Destroy()
 	if(next)
-		del(next)
+		qdel(next)
 	..()
 	return
 

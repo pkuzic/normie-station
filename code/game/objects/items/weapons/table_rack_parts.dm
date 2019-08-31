@@ -13,7 +13,7 @@ RACK PARTS
 	if (istype(W, /obj/item/weapon/wrench))
 		new /obj/item/weapon/sheet/metal( src.loc )
 		//SN src = null
-		del(src)
+		qdel(src)
 
 /obj/item/weapon/table_parts/attack_self(mob/user as mob)
 	spawn()
@@ -46,7 +46,7 @@ RACK PARTS
 	T.icon_state = i_state
 	T.dir = text2dir(direct)
 	T.add_fingerprint(user)
-	del(src)
+	qdel(src)
 	return
 	*/
 
@@ -58,7 +58,7 @@ RACK PARTS
 	if (istype(W, /obj/item/weapon/wrench))
 		new /obj/item/weapon/sheet/r_metal( src.loc )
 		//SN src = null
-		del(src)
+		qdel(src)
 
 /obj/item/weapon/table_parts/reinforced/attack_self(mob/user as mob)
 	spawn()
@@ -90,7 +90,7 @@ RACK PARTS
 	T.icon_state = i_state
 	T.dir = text2dir(direct)
 	T.add_fingerprint(user)
-	del(src)
+	qdel(src)
 	return
 	*/
 
@@ -102,12 +102,12 @@ RACK PARTS
 /obj/item/weapon/rack_parts/attackby(obj/item/weapon/W as obj, mob/user as mob)
 	if (istype(W, /obj/item/weapon/wrench))
 		new /obj/item/weapon/sheet/metal( src.loc )
-		del(src)
+		qdel(src)
 		return
 	return
 
 /obj/item/weapon/rack_parts/attack_self(mob/user as mob)
 	var/obj/rack/R = new /obj/rack( user.loc )
 	R.add_fingerprint(user)
-	del(src)
+	qdel(src)
 	return

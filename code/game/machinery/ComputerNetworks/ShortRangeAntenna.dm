@@ -39,13 +39,13 @@
 		return
 	use_power(240)
 
-/obj/machinery/network/antenna/base/Del()
+/obj/machinery/network/antenna/base/Destroy()
 	for(var/obj/machinery/part in parts)
 		if(part) del part
 	..()
 	makecomputernets()
 
-/obj/machinery/network/antenna/Del()
+/obj/machinery/network/antenna/Destroy()
 	if (src.base)
 		src.base.parts -= src
 		del src.base

@@ -22,7 +22,7 @@
 	if(exposed_temperature >= 373.15 && protective_temperature < exposed_temperature)
 		for(var/mob/M in viewers(5, src))
 			M << "\red \the [src] burns up."
-		del(src)
+		qdel(src)
 
 /obj/item/clothing/ears
 	name = "ears"
@@ -34,8 +34,3 @@
 	icon_state = "earmuffs"
 	protective_temperature = 500
 	item_state = "earmuffs"
-
-
-
-
-

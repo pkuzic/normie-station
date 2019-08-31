@@ -5,7 +5,7 @@
 			M.client.show_popup_menus = 1
 			for(var/obj/buildholder/H)
 				if(H.cl == M.client)
-					del(H)
+					qdel(H)
 		else
 			M.client.buildmode = 1
 			M.client.show_popup_menus = 0
@@ -254,7 +254,7 @@
 					T.ReplaceWithWall()
 					return
 				else if(istype(object,/obj))
-					del(object)
+					qdel(object)
 					return
 
 			else if(istype(object,/turf) && pa.Find("alt") && pa.Find("left"))
@@ -278,7 +278,7 @@
 				A.dir = holder.builddir.dir
 				blink(A)
 			else if(pa.Find("right"))
-				if(isobj(object)) del(object)
+				if(isobj(object)) qdel(object)
 
 		if(3)
 			if(pa.Find("left")) //I cant believe this shit actually compiles.

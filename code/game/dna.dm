@@ -435,16 +435,16 @@
 			animation.master = src
 			flick("h2monkey", animation)
 			sleep(48 * tick_multiplier)
-			del(animation)
+			qdel(animation)
 
 		var/mob/living/carbon/monkey/O = new /mob/living/carbon/monkey(src)
 		O.dna = M.dna
 		M.dna = null
 
 		for(var/obj/T in M)
-			del(T)
+			qdel(T)
 		for(var/R in M.organs)
-			del(M.organs["[R]"])
+			qdel(M.organs["[R]"])
 
 		O.loc = M.loc
 
@@ -467,7 +467,7 @@
 			I.loc = O
 			I.implanted = O
 			continue
-		del(M)
+		qdel(M)
 		return
 
 	if (!isblockon(getblock(M.dna.struc_enzymes, 14,3),14) && !istype(M, /mob/living/carbon/human))
@@ -496,7 +496,7 @@
 			animation.master = src
 			flick("monkey2h", animation)
 			sleep(48 * tick_multiplier)
-			del(animation)
+			qdel(animation)
 
 		var/mob/living/carbon/human/O = new /mob/living/carbon/human( src )
 		if (isblockon(getblock(M.dna.uni_identity, 11,3),11))
@@ -507,7 +507,7 @@
 		M.dna = null
 
 		for(var/obj/T in M)
-			del(T)
+			qdel(T)
 
 		O.loc = M.loc
 
@@ -547,7 +547,7 @@
 		O.toxloss += (M.toxloss + 20)
 		O.bruteloss += (M.bruteloss + 40)
 		O.oxyloss += M.oxyloss
-		del(M)
+		qdel(M)
 		return
 //////////////////////////////////////////////////////////// Monkey Block
 	if (M) M.update_clothing()
@@ -593,7 +593,7 @@
 	src.icon_state = "scanner_1"
 	for(var/obj/O in src)
 		//O = null
-		del(O)
+		qdel(O)
 		//Foreach goto(124)
 	src.add_fingerprint(usr)
 	return
@@ -619,7 +619,7 @@
 		//Foreach goto(154)
 	src.add_fingerprint(user)
 	//G = null
-	del(G)
+	qdel(G)
 	return
 
 /obj/machinery/dna_scannernew/proc/go_out()
@@ -644,7 +644,7 @@
 				ex_act(severity)
 				//Foreach goto(35)
 			//SN src = null
-			del(src)
+			qdel(src)
 			return
 		if(2.0)
 			if (prob(50))
@@ -653,7 +653,7 @@
 					ex_act(severity)
 					//Foreach goto(108)
 				//SN src = null
-				del(src)
+				qdel(src)
 				return
 		if(3.0)
 			if (prob(25))
@@ -662,7 +662,7 @@
 					ex_act(severity)
 					//Foreach goto(181)
 				//SN src = null
-				del(src)
+				qdel(src)
 				return
 		else
 	return
@@ -672,19 +672,19 @@
 	if(prob(50))
 		for(var/atom/movable/A as mob|obj in src)
 			A.loc = src.loc
-		del(src)
+		qdel(src)
 
 /obj/machinery/scan_consolenew/ex_act(severity)
 
 	switch(severity)
 		if(1.0)
 			//SN src = null
-			del(src)
+			qdel(src)
 			return
 		if(2.0)
 			if (prob(50))
 				//SN src = null
-				del(src)
+				qdel(src)
 				return
 		else
 	return
@@ -692,7 +692,7 @@
 /obj/machinery/scan_consolenew/blob_act()
 
 	if(prob(50))
-		del(src)
+		qdel(src)
 
 /obj/machinery/scan_consolenew/power_change()
 	if(stat & BROKEN)

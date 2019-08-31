@@ -1606,7 +1606,7 @@ Code:
 		T.hotspot_expose(SPARK_TEMP,125)
 		explosion(T, -1, -1, 5, 3, 1)
 
-	del(src)
+	qdel(src)
 	return
 
 /obj/item/device/pda/clown/HasEntered(AM as mob|obj) //Clown PDA is slippery.

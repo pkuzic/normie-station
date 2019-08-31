@@ -21,7 +21,7 @@ DEATH COMMANDO GAS MASK
 			src.icon = 'b_items.dmi'
 			flick(text("[]", t), src)
 			spawn(14)
-				del(src)
+				qdel(src)
 				return
 			return
 		return 0
@@ -43,7 +43,7 @@ DEATH COMMANDO GAS MASK
 /obj/item/clothing/shoes/orange/attackby(H as obj, loc)
 	if ((istype(H, /obj/item/weapon/handcuffs) && !( src.chained )))
 		//H = null
-		del(H)
+		qdel(H)
 		src.chained = 1
 		src.icon_state = "orange1"
 	return
@@ -143,7 +143,7 @@ DEATH COMMANDO GAS MASK
 			if(M != null)
 				M << "\red Your cigarette goes out."
 			C.loc = location
-			del(src)
+			qdel(src)
 			return
 		if (istype(location, /turf)) //start a fire if possible
 			location.hotspot_expose(SPARK_TEMP, 5)

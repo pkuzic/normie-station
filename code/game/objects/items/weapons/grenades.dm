@@ -71,7 +71,7 @@ FLASHBANG
 	pulse.name = "emp pulse"
 	pulse.anchored = 1
 	spawn(20)
-		del(pulse)
+		qdel(pulse)
 
 	for(var/obj/item/weapon/W in range(world.view-1, T))
 
@@ -178,7 +178,7 @@ FLASHBANG
 		pulse2.dir = pick(cardinal)
 
 		spawn(10)
-			del(pulse2)
+			qdel(pulse2)
 
 		if(istype(A, /obj/machinery/turret))
 			A:enabled = 0
@@ -263,12 +263,12 @@ FLASHBANG
 		S.invisibility = 101
 		S.explosionstrength = 0
 		spawn(40)
-			del(pulse2)
+			qdel(pulse2)
 		spawn(500)
 			if(S)
 				S.disabled = 0
 
-	del(grenade)
+	qdel(grenade)
 
 	return
 
@@ -402,7 +402,7 @@ FLASHBANG
 		var/damage = round(30/(get_dist(B,T)+1))
 		B.health -= damage
 		B.update()
-	del(src)
+	qdel(src)
 	return
 
 /obj/item/weapon/flashbang/attack_self(mob/user as mob)

@@ -3,7 +3,7 @@
 		spawn(1800)
 			src.open()
 	else
-		del(src)
+		qdel(src)
 
 /obj/alien/egg/proc/open()
 	spawn(10)

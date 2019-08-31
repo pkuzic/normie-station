@@ -3,17 +3,17 @@
 	switch(severity)
 		if(1.0)
 			//SN src = null
-			del(src)
+			qdel(src)
 			return
 		if(2.0)
 			if (prob(50))
 				//SN src = null
-				del(src)
+				qdel(src)
 				return
 		if(3.0)
 			if (prob(5))
 				//SN src = null
-				del(src)
+				qdel(src)
 				return
 		else
 	return
@@ -21,14 +21,14 @@
 /obj/stool/blob_act()
 	if(prob(75))
 		new /obj/item/weapon/sheet/metal( src.loc )
-		del(src)
+		qdel(src)
 
 /obj/stool/attackby(obj/item/weapon/W as obj, mob/user as mob)
 	if (istype(W, /obj/item/weapon/wrench))
 		playsound(src.loc, 'Ratchet.ogg', 50, 1)
 		new /obj/item/weapon/sheet/metal( src.loc )
 		//SN src = null
-		del(src)
+		qdel(src)
 	return
 
 
@@ -37,7 +37,7 @@
 	if (istype(W, /obj/item/weapon/wrench))
 		playsound(src.loc, 'Ratchet.ogg', 50, 1)
 		new /obj/item/weapon/sheet/metal( src.loc )
-		del(src)
+		qdel(src)
 	return
 
 /obj/stool/chair/attackby(obj/item/weapon/W as obj, mob/user as mob)
@@ -52,11 +52,11 @@
 		user.u_equip(W)
 		W.layer = initial(W.layer)
 		//SN src = null
-		del(src)
+		qdel(src)
 		return
 	return
 
-/obj/stool/bed/Del()
+/obj/stool/bed/Destroy()
 	for(var/mob/M in src.buckled_mobs)
 		if (M.buckled == src)
 			M.update_lying(0)
@@ -136,10 +136,10 @@
 	src.overl.master = src
 	return
 
-/obj/stool/chair/e_chair/Del()
+/obj/stool/chair/e_chair/Destroy()
 
 	//src.overl = null
-	del(src.overl)
+	qdel(src.overl)
 	..()
 	return
 
@@ -153,7 +153,7 @@
 		src.part1.master = null
 		src.part1 = null
 		//SN src = null
-		del(src)
+		qdel(src)
 		return
 	return
 
@@ -209,22 +209,22 @@
 	unbuckle_all()
 	switch(severity)
 		if(1.0)
-			del(src)
+			qdel(src)
 			return
 		if(2.0)
 			if (prob(50))
-				del(src)
+				qdel(src)
 				return
 		if(3.0)
 			if (prob(5))
-				del(src)
+				qdel(src)
 				return
 	return
 
 /obj/stool/chair/blob_act()
 	if(prob(75))
 		unbuckle_all()
-		del(src)
+		qdel(src)
 
 /obj/stool/chair/New()
 	src.verbs -= /atom/movable/verb/pull
@@ -237,7 +237,7 @@
 	..()
 	return
 
-/obj/stool/chair/Del()
+/obj/stool/chair/Destroy()
 	unbuckle_all()
 	..()
 	return

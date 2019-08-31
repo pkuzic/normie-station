@@ -65,7 +65,7 @@
 	else if (istype(W,/obj/item/weapon/vending_charge/))
 		DoCharge(W,user)
 			//points += W.charge_amt
-			//del(W)
+			//qdel(W)
 	else if (istype(W,/obj/item/weapon/money))
 		if(currency==W:currency)
 			user<<"You insert the [W.name] into the money slot."
@@ -242,7 +242,7 @@
 	if(charge_type == V.charge_type)
 		Restock()
 		UpdateProducts()
-		del(V)
+		qdel(V)
 		user << "You restock the machine."
 
 /obj/machinery/vendingm/drink
@@ -364,4 +364,3 @@
 		prize.desc = "A sword made of cheap plastic."
 		contents+=prize
 		count--;
-

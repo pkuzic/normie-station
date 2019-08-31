@@ -57,7 +57,7 @@ TILES
 		F.add_fingerprint(user)
 		if (src.amount < 1)
 			//SN src = null
-			del(src)
+			qdel(src)
 			return
 	else
 		..()
@@ -82,7 +82,7 @@ TILES
 	if (src.amount < 1)
 		user.u_equip(src)
 		//SN src = null
-		del(src)
+		qdel(src)
 		return
 	src.add_fingerprint(user)
 	return
@@ -100,7 +100,7 @@ TILES
 	else
 		W.amount += src.amount
 		//SN src = null
-		del(src)
+		qdel(src)
 		return
 	return
 

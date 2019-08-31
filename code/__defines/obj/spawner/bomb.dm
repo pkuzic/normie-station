@@ -24,7 +24,7 @@
 
 /obj/spawner/newbomb
 	// Remember to delete it if you use it for anything else other than uplinks. See the commented line in its New() - Abi
-	// Going in depth: the reason we do not do a Del() in its New()is because then we cannot access its properties.
+	// Going in depth: the reason we do not do a Destroy() in its New()is because then we cannot access its properties.
 	// I might be doing this wrong / not knowing of a Byond function. If I'm doing it wrong, let me know please.
 	name = "bomb"
 	icon = 'screen1.dmi'

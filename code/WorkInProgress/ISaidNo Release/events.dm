@@ -58,7 +58,7 @@ proc/randomevent_laws()
 			B.icon_state = "spat-h"
 			count -= 1
 	spawn(rand(600, 3000))
-		for(var/obj/forcefield/event/B in world) del(B)
+		for(var/obj/forcefield/event/B in world) qdel(B)
 
 // the forcefield is literally just an inert blocker object
 
@@ -91,7 +91,7 @@ proc/randomevent_laws()
 
 	New()
 		if(istype(src.loc, /turf/space))
-			del(src)
+			qdel(src)
 			return
 
 	attackby(obj/item/weapon/W as obj, mob/user as mob)
@@ -143,15 +143,15 @@ proc/randomevent_laws()
 /obj/spacevine/ex_act(severity)
 	switch(severity)
 		if(1.0)
-			del(src)
+			qdel(src)
 			return
 		if(2.0)
 			if (prob(66))
-				del(src)
+				qdel(src)
 				return
 		if(3.0)
 			if (prob(33))
-				del(src)
+				qdel(src)
 				return
 		else
 	return

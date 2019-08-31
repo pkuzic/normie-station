@@ -29,7 +29,7 @@ obj/machinery/food_processor/attackby(obj/item/weapon/reagent_containers/food/F 
 			icon_state = "food_processor"
 			doing_stuff = 0
 			new F.process_result(src.loc)
-			del(F)
+			qdel(F)
 
 /obj/item/weapon
 	var/process_result = null
@@ -49,4 +49,3 @@ obj/machinery/food_processor/attackby(obj/item/weapon/reagent_containers/food/F 
 
 /obj/item/weapon/reagent_containers/food/snacks/potato
 	process_result = /obj/item/weapon/reagent_containers/food/snacks/rawsticks
-

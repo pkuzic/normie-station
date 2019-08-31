@@ -55,7 +55,7 @@
 	. = ..()
 	processing_items.Add(src)
 
-/obj/item/weapon/pinpointer/Del()
+/obj/item/weapon/pinpointer/Destroy()
 	processing_items.Remove(src)
 	. = ..()
 

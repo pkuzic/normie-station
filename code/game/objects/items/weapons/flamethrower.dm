@@ -28,35 +28,35 @@ GETLINEEEEEEEEEEEEEEEEEEEEE
 
 // PantsNote: Dumping this shit in here until I'm sure it works.
 
-/obj/item/assembly/weld_rod/Del()
+/obj/item/assembly/weld_rod/Destroy()
 	//src.part1 = null
-	del(src.part1)
+	qdel(src.part1)
 	//src.part2 = null
-	del(src.part2)
+	qdel(src.part2)
 	..()
 	return
 
-/obj/item/assembly/w_r_ignite/Del()
+/obj/item/assembly/w_r_ignite/Destroy()
 
 	//src.part1 = null
-	del(src.part1)
+	qdel(src.part1)
 	//src.part2 = null
-	del(src.part2)
+	qdel(src.part2)
 	//src.part3 = null
-	del(src.part3)
+	qdel(src.part3)
 	..()
 	return
 
-/obj/item/weapon/flamethrower/Del()
+/obj/item/weapon/flamethrower/Destroy()
 
 	//src.part1 = null
-	del(src.part1)
+	qdel(src.part1)
 	//src.part2 = null
-	del(src.part2)
+	qdel(src.part2)
 	//src.part3 = null
-	del(src.part3)
+	qdel(src.part3)
 	//src.part4 = null
-	del(src.part4)
+	qdel(src.part4)
 	..()
 	return
 
@@ -72,7 +72,7 @@ GETLINEEEEEEEEEEEEEEEEEEEEE
 		src.part1 = null
 		src.part2 = null
 
-		del(src)
+		qdel(src)
 
 	if (istype(W, /obj/item/device/igniter))
 		var/obj/item/device/igniter/I = W
@@ -108,7 +108,7 @@ GETLINEEEEEEEEEEEEEEEEEEEEE
 		S.part1 = null
 		S.part2 = null
 		//S = null
-		del(S)
+		qdel(S)
 
 	src.add_fingerprint(user)
 	return
@@ -128,7 +128,7 @@ GETLINEEEEEEEEEEEEEEEEEEEEE
 		src.part2 = null
 		src.part3 = null
 
-		del(src)
+		qdel(src)
 		return
 	if (istype(W, /obj/item/weapon/screwdriver))
 		src.status = !( src.status )
@@ -238,7 +238,7 @@ GETLINEEEEEEEEEEEEEEEEEEEEE
 		S.part2 = null
 		S.part3 = null
 		//S = null
-		del(S)
+		qdel(S)
 		user << "\blue The igniter is now unsecured!"
 
 

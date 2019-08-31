@@ -13,12 +13,12 @@
 	switch(severity)
 		if(1.0)
 			//SN src = null
-			del(src)
+			qdel(src)
 			return
 		if(2.0)
 			if (prob(50))
 				//SN src = null
-				del(src)
+				qdel(src)
 				return
 		if(3.0)
 			if (prob(25))
@@ -28,7 +28,7 @@
 
 /obj/machinery/optable/blob_act()
 	if(prob(50))
-		del(src)
+		qdel(src)
 
 /obj/machinery/optable/hand_p(mob/user as mob)
 
@@ -42,7 +42,7 @@
 			if ((O.client && !( O.blinded )))
 				O << text("\red [usr] destroys the operating table.")
 		src.density = 0
-		del(src)
+		qdel(src)
 	if (!( locate(/obj/machinery/optable, user.loc) ))
 		step(user, get_dir(user, src))
 		if (user.loc == src.loc)
@@ -59,7 +59,7 @@
 			if ((O.client && !( O.blinded )))
 				O << text("\red [usr] destroys the table.")
 		src.density = 0
-		del(src)
+		qdel(src)
 	return
 
 
@@ -116,7 +116,7 @@
 			src.add_fingerprint(user)
 			icon_state = "table2-active"
 			src.victim = M
-			del(W)
+			qdel(W)
 			return
 	user.drop_item()
 	if(W && W.loc)

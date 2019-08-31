@@ -52,11 +52,11 @@
 /datum/game_mode/hostile/post_setup()
 	for(var/obj/landmark/hostile_spawn/S in world)
 		hostile_spawns += S.loc
-		del(S)
+		qdel(S)
 
 	for(var/obj/landmark/crew_spawn/D in world)
 		crew_spawns += D.loc
-		del(D)
+		qdel(D)
 
 	var/radio_freq = random_radio_frequency()
 

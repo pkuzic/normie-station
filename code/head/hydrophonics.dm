@@ -126,7 +126,7 @@ datum/plants/tomato
 		icon_state = "soilbed"
 
 /obj/machinery/hydro/soilbed/proc/plantdie()
-	del(hasplant)
+	qdel(hasplant)
 	dead = 1
 
 /obj/machinery/hydro/soilbed/attack_hand()
@@ -142,7 +142,7 @@ datum/plants/tomato
 			new hasplant.itempath (src.loc)
 			hasplant.itemnum--
 		else
-			del(hasplant)
+			qdel(hasplant)
 			updateicon()
 			return
 	else if(istype(W,/obj/item/weapon/seeds) && !hasplant)

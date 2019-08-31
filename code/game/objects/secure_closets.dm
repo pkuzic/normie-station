@@ -90,25 +90,25 @@
 			for (var/atom/movable/A as mob|obj in src)
 				A.loc = src.loc
 				ex_act(severity)
-			del(src)
+			qdel(src)
 		if (2)
 			if (prob(50))
 				for (var/atom/movable/A as mob|obj in src)
 					A.loc = src.loc
 					ex_act(severity)
-				del(src)
+				qdel(src)
 		if (3)
 			if (prob(5))
 				for (var/atom/movable/A as mob|obj in src)
 					A.loc = src.loc
 					ex_act(severity)
-				del(src)
+				qdel(src)
 
 /obj/secure_closet/blob_act()
 	if (prob(50))
 		for(var/atom/movable/A as mob|obj in src)
 			A.loc = src.loc
-		del(src)
+		qdel(src)
 
 /obj/secure_closet/meteorhit(obj/O as obj)
 	if (O.icon_state == "flaming")
@@ -120,7 +120,7 @@
 				M.client.eye = M.client.mob
 				M.client.perspective = MOB_PERSPECTIVE
 		src.icon_state = src.icon_broken
-		del(src)
+		qdel(src)
 		return
 	return
 
@@ -142,7 +142,7 @@
 	if(prob(1.5))
 		for (var/atom/movable/A as mob|obj in src)
 			A.loc = src.loc
-		del(src)
+		qdel(src)
 	return
 
 /obj/secure_closet/attackby(obj/item/weapon/W as obj, mob/user as mob)

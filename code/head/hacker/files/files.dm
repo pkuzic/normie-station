@@ -191,5 +191,5 @@ datum/os/proc/Compile(path)
 	P.script = F.contents
 	P.holder = src.pwd
 	src.pwd.contents += P
-	del(F)
+	qdel(F)
 	Message("[path] has been compiled..")

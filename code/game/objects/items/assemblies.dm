@@ -1,8 +1,8 @@
-/obj/item/assembly/shock_kit/Del()
+/obj/item/assembly/shock_kit/Destroy()
 	//src.part1 = null
-	del(src.part1)
+	qdel(src.part1)
 	//src.part2 = null
-	del(src.part2)
+	qdel(src.part2)
 	..()
 	return
 
@@ -17,7 +17,7 @@
 		src.part2.master = null
 		src.part1 = null
 		src.part2 = null
-		del(src)
+		qdel(src)
 		return
 	if (!( istype(W, /obj/item/weapon/screwdriver) ))
 		return

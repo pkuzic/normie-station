@@ -152,7 +152,7 @@ datum/controller/radio
 			frequency.remove_listener(device)
 
 			if(frequency.devices.len == 0)
-				del(frequency)
+				qdel(frequency)
 				frequencies -= f_text
 
 		return 1
@@ -175,7 +175,7 @@ datum/radio_frequency
 			if(range)
 				start_point = get_turf(source)
 				if(!start_point)
-					del(signal)
+					qdel(signal)
 					return 0
 			if (filter) // here goes some copypasta. It is for optimisation. -rastaf0
 				for(var/obj/device in devices[filter])
@@ -221,7 +221,7 @@ datum/radio_frequency
 //			log_admin("DEBUG: post_signal(source=[source] ([source.x], [source.y], [source.z]),filter=[filter]) frequency=[frequency], N_f=[N_f], N_nf=[N_nf]")
 
 
-			del(signal)
+			qdel(signal)
 
 		add_listener(obj/device as obj, var/filter as text|null)
 			if (!filter)
@@ -245,8 +245,8 @@ datum/radio_frequency
 					devices_line -= null
 				if (devices_line.len==0)
 					devices -= devices_filter
-					del(devices_line)
-					
+					qdel(devices_line)
+
 
 obj/proc
 	receive_signal(datum/signal/signal, receive_method, receive_param)

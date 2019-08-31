@@ -46,7 +46,7 @@ var/makejson
 				src.probabilities[M.config_tag] = M.probability
 				if (M.votable)
 					src.votable_modes += M.config_tag
-		del(M)
+		qdel(M)
 
 /datum/configuration/proc/load(filename)
 	var/text = file2text(filename)
@@ -224,7 +224,7 @@ var/makejson
 		var/datum/game_mode/M = new T()
 		if (M.config_tag && M.config_tag == mode_name)
 			return M
-		del(M)
+		qdel(M)
 
 	return null
 

@@ -64,7 +64,7 @@
 
 		return null
 
-	Del()
+	Destroy()
 		loc = null
 
 		if(connected_device)
@@ -72,7 +72,7 @@
 
 		if(node)
 			node.disconnect(src)
-			del(network)
+			qdel(network)
 
 		node = null
 
@@ -124,8 +124,7 @@
 
 	disconnect(obj/machinery/atmospherics/reference)
 		if(reference==node)
-			del(network)
+			qdel(network)
 			node = null
 
 		return null
-

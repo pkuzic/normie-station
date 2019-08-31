@@ -231,7 +231,7 @@
 	if (client.statpanel == "Status")
 		if (internal)
 			if (!internal.air_contents)
-				del(internal)
+				qdel(internal)
 			else
 				if(!internal.name)
 					return //Dunno
@@ -405,7 +405,7 @@
 
 	else if (stat == 2 && !client)
 		gibs(loc, virus)
-		del(src)
+		qdel(src)
 		return
 
 	var/shielded = 0
@@ -829,13 +829,13 @@
 	if (mutantrace)
 		overlays += image("icon" = 'genetics.dmi', "icon_state" = "[mutantrace][!lying ? "_s" : "_l"]")
 		if(face_standing)
-			del(face_standing)
+			qdel(face_standing)
 		if(face_lying)
-			del(face_lying)
+			qdel(face_lying)
 		if(stand_icon)
-			del(stand_icon)
+			qdel(stand_icon)
 		if(lying_icon)
-			del(lying_icon)
+			qdel(lying_icon)
 	else
 		if(!face_standing || !face_lying)
 			update_face()
@@ -1565,9 +1565,9 @@
 
 /mob/living/carbon/human/proc/update_body()
 	if(stand_icon)
-		del(stand_icon)
+		qdel(stand_icon)
 	if(lying_icon)
-		del(lying_icon)
+		qdel(lying_icon)
 
 	if (mutantrace)
 		return
@@ -1621,8 +1621,8 @@
 		lying_icon.Blend(rgb(100,100,100))
 
 /mob/living/carbon/human/proc/update_face()
-	del(face_standing)
-	del(face_lying)
+	qdel(face_standing)
+	qdel(face_lying)
 
 	if (mutantrace)
 		return
@@ -1663,14 +1663,14 @@
 	face_standing.icon = eyes_s
 	face_lying.icon = eyes_l
 
-	del(mouth_l)
-	del(mouth_s)
-	del(facial_l)
-	del(facial_s)
-	del(hair_l)
-	del(hair_s)
-	del(eyes_l)
-	del(eyes_s)
+	qdel(mouth_l)
+	qdel(mouth_s)
+	qdel(facial_l)
+	qdel(facial_s)
+	qdel(hair_l)
+	qdel(hair_s)
+	qdel(eyes_l)
+	qdel(eyes_s)
 
 /obj/equip_e/human/process()
 	if (item)
@@ -1680,37 +1680,37 @@
 			if("mask")
 				if (!( target.wear_mask ))
 					//SN src = null
-					del(src)
+					qdel(src)
 					return
 /*			if("headset")
 				if (!( target.w_radio ))
 					//SN src = null
-					del(src)
+					qdel(src)
 					return */
 			if("l_hand")
 				if (!( target.l_hand ))
 					//SN src = null
-					del(src)
+					qdel(src)
 					return
 			if("r_hand")
 				if (!( target.r_hand ))
 					//SN src = null
-					del(src)
+					qdel(src)
 					return
 			if("suit")
 				if (!( target.wear_suit ))
 					//SN src = null
-					del(src)
+					qdel(src)
 					return
 			if("uniform")
 				if (!( target.w_uniform ))
 					//SN src = null
-					del(src)
+					qdel(src)
 					return
 			if("back")
 				if (!( target.back ))
 					//SN src = null
-					del(src)
+					qdel(src)
 					return
 			if("syringe")
 				return
@@ -1725,17 +1725,17 @@
 			if("handcuff")
 				if (!( target.handcuffed ))
 					//SN src = null
-					del(src)
+					qdel(src)
 					return
 			if("id")
 				if ((!( target.wear_id ) || !( target.w_uniform )))
 					//SN src = null
-					del(src)
+					qdel(src)
 					return
 			if("internal")
 				if (!istype(target.wear_mask, /obj/item/clothing/mask) && !istype(target.back, /obj/item/weapon/tank) && !target.internal)
 					//SN src = null
-					del(src)
+					qdel(src)
 					return
 				else if((!( (istype(target.wear_mask, /obj/item/clothing/mask) && !istype(target.belt, /obj/item/weapon/tank) && !( target.internal )) ) && !( target.internal )))
 	var/list/L = list( "syringe", "pill", "drink", "dnainjector", "fuel")
@@ -1812,7 +1812,7 @@
 								if("CPR")
 									if (target.cpr_time >= world.time + 3)
 										//SN src = null
-										del(src)
+										qdel(src)
 										return
 									message = text("\red <B>[] is trying perform CPR on []!</B>", source, target)
 								if("id")
@@ -1990,7 +1990,7 @@
 		if("l_hand")
 			if (istype(target, /obj/item/clothing/suit/straight_jacket))
 				//SN src = null
-				del(src)
+				qdel(src)
 				return
 			if (target.l_hand)
 				var/obj/item/W = target.l_hand
@@ -2013,7 +2013,7 @@
 		if("r_hand")
 			if (istype(target, /obj/item/clothing/suit/straight_jacket))
 				//SN src = null
-				del(src)
+				qdel(src)
 				return
 			if (target.r_hand)
 				var/obj/item/W = target.r_hand
@@ -2155,7 +2155,7 @@
 		if("CPR")
 			if (target.cpr_time >= world.time + 30)
 				//SN src = null
-				del(src)
+				qdel(src)
 				return
 			if ((target.health >= -75.0 && target.health < 0))
 				target.cpr_time = world.time
@@ -2172,11 +2172,11 @@
 			var/obj/item/weapon/fuel/S = item
 			if (!( istype(S, /obj/item/weapon/fuel) ))
 				//SN src = null
-				del(src)
+				qdel(src)
 				return
 			if (S.s_time >= world.time + 30)
 				//SN src = null
-				del(src)
+				qdel(src)
 				return
 			S.s_time = world.time
 			var/a = S.content
@@ -2190,11 +2190,11 @@
 				item:inject(target, null)
 				if (!( istype(S, /obj/item/weapon/dnainjector) ))
 					//SN src = null
-					del(src)
+					qdel(src)
 					return
 				if (S.s_time >= world.time + 30)
 					//SN src = null
-					del(src)
+					qdel(src)
 					return
 				S.s_time = world.time
 				for(var/mob/O in viewers(source, null))
@@ -2248,7 +2248,7 @@
 	if(target)
 		target.update_clothing()
 	//SN src = null
-	del(src)
+	qdel(src)
 	return
 
 /mob/living/carbon/human/proc/HealDamage(zone, brute, burn)
@@ -2272,9 +2272,9 @@
 		if (istype(organs[t], /datum/organ/external))
 			L += organs[t]
 
-	del(body_standing)
+	qdel(body_standing)
 	body_standing = list()
-	del(body_lying)
+	qdel(body_lying)
 	body_lying = list()
 
 	bruteloss = 0
@@ -2375,7 +2375,7 @@
 /proc/UpdateZombieIcons()
 	spawn(0)
 		for(var/mob/living/carbon/human/H in world)
-			del(H.zombieimage)
+			qdel(H.zombieimage)
 			if(H.zombie)
 				H.zombieimage = image('mob.dmi', loc = H, icon_state = "rev")
 			else if(H.zombifying)

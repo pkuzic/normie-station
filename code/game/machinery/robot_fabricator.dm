@@ -21,7 +21,7 @@
 					count++
 
 				if (O:amount < 1)
-					del(O)
+					qdel(O)
 
 				user << "You insert [count] metal sheet\s into the fabricator."
 				user.update_clothing()

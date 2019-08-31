@@ -111,4 +111,4 @@
 				while(!AIMove(null,null,user))
 	if (user.current == C)
 		user.current = old
-	del(C)
+	qdel(C)

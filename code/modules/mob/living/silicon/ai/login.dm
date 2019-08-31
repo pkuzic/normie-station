@@ -1,7 +1,7 @@
 /mob/living/silicon/ai/Login()
 	..()
 	for(var/S in client.screen)
-		del(S)
+		qdel(S)
 	flash = new /obj/screen( null )
 	flash.icon_state = "blank"
 	flash.name = "flash"

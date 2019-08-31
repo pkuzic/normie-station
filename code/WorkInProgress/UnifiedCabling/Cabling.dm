@@ -73,7 +73,7 @@
 	return
 
 
-/obj/cabling/Del()
+/obj/cabling/Destroy()
 	if (!defer_cables_rebuild)
 		var/datum/UnifiedNetwork/Network = Networks[EquivalentCableType]
 		if (Network)
@@ -172,20 +172,20 @@
 		if(1.0)
 			var/datum/UnifiedNetwork/Network = Networks[EquivalentCableType]
 			Network.UnhandledExplosionDamage = 1
-			del(src)
+			qdel(src)
 		if(2.0)
 			if (prob(50))
 				DropCablePieces()
 				var/datum/UnifiedNetwork/Network = Networks[EquivalentCableType]
 				Network.UnhandledExplosionDamage = 1
-				del(src)
+				qdel(src)
 
 		if(3.0)
 			if (prob(25))
 				DropCablePieces()
 				var/datum/UnifiedNetwork/Network = Networks[EquivalentCableType]
 				Network.UnhandledExplosionDamage = 1
-				del(src)
+				qdel(src)
 	return
 
 /obj/cabling/proc/ObjectBuilt(var/obj/Object)

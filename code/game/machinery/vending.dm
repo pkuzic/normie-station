@@ -38,11 +38,11 @@
 /obj/machinery/vending/ex_act(severity)
 	switch(severity)
 		if(1.0)
-			del(src)
+			qdel(src)
 			return
 		if(2.0)
 			if (prob(50))
-				del(src)
+				qdel(src)
 				return
 		if(3.0)
 			if (prob(25))
@@ -57,7 +57,7 @@
 	if (prob(25))
 		spawn(0)
 			src.malfunction()
-			del(src)
+			qdel(src)
 		return
 
 	return
@@ -82,7 +82,7 @@
 			R.price = text2num(price_list[p])
 			src.product_records += R
 
-		del(temp)
+		qdel(temp)
 
 //			world << "Added: [R.product_name]] - [R.amount] - [R.product_path]"
 		continue
@@ -105,14 +105,14 @@
 	else if (istype(W,/obj/item/weapon/vending_charge/))
 		DoCharge(W,user)
 			//points += W.charge_amt
-			//del(W)
+			//qdel(W)
 	else
 		..()
 
 /obj/machinery/vending/proc/DoCharge(obj/item/weapon/vending_charge/V as obj, mob/user as mob)
 	if(charge_type == V.charge_type)
 		points += V.charge_amt
-		del(V)
+		qdel(V)
 		user << "You insert the charge into the machine."
 
 /obj/item/weapon/vending_charge
@@ -478,4 +478,3 @@
 		return 0
 
 	return src.Electrocute(user, 1)
-

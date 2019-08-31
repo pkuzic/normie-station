@@ -177,7 +177,7 @@
 	spawn(300)
 		if(my_target)
 			my_target.hallucinations -= src
-		del(src)
+		qdel(src)
 	step_away(src,my_target,2)
 	proccess()
 
@@ -242,7 +242,7 @@
 	var/image/I = image('blood.dmi',O,"floor[rand(1,7)]",O.dir,1)
 	target << I
 	spawn(300)
-		del(O)
+		qdel(O)
 	return
 
 /proc/fake_attack(var/mob/target)
@@ -697,4 +697,3 @@
 
 	spawn(10)
 		stop_zones = 0
-

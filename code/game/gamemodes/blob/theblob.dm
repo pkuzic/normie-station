@@ -7,7 +7,7 @@
 	//world << "new blob #[blobs.len]"
 	src.update()
 	..(loc)
-/obj/blob/Del()
+/obj/blob/Destroy()
 	blobs -= src
 	//world << "del blob #[blobs.len]"
 	//playsound(src.loc, 'splat.ogg', 100, 1)
@@ -31,7 +31,7 @@
 /*	if (locate(/obj/movable, U))
 		U = locate(/obj/movable, U)
 		if(U.density == 1)
-			del(src)
+			qdel(src)
 */
 	/*if(U.poison> 200000)
 		src.health -= round(U.poison/200000)
@@ -71,12 +71,12 @@
 						A.blob_act()
 
 					T.blob_act()
-			del(B)
+			qdel(B)
 
 /obj/blob/ex_act(severity)
 	switch(severity)
 		if(1)
-			del(src)
+			qdel(src)
 		if(2)
 			src.health -= rand(20,30)
 			src.update()
@@ -88,7 +88,7 @@
 /obj/blob/proc/update()
 	if(health<=0)
 		playsound(src.loc, 'splat.ogg', 50, 1)
-		del(src)
+		qdel(src)
 		return
 	if(health<10)
 		icon_state = "blobc0"
@@ -201,7 +201,7 @@
 
 /obj/blob/idle/proc/update_idle()			//put in stuff here to make it transform? Maybe when its down to around 5 health?
 	if(health<=0)
-		del(src)
+		qdel(src)
 		return
 	if(health<4)
 		icon_state = "blobc0"
@@ -211,10 +211,9 @@
 		return
 	icon_state = "blobidle0"
 
-/obj/blob/idle/Del()		//idle blob that spawns a normal blob when killed.
+/obj/blob/idle/Destroy()		//idle blob that spawns a normal blob when killed.
 
 	var/obj/blob/B = new /obj/blob( src.loc )
 	spawn(30*tick_multiplier)
 		B.Life()
 	..()
-

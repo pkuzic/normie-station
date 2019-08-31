@@ -93,7 +93,7 @@
 			A.state = 3
 			A.icon_state = "3"
 			A.anchored = 1
-			del(src)
+			qdel(src)
 	else
 		src.attack_hand(user)
 	return
@@ -206,7 +206,7 @@
 		src.active_record = locate(href_list["view_rec"])
 		if(src.active_record)
 			if ((isnull(src.active_record.fields["ckey"])) || (src.active_record.fields["ckey"] == ""))
-				del(src.active_record)
+				qdel(src.active_record)
 				src.temp = "ERROR: Record Corrupt"
 			else
 				src.menu = 3
@@ -223,7 +223,7 @@
 			if (istype(C)||istype(C, /obj/item/device/pda))
 				if(src.check_access(C))
 					geneticsrecords.Remove(src.active_record)
-					del(src.active_record)
+					qdel(src.active_record)
 					src.temp = "Record deleted."
 					src.menu = 2
 				else
@@ -297,7 +297,7 @@
 		else if (src.pod1.growclone(selected, C.fields["name"], C.fields["UI"], C.fields["SE"], C.fields["mind"]))
 			src.temp = "Cloning cycle activated."
 			geneticsrecords.Remove(C)
-			del(C)
+			qdel(C)
 			src.menu = 1
 
 	else if (href_list["menu"])
@@ -512,7 +512,7 @@
 	// -- End mode specific stuff
 
 	if (istype(ghost, /mob/dead/observer))
-		del(ghost) //Don't leave ghosts everywhere!!
+		qdel(ghost) //Don't leave ghosts everywhere!!
 
 	if (!src.occupant.dna)
 		src.occupant.dna = new /datum/dna(  )
@@ -666,7 +666,7 @@
 		src.icon_state = "pod_g"
 		src.occupant.ghostize()
 		spawn(5)
-			del(src.occupant)
+			qdel(src.occupant)
 	return
 
 /obj/machinery/clonepod/relaymove(mob/user as mob)
@@ -681,21 +681,21 @@
 			for(var/atom/movable/A as mob|obj in src)
 				A.loc = src.loc
 				ex_act(severity)
-			del(src)
+			qdel(src)
 			return
 		if(2.0)
 			if (prob(50))
 				for(var/atom/movable/A as mob|obj in src)
 					A.loc = src.loc
 					ex_act(severity)
-				del(src)
+				qdel(src)
 				return
 		if(3.0)
 			if (prob(25))
 				for(var/atom/movable/A as mob|obj in src)
 					A.loc = src.loc
 					ex_act(severity)
-				del(src)
+				qdel(src)
 				return
 		else
 	return

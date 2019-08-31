@@ -792,10 +792,10 @@
 
 		explosion(T, -1, -1, 2, 3)
 
-	del(src)
+	qdel(src)
 	return
 
-/obj/item/device/pda/Del()
+/obj/item/device/pda/Destroy()
 	if (src.id)
 		if(istype(src.loc, /mob))
 			src.id.loc = src.loc.loc

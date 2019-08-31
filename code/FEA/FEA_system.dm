@@ -325,7 +325,7 @@ datum
 					for(var/turf/simulated/T in turf_AG.members)
 						T.parent = null
 						turfs += T
-					del(turf_AG)
+					qdel(turf_AG)
 
 				for(var/turf/simulated/S in turfs) //Have old members try to form new groups
 					if(!S.parent)
@@ -340,7 +340,7 @@ datum
 					for(var/obj/movable/floor/OM in object_AG.members)
 						OM.parent = null
 						movable_objects += OM
-					del(object_AG)
+					qdel(object_AG)
 
 				for(var/obj/movable/floor/OM in movable_objects) //Have old members try to form new groups
 					if(!OM.parent)

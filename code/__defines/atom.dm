@@ -27,7 +27,7 @@
 	///Chemistry.
 
 	proc/assume_air(datum/air_group/giver)
-		del(giver)
+		qdel(giver)
 		return null
 
 	proc/remove_air(amount)
@@ -131,6 +131,13 @@ obj
 		src.last_move = get_dir(A, src.loc)
 		src.moved_recently = 1
 	return
+
+/atom/movable/Destroy(force)
+	. = ..()
+
+	for(var/atom/movable/AM in contents)
+		qdel(AM)
+
+	loc = null
+	invisibility = 101
 ////////////
-
-

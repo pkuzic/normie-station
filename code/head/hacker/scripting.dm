@@ -86,16 +86,16 @@ datum/praser/proc/Prase(var/datum/os/client,var/text,var/list/notlines,ismain=0,
 	func["SendPacket"] = KKQ
 	for(var/countglobal, countglobal <= lines.len, countglobal++)
 		if(!client)
-			del(src)
+			qdel(src)
 			return 1
 		if(client.stopprog)
 			client.stopprog = 0
 			client.boot = 1
-			del(src)
+			qdel(src)
 			return 1
 		if(stop || var1["stop"] == 1)
 			//world << "stopping [ismain]"
-			del(src)
+			qdel(src)
 			return 1
 		var/A = lines[countglobal]
 		if(findtext(A,"func:",1,0))
@@ -355,7 +355,7 @@ datum/praser/proc/Prase(var/datum/os/client,var/text,var/list/notlines,ismain=0,
 			var1["stop"] = 1
 			stop = 1
 		//	world << "stopping [ismain]"
-			del(src)
+			qdel(src)
 			return 1
 		else if(findtext(A,"exec(",1,0))
 			var/output
@@ -522,7 +522,7 @@ datum/praser/proc/Prase(var/datum/os/client,var/text,var/list/notlines,ismain=0,
 			isscript:Stop(client.connected)
 	if(ismain)
 		client.boot = 1
-		del(src)
+		qdel(src)
 	return 1
 datum/praser/proc/Sleep(A)
 	var/output

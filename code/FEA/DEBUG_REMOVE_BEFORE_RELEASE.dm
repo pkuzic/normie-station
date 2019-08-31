@@ -341,7 +341,7 @@ obj/machinery/atmospherics
 				set src in world
 				set category = "Minor"
 
-				del(src)
+				qdel(src)
 
 			pipeline_data()
 				set src in world
@@ -484,7 +484,7 @@ obj/window
 		destroy()
 			set category = "Minor"
 			set src in world
-			del(src)
+			qdel(src)
 
 mob
 	sight = SEE_OBJS|SEE_TURFS

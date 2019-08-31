@@ -115,7 +115,7 @@
 			var/icon/X = build_composite_icon(A)
 			X.Scale(22,20)
 			photo.Blend(X,ICON_OVERLAY,6,8)
-			del(X)
+			qdel(X)
 
 			if(!mob_title)
 				mob_title = "[A]"
@@ -145,7 +145,7 @@
 				var/icon/X = build_composite_icon(A)
 				X.Scale(22,20)
 				photo.Blend(X,ICON_OVERLAY,6,8)
-				del(X)
+				qdel(X)
 				itemnumber++
 
 				if(!item_title)
@@ -185,4 +185,3 @@
 	user << "\blue [pictures_left] photos left."
 	can_use = 0
 	spawn(50) can_use = 1
-

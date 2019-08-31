@@ -73,7 +73,7 @@ Pod/Blast Doors computer
 /obj/machinery/computer/ex_act(severity)
 	switch(severity)
 		if(1.0)
-			del(src)
+			qdel(src)
 			return
 		if(2.0)
 			if (prob(50))
@@ -147,7 +147,7 @@ Pod/Blast Doors computer
 				A.state = 3
 				A.icon_state = "3"
 				A.anchored = 1
-				del(src)
+				qdel(src)
 			else
 				user << "\blue You disconnect the monitor."
 				var/obj/computerframe/A = new /obj/computerframe( src.loc )
@@ -158,7 +158,7 @@ Pod/Blast Doors computer
 				A.state = 4
 				A.icon_state = "4"
 				A.anchored = 1
-				del(src)
+				qdel(src)
 	else
 		src.attack_hand(user)
 	return
@@ -394,7 +394,7 @@ Pod/Blast Doors computer
 				A.state = 3
 				A.icon_state = "3"
 				A.anchored = 1
-				del(src)
+				qdel(src)
 			else
 				user << "\blue You disconnect the monitor."
 				var/obj/computerframe/A = new /obj/computerframe( src.loc )
@@ -405,7 +405,7 @@ Pod/Blast Doors computer
 				A.state = 4
 				A.icon_state = "4"
 				A.anchored = 1
-				del(src)
+				qdel(src)
 	else
 		src.attack_hand(user)
 	return
@@ -526,7 +526,7 @@ Pod/Blast Doors computer
 				A.state = 3
 				A.icon_state = "3"
 				A.anchored = 1
-				del(src)
+				qdel(src)
 			else
 				user << "\blue You disconnect the monitor."
 				var/obj/computerframe/A = new /obj/computerframe( src.loc )
@@ -549,7 +549,7 @@ Pod/Blast Doors computer
 				A.state = 4
 				A.icon_state = "4"
 				A.anchored = 1
-				del(src)
+				qdel(src)
 	else
 		src.attack_hand(user)
 	return
@@ -662,6 +662,3 @@ Pod/Blast Doors computer
 				O.throw_at(target, drive_range * src.power, src.power)
 	flick("mass_driver1", src)
 	return
-
-
-

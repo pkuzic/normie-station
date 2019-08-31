@@ -6,7 +6,7 @@ atom/New()
 	else
 		biglist[type]++
 	. = ..()
-atom/Del()
+atom/Destroy()
 	biglist[type]--
 	if(biglist[type] <= 0) biglist -= type
 	. = ..()

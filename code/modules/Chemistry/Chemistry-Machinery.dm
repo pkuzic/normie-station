@@ -26,19 +26,19 @@
 	ex_act(severity)
 		switch(severity)
 			if(1.0)
-				del(src)
+				qdel(src)
 				return
 			if(2.0)
 				if (prob(50))
-					del(src)
+					qdel(src)
 					return
 
 	blob_act()
 		if (prob(25))
-			del(src)
+			qdel(src)
 
 	meteorhit()
-		del(src)
+		qdel(src)
 		return
 
 	Topic(href, href_list)
@@ -98,7 +98,7 @@
 
 /obj/machinery/chem_dispenser/attackby(obj/item/weapon/reagent_containers/glass/dispenser/B, mob/user)
 	if(istype(B))
-		del(B)
+		qdel(B)
 		user << "You place the glass into the machine."
 		//if (energy < max_energy)
 		//	energy++
@@ -112,7 +112,7 @@
 /obj/machinery/chem_dispenser/attackby(obj/item/weapon/vending_charge/chemistry/V, mob/user)
 	if (istype(V,/obj/item/weapon/vending_charge/chemistry))
 		energy += V.charge_amt
-		del(V)
+		qdel(V)
 		user << "You load the charge into the machine."
 		return
 	..()
@@ -132,19 +132,19 @@
 	ex_act(severity)
 		switch(severity)
 			if(1.0)
-				del(src)
+				qdel(src)
 				return
 			if(2.0)
 				if (prob(50))
-					del(src)
+					qdel(src)
 					return
 
 	blob_act()
 		if (prob(25))
-			del(src)
+			qdel(src)
 
 	meteorhit()
-		del(src)
+		qdel(src)
 		return
 
 	attackby(var/obj/item/weapon/reagent_containers/glass/B as obj, var/mob/user as mob)

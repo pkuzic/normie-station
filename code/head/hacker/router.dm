@@ -24,7 +24,7 @@ var/global/first_free_address_range = 1
 	for(var/obj/machinery/M in orange(15,src)) if(M.networking && !M.address)
 		connect(M)
 	..()
-/obj/machinery/router/Del()
+/obj/machinery/router/Destroy()
 	for(var/obj/machinery/M in connected)
 		disconnect(M)
 	..()

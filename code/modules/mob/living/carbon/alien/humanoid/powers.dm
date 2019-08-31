@@ -48,17 +48,17 @@
 				B.density = 0
 				B.layer = 3
 				spawn(5)
-					del(B)
+					qdel(B)
 				step_to(A,M,0)
 				if (get_dist(A,M) == 0)
 					for(var/mob/O in viewers(src, null))
 						O.show_message(text("\green <B>[src] has spat at [M.name]!</B>"), 1)
 					M.weakened += 5
 					M.fireloss += 10
-					del(A)
+					qdel(A)
 					return
 				sleep(5)
-			del(A)
+			qdel(A)
 	else
 		src << "\green Not enough plasma stored"
 	return

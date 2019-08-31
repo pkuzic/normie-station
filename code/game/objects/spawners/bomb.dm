@@ -77,4 +77,4 @@
 			p4.air_contents.temperature = btemp +T0C
 			p2.status = 1
 
-	del(src)
+	qdel(src)

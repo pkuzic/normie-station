@@ -23,8 +23,8 @@
 			//Allow for reactions
 			air_contents.react()
 
-	Del()
-		del(air_contents)
+	Destroy()
+		qdel(air_contents)
 
 		..()
 

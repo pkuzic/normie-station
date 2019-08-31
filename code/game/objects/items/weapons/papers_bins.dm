@@ -132,7 +132,7 @@ CLIPBOARDS
 							O.show_message(text("\red [] cuts [] to pieces!", user, src), 1)
 							//Foreach goto(580)
 						//SN src = null
-						del(src)
+						qdel(src)
 						return
 	*/ //TODO: FIX
 	src.add_fingerprint(user)
@@ -263,7 +263,7 @@ CLIPBOARDS
 			if (src.amount <= 0)
 				new /obj/item/weapon/c_tube( src.loc )
 				//SN src = null
-				del(src)
+				qdel(src)
 				return
 		else
 			user << "\blue You need scissors!"
@@ -305,7 +305,7 @@ CLIPBOARDS
 /obj/item/weapon/gift/attack_self(mob/user as mob)
 	if(!src.gift)
 		user << "\blue The gift was empty!"
-		del(src)
+		qdel(src)
 	src.gift.loc = user
 	if (user.hand)
 		user.l_hand = src.gift
@@ -313,11 +313,11 @@ CLIPBOARDS
 		user.r_hand = src.gift
 	src.gift.layer = 20
 	src.gift.add_fingerprint(user)
-	del(src)
+	qdel(src)
 	return
 
 /obj/item/weapon/a_gift/ex_act()
-	del(src)
+	qdel(src)
 	return
 
 
@@ -340,7 +340,7 @@ CLIPBOARDS
 			M.client.eye = M.client.mob
 			M.client.perspective = MOB_PERSPECTIVE
 
-	del(src)
+	qdel(src)
 
 
 /obj/item/weapon/a_gift/attack_self(mob/M as mob)
@@ -354,7 +354,7 @@ CLIPBOARDS
 			W.layer = 20
 			W.add_fingerprint(M)
 			//SN src = null
-			del(src)
+			qdel(src)
 			return
 		if("l_gun")
 			var/obj/item/weapon/gun/energy/laser_gun/W = new /obj/item/weapon/gun/energy/laser_gun( M )
@@ -365,7 +365,7 @@ CLIPBOARDS
 			W.layer = 20
 			W.add_fingerprint(M)
 			//SN src = null
-			del(src)
+			qdel(src)
 			return
 		if("t_gun")
 			var/obj/item/weapon/gun/energy/taser_gun/W = new /obj/item/weapon/gun/energy/taser_gun( M )
@@ -376,7 +376,7 @@ CLIPBOARDS
 			W.layer = 20
 			W.add_fingerprint(M)
 			//SN src = null
-			del(src)
+			qdel(src)
 			return
 		if("shield")
 			var/obj/item/device/shield/W = new /obj/item/device/shield( M )
@@ -387,7 +387,7 @@ CLIPBOARDS
 			W.layer = 20
 			W.add_fingerprint(M)
 			//SN src = null
-			del(src)
+			qdel(src)
 			return
 		if("sword")
 			var/obj/item/weapon/sword/W = new /obj/item/weapon/sword( M )
@@ -398,7 +398,7 @@ CLIPBOARDS
 			W.layer = 20
 			W.add_fingerprint(M)
 			//SN src = null
-			del(src)
+			qdel(src)
 			return
 		if("axe")
 			var/obj/item/weapon/axe/W = new /obj/item/weapon/axe( M )
@@ -409,7 +409,7 @@ CLIPBOARDS
 			W.layer = 20
 			W.add_fingerprint(M)
 			//SN src = null
-			del(src)
+			qdel(src)
 			return
 		else
 	return
@@ -425,7 +425,7 @@ CLIPBOARDS
 /obj/bedsheetbin/attackby(obj/item/weapon/W as obj, mob/user as mob)
 	if (istype(W, /obj/item/weapon/bedsheet))
 		//W = null
-		del(W)
+		qdel(W)
 		src.amount++
 	return
 

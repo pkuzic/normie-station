@@ -65,21 +65,21 @@
 			module_icon.icon_state = "medical"
 			class = "medical"
 			icon_state = "[class]robot"
-			del(radio)
+			qdel(radio)
 			radio = new /obj/item/device/radio/headset/headset_med(src)
 		if("Security")
 			module = new /obj/item/weapon/robot_module/security(src)
 			module_icon.icon_state = "security"
 			class = "security"
 			icon_state = "[class]robot"
-			del(radio)
+			qdel(radio)
 			radio = new /obj/item/device/radio/headset/headset_sec(src)
 		if("Engineering")
 			module = new /obj/item/weapon/robot_module/engineering(src)
 			module_icon.icon_state = "engineer"
 			class = "engineer"
 			icon_state = "[class]robot"
-			del(radio)
+			qdel(radio)
 			radio = new /obj/item/device/radio/headset/headset_eng(src)
 		if("Janitor")
 			module = new /obj/item/weapon/robot_module/janitor(src)
@@ -155,7 +155,7 @@
 		return
 
 	else if (stat == 2 && !client)
-		del(src)
+		qdel(src)
 		return
 
 	var/b_loss = bruteloss
@@ -823,7 +823,7 @@ Panel: [ opened ? "<a href='byond://?src=\ref[src];opened=0'>Close</a>" : "<a hr
 							if (istype(G, /obj/item/weapon/grab))
 								for(var/mob/O in viewers(M, null))
 									O.show_message(text("\red [G.affecting] has been pulled from [G.assailant]'s grip by [src]"), 1)
-								del(G)
+								qdel(G)
 						else
 							ok = 0
 						if (locate(/obj/item/weapon/grab, M.grabbed_by.len))

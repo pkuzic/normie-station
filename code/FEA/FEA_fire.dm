@@ -96,13 +96,13 @@ obj/hotspot/proc/process(turf/simulated/list/possible_spread)
 
 	var/turf/simulated/floor/location = loc
 	if(!istype(location))
-		del(src)
+		qdel(src)
 
 	if((temperature < FIRE_MINIMUM_TEMPERATURE_TO_EXIST) || (volume <= 1))
-		del(src)
+		qdel(src)
 
 	if(location.air.toxins < 0.5 || location.air.oxygen < 0.5)
-		del(src)
+		qdel(src)
 
 
 	perform_exposure()
@@ -134,7 +134,7 @@ obj/hotspot/New()
 	dir = pick(cardinal)
 	ul_SetLuminosity(3)
 
-obj/hotspot/Del()
+obj/hotspot/Destroy()
 	loc:active_hotspot = null
 	src.ul_SetLuminosity(0)
 	loc = null
@@ -171,14 +171,14 @@ obj/fire/proc/process()
 		return
 	var/turf/simulated/floor/T = src.loc
 	if(!istype(src.loc,/turf/simulated/floor))
-		del(src)
+		qdel(src)
 	if(T.air.temperature < FIRE_MINIMUM_TEMPERATURE_TO_EXIST)
 		//world << "NOT HOT ENOUGH [T.air.temperature] : [FIRE_MINIMUM_TEMPERATURE_TO_EXIST]"
-		del(src)
+		qdel(src)
 		return
 	if(T.air.toxins <= 0.5 || T.air.oxygen <= 0.5)
 		//world << "NOT HOT ENOUGH shit"
-		del(src)
+		qdel(src)
 	if(T.wet) T.wet = 0
 	burn( (T.air.toxins - T.air.carbon_dioxide / 2) / 150, (T.air.oxygen - T.air.carbon_dioxide / 2) / 150)
 	T.burn_tile()
@@ -242,7 +242,7 @@ obj/fire/New()
 	dir = pick(cardinal)
 	ul_SetLuminosity(7,3,0)
 	just_spawned = 1
-obj/fire/Del()
+obj/fire/Destroy()
 	ul_SetLuminosity(0)
 	loc = null
 	..()

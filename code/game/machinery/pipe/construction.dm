@@ -376,11 +376,11 @@ Buildable meters
 
 						PL1.setterm()
 
-						del(PL2)
+						qdel(PL2)
 
 
 		user << "You have fastened the pipe"
-		del(src)	// remove the pipe item
+		qdel(src)	// remove the pipe item
 
 	return
 	*/ //TODO: DEFERRED
@@ -417,7 +417,7 @@ Buildable meters
 			new/obj/machinery/meter( src.loc )
 			playsound(src.loc, 'Ratchet.ogg', 50, 1)
 			user << "You have fastened the meter to the pipe"
-			del(src)
+			qdel(src)
 		else
 			user << "You need to fasten it to a pipe"
 	return
@@ -486,4 +486,4 @@ Buildable meters
 		FC.control = src.control
 		FC.add_fingerprint(user)
 		FC.updateicon()
-		del(src)
+		qdel(src)

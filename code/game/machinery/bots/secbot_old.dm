@@ -821,7 +821,7 @@ Auto Patrol: []"},
 	s.set_up(3, 1, src)
 	s.start()
 
-	del(src) // And that was all for today, folks!
+	qdel(src) // And that was all for today, folks!
 
 
 /obj/machinery/bot/secbot/proc/say_quote(var/text)
@@ -875,14 +875,14 @@ Auto Patrol: []"},
 		user << "You add the prox sensor to [src]!"
 		src.overlays += image('aibots.dmi', "hs_eye")
 		src.name = "helmet/signaler/prox sensor assembly"
-		del(W)
+		qdel(W)
 
 	else if (((istype(W, /obj/item/robot_parts/l_arm)) || (istype(W, /obj/item/robot_parts/r_arm))) && (src.build_step == 2))
 		src.build_step++
 		user << "You add the robot arm to [src]!"
 		src.name = "helmet/signaler/prox sensor/robot arm assembly"
 		src.overlays += image('aibots.dmi', "hs_arm")
-		del(W)
+		qdel(W)
 
 	else if ((istype(W, /obj/item/weapon/baton)) && (src.build_step >= 3))
 		src.build_step++
@@ -890,8 +890,8 @@ Auto Patrol: []"},
 		var/obj/machinery/bot/secbot/S = new /obj/machinery/bot/secbot
 		S.loc = get_turf(src)
 		S.name = src.created_name
-		del(W)
-		del(src)
+		qdel(W)
+		qdel(src)
 
 	else if (istype(W, /obj/item/weapon/pen))
 		var/t = input(user, "Enter new robot name", src.name, src.created_name) as text

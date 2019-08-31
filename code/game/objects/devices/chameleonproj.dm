@@ -62,13 +62,13 @@
 				if(ismob(A))
 					if(A:client)
 						A:client:eye = A
-			del(active_dummy)
+			qdel(active_dummy)
 			active_dummy = null
 			usr << "\blue You deactivate the [src]."
 			var/obj/overlay/T = new/obj/overlay(get_turf(src))
 			T.icon = 'effects.dmi'
 			flick("emppulse",T)
-			spawn(8) del(T)
+			spawn(8) qdel(T)
 		else
 			playsound(src, 'pop.ogg', 100, 1, 1)
 			var/obj/O = new saved_item (src)
@@ -82,12 +82,12 @@
 			usr.loc = C
 			C.master = src
 			src.active_dummy = C
-			del(O)
+			qdel(O)
 			usr << "\blue You activate the [src]."
 			var/obj/overlay/T = new/obj/overlay(get_turf(src))
 			T.icon = 'effects.dmi'
 			flick("emppulse",T)
-			spawn(8) del(T)
+			spawn(8) qdel(T)
 
 	proc/disrupt()
 		if(active_dummy)
@@ -100,7 +100,7 @@
 				if(ismob(A))
 					if(A:client)
 						A:client:eye = A
-			del(active_dummy)
+			qdel(active_dummy)
 			active_dummy = null
 			can_use = 0
 			spawn(100) can_use = 1

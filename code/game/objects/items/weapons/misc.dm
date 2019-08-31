@@ -52,7 +52,7 @@ DNA INJECTOR
 			M.dna.struc_enzymes = setblock(M.dna.struc_enzymes,block,dna,3)
 			domutcheck(M, null,1)
 			uses--
-	del(src)
+	qdel(src)
 	return uses
 
 /obj/item/weapon/dnainjector/attack(mob/M as mob, mob/user as mob)

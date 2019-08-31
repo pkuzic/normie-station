@@ -23,7 +23,7 @@ mob/living/carbon/alien/Life()
 
 	if(istype(src.loc,/obj/machinery/atmospherics))
 		for(var/A in imagesP)
-			del(A)
+			qdel(A)
 		imagesP = null
 		for(var/obj/machinery/atmospherics/T in range(5,src))
 			var/image/A = image(T.icon,T,T.icon_state)

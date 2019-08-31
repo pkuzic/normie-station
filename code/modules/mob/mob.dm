@@ -477,7 +477,7 @@ mob/verb/turnwest()
 	if(affecting)
 		var/grabee = affecting
 		spawn(0)
-			del(src)
+			qdel(src)
 		return grabee
 	return null
 
@@ -490,11 +490,11 @@ mob/verb/turnwest()
 
 /obj/item/weapon/grab/process()
 	if(!assailant || !affecting)
-		del(src)
+		qdel(src)
 		return
 	if ((!( isturf(assailant.loc) ) || (!( isturf(affecting.loc) ) || (assailant.loc != affecting.loc && get_dist(assailant, affecting) > 1))))
 		//SN src = null
-		del(src)
+		qdel(src)
 		return
 	if (assailant.client)
 		assailant.client.screen -= hud1
@@ -540,7 +540,7 @@ mob/verb/turnwest()
 		return
 	if ((!( assailant.canmove ) || assailant.lying))
 		//SN src = null
-		del(src)
+		qdel(src)
 		return
 	switch(S.id)
 		if(1.0)
@@ -562,7 +562,7 @@ mob/verb/turnwest()
 	if ((assailant.next_move > world.time && !( last_suffocate < world.time + 2 )))
 		return
 	if ((!( assailant.canmove ) || assailant.lying))
-		del(src)
+		qdel(src)
 		return
 	switch(S.id)
 		if(1.0)
@@ -577,7 +577,7 @@ mob/verb/turnwest()
 				else
 					for(var/mob/O in viewers(assailant, null))
 						O.show_message(text("\red [] has failed to grab [] aggressively!", assailant, affecting), 1)
-					del(src)
+					qdel(src)
 					return
 			else
 				if (state < 3)
@@ -650,14 +650,14 @@ mob/verb/turnwest()
 					N.show_message(text("\red <B>[user] devours [affecting]!</B>"), 1)
 			affecting.loc = user
 			attacker.stomach_contents.Add(affecting)
-			del(src)
+			qdel(src)
 
 /obj/item/weapon/grab/dropped()
-	del(src)
+	qdel(src)
 	return
 
-/obj/item/weapon/grab/Del()
-	del(hud1)
+/obj/item/weapon/grab/Destroy()
+	qdel(hud1)
 	..()
 	return
 
@@ -1038,22 +1038,22 @@ mob/verb/turnwest()
 			usr.next_move = world.time + 20
 			if ((!( usr.stat ) && usr.canmove && !( usr.restrained() )))
 				for(var/obj/O in usr.requests)
-					del(O)
+					qdel(O)
 				for(var/obj/item/weapon/grab/G in usr.grabbed_by)
 					if (G.state == 1)
-						del(G)
+						qdel(G)
 					else
 						if (G.state == 2)
 							if (prob(25))
 								for(var/mob/O in viewers(usr, null))
 									O.show_message(text("\red [] has broken free of []'s grip!", usr, G.assailant), 1)
-								del(G)
+								qdel(G)
 						else
 							if (G.state == 3)
 								if (prob(5))
 									for(var/mob/O in viewers(usr, null))
 										O.show_message(text("\red [] has broken free of []'s headlock!", usr, G.assailant), 1)
-									del(G)
+									qdel(G)
 				for(var/mob/O in viewers(usr, null))
 					O.show_message(text("\red <B>[] resists!</B>", usr), 1)
 
@@ -1109,10 +1109,10 @@ mob/verb/turnwest()
 
 /obj/equip_e/New()
 	if (!ticker)
-		del(src)
+		qdel(src)
 		return
 	spawn(100)
-		del(src)
+		qdel(src)
 		return
 	..()
 	return
@@ -1430,7 +1430,7 @@ mob/verb/turnwest()
 				var/list/temp = list(  )
 				temp += L.container
 				//L = null
-				del(L)
+				qdel(L)
 				return temp
 			else
 				return L.container
@@ -1528,7 +1528,7 @@ mob/verb/turnwest()
 	for(var/obj/screen/t in usr.client.screen)
 		if (t.loc == null)
 			//t = null
-			del(t)
+			qdel(t)
 	if(!client)
 		log_game("[usr.key] AM failed due to disconnect.")
 		return
@@ -1536,7 +1536,7 @@ mob/verb/turnwest()
 	var/mob/new_player/M = new /mob/new_player()
 	if(!client)
 		log_game("[usr.key] AM failed due to disconnect.")
-		del(M)
+		qdel(M)
 		return
 
 
@@ -1956,13 +1956,13 @@ mob/verb/turnwest()
 		for(var/obj/item/weapon/grab/G in mob.grabbed_by)
 			if (G.state == 1)
 				if (!( grabbing.Find(G.assailant) ))
-					del(G)
+					qdel(G)
 			else
 				if (G.state == 2)
 					move_delay = world.time + 10
 					if ((prob(25) && (!( is_monkey ) || prob(25))))
 						mob.visible_message("\red [mob] has broken free of [G.assailant]'s grip!")
-						del(G)
+						qdel(G)
 					else
 						return
 				else
@@ -1970,7 +1970,7 @@ mob/verb/turnwest()
 						move_delay = world.time + 10
 						if ((prob(5) && !( is_monkey ) || prob(25)))
 							mob.visible_message("\red [mob] has broken free of [G.assailant]'s headlock!")
-							del(G)
+							qdel(G)
 						else
 							return
 	if (mob.canmove)
@@ -2084,16 +2084,16 @@ mob/verb/turnwest()
 /client/New()
 //	if(findtextEx(key, "Telnet @"))
 //		src << "Sorry, this game does not support Telnet."
-//		del(src)
+//		qdel(src)
 	var/isbanned = CheckBan(src)
 	if (isbanned)
 		log_access("Failed Login: [src] - Banned")
 		message_admins("\blue Failed Login: [src] - Banned")
 		alert(src,"You have been banned.\nReason : [isbanned]","You're banned!","OK")
-		del(src)
+		qdel(src)
 	if(IsGuestKey(src.key))
 		alert(src,"Animus doesn't allow guest accounts to play. Please go to http://www.byond.com/ and register for a key.","Guest","OK")
-		del(src)
+		qdel(src)
 	if (((world.address == address || !(address)) && !(host)))
 		host = key
 		world.update_status()
@@ -2134,6 +2134,10 @@ mob/verb/turnwest()
 		if(holder)
 			del(holder)
 	return ..()
+
+/client/Destroy()
+	. = ..() //Even though we're going to be hard deleted there are still some things that want to know the destroy is happening
+	return QDEL_HINT_HARDDEL_NOW
 
 /mob/proc/can_use_hands()
 	if(handcuffed)
@@ -2255,7 +2259,7 @@ mob/verb/turnwest()
 				W.layer = initial(W.layer)
 
 	sleep(15)
-	del(src)
+	qdel(src)
 
 /mob/proc/get_contents()
 	var/list/L = list()

@@ -2,7 +2,7 @@
 	..()
 	if (src.type == /obj/item/weapon/storage/toolbox)
 		world << "BAD: [src] ([src.type]) spawned at [src.x] [src.y] [src.z]"
-		del(src)
+		qdel(src)
 
 /obj/item/weapon/storage/toolbox/emergency/New()
 	..()

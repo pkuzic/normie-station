@@ -15,4 +15,4 @@
 		spawn()
 			if(A)
 				A.bullet_act(PROJECTILE_PULSE)
-			del(src)
+			qdel(src)

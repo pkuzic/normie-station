@@ -19,7 +19,7 @@
 				animation.master = user
 				flick("blspell", animation)
 				sleep(5)
-				del(animation)
+				qdel(animation)
 		if (!( safety ))
 			if (M.client)
 				if (status == 0)
@@ -81,7 +81,7 @@
 			animation.master = user
 			flick("blspell", animation)
 			sleep(5)
-			del(animation)
+			qdel(animation)
 	if (!( flag ))
 		for(var/mob/living/carbon/M in oviewers(3, null))
 			if (prob(50))

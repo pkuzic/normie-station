@@ -40,7 +40,7 @@
 			M.client.eye = src
 		M.loc = src
 		src.occupant = M
-		del(G)
+		qdel(G)
 
 /obj/machinery/gibber/verb/eject()
 	set src in oview(1)
@@ -95,7 +95,7 @@
 			var/mob/dead/observer/newmob = new(loc, src.occupant)
 			newmob.key = src.occupant.key
 
-		del(src.occupant)
+		qdel(src.occupant)
 
 		spawn(src.gibtime)
 			playsound(src.loc, 'splat.ogg', 50, 1)
@@ -115,5 +115,3 @@
 			if(src.dirty == 1)
 				src.overlays += image('kitchen.dmi', "grindbloody")
 		src.operating = 0
-
-

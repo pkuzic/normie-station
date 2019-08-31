@@ -88,7 +88,7 @@ GLOBAL_REAL(Master, /datum/controller/master) = new
 
 /datum/controller/master/Destroy()
 	..()
-	// Tell qdel() to Del() this object.
+	// Tell qdel() to Destroy() this object.
 	return QDEL_HINT_HARDDEL_NOW
 
 /datum/controller/master/Shutdown()

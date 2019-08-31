@@ -157,7 +157,7 @@
 		unload(0)
 		switch(severity)
 			if(1)
-				del(src)
+				qdel(src)
 			if(2)
 				wires &= ~(1 << rand(0,9))
 				wires &= ~(1 << rand(0,9))

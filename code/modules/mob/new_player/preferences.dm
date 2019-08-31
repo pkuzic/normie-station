@@ -47,7 +47,7 @@ datum/preferences
 			real_name = capitalize(pick(first_names_female) + " " + capitalize(pick(last_names)))
 
 	proc/update_preview_icon()
-		del(preview_icon)
+		qdel(preview_icon)
 
 		var/g = "m"
 		if (gender == MALE)
@@ -137,10 +137,10 @@ datum/preferences
 
 		preview_icon.Blend(eyes_s, ICON_OVERLAY)
 
-		del(mouth_s)
-		del(facial_s)
-		del(hair_s)
-		del(eyes_s)
+		qdel(mouth_s)
+		qdel(facial_s)
+		qdel(hair_s)
+		qdel(eyes_s)
 
 	proc/ShowChoices(mob/user)
 		update_preview_icon()

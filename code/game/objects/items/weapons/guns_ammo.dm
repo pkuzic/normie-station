@@ -38,7 +38,7 @@ TELEPORT GUN
 			usr << "\red The pulse rifle blows up in your face."
 			usr.fireloss += 20
 			usr.drop_item()
-			del(src)
+			qdel(src)
 			return
 		if (flag)
 			return
@@ -192,7 +192,7 @@ obj/item/weapon/gun/revolver/attackby(obj/item/weapon/ammo/a357/A as obj, mob/us
 		return
 	var/obj/bullet/A = new /obj/bullet( user.loc )
 	if (!istype(U, /turf))
-		del(A)
+		qdel(A)
 		return
 	A.current = U
 	A.yo = U.y - T.y
@@ -291,7 +291,7 @@ obj/item/weapon/gun/revolver/attackby(obj/item/weapon/ammo/a357/A as obj, mob/us
 		return
 	var/obj/bullet/weakbullet/A = new /obj/bullet/weakbullet( user.loc )
 	if (!istype(U, /turf))
-		del(A)
+		qdel(A)
 		return
 	A.current = U
 	A.yo = U.y - T.y
@@ -376,7 +376,7 @@ obj/item/weapon/gun/revolver/attackby(obj/item/weapon/ammo/a357/A as obj, mob/us
 		usr << "\red The laser gun blows up in your face."
 		usr.fireloss += 20
 		usr.drop_item()
-		del(src)
+		qdel(src)
 		return
 	if (flag)
 		return
@@ -773,7 +773,7 @@ obj/item/weapon/gun/revolver/attackby(obj/item/weapon/ammo/a357/A as obj, mob/us
 			usr << "\red The energy gun blows up in your face."
 			usr.fireloss += 20
 			usr.drop_item()
-			del(src)
+			qdel(src)
 			return
 		if (flag)
 			return

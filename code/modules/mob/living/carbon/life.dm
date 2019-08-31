@@ -334,7 +334,7 @@
 					M:client:mob = newmob
 					M.mind.transfer_to(newmob)
 					newmob.reset_view(null)
-				del(M)
+				qdel(M)
 				continue
 			if(air_master.current_cycle%3==1)
 				if(!M.nodamage)

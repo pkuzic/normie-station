@@ -46,10 +46,10 @@
 			text += " [D.name]"
 			count++
 	Message(text)
-/datum/dir/Del()
+/datum/dir/Destroy()
 	if(!istext(src.contents))
 		for(var/A in src.contents)
-			del(A)
+			qdel(A)
 	..()
 /datum/os/proc/Mv(path1,path2)
 	if(!path1 || !path2)
@@ -68,7 +68,7 @@
 datum/os/proc/reboot()
 	boot = 0
 	for(var/datum/praser/P in src.process)
-		del(P)
+		qdel(P)
 	Boot()
 datum/os/proc/config(var/N,var/A)
 	if(N == "name")
@@ -326,7 +326,7 @@ datum/os/proc/testpraser(var/N)
 				Message("You are not authorized to do that..")
 				return
 			Message("Deleted [A.name]..")
-			del(A)
+			qdel(A)
 		src.pwd = current
 		return
 	var/datum/dir/X = FindAny(B)
@@ -336,7 +336,7 @@ datum/os/proc/testpraser(var/N)
 			Message("You are not authorized to do that..")
 			return
 		Message("Deleted [X.name]..")
-		del(X)
+		qdel(X)
 		src.pwd = current
 		return
 /datum/os/proc/Make(var/X)
@@ -406,20 +406,20 @@ datum/os/proc/testpraser(var/N)
 	var/datum/user/X = new(N,P)
 	if(!connected && src.user.name == "root")
 		if(GetUser(N))
-			del(X)
+			qdel(X)
 			Message("already a account named this")
 			return
 		src.users += X
 		Message("Created [X.name]")
 	else if(src.connectedas.name == "root")
 		if(connected.GetUser(N))
-			del(X)
+			qdel(X)
 			Message("already a account named this")
 			return
 		src.connected.users += X
 		Message("Created [X.name]")
 	else
-		del(X)
+		qdel(X)
 /datum/os/proc/UserModify(N,OP,NP)
 	if(!N || !OP || !NP)
 		return
@@ -439,13 +439,13 @@ datum/os/proc/testpraser(var/N)
 			return
 		for(var/datum/user/A in users)
 			if(A.name == N)
-				del(A)
+				qdel(A)
 				Message("Deleted [N]")
 				return
 	else if(connectedas.name == "root")
 		for(var/datum/user/A in connected.users)
 			if(A.name == N)
-				del(A)
+				qdel(A)
 				Message("Deleted [N]")
 				return
 /datum/os/proc/ListUsers()

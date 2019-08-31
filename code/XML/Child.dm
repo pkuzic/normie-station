@@ -32,7 +32,7 @@ xml_child
 		if(parent)
 			parent.AddChild(src)
 
-	Del()
+	Destroy()
 		for(var/xml_child/a in children)
 			del a
 

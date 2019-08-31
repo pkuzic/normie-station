@@ -83,7 +83,7 @@
 			client.mob = H
 
 		spawn(10)
-			del(src)
+			qdel(src)
 			return
 	//grow!!
 	amount_grown++

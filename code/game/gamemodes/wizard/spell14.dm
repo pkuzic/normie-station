@@ -28,7 +28,7 @@
 	pulse.name = "emp pulse"
 	pulse.anchored = 1
 	spawn(20*tick_multiplier)
-		del(pulse)
+		qdel(pulse)
 
 	for(var/obj/item/weapon/W in range(world.view-1, myturf))
 
@@ -129,7 +129,7 @@
 		pulse2.dir = pick(cardinal)
 
 		spawn(10*tick_multiplier)
-			del(pulse2)
+			qdel(pulse2)
 
 		if(istype(A, /obj/machinery/turret))
 			A:enabled = 0

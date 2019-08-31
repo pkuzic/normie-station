@@ -142,20 +142,20 @@ obj/machinery/atmospherics/mixer
 
 		return null
 
-	Del()
+	Destroy()
 		loc = null
 
 		if(node_in1)
 			node_in1.disconnect(src)
-			del(network_in1)
+			qdel(network_in1)
 
 		if(node_in2)
 			node_in2.disconnect(src)
-			del(network_in2)
+			qdel(network_in2)
 
 		if(node_out)
 			node_out.disconnect(src)
-			del(network_out)
+			qdel(network_out)
 
 		node_in1 = null
 		node_in2 = null
@@ -246,15 +246,15 @@ obj/machinery/atmospherics/mixer
 
 	disconnect(obj/machinery/atmospherics/reference)
 		if(reference==node_in1)
-			del(network_in1)
+			qdel(network_in1)
 			node_in1 = null
 
 		else if(reference==node_in2)
-			del(network_in2)
+			qdel(network_in2)
 			node_in2 = null
 
 		else if(reference==node_out)
-			del(network_out)
+			qdel(network_out)
 			node_out = null
 
 		return null

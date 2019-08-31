@@ -195,7 +195,7 @@ FINGERPRINT CARD
 		F.add_fingerprint(user)
 		if (src.amount < 1)
 			//SN src = null
-			del(src)
+			qdel(src)
 			return
 	else
 		..()
@@ -214,7 +214,7 @@ FINGERPRINT CARD
 		else
 			src.amount += W:amount
 			//W = null
-			del(W)
+			qdel(W)
 		src.add_fingerprint(user)
 		if (W)
 			W.add_fingerprint(user)

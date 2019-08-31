@@ -163,17 +163,17 @@
 	for (var/obj/landmark/A in world)
 		if (A.name == "Syndicate-Gear-Closet")
 			new /obj/closet/syndicate/personal(A.loc)
-			del(A)
+			qdel(A)
 			continue
 
 		if (A.name == "Syndicate-Bomb")
 			new /obj/item/weapon/syndie/c4explosive(A.loc)
-			del(A)
+			qdel(A)
 			continue
 
 		if (A.name == "Syndicate-Bomb-Strong")
 			new /obj/item/weapon/syndie/c4explosive/heavy(A.loc)
-			del(A)
+			qdel(A)
 			continue
 
 	spawn (rand(waittime_l, waittime_h)*tick_multiplier)

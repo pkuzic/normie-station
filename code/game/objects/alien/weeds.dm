@@ -12,10 +12,10 @@
 	var/spreadlimit = 10
 
 /obj/item/alien/weeds/New()
-	//del(src)
+	//qdel(src)
 	//return
 	if(istype(src.loc, /turf/space))
-		del(src)
+		qdel(src)
 		return
 	processing_items.Add(src)
 /obj/item/alien/weeds/process()
@@ -78,7 +78,7 @@
 	src.updateicon(0)
 	var/turf/U = src.loc
 	if (istype(U, /turf/space))
-		del(src)
+		qdel(src)
 		return
 
 	var/obj/machinery/light/L = locate() in src.loc
@@ -119,7 +119,7 @@
 					B.updateicon(1)
 					continue
 				else
-					del(B)
+					qdel(B)
 		if(locate(/obj/closet) in T || locate(/obj/table) in T || locate(/obj/machinery/computer) in T || locate(/obj/machinery/disposal) in T)
 			var/obj/item/alien/weeds/B = new(T)
 			B.spreadlimit = src.spreadlimit - 1
@@ -136,7 +136,7 @@
 				B.updateicon(1)
 				continue
 			else
-				del(B)
+				qdel(B)
 
 	/*
 	for(var/mob/living/carbon/human/h in src.loc)
@@ -165,7 +165,7 @@
 				sleep(100)
 				continue
 			else
-				del(B)
+				qdel(B)
 
 		else if(locate(/obj/grille) in T || /obj/window/ in T)
 			var/obj/alien/weeds/B = new /obj/alien/weeds(U)
@@ -178,7 +178,7 @@
 						B.updateicon()
 						continue
 			else
-				del(B)
+				qdel(B)
 
 		else if(!(locate(/obj/alien/weeds) in T))
 			var/obj/alien/weeds/B = new /obj/alien/weeds(U)
@@ -190,7 +190,7 @@
 				B.updateicon()
 				continue
 			else
-				del(B)
+				qdel(B)
 						/*		if(T.Enter(B,src) && !(locate(/obj/alien/weeds) in T))
 			B.loc = T
 			updateicon()
@@ -203,15 +203,15 @@
 /obj/item/alien/weeds/ex_act(severity)
 	switch(severity)
 		if(1.0)
-			del(src)
+			qdel(src)
 			return
 		if(2.0)
 			if (prob(50))
-				del(src)
+				qdel(src)
 				return
 		if(3.0)
 			if (prob(5))
-				del(src)
+				qdel(src)
 				return
 		else
 	return
@@ -229,4 +229,4 @@
 				O.show_message(text("\red [] burns [] with the welding tool!", user, src), 1, "\red You hear a small burning noise", 2)
 			src.health -= rand(3,5)
 			if(src.health <= 0)
-				del(src)
+				qdel(src)

@@ -265,7 +265,7 @@
 		for (var/mob/M in heard_a) // Sending over the message to mobs who can understand
 			M.show_message(rendered, 6)
 			M << test2
-		spawn(30) del(test2)
+		spawn(30) qdel(test2)
 
 	var/renderedold = rendered // Used for the voice recorders below
 

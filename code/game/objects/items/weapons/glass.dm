@@ -20,7 +20,7 @@ SHARDS
 		F.add_fingerprint(user)
 		if (src.amount < 1)
 			//SN src = null
-			del(src)
+			qdel(src)
 			return
 	else
 		..()
@@ -38,7 +38,7 @@ SHARDS
 		else
 			G.amount += src.amount
 			//SN src = null
-			del(src)
+			qdel(src)
 			return
 		return
 	else if( istype(W, /obj/item/weapon/rods) )
@@ -55,7 +55,7 @@ SHARDS
 				user.client.screen -= V
 
 			user.u_equip(W)
-			del(W)
+			qdel(W)
 		else
 			V.amount--
 
@@ -66,7 +66,7 @@ SHARDS
 				user.client.screen -= src
 
 			user.u_equip(src)
-			del(src)
+			qdel(src)
 		else
 			src.amount--
 			return
@@ -105,7 +105,7 @@ SHARDS
 		else
 	if (src.amount <= 0)
 		user.u_equip(src)
-		del(src)
+		qdel(src)
 		return
 	return
 
@@ -125,7 +125,7 @@ SHARDS
 		F.add_fingerprint(user)
 		if (src.amount < 1)
 			//SN src = null
-			del(src)
+			qdel(src)
 			return
 	else
 		..()
@@ -142,7 +142,7 @@ SHARDS
 		W.amount = 50
 	else
 		W.amount += src.amount
-		del(src)
+		qdel(src)
 		return
 	return
 
@@ -180,7 +180,7 @@ SHARDS
 	if (src.amount <= 0)
 		user.u_equip(src)
 		//SN src = null
-		del(src)
+		qdel(src)
 		return
 	return
 
@@ -230,7 +230,7 @@ SHARDS
 	W:eyecheck(user)
 	new /obj/item/weapon/sheet/glass( user.loc )
 	//SN src = null
-	del(src)
+	qdel(src)
 	return
 
 /obj/item/weapon/shard/HasEntered(AM as mob|obj)
