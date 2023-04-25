@@ -10,14 +10,14 @@ datum/preferences
 	var/be_random_name = 0
 	var/underwear = 1
 
-	var/occupation1 = "Нет предпочтений"
-	var/occupation2 = "Нет предпочтений"
-	var/occupation3 = "Нет предпочтений"
+	var/occupation1 = "Р‘РµР· РїСЂРµРґРїРѕС‡С‚РµРЅРёР№"
+	var/occupation2 = "Р‘РµР· РїСЂРµРґРїРѕС‡С‚РµРЅРёР№"
+	var/occupation3 = "Р‘РµР· РїСЂРµРґРїРѕС‡С‚РµРЅРёР№"
 	var/title1
 	var/title2
 	var/title3
-	var/h_style = "Короткие волосы"
-	var/f_style = "Побрит"
+	var/h_style = "РљРѕСЂРѕС‚РєРёРµ РІРѕР»РѕСЃС‹"
+	var/f_style = "Р‘РµР· СЂР°СЃС‚РёС‚РµР»СЊРЅРѕСЃС‚Рё"
 	var/slotname
 	var/r_hair = 0.0
 	var/g_hair = 0.0
@@ -26,7 +26,7 @@ datum/preferences
 	var/r_facial = 0.0
 	var/g_facial = 0.0
 	var/b_facial = 0.0
-	var/bio = "биографи&#255; тут"
+	//var/bio = "Р±РёРѕРіСЂР°С„РёСЏ РїРёС€РµС‚СЃСЏ Р·РґРµСЃСЊ"
 	var/s_tone = 0.0
 	var/r_eyes = 0.0
 	var/g_eyes = 0.0
@@ -35,7 +35,7 @@ datum/preferences
 	var/icon/preview_icon = null
 	//var/UI = UI_B12
 
-	New()
+	/*New()
 		randomize_name()
 
 		..()
@@ -71,54 +71,54 @@ datum/preferences
 
 		var/h_style_r = null
 		switch(h_style)
-			if("Короткие волосы")
+			if("Short Hair")
 				h_style_r = "hair_a"
-			if("Длинные волосы")
+			if("Long Hair")
 				h_style_r = "hair_b"
-			if("Стрижка")
+			if("Cut Hair")
 				h_style_r = "hair_c"
-			if("Могавк")
+			if("Mohawk")
 				h_style_r = "hair_d"
-			if("Стрижка")
+			if("Balding")
 				h_style_r = "hair_e"
-			if("Волна")
+			if("Wave")
 				h_style_r = "hair_f"
-			if("Нерасчесанные волосы")
+			if("Bedhead")
 				h_style_r = "hair_bedhead"
-			if("Дредлоки")
+			if("Dreadlocks")
 				h_style_r = "hair_dreads"
-			if("Хвостик")
+			if("Ponytail")
 				h_style_r = "hair_ponytail"
 			else
 				h_style_r = "bald"
 
 		var/f_style_r = null
 		switch(f_style)
-			if ("Ватсон")
+			if ("Watson")
 				f_style_r = "facial_watson"
-			if ("Чаплин")
+			if ("Chaplin")
 				f_style_r = "facial_chaplin"
-			if ("Селлек")
+			if ("Selleck")
 				f_style_r = "facial_selleck"
-			if ("Борода без усов")
+			if ("Neckbeard")
 				f_style_r = "facial_neckbeard"
-			if ("Полна&#255; борода")
+			if ("Full Beard")
 				f_style_r = "facial_fullbeard"
-			if ("Длинна&#255; борода")
+			if ("Long Beard")
 				f_style_r = "facial_longbeard"
-			if ("Ван Дайк")
+			if ("Van Dyke")
 				f_style_r = "facial_vandyke"
-			if ("Элвис")
+			if ("Elvis")
 				f_style_r = "facial_elvis"
-			if ("Абэ")
+			if ("Abe")
 				f_style_r = "facial_abe"
-			if ("Ремень")
+			if ("Chinstrap")
 				f_style_r = "facial_chin"
-			if ("Хипстер")
+			if ("Hipster")
 				f_style_r = "facial_hip"
-			if ("Козлина&#255; бородка")
+			if ("Goatee")
 				f_style_r = "facial_gt"
-			if ("Хоган")
+			if ("Hogan")
 				f_style_r = "facial_hogan"
 			else
 				f_style_r = "bald"
@@ -147,65 +147,71 @@ datum/preferences
 		user << browse_rsc(preview_icon, "previewicon.png")
 
 		var/list/destructive = assistant_occupations.Copy()
-		var/dat = "<html><body>"
-		dat += "<b>Им&#255;:</b> "
+		var/dat = {"
+		<html>
+			<head>
+				<meta charset="UTF-8">
+			</head
+
+			<body>"}
+		dat += "<b>РРјСЏ:</b> "
 		dat += "<a href=\"byond://?src=\ref[user];preferences=1;real_name=input\"><b>[real_name]</b></a> "
 		dat += "(<a href=\"byond://?src=\ref[user];preferences=1;real_name=random\">&reg;</A>) "
 		dat += "(&reg; = <a href=\"byond://?src=\ref[user];preferences=1;b_random_name=1\">[be_random_name ? "Yes" : "No"]</a>)"
 		dat += "<br>"
 
-		dat += "<b>Пол:</b> <a href=\"byond://?src=\ref[user];preferences=1;gender=input\"><b>[gender == MALE ? "Male" : "Female"]</b></a><br>"
-		dat += "<b>Возраст:</b> <a href='byond://?src=\ref[user];preferences=1;age=input'>[age]</a>"
+		dat += "<b>РџРѕР»:</b> <a href=\"byond://?src=\ref[user];preferences=1;gender=input\"><b>[gender == MALE ? "Male" : "Female"]</b></a><br>"
+		dat += "<b>Р’РѕР·СЂР°СЃС‚:</b> <a href='byond://?src=\ref[user];preferences=1;age=input'>[age]</a>"
 
 		//dat += "<b>UI Style:</b> <a href=\"byond://?src=\ref[user];preferences=1;UI=input\"><b>[UI == B12 ? "B12" : "AGrey": "AGreen"]</b></a><br>" // UI CHOICES!
 
-		dat += "<hr><b>Зан&#255;тость</b><br>"
+		dat += "<hr><b>РџСЂРµРґРїРѕС‡С‚РµРЅРёСЏ</b><br>"
 		if (destructive.Find(occupation1))
 			dat += "\t<a href=\"byond://?src=\ref[user];preferences=1;occ=1\"><b>[occupation1]</b></a><br>"
 		else
 			if (jobban_isbanned(user, occupation1))
-				occupation1 = "Unassigned"
+				occupation1 = "Р‘РµР· РїСЂРµРґРїРѕС‡С‚РµРЅРёР№"
 			if (jobban_isbanned(user, occupation2))
-				occupation2 = "Unassigned"
+				occupation2 = "Р‘РµР· РїСЂРµРґРїРѕС‡С‚РµРЅРёР№"
 			if (jobban_isbanned(user, occupation3))
-				occupation3 = "Unassigned"
-			if (occupation1 != "Нет предпочтений")
-				dat += "\tПервый выбор: <a href=\"byond://?src=\ref[user];preferences=1;occ=1\"><b>[occupation1]</b></a><br>"
+				occupation3 = "Р‘РµР· РїСЂРµРґРїРѕС‡С‚РµРЅРёР№"
+			if (occupation1 != "Р‘РµР· РїСЂРµРґРїРѕС‡С‚РµРЅРёР№")
+				dat += "\tРџРµСЂРІС‹Р№ РІС‹Р±РѕСЂ: <a href=\"byond://?src=\ref[user];preferences=1;occ=1\"><b>[occupation1]</b></a><br>"
 				/*if(HasTitles(occupation1))
 					if(!title1)
 						title1 = occupation1*/
 					//dat += "\t [occupation1] Title: <a href=\"byond://?src=\ref[user];preferences=1;occ=1;showtitle=1\"><b>[title1]</b></a><br>"
 				if (destructive.Find(occupation2))
-					dat += "\tВторой выбор: <a href=\"byond://?src=\ref[user];preferences=1;occ=2\"><b>[occupation2]</b></a><BR>"
+					dat += "\tР’С‚РѕСЂРѕР№ РІС‹Р±РѕСЂ: <a href=\"byond://?src=\ref[user];preferences=1;occ=2\"><b>[occupation2]</b></a><BR>"
 
 				else
 					if (occupation2 != "No Preference")
-						dat += "\tТретий выбор: <a href=\"byond://?src=\ref[user];preferences=1;occ=2\"><b>[occupation2]</b></a><BR>"
+						dat += "\tР’С‚РѕСЂРѕР№ РІС‹Р±РѕСЂ: <a href=\"byond://?src=\ref[user];preferences=1;occ=2\"><b>[occupation2]</b></a><BR>"
 						/*if(HasTitles(occupation2))
 							if(!title2)
 								title2 = occupation2*/
 							//dat += "\t [occupation2] Title: <a href=\"byond://?src=\ref[user];preferences=1;occ=2;showtitle=1\"><b>[title2]</b></a><br>"
-						dat += "\tПоследний выбор: <a href=\"byond://?src=\ref[user];preferences=1;occ=3\"><b>[occupation3]</b></a><BR	>"
+						dat += "\tРўСЂРµС‚РёР№ РІС‹Р±РѕСЂ: <a href=\"byond://?src=\ref[user];preferences=1;occ=3\"><b>[occupation3]</b></a><BR	>"
 						/*if(HasTitles(occupation3))
 							if(!title3)
 								title3 = occupation3*/
 							//dat += "\t [occupation3] Title: <a href=\"byond://?src=\ref[user];preferences=1;occ=3;showtitle=1\"><b>[title3]</b></a><br>"
 
 					else
-						dat += "\tВторой выбор: <a href=\"byond://?src=\ref[user];preferences=1;occ=2\">No Preference</a><br>"
+						dat += "\tР’С‚РѕСЂРѕР№ РІС‹Р±РѕСЂ: <a href=\"byond://?src=\ref[user];preferences=1;occ=2\">No Preference</a><br>"
 			else
-				dat += "\t<a href=\"byond://?src=\ref[user];preferences=1;occ=1\">Нет предпочтений</a><br>"
+				dat += "\t<a href=\"byond://?src=\ref[user];preferences=1;occ=1\">Р‘РµР· РїСЂРµРґРїРѕС‡С‚РµРЅРёР№</a><br>"
 
-		dat += "<hr><table><tr><td><b>Тело</b><br>"
-		dat += "Группа крови: <a href='byond://?src=\ref[user];preferences=1;b_type=input'>[b_type]</a><br>"
-		dat += "Цвет кожи: <a href='byond://?src=\ref[user];preferences=1;s_tone=input'>[-s_tone + 35]/220</a><br>"
+		dat += "<hr><table><tr><td><b>РўРµР»Рѕ</b><br>"
+		dat += "Р“СЂСѓРїРїР° РєСЂРѕРІРё: <a href='byond://?src=\ref[user];preferences=1;b_type=input'>[b_type]</a><br>"
+		dat += "РћС‚С‚РµРЅРѕРє РєРѕР¶Рё: <a href='byond://?src=\ref[user];preferences=1;s_tone=input'>[-s_tone + 35]/220</a><br>"
 		if (!IsGuestKey(user.key))
-			dat += "Нижнее белье: <a href =\"byond://?src=\ref[user];preferences=1;underwear=1\"><b>[underwear == 1 ? "Yes" : "No"]</b></a><br>"
-		dat += "</td><td><b>Превью</b><br><img src=previewicon.png height=64 width=64></td></tr></table>"
+			dat += "РќРёР¶РЅРµРµ Р±РµР»СЊРµ: <a href =\"byond://?src=\ref[user];preferences=1;underwear=1\"><b>[underwear == 1 ? "Yes" : "No"]</b></a><br>"
+		dat += "</td><td><b>РџСЂРµРґРїСЂРѕСЃРјРѕС‚СЂ</b><br><img src=previewicon.png height=64 width=64></td></tr></table>"
 
-		dat += "<hr><b>Волосы</b><br>"
+		dat += "<hr><b>Р’РѕР»РѕСЃС‹</b><br>"
 
-		dat += "<a href='byond://?src=\ref[user];preferences=1;hair=input'>Изменить цвет</a> <font face=\"fixedsys\" size=\"3\" color=\"#[num2hex(r_hair, 2)][num2hex(g_hair, 2)][num2hex(b_hair, 2)]\"><table bgcolor=\"#[num2hex(r_hair, 2)][num2hex(g_hair, 2)][num2hex(b_hair)]\"><tr><td>IM</td></tr></table></font>"
+		dat += "<a href='byond://?src=\ref[user];preferences=1;hair=input'>РР·РјРµРЅРёС‚СЊ С†РІРµС‚</a> <font face=\"fixedsys\" size=\"3\" color=\"#[num2hex(r_hair, 2)][num2hex(g_hair, 2)][num2hex(b_hair, 2)]\"><table bgcolor=\"#[num2hex(r_hair, 2)][num2hex(g_hair, 2)][num2hex(b_hair)]\"><tr><td>IM</td></tr></table></font>"
 /*
 		dat += " <font color=\"#[num2hex(r_hair, 2)]0000\">Red</font> - <a href='byond://?src=\ref[user];preferences=1;r_hair=input'>[r_hair]</a>"
 		dat += " <font color=\"#00[num2hex(g_hair, 2)]00\">Green</font> - <a href='byond://?src=\ref[user];preferences=1;g_hair=input'>[g_hair]</a>"
@@ -213,45 +219,45 @@ datum/preferences
 */
 		dat += "Style: <a href='byond://?src=\ref[user];preferences=1;h_style=input'>[h_style]</a>"
 
-		dat += "<hr><b>Лицо</b><br>"
+		dat += "<hr><b>Р›РёС†Рѕ</b><br>"
 
-		dat += "<a href='byond://?src=\ref[user];preferences=1;facial=input'>Изменить цвет</a> <font face=\"fixedsys\" size=\"3\" color=\"#[num2hex(r_facial, 2)][num2hex(g_facial, 2)][num2hex(b_facial, 2)]\"><table bgcolor=\"#[num2hex(r_facial, 2)][num2hex(g_facial, 2)][num2hex(b_facial)]\"><tr><td>GO</td></tr></table></font>"
+		dat += "<a href='byond://?src=\ref[user];preferences=1;facial=input'>РР·РјРµРЅРёС‚СЊ С†РІРµС‚</a> <font face=\"fixedsys\" size=\"3\" color=\"#[num2hex(r_facial, 2)][num2hex(g_facial, 2)][num2hex(b_facial, 2)]\"><table bgcolor=\"#[num2hex(r_facial, 2)][num2hex(g_facial, 2)][num2hex(b_facial)]\"><tr><td>GO</td></tr></table></font>"
 /*
 		dat += " <font color=\"#[num2hex(r_facial, 2)]0000\">Red</font> - <a href='byond://?src=\ref[user];preferences=1;r_facial=input'>[r_facial]</a>"
 		dat += " <font color=\"#00[num2hex(g_facial, 2)]00\">Green</font> - <a href='byond://?src=\ref[user];preferences=1;g_facial=input'>[g_facial]</a>"
 		dat += " <font color=\"#0000[num2hex(b_facial, 2)]\">Blue</font> - <a href='byond://?src=\ref[user];preferences=1;b_facial=input'>[b_facial]</a><br>"
 */
-		dat += "Стиль: <a href='byond://?src=\ref[user];preferences=1;f_style=input'>[f_style]</a>"
+		dat += "РЎС‚РёР»СЊ: <a href='byond://?src=\ref[user];preferences=1;f_style=input'>[f_style]</a>"
 
-		dat += "<hr><b>Глаза</b><br>"
-		dat += "<a href='byond://?src=\ref[user];preferences=1;eyes=input'>Изменить цвет</a> <font face=\"fixedsys\" size=\"3\" color=\"#[num2hex(r_eyes, 2)][num2hex(g_eyes, 2)][num2hex(b_eyes, 2)]\"><table bgcolor=\"#[num2hex(r_eyes, 2)][num2hex(g_eyes, 2)][num2hex(b_eyes)]\"><tr><td>KU</td></tr></table></font>"
+		dat += "<hr><b>Р“Р»Р°Р·Р°</b><br>"
+		dat += "<a href='byond://?src=\ref[user];preferences=1;eyes=input'>РР·РјРµРЅРёС‚СЊ С†РІРµС‚</a> <font face=\"fixedsys\" size=\"3\" color=\"#[num2hex(r_eyes, 2)][num2hex(g_eyes, 2)][num2hex(b_eyes, 2)]\"><table bgcolor=\"#[num2hex(r_eyes, 2)][num2hex(g_eyes, 2)][num2hex(b_eyes)]\"><tr><td>KU</td></tr></table></font>"
 /*
 		dat += " <font color=\"#[num2hex(r_eyes, 2)]0000\">Red</font> - <a href='byond://?src=\ref[user];preferences=1;r_eyes=input'>[r_eyes]</a>"
 		dat += " <font color=\"#00[num2hex(g_eyes, 2)]00\">Green</font> - <a href='byond://?src=\ref[user];preferences=1;g_eyes=input'>[g_eyes]</a>"
 		dat += " <font color=\"#0000[num2hex(b_eyes, 2)]\">Blue</font> - <a href='byond://?src=\ref[user];preferences=1;b_eyes=input'>[b_eyes]</a>"
 */
 		dat += "<hr>"
-		if(!jobban_isbanned(user, "Синдикат"))
-			dat += "<b>Быть предателем?:</b> <a href =\"byond://?src=\ref[user];preferences=1;b_syndicate=1\"><b>[(be_syndicate ? "Yes" : "No")]</b></a><br>"
-			dat += "<b>Быть подрывником?:</b> <a href =\"byond://?src=\ref[user];preferences=1;b_nuke_agent=1\"><b>[(be_nuke_agent ? "Yes" : "No")]</b></a><br>"
-			dat += "<b>Быть агентом поглощени&#255;?:</b> <a href =\"byond://?src=\ref[user];preferences=1;b_takeover_agent=1\"><b>[(be_takeover_agent ? "Yes" : "No")]</b></a><br>"
+		if(!jobban_isbanned(user, "РЎРёРЅРґРёРєР°С‚"))
+			dat += "<b>Р‘С‹С‚СЊ РѕРїРµСЂР°С‚РёРІРЅРёРєРѕРј?:</b> <a href =\"byond://?src=\ref[user];preferences=1;b_syndicate=1\"><b>[(be_syndicate ? "Р”Р°" : "РќРµС‚")]</b></a><br>"
+			dat += "<b>Р‘С‹С‚СЊ Р°РіРµРЅС‚РѕРј?:</b> <a href =\"byond://?src=\ref[user];preferences=1;b_nuke_agent=1\"><b>[(be_nuke_agent ? "Р”Р°" : "РќРµС‚")]</b></a><br>"
+			dat += "<b>Р‘С‹С‚СЊ РєР°РєРѕР№-С‚Рѕ С…СѓР№РЅРµР№?:</b> <a href =\"byond://?src=\ref[user];preferences=1;b_takeover_agent=1\"><b>[(be_takeover_agent ? "Р”Р°" : "РќРµС‚")]</b></a><br>"
 		else
-			dat += "<b> Ты не можешь быть предателем.</b>"
+			dat += "<b>РўС‹ РЅРµ РјРѕР¶РµС€СЊ РїСЂРµРґСЃС‚Р°РІР»СЏС‚СЊ РЎРёРЅРґРёРєР°С‚.</b>"
 			be_syndicate = 0
 			be_nuke_agent = 0
 			be_takeover_agent = 0
-		dat += "<a href =\"byond://?src=\ref[user];preferences=1;editbio=1\">Изменить Биографию</a><br>"
+		//dat += "<a href =\"byond://?src=\ref[user];preferences=1;editbio=1\">РР·РјРµРЅРёС‚СЊ Р±РёРѕРіСЂР°С„РёСЋ</a><br>"
 		//dat += "<b>Show Profile?:</b> <a href =\"byond://?src=\ref[user];preferences=1;b_syndicate=1\"><b>[(be_syndicate ? "Yes" : "No")]</b></a><br>
 		dat += "<hr>"
 
 		if (!IsGuestKey(user.key))
 			if(!curslot)
-				dat += "<a href='byond://?src=\ref[user];preferences=1;saveslot=1'>Сохранить Слот 1</a><br>"
+				dat += "<a href='byond://?src=\ref[user];preferences=1;saveslot=1'>РЎРѕС…СЂР°РЅРёС‚СЊ РЎР»РѕС‚ 1</a><br>"
 			else
-				dat += "<a href='byond://?src=\ref[user];preferences=1;saveslot=[curslot]'>Сохранить Слот [curslot]</a><br>"
-			dat += "<a href='byond://?src=\ref[user];preferences=1;loadslot2=1'>Загрузить</a><br>"
-		dat += "<a href='byond://?src=\ref[user];preferences=1;createslot=1'>Создать Новый Слот</a><br>"
-		dat += "<a href='byond://?src=\ref[user];preferences=1;reset_all=1'>Сбросить Настройки</a><br>"
+				dat += "<a href='byond://?src=\ref[user];preferences=1;saveslot=[curslot]'>РЎРѕС…СЂР°РЅРёС‚СЊ РЎР»РѕС‚ [curslot]</a><br>"
+			dat += "<a href='byond://?src=\ref[user];preferences=1;loadslot2=1'>Р—Р°РіСЂСѓР·РёС‚СЊ</a><br>"
+		dat += "<a href='byond://?src=\ref[user];preferences=1;createslot=1'РЎРѕР·РґР°С‚СЊ РќРѕРІС‹Р№ СЃР»РѕС‚</a><br>"
+		dat += "<a href='byond://?src=\ref[user];preferences=1;reset_all=1'>РЎР±СЂРѕСЃРёС‚СЊ РЅР°СЃС‚СЂРѕР№РєРё</a><br>"
 		dat += "</body></html>"
 
 		user << browse(dat, "window=preferences;size=300x640")
@@ -269,9 +275,9 @@ datum/preferences
 			var/T = row["slot"]
 			var/K = row["slotname"]
 			slots += row["slotname"]
-			dat += "<a href='byond://?src=\ref[user];preferences=1;loadslot=[T]'>Загрузить Слот [T]([K]) </a><a href='byond://?src=\ref[user];preferences=1;removeslot=[T]'>(R)</a><br><br>"
+			dat += "<a href='byond://?src=\ref[user];preferences=1;loadslot=[T]'>Р—Р°РіСЂСѓР·РёС‚СЊ РЎР»РѕС‚ [T]([K]) </a><a href='byond://?src=\ref[user];preferences=1;removeslot=[T]'>(R)</a><br><br>"
 
-		dat += "<a href='byond://?src=\ref[user];preferences=1;loadslot=CLOSE'>Закрыть</a><br>"
+		dat += "<a href='byond://?src=\ref[user];preferences=1;loadslot=CLOSE'>Р—Р°РєСЂС‹С‚СЊ</a><br>"
 		dat += "</center></tt>"
 		user << browse(dat, "window=saves;size=300x640")
 	proc/closesave(mob/user)
@@ -281,21 +287,21 @@ datum/preferences
 		HTML += "<tt><center>"
 		switch(occ)
 			if(1.0)
-				HTML += "<b>Какое Ваше первое предпочтение?</b><br><br>"
+				HTML += "<b>РљР°РєР°СЏ СЂРѕР»СЊ РґР»СЏ С‚РµР±СЏ Р±РѕР»РµРµ Р¶РµР»Р°РЅРЅР°?</b><br><br>"
 			if(2.0)
-				HTML += "<b>Какое Ваше второе предпочтениеt?</b><br><br>"
+				HTML += "<b>РљР°РєРѕР№ С‚РІРѕР№ РІС‚РѕСЂРѕР№ РІС‹Р±РѕСЂ?</b><br><br>"
 			if(3.0)
-				HTML += "<b>Какое Ваше третье предпочтение?</b><br><br>"
+				HTML += "<b>РљР°РєРѕР№ С‚РІРѕР№ С‚СЂРµС‚РёР№ РІС‹Р±РѕСЂ?</b><br><br>"
 			else
 		for(var/job in uniquelist(occupations + assistant_occupations) )
 			if ((job!="AI" || config.allow_ai) && !jobban_isbanned(user, job))
 				HTML += "<a href=\"byond://?src=\ref[user];preferences=1;occ=[occ];job=[job]\">[job]</a><br>"
 
-		if(!jobban_isbanned(user, "Captain"))
-			HTML += "<a href=\"byond://?src=\ref[user];preferences=1;occ=[occ];job=Captain\">Капитан</a><br>"
+		if(!jobban_isbanned(user, "РљР°РїРёС‚Р°РЅ"))
+			HTML += "<a href=\"byond://?src=\ref[user];preferences=1;occ=[occ];job=РљР°РїРёС‚Р°РЅ\">РљР°РїРёС‚Р°РЅ</a><br>"
 		HTML += "<br>"
-		HTML += "<a href=\"byond://?src=\ref[user];preferences=1;occ=[occ];job=No Preference\">\[No Preference\]</a><br>"
-		HTML += "<a href=\"byond://?src=\ref[user];preferences=1;occ=[occ];cancel=1\">\[Cancel\]</a>"
+		HTML += "<a href=\"byond://?src=\ref[user];preferences=1;occ=[occ];job=Р‘РµР· РїСЂРµРґРїРѕС‡С‚РµРЅРёР№\">\[Р‘РµР· РїСЂРµРґРїРѕС‡С‚РµРЅРёР№\]</a><br>"
+		HTML += "<a href=\"byond://?src=\ref[user];preferences=1;occ=[occ];cancel=1\">\[РћС‚РјРµРЅР°\]</a>"
 		HTML += "</center></tt>"
 
 		user << browse(null, "window=preferences")
@@ -307,19 +313,19 @@ datum/preferences
 		HTML += "<tt><center>"
 		switch(choice)
 			if(1.0)
-				HTML += "<b>Предпочтимое название дл&#255; [occupation1].</b><br><br>"
+				HTML += "<b>РљР°РєРѕР№ С‚РёС‚СѓР» РґР»СЏ [occupation1]?</b><br><br>"
 				for(var/datum/title/T in titles)
 					if(T.jobname == occupation1)
 						for(var/A in T.title)
 							HTML += "<a href=\"byond://?src=\ref[user];preferences=1;occ=[choice];title=[A]\">[A]</a><br>"
 			if(2.0)
-				HTML += "<b>Предпочтимое название дл&#255; [occupation2].</b><br><br>"
+				HTML += "<b>РљР°РєРѕР№ С‚РёС‚СѓР» РґР»СЏ [occupation2]?</b><br><br>"
 				for(var/datum/title/T in titles)
 					if(T.jobname == occupation2)
 						for(var/A in T.title)
 							HTML += "<a href=\"byond://?src=\ref[user];preferences=1;occ=[choice];title=[A]\">[A]</a><br>"
 			if(3.0)
-				HTML += "<b>Предпочтимое название дл&#255; [occupation3].</b><br><br>"
+				HTML += "<b>РљР°РєРѕР№ С‚РёС‚СѓР» РґР»СЏ [occupation3]?</b><br><br>"
 				for(var/datum/title/T in titles)
 					if(T.jobname == occupation3)
 						for(var/A in T.title)
@@ -340,8 +346,8 @@ datum/preferences
 		user << browse(null, "window=mob_title")
 		ShowChoices(user)
 		return
-	proc/SetJob(mob/user, occ=1, job="Captain")
-		if ((!( occupations.Find(job) ) && !( assistant_occupations.Find(job) ) && job != "Captain") && job != "No Preference")
+	proc/SetJob(mob/user, occ=1, job="РљР°РїРёС‚Р°РЅ")
+		if ((!( occupations.Find(job) ) && !( assistant_occupations.Find(job) ) && job != "РљР°РїРёС‚Р°РЅ") && job != "Р‘РµР· РїСЂРµРґРїРѕС‡С‚РµРЅРёР№")
 			return
 		if (job=="AI" && (!config.allow_ai))
 			return
@@ -354,8 +360,8 @@ datum/preferences
 					user << browse(null, "window=mob_occupation")
 					return
 				else
-					if (job == "Нет предпочтений")
-						occupation1 = "Нет предпочтений"
+					if (job == "Р‘РµР· РїСЂРµРґРїРѕС‡С‚РµРЅРёР№")
+						occupation1 = "Р‘РµР· РїСЂРµРґРїРѕС‡С‚РµРЅРёР№"
 						ShowChoices(user)
 					else
 						if (job == occupation2)
@@ -374,15 +380,15 @@ datum/preferences
 					user << browse(null, "window=mob_occupation")
 					ShowChoices(user)
 				else
-					if (job == "Нет предпочтений")
-						if (occupation3 != "Нет предпочтений")
+					if (job == "Р‘РµР· РїСЂРµРґРїРѕС‡С‚РµРЅРёР№")
+						if (occupation3 != "Р‘РµР· РїСЂРµРґРїРѕС‡С‚РµРЅРёР№")
 							occupation2 = occupation3
-							occupation3 = "Нет предпочтений"
+							occupation3 = "Р‘РµР· РїСЂРµРґРїРѕС‡С‚РµРЅРёР№"
 						else
-							occupation2 = "Нет предпочтений"
+							occupation2 = "Р‘РµР· РїСЂРµРґРїРѕС‡С‚РµРЅРёР№"
 					else
 						if (job == occupation1)
-							if (occupation2 == "Нет предпочтений")
+							if (occupation2 == "Р‘РµР· РїСЂРµРґРїРѕС‡С‚РµРЅРёР№")
 								user << browse(null, "window=mob_occupation")
 								return
 							job = occupation2
@@ -400,11 +406,11 @@ datum/preferences
 					user << browse(null, "window=mob_occupation")
 					ShowChoices(user)
 				else
-					if (job == "Нет предпочтений")
-						occupation3 = "Нет предпочтений"
+					if (job == "Р‘РµР· РїСЂРµРґРїРѕС‡С‚РµРЅРёР№")
+						occupation3 = "Р‘РµР· РїСЂРµРґРїРѕС‡С‚РµРЅРёР№"
 					else
 						if (job == occupation1)
-							if (occupation3 == "Нет предпочтений")
+							if (occupation3 == "Р‘РµР· РїСЂРµРґРїРѕС‡С‚РµРЅРёР№")
 								user << browse(null, "window=mob_occupation")
 								return
 							job = occupation3
@@ -412,7 +418,7 @@ datum/preferences
 							occupation1 = job
 						else
 							if (job == occupation2)
-								if (occupation3 == "Нет предпочтений")
+								if (occupation3 == "Р‘РµР· РїСЂРµРґРїРѕС‡С‚РµРЅРёР№")
 									user << browse(null, "window=mob_occupation")
 									return
 								job = occupation3
@@ -448,13 +454,14 @@ datum/preferences
 
 			switch(link_tags["real_name"])
 				if("input")
-					new_name = input(user, "Пожалуйста, выберите им&#255;:", "Создание Персонажа")  as text
+					new_name = input(user, "РРјСЏ РїРµСЂСЃРѕРЅР°Р¶Р°:", "РЎРѕР·РґР°РЅРёРµ РїРµСЂСЃРѕРЅР°Р¶Р°")  as text
 					var/list/bad_characters = list("_", "'", "\"", "<", ">", ";", "[", "]", "{", "}", "|", "\\")
 					for(var/c in bad_characters)
 						new_name = dd_replacetext(new_name, c, "")
 					if(!new_name || (new_name == "Unknown"))
-						alert("Нельз&#255; так делать.")
+						alert("РќРµС‚.")
 						return
+					//Prevent players from making weird names, memes, insults, cyrillic symbols (might be a better idea to allow just latin symbols) etc.
 
 				if("random")
 					if (gender == MALE)
@@ -475,19 +482,19 @@ datum/preferences
 				real_name = new_name
 
 		if (link_tags["age"])
-			var/new_age = input(user, "Возраст в пределах: 20-45", "Создание Персонажа")  as num
+			var/new_age = input(user, "Р’РѕР·СЂР°СЃС‚ РїРµСЂСЃРѕРЅР°Р¶Р°: 20-45", "РЎРѕР·РґР°РЅРёРµ РїРµСЂСЃРѕРЅР°Р¶Р°")  as num
 
 			if(new_age)
 				age = max(min(round(text2num(new_age)), 45), 20)
 
 		if (link_tags["b_type"])
-			var/new_b_type = input(user, "Группа крови:", "Создание Персонажа")  as null|anything in list( "A+", "A-", "B+", "B-", "AB+", "AB-", "O+", "O-" )
+			var/new_b_type = input(user, "Р“СЂСѓРїРїР° РєСЂРѕРІРё:", "РЎРѕР·РґР°РЅРёРµ РїРµСЂСЃРѕРЅР°Р¶Р°")  as null|anything in list( "A+", "A-", "B+", "B-", "AB+", "AB-", "O+", "O-" )
 
 			if (new_b_type)
 				b_type = new_b_type
 
 		if (link_tags["hair"])
-			var/new_hair = input(user, "Цвет волос.", "Создание Персонажа") as color
+			var/new_hair = input(user, "Р¦РІРµС‚ РІРѕР»РѕСЃ.", "РЎРѕР·РґР°РЅРёРµ РїРµСЂСЃРѕРЅР°Р¶Р°") as color
 			if(new_hair)
 				r_hair = hex2num(copytext(new_hair, 2, 4))
 				g_hair = hex2num(copytext(new_hair, 4, 6))
@@ -513,7 +520,7 @@ datum/preferences
 */
 
 		if (link_tags["facial"])
-			var/new_facial = input(user, "Цвет волос&#255;ного покрова на лице.", "Создание Персонажа") as color
+			var/new_facial = input(user, "Р¦РІРµС‚ СЂР°СЃС‚РёС‚РµР»СЊРЅРѕСЃС‚Рё РЅР° Р»РёС†Рµ.", "РЎРѕР·РґР°РЅРёРµ РїРµСЂСЃРѕРЅР°Р¶Р°") as color
 			if(new_facial)
 				r_facial = hex2num(copytext(new_facial, 2, 4))
 				g_facial = hex2num(copytext(new_facial, 4, 6))
@@ -538,7 +545,7 @@ datum/preferences
 				b_facial = max(min(round(text2num(new_component)), 255), 1)
 */
 		if (link_tags["eyes"])
-			var/new_eyes = input(user, "Цвет глаз.", "Создание Персонажа") as color
+			var/new_eyes = input(user, "Р¦РІРµС‚ РіР»Р°Р·.", "РЎРѕР·РґР°РЅРёРµ РїРµСЂСЃРѕРЅР°Р¶Р°") as color
 			if(new_eyes)
 				r_eyes = hex2num(copytext(new_eyes, 2, 4))
 				g_eyes = hex2num(copytext(new_eyes, 4, 6))
@@ -563,20 +570,20 @@ datum/preferences
 				b_eyes = max(min(round(text2num(new_component)), 255), 1)
 */
 		if (link_tags["s_tone"])
-			var/new_tone = input(user, "Цвет кожи: 1-220 (1=альбинос, 35=европеец, 150=чёрный, 220='очень' чёрный)", "Создание Персонажа")  as text
+			var/new_tone = input(user, "РћС‚С‚РµРЅРѕРє РєРѕР¶Рё: 1-220 (1=Р°Р»СЊР±РёРЅРѕСЃ, 35=Р±РµР»С‹Р№, 150=С‡С‘СЂРЅС‹Р№, 220=РЅРµРІРµСЂРѕСЏС‚РЅРѕ С‡С‘СЂРЅС‹Р№)", "РЎРѕР·РґР°РЅРёРµ РїРµСЂСЃРѕРЅР°Р¶Р°")  as text
 
 			if (new_tone)
 				s_tone = max(min(round(text2num(new_tone)), 220), 1)
 				s_tone =  -s_tone + 35
 
 		if (link_tags["h_style"])
-			var/new_style = input(user, "Тип волос", "Создание Персонажа")  as null|anything in list( "Стрижка", "Короткие волосы", "Длинные волос", "Могавк", "Лысина", "Волна", "Нерасчесанные волосы", "Дредлоки", "Хвостик", "Лысина" )
+			var/new_style = input(user, "РЎС‚РёР»СЊ РІРѕР»РѕСЃ", "РЎРѕР·РґР°РЅРёРµ РїРµСЂСЃРѕРЅР°Р¶Р°")  as null|anything in list( "Cut Hair", "Short Hair", "Long Hair", "Mohawk", "Balding", "Wave", "Bedhead", "Dreadlocks", "Ponytail", "Bald" )
 
 			if (new_style)
 				h_style = new_style
 
 		if (link_tags["f_style"])
-			var/new_style = input(user, "Тип волос&#255;ного покрова на лице", "Создание Персонажа")  as null|anything in list("Ватсон", "Чаплин", "Селлек", "Полна&#255; борода", "Длинна&#255; борода", "Борода без усов", "Ван Дайк", "Элвис", "Абэ", "Ремень", "Хипстер", "Козлина&#255; бородка", "Хоган", "Бритый")
+			var/new_style = input(user, "РЎС‚РёР»СЊ Р»РёС†РµРІРѕР№ СЂР°СЃС‚РёС‚РµР»СЊРЅРѕСЃС‚Рё", "РЎРѕР·РґР°РЅРёРµ РїРµСЂСЃРѕРЅР°Р¶Р°")  as null|anything in list("Watson", "Chaplin", "Selleck", "Full Beard", "Long Beard", "Neck beard", "Van Dyke", "Elvis", "Abe", "Chinstrap", "Hipster", "Goatee", "Hogan", "Shaved")
 
 			if (new_style)
 				f_style = new_style
@@ -613,19 +620,21 @@ datum/preferences
 
 		if (link_tags["b_random_name"])
 			be_random_name = !be_random_name
-		if(link_tags["editbio"])
-			bio = input(usr,"Напишите свою биографию.","Биографи&#255;",bio) as message
+		/*if(link_tags["editbio"])
+			bio = input(usr,"ГЌГ ГЇГЁГёГЁГІГҐ Г±ГўГ®Гѕ ГЎГЁГ®ГЈГ°Г ГґГЁГѕ.","ГЃГЁГ®ГЈГ°Г ГґГЁ&#255;",bio) as message*/
 		if(!IsGuestKey(user.key))
 			if(link_tags["saveslot"])
 				var/slot = link_tags["saveslot"]
-				var/bio2 = dbcon.Quote(bio)
-				var/
-				var/DBQuery/query = dbcon.NewQuery("REPLACE INTO `players` (`ckey`,`slot`,`slotname`,`real_name`, `gender`, `ages`, `occupation1`, `occupation2`, `occupation3`,`hair_red`, `hair_green`, `hair_blue`, `facial_red`, `facial_green`, `facial_blue`, `skin_tone`, `hair_style_name`, `facial_style_name`, `eyes_red`,`eyes_green`, `eyes_blue`, `blood_type`, `be_syndicate`, `be_nuke_agent`, `be_takeover_agent`, `underwear`,`name_is_always_random`,`bios`) VALUES ('[user.ckey]','[slot]',[dbcon.Quote(slotname)] ,[dbcon.Quote(real_name)], '[lowertext(gender)]', '[age]', '[occupation1]','[occupation2]', '[occupation3]', '[r_hair]', '[g_hair]', '[b_hair]', '[r_facial]', '[g_facial]', '[b_facial]', '[s_tone]', '[h_style]', '[f_style]', '[r_eyes]', '[g_eyes]', '[b_eyes]', '[b_type]', '[be_syndicate]', '[be_nuke_agent]', '[be_takeover_agent]', '[underwear]','[be_random_name]',[bio2]);")
+				//var/bio2 = dbcon.Quote(bio)
+				//var/
+				//Getting rid of bios. I was a fan of bios for a long time, but who the hell reads them?
+				//var/DBQuery/query = dbcon.NewQuery("REPLACE INTO `players` (`ckey`,`slot`,`slotname`,`real_name`, `gender`, `ages`, `occupation1`, `occupation2`, `occupation3`,`hair_red`, `hair_green`, `hair_blue`, `facial_red`, `facial_green`, `facial_blue`, `skin_tone`, `hair_style_name`, `facial_style_name`, `eyes_red`,`eyes_green`, `eyes_blue`, `blood_type`, `be_syndicate`, `be_nuke_agent`, `be_takeover_agent`, `underwear`,`name_is_always_random`,`bios`) VALUES ('[user.ckey]','[slot]',[dbcon.Quote(slotname)] ,[dbcon.Quote(real_name)], '[lowertext(gender)]', '[age]', '[occupation1]','[occupation2]', '[occupation3]', '[r_hair]', '[g_hair]', '[b_hair]', '[r_facial]', '[g_facial]', '[b_facial]', '[s_tone]', '[h_style]', '[f_style]', '[r_eyes]', '[g_eyes]', '[b_eyes]', '[b_type]', '[be_syndicate]', '[be_nuke_agent]', '[be_takeover_agent]', '[underwear]','[be_random_name]',[bio2]);")
+				var/DBQuery/query = dbcon.NewQuery("REPLACE INTO `players` (`ckey`,`slot`,`slotname`,`real_name`, `gender`, `ages`, `occupation1`, `occupation2`, `occupation3`,`hair_red`, `hair_green`, `hair_blue`, `facial_red`, `facial_green`, `facial_blue`, `skin_tone`, `hair_style_name`, `facial_style_name`, `eyes_red`,`eyes_green`, `eyes_blue`, `blood_type`, `be_syndicate`, `be_nuke_agent`, `be_takeover_agent`, `underwear`,`name_is_always_random`) VALUES ('[user.ckey]','[slot]',[dbcon.Quote(slotname)] ,[dbcon.Quote(real_name)], '[lowertext(gender)]', '[age]', '[occupation1]','[occupation2]', '[occupation3]', '[r_hair]', '[g_hair]', '[b_hair]', '[r_facial]', '[g_facial]', '[b_facial]', '[s_tone]', '[h_style]', '[f_style]', '[r_eyes]', '[g_eyes]', '[b_eyes]', '[b_type]', '[be_syndicate]', '[be_nuke_agent]', '[be_takeover_agent]', '[underwear]','[be_random_name]');")
 				if(!query.Execute())
 					usr << query.ErrorMsg()
-					usr << "Report this."
+					usr << "РЎРѕРѕР±С‰Рё РѕР± РѕС€РёР±РєРµ Р°РґРјРёРЅРёСЃС‚СЂР°С†РёРё."
 				else
-					usr << "Сохранено"
+					usr << "РЎРѕС…СЂР°РЅРµРЅРѕ"
 
 			else if(link_tags["loadslot"])
 				var/slot = link_tags["loadslot"]
@@ -633,7 +642,7 @@ datum/preferences
 					closesave(user)
 					return
 				if(!savefile_load(user, 0,slot))
-					alert(user, "У Вас нет файла сохранени&#255;.")
+					alert(user, "РќРµС‚ СЃРѕС…СЂР°РЅРµРЅРЅРѕРіРѕ РїСЂРѕС„РёР»СЏ.")
 				else
 					curslot = slot
 					loadsave(user)
@@ -646,7 +655,7 @@ datum/preferences
 				usr << query.ErrorMsg()
 				usr << "Report this."
 			else
-				usr << "Слот [slot] Удален."
+				usr << "РЎР»РѕС‚ [slot] СѓРґР°Р»С‘РЅ."
 				loadsave(usr)
 		if(link_tags["loadslot2"])
 			loadsave(user)
@@ -661,18 +670,19 @@ datum/preferences
 			var/count = slot.len
 			count++
 			if(count > 10)
-				usr << "Вы достигли лимита персонажей."
+				usr << "РўС‹ РґРѕСЃС‚РёРі Р»РёРјРёС‚Р° СЃРёРјРІРѕР»РѕРІ."
 				return
-			var/slotname = input(usr,"Выберите им&#255; дл&#255; своего слота","Им&#255;","По умолчанию")
+			var/slotname = input(usr,"РџСЂРёРґСѓРјР°Р№ РЅР°Р·РІР°РЅРёРµ РїСЂРѕС„РёР»СЏ","РќР°Р·РІР°РЅРёРµ","РЎС‚Р°РЅРґР°СЂС‚РЅРѕРµ")
 			slotname = dbcon.Quote(slotname)
-			var/DBQuery/query = dbcon.NewQuery("REPLACE INTO `players` (`ckey`,`slot`,`slotname`,`real_name`, `gender`, `ages`, `occupation1`, `occupation2`, `occupation3`,`hair_red`, `hair_green`, `hair_blue`, `facial_red`, `facial_green`, `facial_blue`, `skin_tone`, `hair_style_name`, `facial_style_name`, `eyes_red`,`eyes_green`, `eyes_blue`, `blood_type`, `be_syndicate`, `be_nuke_agent`, `be_takeover_agent`, `underwear`,`name_is_always_random`,`bios`) VALUES ('[user.ckey]','[count]',[slotname] ,'New Char', 'MALE', '30', 'No Preference','No Preference', 'No Preference', '0', '0', '0', '0', '0', '0', '0', 'Short Hair', 'Shaved', '0', '0', '0', 'A+', '0', '0', '0', '1','0','Nothing here yet...');")
+			//var/DBQuery/query = dbcon.NewQuery("REPLACE INTO `players` (`ckey`,`slot`,`slotname`,`real_name`, `gender`, `ages`, `occupation1`, `occupation2`, `occupation3`,`hair_red`, `hair_green`, `hair_blue`, `facial_red`, `facial_green`, `facial_blue`, `skin_tone`, `hair_style_name`, `facial_style_name`, `eyes_red`,`eyes_green`, `eyes_blue`, `blood_type`, `be_syndicate`, `be_nuke_agent`, `be_takeover_agent`, `underwear`,`name_is_always_random`,`bios`) VALUES ('[user.ckey]','[count]',[slotname] ,'New Char', 'MALE', '30', 'No Preference','No Preference', 'No Preference', '0', '0', '0', '0', '0', '0', '0', 'Short Hair', 'Shaved', '0', '0', '0', 'A+', '0', '0', '0', '1','0','Nothing here yet...');")
+			var/DBQuery/query = dbcon.NewQuery("REPLACE INTO `players` (`ckey`,`slot`,`slotname`,`real_name`, `gender`, `ages`, `occupation1`, `occupation2`, `occupation3`,`hair_red`, `hair_green`, `hair_blue`, `facial_red`, `facial_green`, `facial_blue`, `skin_tone`, `hair_style_name`, `facial_style_name`, `eyes_red`,`eyes_green`, `eyes_blue`, `blood_type`, `be_syndicate`, `be_nuke_agent`, `be_takeover_agent`, `underwear`,`name_is_always_random`) VALUES ('[user.ckey]','[count]',[slotname] ,'New Char', 'MALE', '30', 'No Preference','No Preference', 'No Preference', '0', '0', '0', '0', '0', '0', '0', 'Short Hair', 'Shaved', '0', '0', '0', 'A+', '0', '0', '0', '1','0');")
 			if(!query.Execute())
 				usr << query.ErrorMsg()
-				usr << "Report this."
+				usr << "РЎРѕРѕР±С‰Рё РѕР± РѕС€РёР±РєРµ Р°РґРјРёРЅРёСЃС‚СЂР°С†РёРё."
 			else
-				usr << "Сохранено"
+				usr << "РЎРѕС…СЂР°РЅРµРЅРѕ"
 			if(!savefile_load(user, 0,count))
-				alert(user, "У Вас нет файла сохранени&#255;.")
+				alert(user, "РќРµС‚ СЃРѕС…СЂР°РЅРµРЅРЅРѕРіРѕ РїСЂРѕС„РёР»СЏ.")
 			else
 				curslot = count
 				closesave(user)
@@ -681,9 +691,9 @@ datum/preferences
 			randomize_name()
 
 			age = 30
-			occupation1 = "Нет предпочтений"
-			occupation2 = "Нет предпочтений"
-			occupation3 = "Нет предпочтений"
+			occupation1 = "Р‘РµР· РїСЂРµРґРїРѕС‡С‚РµРЅРёР№"
+			occupation2 = "Р‘РµР· РїСЂРµРґРїРѕС‡С‚РµРЅРёР№"
+			occupation3 = "Р‘РµР· РїСЂРµРґРїРѕС‡С‚РµРЅРёР№"
 			underwear = 1
 			be_syndicate = 0
 			be_random_name = 0
@@ -693,8 +703,8 @@ datum/preferences
 			r_facial = 0.0
 			g_facial = 0.0
 			b_facial = 0.0
-			h_style = "Короткие волосы"
-			f_style = "Бритый"
+			h_style = "Short Hair"
+			f_style = "Shaved"
 			r_eyes = 0.0
 			g_eyes = 0.0
 			b_eyes = 0.0
@@ -741,54 +751,54 @@ datum/preferences
 				character.UI = 'screen1_agreen.dmi'*/
 
 		switch(h_style)
-			if("Короткие волосы")
+			if("Short Hair")
 				character.hair_icon_state = "hair_a"
-			if("Длинные волосы")
+			if("Long Hair")
 				character.hair_icon_state = "hair_b"
-			if("Стрижка")
+			if("Cut Hair")
 				character.hair_icon_state = "hair_c"
-			if("Могавк")
+			if("Mohawk")
 				character.hair_icon_state = "hair_d"
-			if("Лысина")
+			if("Balding")
 				character.hair_icon_state = "hair_e"
-			if("Волна")
+			if("Wave")
 				character.hair_icon_state = "hair_f"
-			if("Нерасчесанные волосы")
+			if("Bedhead")
 				character.hair_icon_state = "hair_bedhead"
-			if("Дредлоки")
+			if("Dreadlocks")
 				character.hair_icon_state = "hair_dreads"
-			if("Хвостик")
+			if("Ponytail")
 				character.hair_icon_state = "hair_ponytail"
 			else
 				character.hair_icon_state = "bald"
 
 
 		switch(f_style)
-			if ("Ватсон")
+			if ("Watson")
 				character.face_icon_state = "facial_watson"
-			if ("Чаплин")
+			if ("Chaplin")
 				character.face_icon_state = "facial_chaplin"
-			if ("Селлек")
+			if ("Selleck")
 				character.face_icon_state = "facial_selleck"
-			if ("Борода без усов")
+			if ("Neckbeard")
 				character.face_icon_state = "facial_neckbeard"
-			if ("Полна&#255; борода")
+			if ("Full Beard")
 				character.face_icon_state = "facial_fullbeard"
-			if ("Длинна&#255; борода")
+			if ("Long Beard")
 				character.face_icon_state = "facial_longbeard"
-			if ("Ван Дайк")
+			if ("Van Dyke")
 				character.face_icon_state = "facial_vandyke"
-			if ("Элвис")
+			if ("Elvis")
 				character.face_icon_state = "facial_elvis"
-			if ("Абэ")
+			if ("Abe")
 				character.face_icon_state = "facial_abe"
-			if ("Ремень")
+			if ("Chinstrap")
 				character.face_icon_state = "facial_chin"
-			if ("Хипстер")
+			if ("Hipster")
 				character.face_icon_state = "facial_hip"
-			if ("Козлина&#255; бородка")
+			if ("Goatee")
 				character.face_icon_state = "facial_gt"
-			if ("Хоган")
+			if ("Hogan")
 				character.face_icon_state = "facial_hogan"
 			else
 				character.face_icon_state = "bald"
@@ -815,5 +825,7 @@ datum/preferences
 	if(cmptext("Unknown",M.real_name))
 		usr << "This name is reserved for use by the game, please choose another one using Character Setup."
 		return
+
+*/
 
 */

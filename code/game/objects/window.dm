@@ -83,7 +83,7 @@
 
 	..()
 	for(var/mob/O in viewers(src, null))
-		O.show_message(text("\red <B>[src] was hit by [AM].</B>"), 1)
+		O.show_message(text("\red <B>[AM]</b> РІСЂРµР·Р°РµС‚СЃСЏ РІ <b>[src.dative]</B>!"), 1)
 	var/tforce = 0
 	if(ismob(AM))
 		tforce = 40
@@ -106,10 +106,10 @@
 
 /obj/window/attack_hand()
 	if ((usr.mutations & 8))
-		usr << text("\blue Ты разбиваешь окно.")
+		usr << text("\blue РЇ СЂР°Р·Р±РёРІР°СЋ СЃС‚РµРєР»Рѕ.")
 		for(var/mob/O in oviewers())
 			if ((O.client && !( O.blinded )))
-				O << text("\red <b>[]</b> разбивает окно.", usr)
+				O << text("\red <b>[]</b> СЂР°Р·Р±РёРІР°РµС‚ СЃС‚РµРєР»Рѕ.", usr)
 		src.health = 0
 		new /obj/item/weapon/shard( src.loc )
 		if(reinf) new /obj/item/weapon/rods( src.loc)
@@ -117,14 +117,14 @@
 		del(src)
 	if(istype(usr,/mob/living/carbon/human))
 		if(usr:zombie && !(locate(/turf/space) in view(1,src)))
-			usr << text("\blue Ты стучишь по окну.")
+			usr << text("\blue РЇ Р±СЊСЋ РїРѕ СЃС‚РµРєР»Сѓ.")
 			for(var/mob/O in oviewers())
 				if ((O.client && !( O.blinded )))
-					O << text("\red [] стучит по окну.", usr)
+					O << text("\red <b>[]<b> Р±СЊРµС‚ РїРѕ СЃС‚РµРєР»Сѓ.", usr)
 			if(prob(24))
 				for(var/mob/O in oviewers())
 					if ((O.client && !( O.blinded )))
-						O << text("\red [] разбивает окно.", usr)
+						O << text("\red <b>[]</b> СЂР°Р·Р±РёРІР°РµС‚ СЃС‚РµРєР»Рѕ.", usr)
 				src.health = 0
 				new /obj/item/weapon/shard( src.loc )
 				if(reinf) new /obj/item/weapon/rods( src.loc)
@@ -134,10 +134,10 @@
 
 /obj/window/attack_paw()
 	if ((usr.mutations & 8))
-		usr << text("\blue Ты разбиваешь окно.")
+		usr << text("\blue РЇ СЂР°Р·Р±РёРІР°СЋ СЃС‚РµРєР»Рѕ.")
 		for(var/mob/O in oviewers())
 			if ((O.client && !( O.blinded )))
-				O << text("\red [] разбивает окно.", usr)
+				O << text("red <b>[]</b> СЂР°Р·Р±РёРІР°РµС‚ СЃС‚РµРєР»Рѕ.", usr)
 		src.health = 0
 		new /obj/item/weapon/shard( src.loc )
 		if(reinf) new /obj/item/weapon/rods( src.loc)
@@ -152,20 +152,20 @@
 		if(reinf && state >= 1)
 			state = 3 - state
 			playsound(src.loc, 'Screwdriver.ogg', 75, 1)
-			usr << ( state==1? "Ты откручиваешь окно от рамы." : "Ты вкручиваешь окно в раму.")
+			usr << ( state==1? "РЇ РѕС‚РєСЂСѓС‡РёРІР°СЋ СЃС‚РµРєР»Рѕ РѕС‚ СЂР°РјС‹" : "РЇ РІСЂСѓС‡РёРІР°СЋ СЃС‚РµРєР»Рѕ Рє СЂР°РјРµ.")
 		else if(reinf && state == 0)
 			anchored = !anchored
 			playsound(src.loc, 'Screwdriver.ogg', 75, 1)
-			user << (src.anchored ? "Ты вкручиваешь раму к полу." : "Ты откручиваешь раму от пола.")
+			user << (src.anchored ? "РЇ РІРєСЂСѓС‡РёРІР°СЋ СЂР°РјСѓ Рє РїРѕР»Сѓ." : "РЇ РѕС‚РєСЂСѓС‡РёРІР°СЋ СЂР°РјСѓ РѕС‚ РїРѕР»Р°.")
 		else if(!reinf)
 			src.anchored = !( src.anchored )
 			playsound(src.loc, 'Screwdriver.ogg', 75, 1)
-			user << (src.anchored ? "Ты вкручиваешь окно к полу." : "Ты откручиваешь окно от пола.")
+			user << (src.anchored ? "РЇ РІРєСЂСѓС‡РёРІР°СЋ СЃС‚РµРєР»Рѕ Рє РїРѕР»Сѓ." : "РЇ РѕС‚РєСЂСѓС‡РёРІР°СЋ СЃС‚РµРєР»Рѕ РѕС‚ РїРѕР»Р°.")
 	else if(istype(W, /obj/item/weapon/crowbar) && reinf)
 		if(state <=1)
 			state = 1-state;
 			playsound(src.loc, 'Crowbar.ogg', 75, 1)
-			user << (state ? "Ты устанавливаешь окно в раму" : "Ты вынимаешь окно из рамы.")
+			user << (state ? "РЇ РІСЃС‚Р°РІР»СЏСЋ СЃС‚РµРєР»Рѕ РІ СЂР°РјСѓ" : "РЇ РІС‹РЅРёРјР°СЋ СЃС‚РµРєР»Рѕ РёР· СЂР°РјС‹.")
 	else
 		var/aforce = W.force
 		if(reinf) aforce /= 2.0
@@ -193,11 +193,11 @@
 
 
 /obj/window/verb/rotate()
-	set category = "Взаимодействие"
+	set category = "Р’Р·Р°РёРјРѕРґРµР№СЃС‚РІРёРµ"
 	set src in oview(1)
 
 	if (src.anchored)
-		usr << "Оно прикреплено к полу - развернуть-то нельз&#255;!"
+		usr << "РќРµ РІС‹Р№РґРµС‚ - РІРєСЂСѓС‡РµРЅРѕ Рє РїРѕР»Сѓ!"
 		return 0
 
 	update_nearby_tiles(need_rebuild=1) //Compel updates before
@@ -222,15 +222,15 @@
 	src.ini_dir = src.dir
 	if(reinf)
 		icon_state = "rwindow"
-		desc = "Окно, которому нет равных."
-		name = "усиленное окно"
+		desc = "Р§С‚РѕР±С‹ СЂР°Р·Р±РёС‚СЊ С‚Р°РєРѕРµ, РїСЂРёРґРµС‚СЃСЏ РїСЂРёР»РѕР¶РёС‚СЊ РЅРµРјРЅРѕРіРѕ СѓСЃРёР»РёР№."
+		name = "РЈСЃРёР»РµРЅРЅРѕРµ РѕРєРЅРѕ"
 
-		nominative = "усиленное окно" //Кто? Что? (есть)
-		genitive = "усиленного окна" //Кого? Чего? (нет)
-		dative = "усиленному окну"  //Кому? Чему? (дам)
-		accusative = "усиленное окно" //Кого? Что? (вижу)
-		instrumentative = "усиленным окном" //Кем? Чем? (горжусь)
-		prepositive = "усиленном окне" //О ком? О чем? (думаю)
+		nominative = "СѓСЃРёР»РµРЅРЅРѕРµ СЃС‚РµРєР»Рѕ" //asdasd
+		genitive = "СѓСЃРёР»РµРЅРЅРѕРіРѕ СЃС‚РµРєР»Р°" //РєРѕРіРѕ? С‡РµРіРѕ? Р»РµСЃС‚РЅРёС†С‹
+		dative = "СѓСЃРёР»РµРЅРЅРѕРјСѓ СЃС‚РµРєР»Сѓ"  //РєРѕРјСѓ?  С‡РµРјСѓ? Р»РµСЃС‚РЅРёС†Рµ
+		accusative = "СѓСЃРёР»РµРЅРЅРѕРіРѕ СЃС‚РµРєР»Р°" //РєРѕРіРѕ? С‡С‚Рѕ?
+		instrumentative = "СѓСЃРёР»РµРЅРЅС‹Рј СЃС‚РµРєР»РѕРј" //РєРµРј? С‡РµРј? Р»РµСЃС‚РЅРёС†РµР№
+		prepositive = "СѓСЃРёР»РµРЅРЅРѕРј СЃС‚РµРєР»Рµ" //Рѕ РєРѕРј? Рѕ С‡РµРј? Р»РµСЃС‚РЅРёС†Рµ
 
 		state = 2*anchored
 		health = 40

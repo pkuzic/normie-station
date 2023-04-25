@@ -29,10 +29,10 @@
 
 /obj/table/attack_paw(mob/user as mob)
 	if ((usr.mutations & 8))
-		usr << text("\blue Ты уничтожаешь стол.")
+		usr << text("\blue РЇ СѓРЅРёС‡С‚РѕР¶Р°СЋ СЃС‚РѕР».")
 		for(var/mob/O in oviewers())
 			if ((O.client && !( O.blinded )))
-				O << text("\red <b>[]</b> уничтожает стол.", usr)
+				O << text("<b>[]</b> СѓРЅРёС‡С‚РѕР¶Р°РµС‚ СЃС‚РѕР».", usr)
 		if(istype(src, /obj/table/reinforced))
 			new /obj/item/weapon/table_parts/reinforced( src.loc )
 		else
@@ -44,7 +44,7 @@
 		if (user.loc == src.loc)
 			user.layer = TURF_LAYER
 			for(var/mob/M in viewers(user, null))
-				M.show_message("Обезь&#255;нка пр&#255;четс&#255; под столом!", 1)
+				M.show_message("РћР±РµР·СЊСЏРЅР° РїСЂСЏС‡РµС‚СЃСЏ РїРѕРґ СЃС‚РѕР»РѕРј!", 1)
 				//Foreach goto(69)
 	return
 
@@ -55,15 +55,15 @@
 			if (user.loc == src.loc)
 				user.layer = TURF_LAYER
 				for(var/mob/M in viewers(user, null))
-					M.show_message("Личинка инопланет&#255;нина пр&#255;четс&#255; под столом!", 1)
+					M.show_message("РРЅРѕРїР»Р°РЅРµС‚РЅР°СЏ Р»РёС‡РёРЅРєР° РїСЂСЏС‡РµС‚СЃСЏ РїРѕРґ СЃС‚РѕР»РѕРј!", 1)
 	return
 
 /obj/table/attack_hand(mob/user as mob)
 	if ((usr.mutations & 8))
-		usr << text("\blue Ты разрушаешь стол.")
+		usr << text("\blue РЇ СѓРЅРёС‡С‚РѕР¶Р°СЋ СЃС‚РѕР».")
 		for(var/mob/O in oviewers())
 			if ((O.client && !( O.blinded )))
-				O << text("\red <b>[]</b> разрушает стол.", usr)
+				O << text("<b>[]</b> СѓРЅРёС‡С‚РѕР¶Р°РµС‚ СЃС‚РѕР».", usr)
 		if(istype(src, /obj/table/reinforced))
 			new /obj/item/weapon/table_parts/reinforced( src.loc )
 		else
@@ -75,7 +75,7 @@
 		if (user.loc == src.loc)
 			user.layer = TURF_LAYER
 			for(var/mob/M in viewers(user, null))
-				M.show_message("Человек пр&#255;четс&#255; под столом!", 1)
+				M.show_message("Р§РµР»РѕРІРµРє РїСЂСЏС‡РµС‚СЃСЏ РїРѕРґ СЃС‚РѕР»РѕРј!", 1)
 				//Foreach goto(69)
 	return
 
@@ -102,18 +102,18 @@
 	if (istype(W, /obj/item/weapon/grab) && get_dist(src,user)<2)
 		var/obj/item/weapon/grab/G = W
 		if(G.state<2)
-			user << "\red Нужно схватить покрепче!"
+			user << "\red РќСѓР¶РЅРѕ СѓСЃРёР»РёС‚СЊ С…РІР°С‚РєСѓ!"
 			return
 		G.affecting.loc = src.loc
 		G.affecting.weakened = 5
 		for(var/mob/O in viewers(world.view, src))
 			if (O.client)
-				O << text("\red <b>[]</b> кладет <b>[]</b> на стол.", G.assailant, G.affecting)
+				O << text("<b>[]</b> РєР»Р°РґРµС‚ <b>[]</b> РЅР° СЃС‚РѕР».", G.assailant, G.affecting)
 		del(W)
 		return
 
 	if (istype(W, /obj/item/weapon/wrench))
-		user << "\blue Сейчас разбираю стол..."
+		user << "\blue РЇ СЂР°Р·Р±РёСЂР°СЋ СЃС‚РѕР»..."
 		playsound(src.loc, 'Ratchet.ogg', 50, 1)
 		var/T = user.loc
 		sleep(50)
@@ -133,36 +133,37 @@
 	if (istype(W, /obj/item/weapon/grab) && get_dist(src,user)<2)
 		var/obj/item/weapon/grab/G = W
 		if(G.state<2)
-			user << "\red Нужно схватить покрепче!"
+			user << "\red РќСѓР¶РЅРѕ СѓСЃРёР»РёС‚СЊ С…РІР°С‚РєСѓ!"
 			return
 		G.affecting.loc = src.loc
 		G.affecting.weakened = 5
 		for(var/mob/O in viewers(world.view, src))
 			if (O.client)
-				O << text("\red <b>[]</b> кладет <b>[]</b> на стол.", G.assailant, G.affecting)
+				O << text("\red <b>[]</b> РєР»Р°РґС‘С‚ <b>[]</b> РЅР° СЃС‚РѕР».", G.assailant, G.affecting)
 		del(W)
 		return
 
 	if (istype(W, /obj/item/weapon/weldingtool))
 		if(src.status == 2)
-			user << "\blue Сейчас ослабл&#255;ю усиленный стол..."
+			user << "\blue РЇ РѕСЃР»Р°Р±Р»СЏСЋ СѓСЃРёР»РµРЅРёРµ СЃС‚РѕР»Р°..."
 			playsound(src.loc, 'Welder.ogg', 50, 1)
 			sleep(50)
-			user << "\blue Стол ослаблен."
+			user << "\blue РЇ [usr.gender == 1 ? "РѕСЃР»Р°Р±РёР»" : "РѕСЃР»Р°Р±РёР»Р°"] СѓСЃРёР»РµРЅРёРµ СЃС‚РѕР»Р°!"
 			src.status = 1
 		else
-			user << "\blue Теперь усиливаю стол..."
+			user << "\blue РЇ СѓСЃРёР»СЏСЋ СЃС‚РѕР»..."
 			playsound(src.loc, 'Welder.ogg', 50, 1)
 			sleep(50)
-			user << "\blue Стол усилен."
+			user << "\blue РЇ [usr.gender == 1 ? "СѓСЃРёР»РёР»" : "СѓСЃРёР»РёР»Р°"] СЃС‚РѕР»!"
 			src.status = 2
 		return
 
 	if (istype(W, /obj/item/weapon/wrench))
 		if(src.status == 1)
-			user << "\blue Теперь разбираю усиленный стол..."
+			user << "\blue РЇ СЂР°Р·Р±РёСЂР°СЋ СѓСЃРёР»РµРЅРЅС‹Р№ СЃС‚РѕР»..."
 			playsound(src.loc, 'Ratchet.ogg', 50, 1)
 			sleep(50)
+			user << "\blue РЇ [usr.gender == 1 ? "СЂР°Р·РѕР±СЂР°Р»" : "СЂР°Р·РѕР±СЂР°Р»Р°"] СѓСЃРёР»РµРЅРЅС‹Р№ СЃС‚РѕР»!"
 			new /obj/item/weapon/table_parts/reinforced( src.loc )
 			playsound(src.loc, 'Deconstruct.ogg', 50, 1)
 			del(src)

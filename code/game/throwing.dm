@@ -36,7 +36,7 @@
 	//actually throw it!
 	if (item)
 		item.layer = initial(item.layer)
-		src.visible_message("\red <b>[src]</b> кидает <b>[item.nominative]</b>.")
+		src.visible_message("\red <b>[src]</b> Р±СЂРѕСЃР°РµС‚ <b>[item.nominative]</b>.")
 
 		if(istype(src.loc, /turf/space)) //they're in space, move em one space in the opposite direction
 			src.inertia_dir = get_dir(target, src)
@@ -76,7 +76,7 @@
 /atom/var/throwpass = 0
 /atom/proc/throw_impact(atom/hit_atom)
 	if(ismob(hit_atom))
-		hit_atom.visible_message("\red </b>[src.nominative]</b> попадает пр&#255;мо в <b>[hit_atom]</b>!")
+		hit_atom.visible_message("\red </b>[src.nominative]</b> СѓРґР°СЂСЏРµС‚ <b>[hit_atom]</b>!")
 		var/mob/M = hit_atom
 		if(src.vars.Find("throwforce"))
 			M.bruteloss += src:throwforce

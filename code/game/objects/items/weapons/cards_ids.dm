@@ -35,7 +35,7 @@ FINGERPRINT CARD
 	return
 
 /obj/item/weapon/card/id/verb/read()
-	set category = "Взаимодействие"
+	set category = "Р’Р·Р°РёРјРѕРґРµР№СЃС‚РІРёРµ"
 	set src in usr
 
 	usr << text("\icon[] []: The current assignment on the card is [].", src, src.name, src.assignment)

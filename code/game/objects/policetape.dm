@@ -3,7 +3,7 @@
 		tapestartx = src.loc.x
 		tapestarty = src.loc.y
 		tapestartz = src.loc.z
-		usr << "\blue Ты крепишь первый конец полицейской ленты."
+		usr << "\blue РЇ РїРѕРјРµС‰Р°СЋ РїРµСЂРІС‹Р№ РєРѕРЅРµС† Р»РµРЅС‚С‹."
 		icon_state = "rollstop"
 	else
 		tapeendx = src.loc.x
@@ -14,7 +14,7 @@
 			for(var/Y=tapestarty,Y>=tapeendy,Y--)
 				var/turf/T = get_turf(locate(tapestartx,Y,tapestartz))
 				if(T.density == 1)
-					usr << "\blue Через стену не получитс&#255;!"
+					usr << "\blue РќРµ РјРѕРіСѓ РІРµСЃС‚Рё Р»РµРЅС‚Сѓ С‡РµСЂРµР· СЃС‚РµРЅСѓ!"
 					icon_state = "rollstart"
 					return
 			for(var/Y=tapestarty,Y>=tapeendy,Y--)
@@ -26,13 +26,13 @@
 					var/obj/item/policetape/P = new/obj/item/policetape(tapestartx,Y,tapestartz)
 					P.loc = locate(tapestartx,Y,tapestartz)
 					P.icon_state = "vertical"
-			usr << "\blue Ты заканчиваешь крепить полицейскую ленту."	//Git Test
+			usr << "\blue РЇ Р·Р°РєР°РЅС‡РёРІР°СЋ РІРµСЃС‚Рё Р»РµРЅС‚Сѓ."	//Git Test
 
 		if(tapestartx == tapeendx && tapestarty < tapeendy && tapestartz == tapeendz)
 			for(var/Y=tapestarty,Y<=tapeendy,Y++)
 				var/turf/T = get_turf(locate(tapestartx,Y,tapestartz))
 				if(T.density == 1)
-					usr << "\blue Через стену не получитс&#255;!"
+					usr << "\blue РќРµ РјРѕРіСѓ РІРµСЃС‚Рё Р»РµРЅС‚Сѓ С‡РµСЂРµР· СЃС‚РµРЅСѓ!"
 					icon_state = "rollstart"
 					return
 			for(var/Y=tapestarty,Y<=tapeendy,Y++)
@@ -44,13 +44,13 @@
 					var/obj/item/policetape/P = new/obj/item/policetape(tapestartx,Y,tapestartz)
 					P.loc = locate(tapestartx,Y,tapestartz)
 					P.icon_state = "vertical"
-			usr << "\blue Ты заканчиваешь крепить полицейскую ленту."
+			usr << "\blue РЇ Р·Р°РєР°РЅС‡РёРІР°СЋ РІРµСЃС‚Рё Р»РµРЅС‚Сѓ."
 
 		if(tapestarty == tapeendy && tapestartx > tapeendx && tapestartz == tapeendz)
 			for(var/X=tapestartx,X>=tapeendx,X--)
 				var/turf/T = get_turf(locate(X,tapestarty,tapestartz))
 				if(T.density == 1)
-					usr << "\blue Через стену не получитс&#255;!"
+					usr << "\blue РќРµ РјРѕРіСѓ РІРµСЃС‚Рё Р»РµРЅС‚Сѓ С‡РµСЂРµР· СЃС‚РµРЅСѓ!"
 					icon_state = "rollstart"
 					return
 			for(var/X=tapestartx,X>=tapeendx,X--)
@@ -62,13 +62,13 @@
 					var/obj/item/policetape/P = new/obj/item/policetape(X,tapestarty,tapestartz)
 					P.loc = locate(X,tapestarty,tapestartz)
 					P.icon_state = "horizontal"
-			usr << "\blue Ты заканчиваешь крепить полицейскую ленту."
+			usr << "\blue РЇ Р·Р°РєР°РЅС‡РёРІР°СЋ РІРµСЃС‚Рё Р»РµРЅС‚Сѓ."
 
 		if(tapestarty == tapeendy && tapestartx < tapeendx && tapestartz == tapeendz)
 			for(var/X=tapestartx,X<=tapeendx,X++)
 				var/turf/T = get_turf(locate(X,tapestarty,tapestartz))
 				if(T.density == 1)
-					usr << "\blue Через стену не получитс&#255;!"
+					usr << "\blue РќРµ РјРѕРіСѓ РІРµСЃС‚Рё Р»РµРЅС‚Сѓ С‡РµСЂРµР· СЃС‚РµРЅСѓ!"
 					icon_state = "rollstart"
 					return
 			for(var/X=tapestartx,X<=tapeendx,X++)
@@ -80,10 +80,10 @@
 					var/obj/item/policetape/P = new/obj/item/policetape(X,tapestarty,tapestartz)
 					P.loc = locate(X,tapestarty,tapestartz)
 					P.icon_state = "horizontal"
-			usr << "\blue Ты заканчиваешь крепить полицейскую ленту."
+			usr << "\blue РЇ Р·Р°РєР°РЅС‡РёРІР°СЋ РІРµСЃС‚Рё Р»РµРЅС‚Сѓ."
 
 		if(tapestarty != tapeendy && tapestartx != tapeendx)
-			usr << "\blue Полицейска&#255; лента может быть проложена только вертикально или горизонтально."
+			usr << "\blue Р›РµРЅС‚Сѓ РјРѕР¶РЅРѕ РІРµСЃС‚Рё С‚РѕР»СЊРєРѕ РіРѕСЂРёР·РѕРЅС‚Р°Р»СЊРЅРѕ РёР»Рё РІРµСЂС‚РёРєР°Р»СЊРЅРѕ"
 		icon_state = "rollstart"
 
 /obj/item/policetape/Bumped(M as mob)
@@ -108,7 +108,7 @@
 /obj/item/policetape/proc/breaktape(obj/item/weapon/W as obj, mob/user as mob)
 	if(!W)
 		W = 1
-	user.show_viewers(text("\blue <b>[]</b> рвет полицейскую ленту!", user))
+	user.show_viewers(text("\blue <b>[]</b> Р»РѕРјР°РµС‚ Р»РµРЅС‚Сѓ!", user))
 	var/OX = src.x
 	var/OY = src.y
 	if(src.icon_state == "horizontal")

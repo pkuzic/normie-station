@@ -1,22 +1,22 @@
 /obj/item/temperature_expose(datum/gas_mixture/air, exposed_temperature, exposed_volume)
 	if(exposed_temperature >= 1643 && m_amt)
 		var/obj/item/weapon/meltedmetal/S = new(src.loc)
-		S.desc = "Похоже, что это напоминает [src.nominative]."
+		S.desc = "РљР°Р¶РµС‚СЃСЏ, СЌС‚Рѕ <b>[src.nominative]</b>."
 		S.m_amt = src.m_amt
 		for(var/mob/M in viewers(5, S))
-			M << "\red [src.nominative] расплавл&#255;етс&#255;."
+			M << "\red <b>[src]</b> РїР»Р°РІРёС‚СЃСЏ!"
 		del(src)
 	else if(exposed_temperature >= 1650 && g_amt)
 		var/obj/item/weapon/meltedmetal/S = new(src.loc)
-		S.desc = "Похоже, что это напоминает [src.nominative]."
+		S.desc = "РљР°Р¶РµС‚СЃСЏ, СЌС‚Рѕ <b>[src.nominative]</b>."
 		S.g_amt = src.g_amt
 		for(var/mob/M in viewers(5, S))
-			M << "\red [src.nominative] расплавл&#255;етс&#255;."
+			M << "\red <b>[src]</b> РїР»Р°РІРёС‚СЃСЏ!"
 		del(src)
 /obj/item/weapon/paper/temperature_expose(datum/gas_mixture/air, exposed_temperature, exposed_volume)
 	if(exposed_temperature >= 373.15)
 		for(var/mob/M in viewers(5, src))
-			M << "\red [src.nominative] сгорает до тла."
+			M << "\red <b>[src]</b> СЃРіРѕСЂР°РµС‚!"
 		del(src)
 /obj/item/weapon/bedsheet/ex_act(severity)
 	if (severity <= 2)
@@ -24,16 +24,16 @@
 		return
 	return
 /obj/item/weapon/pipesegment/
-	name = "сегмент трубы"
+	name = "РЎРµРіРјРµРЅС‚ С‚СЂСѓР±С‹"
 
-	nominative = "сегмент трубы"
-	genitive = "сегмента трубы"
-	dative = "сегменту трубы"
-	accusative = "сегмент трубы"
-	instrumentative = "сегментом трубы"
-	prepositive = "сегменте трубы"
+	nominative = "СЃРµРіРјРµРЅС‚ С‚СЂСѓР±С‹" //РєС‚Рѕ? С‡С‚Рѕ? Р»РµСЃС‚РЅРёС†Р°
+	genitive = "СЃРµРіРјРµРЅС‚Р° С‚СЂСѓР±С‹" //РєРѕРіРѕ? С‡РµРіРѕ? Р»РµСЃС‚РЅРёС†С‹
+	dative = "СЃРµРіРјРµРЅС‚Сѓ С‚СЂСѓР±С‹"  //РєРѕРјСѓ?  С‡РµРјСѓ? Р»РµСЃС‚РЅРёС†Рµ
+	accusative = "СЃРµРіРјРµРЅС‚Р° С‚СЂСѓР±С‹" //РєРѕРіРѕ? С‡С‚Рѕ?
+	instrumentative = "СЃРµРіРјРµРЅС‚РѕРј С‚СЂСѓР±С‹" //РєРµРј? С‡РµРј? Р»РµСЃС‚РЅРёС†РµР№
+	prepositive = "СЃРµРіРјРµРЅС‚Рµ С‚СЂСѓР±С‹" //Рѕ РєРѕРј? Рѕ С‡РµРј? Р»РµСЃС‚РЅРёС†Рµ
 
-	desc = "Используетс&#255; дл&#255; аварийной починки труб."
+	desc = "РСЃРїРѕР»СЊР·СѓРµС‚СЃСЏ РґР»СЏ РїРѕС‡РёРЅРєРё Рё РїСЂРѕРєР»Р°РґРєРё С‚СЂСѓР±."
 	icon = 'pipes.dmi'
 	icon_state = "exposed"
 	m_amt = 50
@@ -43,45 +43,45 @@
 	add_fingerprint(user)
 	return
 /obj/item/weapon/cane
-	name = "трость"
+	name = "РўСЂРѕСЃС‚СЊ"
 
-	nominative = "трость" //Кто? Что? (есть)
-	genitive = "трости" //Кого? Чего? (нет)
-	dative = "трости"  //Кому? Чему? (дам)
-	accusative = "трость" //Кого? Что? (вижу)
-	instrumentative = "тростью" //Кем? Чем? (горжусь)
-	prepositive = "трости" //О ком? О чем? (думаю)
+	nominative = "С‚СЂРѕСЃС‚СЊ" //РєС‚Рѕ? С‡С‚Рѕ? Р»РµСЃС‚РЅРёС†Р°
+	genitive = "С‚СЂРѕСЃС‚Рё" //РєРѕРіРѕ? С‡РµРіРѕ? Р»РµСЃС‚РЅРёС†С‹
+	dative = "С‚СЂРѕСЃС‚Рё"  //РєРѕРјСѓ?  С‡РµРјСѓ? Р»РµСЃС‚РЅРёС†Рµ
+	accusative = "С‚СЂРѕСЃС‚Рё" //РєРѕРіРѕ? С‡С‚Рѕ?
+	instrumentative = "С‚СЂРѕСЃС‚СЊСЋ" //РєРµРј? С‡РµРј? Р»РµСЃС‚РЅРёС†РµР№
+	prepositive = "С‚СЂРѕСЃС‚Рё" //Рѕ РєРѕРј? Рѕ С‡РµРј? Р»РµСЃС‚РЅРёС†Рµ
 
-	desc = "Незаменимый друг и верный товарищ каждого хромого человека."
+	desc = "РЁР°Рі СЂР°Р·, С‚СЂРѕСЃС‚СЊ РґРІР°."
 	icon = 'items.dmi'
 	icon_state = "cane"
 	m_amt = 5
 
 /obj/item/weapon/meltedmetal
-	name = "разрушенный металл"
+	name = "РСЃРїРѕСЂС‡РµРЅРЅС‹Р№ РјРµС‚Р°Р»Р»"
 
-	nominative = "разрушенный металл" //Кто? Что? (есть)
-	genitive = "разрушенного металла" //Кого? Чего? (нет)
-	dative = "разрушенному металлу"  //Кому? Чему? (дам)
-	accusative = "разрушенный металл" //Кого? Что? (вижу)
-	instrumentative = "разрушенным металлом" //Кем? Чем? (горжусь)
-	prepositive = "разрушенном металле" //О ком? О чем? (думаю)
+	nominative = "РёСЃРїРѕСЂС‡РµРЅРЅС‹Р№ РјРµС‚Р°Р»Р»" //РєС‚Рѕ? С‡С‚Рѕ? Р»РµСЃС‚РЅРёС†Р°
+	genitive = "РёСЃРїРѕСЂС‡РµРЅРЅРѕРіРѕ РјРµС‚Р°Р»Р»Р°" //РєРѕРіРѕ? С‡РµРіРѕ? Р»РµСЃС‚РЅРёС†С‹
+	dative = "РёСЃРїРѕСЂС‡РµРЅРЅРѕРјСѓ РјРµС‚Р°Р»Р»Сѓ"  //РєРѕРјСѓ?  С‡РµРјСѓ? Р»РµСЃС‚РЅРёС†Рµ
+	accusative = "РёСЃРїРѕСЂС‡РµРЅРЅРѕРіРѕ РјРµС‚Р°Р»Р»Р°" //РєРѕРіРѕ? С‡С‚Рѕ?
+	instrumentative = "РёСЃРїРѕСЂС‡РµРЅРЅС‹Рј РјРµС‚Р°Р»Р»РѕРј" //РєРµРј? С‡РµРј? Р»РµСЃС‚РЅРёС†РµР№
+	prepositive = "РёСЃРїРѕСЂС‡РµРЅРЅРѕРј РјРµС‚Р°Р»Р»Рµ" //Рѕ РєРѕРј? Рѕ С‡РµРј? Р»РµСЃС‚РЅРёС†Рµ
 
-	desc = "Это случитс&#255; и со мной."
+	desc = "РљРѕРіРґР°-С‚Рѕ РѕС‚ РЅРµРіРѕ Р±С‹Р» С‚РѕР»Рє, РЅРѕ РІСЃС‘ РІСЂРµРјРµРЅРЅРѕ."
 	icon = 'chemical.dmi'
 	icon_state = "molten"
 	m_amt = 0
 /obj/item/weapon/meltedglass
-	name = "разбитое стекло"
+	name = "РСЃРїРѕСЂС‡РµРЅРЅРѕРµ СЃС‚РµРєР»Рѕ"
 
-	nominative = "разбитое стекло" //Кто? Что? (есть)
-	genitive = "разбитого стекла" //Кого? Чего? (нет)
-	dative = "разбитому стеклу"  //Кому? Чему? (дам)
-	accusative = "разбитое стекло" //Кого? Что? (вижу)
-	instrumentative = "разбитым стеклом" //Кем? Чем? (горжусь)
-	prepositive = "разбитом стекле" //О ком? О чем? (думаю)
+	nominative = "РёСЃРїРѕСЂС‡РµРЅРЅРѕРµ СЃС‚РµРєР»Рѕ" //РєС‚Рѕ? С‡С‚Рѕ? Р»РµСЃС‚РЅРёС†Р°
+	genitive = "РёСЃРїРѕСЂС‡РµРЅРЅРѕРіРѕ СЃС‚РµРєР»Р°" //РєРѕРіРѕ? С‡РµРіРѕ? Р»РµСЃС‚РЅРёС†С‹
+	dative = "РёСЃРїРѕСЂС‡РµРЅРЅРѕРјСѓ СЃС‚РµРєР»Сѓ"  //РєРѕРјСѓ?  С‡РµРјСѓ? Р»РµСЃС‚РЅРёС†Рµ
+	accusative = "РёСЃРїРѕСЂС‡РµРЅРЅРѕРіРѕ СЃС‚РµРєР»Р°" //РєРѕРіРѕ? С‡С‚Рѕ?
+	instrumentative = "РёСЃРїРѕСЂС‡РµРЅРЅС‹Рј СЃС‚РµРєР»РѕРј" //РєРµРј? С‡РµРј? Р»РµСЃС‚РЅРёС†РµР№
+	prepositive = "РёСЃРїРѕСЂС‡РµРЅРЅРѕРј СЃС‚РµРєР»Рµ" //Рѕ РєРѕРј? Рѕ С‡РµРј? Р»РµСЃС‚РЅРёС†Рµ
 
-	desc = "Разбитые надежды."
+	desc = "РСЃРїРѕСЂС‡РµРЅРЅРѕРµ СЃС‚РµРєР»Рѕ, РєРѕС‚РѕСЂРѕРµ СѓР¶Рµ РЅРµ РёРјРµРµС‚ СЃРјС‹СЃР»Р°."
 	icon = 'chemical.dmi'
 	icon_state = "molten"
 	m_amt = 0
@@ -91,7 +91,7 @@
 	return
 /obj/item/weapon/handcuffs/attack(mob/M as mob, mob/user as mob)
 	if ((usr.mutations & 16) && prob(50))
-		usr << "\red Да как же этим пользоватьс&#255;?!"
+		usr << "\red ... Рё РєР°Рє РѕРЅРѕ СЂР°Р±РѕС‚Р°РµС‚?!"
 		if (istype(M, /mob/living/carbon/human))
 			var/obj/equip_e/human/O = new /obj/equip_e/human(  )
 			O.source = user
@@ -106,7 +106,7 @@
 				return
 		return
 	if (!(istype(usr, /mob/living/carbon/human) || ticker) && ticker.mode.name != "monkey")
-		usr << "\red Я недостаточно [usr.gender == 1 ? "ловок" : "ловка"] дл&#255; этого!"
+		usr << "\red РЇ РЅРµРґРѕСЃС‚Р°С‚РѕС‡РЅРѕ [usr.gender == 1 ? "Р»РѕРІРєРёР№" : "Р»РѕРІРєР°СЏ"] РґР»СЏ СЌС‚РѕРіРѕ!"
 		return
 	if (istype(M, /mob/living/carbon/human))
 		var/obj/equip_e/human/O = new /obj/equip_e/human(  )
@@ -147,7 +147,7 @@
 /obj/item/weapon/extinguisher/examine()
 	set src in usr
 
-	usr << text("\icon[] [] содержит ещё аж [] единиц воды!", src, src.name, src.reagents.total_volume)
+	usr << text("\icon[] [] СЃРѕРґРµСЂР¶РёС‚ РµС‰Рµ [] РµРґРёРЅРёС† РІРѕРґС‹!", src, src.name, src.reagents.total_volume)
 	..()
 	return
 
@@ -157,7 +157,7 @@
 	if( istype(target, (/obj/reagent_dispensers/watertank || /obj/reagent_dispensers/hvwatertank)) && get_dist(src,target) <= 1)
 		var/obj/o = target
 		o.reagents.trans_to(src, 50)
-		user << "\blue Огнетушитель заправлен"
+		user << "\blue РћРіРЅРµС‚СѓС€РёС‚РµР»СЊ Р·Р°РїРѕР»РЅРµРЅ."
 		playsound(src.loc, 'zzzt.ogg', 50, 1, -6)
 		return
 
@@ -211,13 +211,13 @@
 /obj/item/weapon/extinguisher/attack_self(mob/user as mob)
 	if (safety)
 		src.icon_state = "fire_extinguisher1"
-		src.desc = "Предохранитель сн&#255;т."
-		user << "Предохранитель сн&#255;т."
+		src.desc = "РџСЂРµРґРѕС…СЂР°РЅРёС‚РµР»СЊ СЃРЅСЏС‚."
+		user << "РџСЂРµРґРѕС…СЂР°РЅРёС‚РµР»СЊ СЃРЅСЏС‚."
 		safety = 0
 	else
 		src.icon_state = "fire_extinguisher0"
-		src.desc = "На предохранителе."
-		user << "На предохранителе."
+		src.desc = "РќР° РїСЂРµРґРѕС…СЂР°РЅРёС‚РµР»Рµ."
+		user << "РќР° РїСЂРµРґРѕС…СЂР°РЅРёС‚РµР»Рµ."
 		safety = 1
 	return
 
@@ -239,7 +239,7 @@
 	if (reagents.total_volume)
 		//for(var/mob/O in viewers(M, null))
 		//	O.show_message(text("\red [] has been stabbed with [] by [].", M, src, user), 1)
-		user << "\red Ты укалываешь [M] ручкой."
+		user << "\red РЇ С‚С‹РєР°СЋ <b>[M]</b> СЂСѓС‡РєРѕР№."
 	//	if(prob(50)) // Is this the best solution? Feels a bit illogical not to feel something. //Googol: Makes the sleepy pen USELESS though
 	//		M << "\red You feel a tiny prick!"
 		spawn(500)
@@ -257,12 +257,12 @@
 	return
 
 /obj/manifest/proc/manifest()
-	var/dat = "<B>Список экипажа</B>:<BR>"
+	var/dat = "<B>РЎРїРёСЃРѕРє СЌРєРёРїР°Р¶Р°</B>:<BR>"
 	for(var/mob/living/carbon/human/M in world)
-		dat += text("    <B>[]</B> -  []<BR>", M.name, (istype(M.wear_id, /obj/item/weapon/card/id) ? text("[]", M.wear_id.assignment) : "Местоположение неизвестно"))
+		dat += text("    <B>[]</B> -  []<BR>", M.name, (istype(M.wear_id, /obj/item/weapon/card/id) ? text("[]", M.wear_id.assignment) : "РќРµРёР·РІРµСЃС‚РЅР°СЏ РїРѕР·РёС†РёСЏ"))
 	var/obj/item/weapon/paper/P = new /obj/item/weapon/paper( src.loc )
 	P.info = dat
-	P.name = "бумага - 'Список экипажа'"
+	P.name = "Р±СѓРјР°РіР° - 'РЎРїРёСЃРѕРє СЌРєРёРїР°Р¶Р°'"
 	//SN src = null
 	del(src)
 	return
@@ -303,12 +303,12 @@
 
 /obj/item/weapon/teleportation_scroll/attack_self(mob/user as mob)
 	user.machine = src
-	var/dat = "<B>Свиток телепортации:</B><BR>"
-	dat += "Количество зар&#255;дов: [src.uses]<BR>"
+	var/dat = "<B>РЎРІРёС‚РѕРє С‚РµР»РµРїРѕСЂС‚Р°С†РёРё:</B><BR>"
+	dat += "Р—Р°СЂСЏРґРѕРІ: [src.uses]<BR>"
 	dat += "<HR>"
-	dat += "<B>Четыре зар&#255;да, пользуйтесь с умом:</B><BR>"
-	dat += "<A href='byond://?src=\ref[src];spell_teleport=1'>Телепортаци&#255;</A><BR>"
-	dat += "С уважением,<br>Федераци&#255; Магов<br><br>P.S.Не забудьте вз&#255;ть с собой свое снар&#255;жение, оно понадобитс&#255; Вам дл&#255; наложени&#255; заклинаний.<HR>"
+	dat += "<B>Р§РµС‚С‹СЂРµ Р·Р°СЂСЏРґР°, РїРѕР»СЊР·РѕРІР°С‚СЊСЃСЏ СЃ СѓРјРѕРј:</B><BR>"
+	dat += "<A href='byond://?src=\ref[src];spell_teleport=1'>РўРµР»РµРїРѕСЂС‚Р°С†РёСЏ</A><BR>"
+	dat += "РЎ СѓРІР°Р¶РµРЅРёРµРј,<br>Р¤РµРґРµСЂР°С†РёСЏ Р’РѕР»С€РµР±РЅРёРєРѕРІ<br><br>P.S. РќРµ Р·Р°Р±СѓРґСЊС‚Рµ СЃРІРѕСЋ СЌРєРёРїРёСЂРѕРІРєСѓ.<HR>"
 	user << browse(dat, "window=scroll")
 	onclose(user, "scroll")
 	return
@@ -352,7 +352,7 @@
 	var/mob/living/carbon/human/H = M
 	if(istype(M, /mob/living/carbon/human) && ((H.head && H.head.flags & HEADCOVERSEYES) || (H.wear_mask && H.wear_mask.flags & MASKCOVERSEYES) || (H.glasses && H.glasses.flags & GLASSESCOVERSEYES)))
 		// you can't stab someone in the eyes wearing a mask!
-		user << "\blue Дл&#255; начала стоит оголить голову."
+		user << "\blue Р“Р»Р°Р·РєРё-С‚Рѕ РїСЂРёРєСЂС‹С‚С‹!"
 		return
 
 //since these people will be dead M != usr
@@ -362,15 +362,15 @@
 			if(O == (user || M))
 				continue
 			if(M == user)
-				O.show_message(text("\red <b>[user]</b> вставл&#255;ет <b>[src.nominative]</b> в свою голову!"), 1)
+				O.show_message(text("\red <b>[user]</b> РІСЃС‚Р°РІР»СЏРµС‚ <b>[src.nominative]</b> РІ СЃРІРѕСЋ РіРѕР»РѕРІСѓ!"), 1)
 			else
-				O.show_message(text("\red <b>[user]</b> вставл&#255;ет <b>[src.nominative]</b> в голову <b>[M]</b>."), 1)
+				O.show_message(text("\red <b>[user]</b> РІСЃС‚Р°РІР»СЏРµС‚ <b>[src.nominative]</b> РІ РіРѕР»РѕРІСѓ <b>[M]</b>!"), 1)
 
 		if(M != user)
-			M << "\red <b>[user]</b> вставл&#255;ет <b>[src.nominative]</b> в твою голову!"
-			user << "\red Ты вставл&#255;ешь <b>[src.nominative]</b> в голову <b>[M]</b>!"
+			M << "\red <b>[user]</b> РІСЃС‚Р°РІР»СЏРµС‚ <b>[src.nominative]</b> РІ РјРѕСЋ РіРѕР»РѕРІСѓ!"
+			user << "\red Р’СЃС‚Р°РІР»СЏРµС‚ <b>[src.nominative]</b> РІ РіРѕР»РѕРІСѓ <b>[M]</b>!"
 		else
-			user << "\red Ты вставл&#255;&#255;ешь <b>[src.nominative]</b> в свою голову!"
+			user << "\red РЇ РІСЃС‚Р°РІР»СЏСЋ <b>[src.nominative]</b> РІ СЃРІРѕСЋ РіРѕР»РѕРІСѓ!"
 
 		if(M.client)
 			M.client.mob = new/mob/dead/observer(M)

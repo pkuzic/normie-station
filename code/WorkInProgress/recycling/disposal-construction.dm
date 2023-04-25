@@ -58,7 +58,7 @@
 
 	// flip and rotate verbs
 	verb/rotate()
-		set category = "Взаимодействие"
+		set category = "Р’Р·Р°РёРјРѕРґРµР№СЃС‚РІРёРµ"
 		set src in view(1)
 
 		if(usr.stat)

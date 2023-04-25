@@ -255,7 +255,6 @@ CREATE TABLE IF NOT EXISTS `players` (
   `be_syndicate` int(3) NOT NULL,
   `underwear` int(3) NOT NULL,
   `name_is_always_random` int(3) NOT NULL,
-  `bios` longtext NOT NULL,
   `show` int(1) NOT NULL default '1',
   `be_nuke_agent` tinyint(1) NOT NULL,
   `be_takeover_agent` tinyint(1) NOT NULL,

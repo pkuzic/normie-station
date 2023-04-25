@@ -44,3 +44,6 @@ baystation12.code-workspace
 # ignore built libs
 lib/*.dll
 lib/*.so
+
+#
+doc.txt

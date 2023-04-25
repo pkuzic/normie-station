@@ -5,16 +5,16 @@ datum/title/
 	var/list/title = list()
 
 datum/title/doctor
-	jobname = "Medical Doctor"
-	title = list("Medical Doctor", "Virologist", "Surgeon")
+	jobname = "Врач"
+	title = list("Врач", "Вирусолог", "Хирург")
 
 datum/title/scientist
-	jobname = "Scientist"
-	title = list("Scientist", "Plasma Researcher", "Anomalist")
+	jobname = "Учёный"
+	title = list("Учёный", "Аномалист")
 
 datum/title/detective
-	jobname = "Forensic Technician"
-	title = list("Forensic Technician", "Detective")
+	jobname = "Судмедэксперт"
+	title = list("Судмедэксперт", "Детектив")
 
 datum/title/New()
 	titles += src

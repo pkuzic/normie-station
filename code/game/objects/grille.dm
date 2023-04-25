@@ -32,46 +32,46 @@
 
 /obj/grille/attack_hand(var/obj/M)
 	if ((usr.mutations & 8)) // If hulk
-		usr << text("\red Ты лупишь решётку.")
+		usr << text("\red РЇ СѓРґР°СЂСЏСЋ СЂРµС€С‘С‚РєСѓ.")
 		for(var/mob/O in oviewers())
 			if ((O.client && !( O.blinded )))
-				O << text("\red [] пинает решётку.", usr)
+				O << text("\red <b>[]</b> СѓРґР°СЂСЏРµС‚ СЂРµС€С‘С‚РєСѓ.", usr)
 		playsound(src.loc, 'grillehit.ogg', 80, 1)
 		src.health -= 2
 		healthcheck()
 		return
 	else if(istype(usr,/mob/living/carbon/human) && usr:zombie) // or zombie
-		usr << text("\red Ты стучишь по решётке.")
+		usr << text("\red РЇ СѓР±СЊСЋСЃСЊ Рѕ СЂРµС€С‘С‚РєСѓ.")
 		for(var/mob/O in oviewers())
 			if ((O.client && !( O.blinded )))
-				O << text("\red [] стучит по решётке.", usr)
+				O << text("\red <b>[]</b> Р±СЊРµС‚СЃСЏ Рѕ СЂРµС€С‘С‚РєСѓ.", usr)
 		playsound(src.loc, 'grillehit.ogg', 80, 1)
 		src.health -= 2
 		healthcheck()
 		return
 	else if(!shock(usr, 70)) // or anyone else.
-		usr << text("\red Ты лупишь решётку.")
+		usr << text("\red РЇ СѓРґР°СЂСЏСЋ СЂРµС€С‘С‚РєСѓ.")
 		for(var/mob/O in oviewers())
 			if ((O.client && !( O.blinded )))
-				O << text("\red [] стучит по решётке.", usr)
+				O << text("\red <b>[]</b> СѓРґР°СЂСЏРµС‚ СЂРµС€С‘С‚РєСѓ.", usr)
 		playsound(src.loc, 'grillehit.ogg', 80, 1)
 		src.health -= 1
 
 /obj/grille/attack_paw(var/obj/M)
 	if ((usr.mutations & 8))
-		usr << text("\red Ты лупишь решётку.")
+		usr << text("\red РЇ СѓРґР°СЂСЏСЋ СЂРµС€С‘С‚РєСѓ.")
 		for(var/mob/O in oviewers())
 			if ((O.client && !( O.blinded )))
-				O << text("\red [] пинает решётку.", usr)
+				O << text("\red <b>[]</b> СѓРґР°СЂСЏРµС‚ СЂРµС€С‘С‚РєСѓ.", usr)
 		playsound(src.loc, 'grillehit.ogg', 80, 1)
 		src.health -= 2
 		healthcheck()
 		return
 	else if(!shock(usr, 70))
-		usr << text("\red Ты лупишь решётку.")
+		usr << text("\red РЇ СѓРґР°СЂСЏСЋ СЂРµС€С‘С‚РєСѓ.")
 		for(var/mob/O in oviewers())
 			if ((O.client && !( O.blinded )))
-				O << text("\red [] пинает решетку.", usr)
+				O << text("\red <b>[]</b> СѓРґР°СЂСЏРµС‚ СЂРµС€С‘С‚РєСѓ.", usr)
 		playsound(src.loc, 'grillehit.ogg', 80, 1)
 		src.health -= 1
 
@@ -95,9 +95,9 @@
 		if(!shock(user, 90))
 			playsound(src.loc, 'Screwdriver.ogg', 100, 1)
 			src.anchored = !( src.anchored )
-			user << (src.anchored ? "Ты вкручиваешь решётку к полу." : "Ты откручиваешь решётку от пола.")
+			user << (src.anchored ? "РЇ РїСЂРёРєСЂСѓС‡РёРІР°СЋ СЂРµС€С‘С‚РєСѓ Рє РїРѕР»Сѓ." : "РЇ РѕС‚РєСЂСѓС‡РёРІР°СЋ СЂРµС€С‘С‚РєСѓ.")
 			for(var/mob/O in oviewers())
-				O << text("\red <b>[user]</b> [src.anchored ? "вкручивает" : "откручивает"] решётку.")
+				O << text("\red <b>[user]</b> [src.anchored ? "РїСЂРёРєСЂСѓС‡РёРІР°РµС‚" : "РѕС‚РєСЂСѓС‡РёРІР°РµС‚"] СЂРµС€С‘С‚РєСѓ.")
 			return
 	else if(istype(W, /obj/item/weapon/shard))	// can't get a shock by attacking with glass shard
 		src.health -= W.force * 0.1

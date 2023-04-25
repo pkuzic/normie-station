@@ -6,17 +6,17 @@
 
 /obj/mopbucket/examine()
 	set src in usr
-	usr << text("\icon[] [] ñîäåğæèò åù¸ àæ [] åäèíèö âîäû!", src, src.name, src.reagents.total_volume)
+	usr << text("\icon[] [] ÑĞ¾Ğ´ĞµÑ€Ğ¶Ğ¸Ñ‚ ĞµÑ‰Ğµ [] ĞµĞ´Ğ¸Ğ½Ğ¸Ñ† Ğ²Ğ¾Ğ´Ñ‹!", src, src.name, src.reagents.total_volume)
 	..()
 
 /obj/mopbucket/attackby(obj/item/weapon/W as obj, mob/user as mob)
 	if (istype(W, /obj/item/weapon/mop))
 		if (src.reagents.total_volume >= 2)
 			src.reagents.trans_to(W, 2)
-			user << "\blue Òû íàìà÷èâàåøü øâàáğó."
+			user << "\blue Ğ¯ [usr.gender == 1 ? "Ğ½Ğ°Ğ¼Ğ¾Ñ‡Ğ¸Ğ»" : "Ğ½Ğ°Ğ¼Ğ¾Ñ‡Ğ¸Ğ»Ğ°"] ÑˆĞ²Ğ°Ğ±Ñ€Ñƒ." //gender check
 			playsound(src.loc, 'slosh.ogg', 25, 1)
 		if (src.reagents.total_volume < 1)
-			user << "\blue Âîäè÷êà çàêîí÷èëàñü!"
+			user << "\red Ğ’Ğ¾Ğ´Ğ° Ğ·Ğ°ĞºĞ¾Ğ½Ñ‡Ğ¸Ğ»Ğ°ÑÑŒ!"
 	return
 
 /obj/mopbucket/ex_act(severity)

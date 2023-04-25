@@ -17,7 +17,7 @@
 /mob/verb/ksa_DumpImage()
 	set name = "Dump Map"
 	if(!src.client.holder)
-		src << "Only administrators may use this command."
+		src << "Нельзя."
 		return
 
 	ksa_DumpInternal()

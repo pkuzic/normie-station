@@ -60,7 +60,7 @@
 	return
 
 /obj/item/verb/move_to_top()
-	set category = "Взаимодействие"
+	set category = "Р’Р·Р°РёРјРѕРґРµР№СЃС‚РІРёРµ"
 	set src in oview(1)
 
 	if(!istype(src.loc, /turf) || usr.stat || usr.restrained() )

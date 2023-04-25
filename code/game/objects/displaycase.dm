@@ -78,16 +78,16 @@
 /obj/displaycase/attack_hand(mob/user as mob)
 	if (src.destroyed && src.occupied)
 		new /obj/item/weapon/gun/energy/laser_gun/captain( src.loc )
-		user << "\b Ты деактивируешь защитное поле, встроенное в витрину."
+		user << "\b РЇ РґРµР°РєС‚РёРІРёСЂСѓСЋ Р·Р°С‰РёС‚РЅРѕРµ РїРѕР»Рµ, РІСЃС‚СЂРѕРµРЅРЅРѕРµ РІ РІРёС‚СЂРёРЅСѓ."
 		src.occupied = 0
 		src.add_fingerprint(user)
 		update_icon()
 		return
 	else
-		usr << text("\blue Ты пинаешь витрину.")
+		usr << text("\blue РЇ РїРёРЅР°СЋ РІРёС‚СЂРёРЅСѓ.")
 		for(var/mob/O in oviewers())
 			if ((O.client && !( O.blinded )))
-				O << text("\red <b>[]</b> пинает витрину.", usr)
+				O << text("\red <b>[]</b> РїРёРЅР°РµС‚ РІРёС‚СЂРёРЅСѓ.", usr)
 		src.health -= 2
 		healthcheck()
 		return

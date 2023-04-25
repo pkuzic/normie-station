@@ -205,7 +205,7 @@
 	return
 
 /obj/item/device/infra/verb/rotate()
-	set category = "Взаимодействие"
+	set category = "Р’Р·Р°РёРјРѕРґРµР№СЃС‚РІРёРµ"
 	set src in usr
 
 	src.dir = turn(src.dir, 90)

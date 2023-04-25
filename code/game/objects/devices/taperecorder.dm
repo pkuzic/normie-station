@@ -62,7 +62,7 @@
 
 /obj/item/device/taperecorder/verb/record()
 	set name = "Start Recording"
-	set category = "Взаимодействие"
+	set category = "Р’Р·Р°РёРјРѕРґРµР№СЃС‚РІРёРµ"
 	if(usr.stat)
 		usr << "Not when you're incapicated."
 		return
@@ -88,7 +88,7 @@
 
 /obj/item/device/taperecorder/verb/stop_recording()
 	set name = "Stop Recording"
-	set category = "Взаимодействие"
+	set category = "Р’Р·Р°РёРјРѕРґРµР№СЃС‚РІРёРµ"
 
 
 	if(usr.stat)
@@ -109,7 +109,7 @@
 
 /obj/item/device/taperecorder/verb/clear_memory()
 	set name = "Clear Memory"
-	set category = "Взаимодействие"
+	set category = "Р’Р·Р°РёРјРѕРґРµР№СЃС‚РІРёРµ"
 
 
 	if(usr.stat)
@@ -132,7 +132,7 @@
 
 /obj/item/device/taperecorder/verb/playback_memory()
 	set name = "Playback Memory"
-	set category = "Взаимодействие"
+	set category = "Р’Р·Р°РёРјРѕРґРµР№СЃС‚РІРёРµ"
 
 
 	if(usr.stat)

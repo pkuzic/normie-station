@@ -76,14 +76,10 @@
 		if (M.buckled == src)
 			if (M != user)
 				M.visible_message(\
-					"\blue <b>[user.name]</b> отстегивает от стула <b>[M.name]</b>!",\
-					"<b>[user.name]</b> отстегивает теб&#255; от <b>[src.genitive]<b>.",\
-					"Ты слышишь л&#255;зг металла.")
+					"<b>[user.name]</b> РѕС‚СЃС‚С‘РіРёРІР°РµС‚ <b>[M.name]</b> РѕС‚ <b>[src.genitive]</b>!")
 			else
 				M.visible_message(\
-					"\blue <b>[M.name]</b> отстегивает себ&#255; от стула!",\
-					"Ты отстегиваешь себ&#255; от <b>[src.genitive]</b>.",\
-					"Ты слышишь л&#255;зг металла.")
+					"<b>[M.name]</b> РѕС‚СЃС‚С‘РіРёРІР°РµС‚СЃСЏ РѕС‚ <b>[src.genitive]</b>!")
 //			world << "[M] is no longer buckled to [src]"
 			M.anchored = 0
 			M.buckled = null
@@ -92,19 +88,15 @@
 
 /obj/stool/proc/buckle_mob(mob/M as mob, mob/user as mob)
 	if (!ticker)
-		user << "Ты не можешь никого застегнуть до начала игры."
+		user << "РЇ РЅРµ РјРѕРіСѓ РїСЂРёСЃС‚РµРіРЅСѓС‚СЊ РЅРёРєРѕРіРѕ, РїРѕРєР° РёРіСЂР° РЅРµ РЅР°С‡Р°Р»Р°СЃСЊ."
 	if ((!( istype(M, /mob) ) || get_dist(src, user) > 1 || M.loc != src.loc || user.restrained() || usr.stat))
 		return
 	if (M == usr)
 		M.visible_message(\
-			"\blue <b>[M.name]</b> застегиваетс&#255;!",\
-			"Ты застегиваешь себ&#255; к <b>[src.genitive]</b>.",\
-			"Ты слышишь л&#255;зг металла.")
+			"<b>[M.name]</b> РїСЂРёСЃС‚С‘РіРёРІР°РµС‚СЃСЏ Рє <b>[src.dative]</b>!")
 	else
 		M.visible_message(\
-			"\blue <b>[user.name]</b> застегивает <b>[M.name]</b> к <b>[src.genitive]</b>!",\
-			"<b>[user.name]</b> застёгивает теб&#255; к <b>[src.genitive]</b>.",\
-			"Ты слышишь л&#255;зг металла.")
+			"<b>[user.name]</b> РїСЂРёСЃС‚С‘РіРёРІР°РµС‚ <b>[M.name]</b> Рє <b>[src.dative]</b>!")
 	M.anchored = 1
 	M.buckled = src
 	M.loc = src.loc
@@ -158,8 +150,8 @@
 	return
 
 /obj/stool/chair/e_chair/verb/toggle_power()
-	set name = "Переключить электрический стул"
-	set category = "Взаимодействие"
+	set name = "Р—Р°РґРµР№СЃС‚РІРѕРІР°С‚СЊ СЌР»РµРєС‚СЂРёС‡РµСЃРєРёР№ СЃС‚СѓР»"
+	set category = "Р’Р·Р°РёРјРѕРґРµР№СЃС‚РІРёРµ"
 	set src in oview(1)
 
 	if ((usr.stat || usr.restrained() || !( usr.canmove ) || usr.lying))
@@ -193,13 +185,13 @@
 	s.start()
 	for(var/mob/living/M in src.loc)
 		M.burn_skin(85)
-		M << "\red <B>Ты ощущаешь электрический разр&#255;д, проход&#255;щий через твоё тело.</B>"
+		M << "\red <B>РЇ С‡СѓРІСЃС‚РІСѓСЋ, РєР°Рє СЌР»РµРєС‚СЂРёС‡РµСЃРєРёР№ Р·Р°СЂСЏРґ РїСЂРѕС…РѕРґРёС‚ С‡РµСЂРµР· РјРѕС‘ С‚РµР»Рѕ!</B>"
 		sleep(1)
 		M.burn_skin(85)
 		if(M.stunned < 600)
 			M.stunned = 600
 	for(var/mob/M in hearers(src, null))
-		M.show_message("\red Электрическое кресло отключаетс&#255;.", 3, "\red Ты слышишь резкий звук электрического разр&#255;да!", 2)
+		M.show_message("\red Р­Р»РµРєС‚СЂРёС‡РµСЃРєРёР№ СЃС‚СѓР» РѕС‚РєР»СЋС‡Р°РµС‚СЃСЏ.", 3, "\red РЇ СЃР»С‹С€Сѓ СЂРµР·РєРёР№ СѓРґР°СЂ С‚РѕРєРѕРј!", 2)
 
 	A.power_light = light
 	A.updateicon()
@@ -243,8 +235,8 @@
 	return
 
 /obj/stool/chair/verb/rotate()
-	set name = "Повернуть стул"
-	set category = "Взаимодействие"
+	set name = "РљСЂСѓС‚РёС‚СЊ СЃС‚СѓР»"
+	set category = "Р’Р·Р°РёРјРѕРґРµР№СЃС‚РІРёРµ"
 	set src in oview(1)
 
 	src.dir = turn(src.dir, 90)
@@ -275,15 +267,15 @@
 //roller bed
 
 /obj/stool/bed/roller
-	name = "носилки"
-	desc = "И ты на них окажешьс&#255;."
+	name = "РќРѕСЃРёР»РєРё"
+	desc = "РџРѕРјРѕР¶РµС‚ РІС‹С‚Р°С‰РёС‚СЊ СЂР°РЅРµРЅРЅРѕРіРѕ С‚РѕРІР°СЂРёС‰Р° РёР· Р»СЋР±РѕР№ РїРµСЂРµРґСЂСЏРіРё - Р¶РёРІС‹Рј, РёР»Рё РјС‘СЂС‚РІС‹Рј."
 
-	nominative = "носилки" //Кто? Что? (есть)
-	genitive = "носилок" //Кого? Чего? (нет)
-	dative = "носилкам"  //Кому? Чему? (дам)
-	accusative = "носилки" //Кого? Что? (вижу)
-	instrumentative = "носилками" //Кем? Чем? (горжусь)
-	prepositive = "носилках" //О ком? О чем? (думаю)
+	nominative = "РЅРѕСЃРёР»РєРё" //РєС‚Рѕ? С‡С‚Рѕ? Р»РµСЃС‚РЅРёС†Р°
+	genitive = "РЅРѕСЃРёР»РѕРє" //РєРѕРіРѕ? С‡РµРіРѕ? Р»РµСЃС‚РЅРёС†С‹
+	dative = "РЅРѕСЃРёР»РєР°Рј"  //РєРѕРјСѓ?  С‡РµРјСѓ? Р»РµСЃС‚РЅРёС†Рµ
+	accusative = "РЅРѕСЃРёР»РєРё" //РєРѕРіРѕ? С‡С‚Рѕ?
+	instrumentative = "РЅРѕСЃРёР»РєР°РјРё" //РєРµРј? С‡РµРј? Р»РµСЃС‚РЅРёС†РµР№
+	prepositive = "РЅРѕСЃРёР»РєР°С…" //Рѕ РєРѕРј? Рѕ С‡РµРј? Р»РµСЃС‚РЅРёС†Рµ
 
 	icon = 'rollerbed.dmi'
 	icon_state = "down"
@@ -297,20 +289,16 @@
 
 	buckle_mob(mob/M as mob, mob/user as mob)
 		if (!ticker)
-			user << "Ты не можешь никого застегнуть до начала игры."
+			user << "РЇ РЅРµ РјРѕРіСѓ РїСЂРёСЃС‚РµРіРЅСѓС‚СЊ РЅРёРєРѕРіРѕ, РїРѕРєР° РёРіСЂР° РЅРµ РЅР°С‡Р°Р»Р°СЃСЊ."
 			return 0
 		if ((!( istype(M, /mob) ) || get_dist(src, user) > 1 || M.loc != src.loc || user.restrained() || usr.stat || M.buckled))
 			return 0
 		if (M == usr)
 			M.visible_message(\
-				"\blue <b>[M.name]</b> застёгиваетс&#255;!",\
-				"Ты застёгиваешьс&#255; к <b>[src.dative]</b>.",\
-				"Ты слышишь л&#255;зг металла.")
+				"\blue <b>[M.name]</b> РїСЂРёСЃС‚С‘РіРёРІР°РµС‚СЃСЏ Рє <b>[src.dative]</b>!")
 		else
 			M.visible_message(\
-				"\blue <b>[user.name]</b> застегивает <b>[M.name]</b> к <b>[src.dative]</b>!",\
-				"<b>[user.name]</b> застегивает теб&#255; к <b>[src.dative]</b>.",\
-				"Ты слышишь л&#255;зг металла.")
+				"\blue <b>[M.name]</b> РїСЂРёСЃС‚С‘РіРёРІР°РµС‚СЃСЏ Рє <b>[src.genitive]</b>!")
 		M.anchored = 1
 		M.buckled = src
 		M.loc = src.loc
@@ -328,14 +316,10 @@
 			if (M.buckled == src)
 				if (M != user)
 					M.visible_message(\
-						"\blue <b>[user.name]</b> отстёгивает <b>[M.name]</b>!",\
-						"Ты отстёгиваешь <b>[user.name]</b> от <b>[src.genitive]</b>.",\
-						"Ты слышишь л&#255;зг металла.")
+					"\blue <b>[user.name]</b> РѕС‚СЃС‚С‘РіРёРІР°РµС‚ <b>[M.name]</b> РѕС‚ <b>[src.genitive]</b>!")
 				else
 					M.visible_message(\
-						"\blue <b>[M.name]</b> отстёгиваетс&#255;!",\
-						"Ты отстёгиваешьс&#255; от <b>[src.genitive]</b>.",\
-						"Ты слышишь л&#255;зг металла.")
+						"\blue <b>[M.name]</b> РѕС‚СЃС‚С‘РіРёРІР°РµС‚СЃСЏ РѕС‚ <b>[src.genitive]</b>!")
 				M.pixel_y = 0
 				M.anchored = 0
 				M.buckled = null

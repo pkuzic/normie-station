@@ -60,8 +60,15 @@ obj/machinery/atmospherics/pipe
 		icon = 'pipes.dmi'
 		icon_state = "intact-f"
 
-		name = "pipe"
-		desc = "A one meter section of regular pipe"
+		name = "труба"
+		desc = "Приблизительно полтора-два метра самой обыкновенной трубы, способной передавать газы."
+
+		nominative = "труба" //кто? что? лестница
+		genitive = "трубу" //кого? чего? лестницы
+		dative = "трубе"  //кому?  чему? лестнице
+		accusative = "трубу" //кого? что?
+		instrumentative = "трубой" //кем? чем? лестницей
+		prepositive = "трубе" //о ком? о чем? лестнице
 
 		volume = 70
 
@@ -289,7 +296,7 @@ obj/machinery/atmospherics/pipe
 						connect(node1old,1)
 					if(node2old)
 						connect(node2old,2)
-					user << "\blue You repair [src]"
+					user << "\blue Я чиню <b>[src.genitive]</b>."
 					del(W)
 	simple/multiz
 		icon = 'multiz_pipe.dmi'
@@ -367,7 +374,15 @@ obj/machinery/atmospherics/pipe
 	simple/reinforced
 		maximum_pressure = 350*ONE_ATMOSPHERE
 		fatigue_pressure = 305*ONE_ATMOSPHERE
-		name = "Reinforced Pipe"
+		name = "Усиленная труба"
+
+		nominative = "усиленная труба" //кто? что? лестница
+		genitive = "усиленную трубу" //кого? чего? лестницы
+		dative = "усиленной трубе"  //кому?  чему? лестнице
+		accusative = "усиленную трубу" //кого? что?
+		instrumentative = "усиленной трубой" //кем? чем? лестницей
+		prepositive = "усиленной трубе" //о ком? о чем? лестнице
+
 		icon_state = "intact"
 		level = 2
 
@@ -389,8 +404,15 @@ obj/machinery/atmospherics/pipe
 		icon = 'pipe_tank.dmi'
 		icon_state = "intact"
 
-		name = "Pressure Tank"
-		desc = "A large vessel containing pressurized gas."
+		name = "Бак давления"
+		desc = "Крупный бак, содержащий газ под давлением."
+
+		nominative = "бак давления" //кто? что? лестница
+		genitive = "бак давления" //кого? чего? лестницы
+		dative = "баку давления"  //кому?  чему? лестнице
+		accusative = "бак давлления" //кого? что?
+		instrumentative = "баком давления" //кем? чем? лестницей
+		prepositive = "баке давления" //о ком? о чем? лестнице
 
 		volume = 1620 //in liters, 0.9 meters by 0.9 meters by 2 meters
 
@@ -411,7 +433,14 @@ obj/machinery/atmospherics/pipe
 				parent.mingle_with_turf(loc, 200)
 
 		carbon_dioxide
-			name = "Pressure Tank (Carbon Dioxide)"
+			name = "Бак давления (углекислый газ)"
+
+			nominative = "бак давления" //кто? что? лестница
+			genitive = "бак давления" //кого? чего? лестницы
+			dative = "баку давления"  //кому?  чему? лестнице
+			accusative = "бак давлления" //кого? что?
+			instrumentative = "баком давления" //кем? чем? лестницей
+			prepositive = "баке давления" //о ком? о чем? лестнице
 
 			New()
 				air_temporary = new
@@ -424,7 +453,14 @@ obj/machinery/atmospherics/pipe
 
 		toxins
 			icon = 'orange_pipe_tank.dmi'
-			name = "Pressure Tank (Plasma)"
+			name = "Бак давления (плазма)"
+
+			nominative = "бак давления" //кто? что? лестница
+			genitive = "бак давления" //кого? чего? лестницы
+			dative = "баку давления"  //кому?  чему? лестнице
+			accusative = "бак давлления" //кого? что?
+			instrumentative = "баком давления" //кем? чем? лестницей
+			prepositive = "баке давления" //о ком? о чем? лестнице
 
 			New()
 				air_temporary = new
@@ -437,7 +473,14 @@ obj/machinery/atmospherics/pipe
 
 		oxygen_agent_b
 			icon = 'red_orange_pipe_tank.dmi'
-			name = "Pressure Tank (Oxygen + Plasma)"
+			name = "Бак давления (кислород и плазма)"
+
+			nominative = "бак давления" //кто? что? лестница
+			genitive = "бак давления" //кого? чего? лестницы
+			dative = "баку давления"  //кому?  чему? лестнице
+			accusative = "бак давлления" //кого? что?
+			instrumentative = "баком давления" //кем? чем? лестницей
+			prepositive = "баке давления" //о ком? о чем? лестнице
 
 			New()
 				air_temporary = new
@@ -453,7 +496,14 @@ obj/machinery/atmospherics/pipe
 
 		oxygen
 			icon = 'blue_pipe_tank.dmi'
-			name = "Pressure Tank (Oxygen)"
+			name = "Бак давления (кислород)"
+
+			nominative = "бак давления" //кто? что? лестница
+			genitive = "бак давления" //кого? чего? лестницы
+			dative = "баку давления"  //кому?  чему? лестнице
+			accusative = "бак давлления" //кого? что?
+			instrumentative = "баком давления" //кем? чем? лестницей
+			prepositive = "баке давления" //о ком? о чем? лестнице
 
 			New()
 
@@ -467,7 +517,14 @@ obj/machinery/atmospherics/pipe
 
 		nitrogen
 			icon = 'red_pipe_tank.dmi'
-			name = "Pressure Tank (Nitrogen)"
+			name = "Бак давления (азот)"
+
+			nominative = "бак давления" //кто? что? лестница
+			genitive = "бак давления" //кого? чего? лестницы
+			dative = "баку давления"  //кому?  чему? лестнице
+			accusative = "бак давлления" //кого? что?
+			instrumentative = "баком давления" //кем? чем? лестницей
+			prepositive = "баке давления" //о ком? о чем? лестнице
 
 			New()
 
@@ -481,7 +538,14 @@ obj/machinery/atmospherics/pipe
 
 		air
 			icon = 'red_pipe_tank.dmi'
-			name = "Pressure Tank (Air)"
+			name = "Бак давления (воздух)"
+
+			nominative = "бак давления" //кто? что? лестница
+			genitive = "бак давления" //кого? чего? лестницы
+			dative = "баку давления"  //кому?  чему? лестнице
+			accusative = "бак давлления" //кого? что?
+			instrumentative = "баком давления" //кем? чем? лестницей
+			prepositive = "баке давления" //о ком? о чем? лестнице
 
 			New()
 
@@ -535,12 +599,12 @@ obj/machinery/atmospherics/pipe
 		attackby(var/obj/item/weapon/W as obj, var/mob/user as mob)
 			if (istype(W, /obj/item/device/analyzer) && get_dist(user, src) <= 1)
 				for (var/mob/O in viewers(user, null))
-					O << "\red [user] has used the analyzer on \icon[icon]"
+					O << "\red <b>[user]</b> испольузует анализатор на \icon[icon]<b>[src]</b>"
 
 				var/pressure = parent.air.return_pressure()
 				var/total_moles = parent.air.total_moles()
 
-				user << "\blue Results of analysis of \icon[icon]"
+				user << "\blue Результат анализа \icon[icon]<b>[src]</b>"
 				if (total_moles>0)
 					var/o2_concentration = parent.air.oxygen/total_moles
 					var/n2_concentration = parent.air.nitrogen/total_moles
@@ -549,23 +613,29 @@ obj/machinery/atmospherics/pipe
 
 					var/unknown_concentration =  1-(o2_concentration+n2_concentration+co2_concentration+plasma_concentration)
 
-					user << "\blue Pressure: [round(pressure,0.1)] kPa"
-					user << "\blue Nitrogen: [round(n2_concentration*100)]%"
-					user << "\blue Oxygen: [round(o2_concentration*100)]%"
-					user << "\blue CO2: [round(co2_concentration*100)]%"
-					user << "\blue Plasma: [round(plasma_concentration*100)]%"
+					user << "\blue Давление: [round(pressure,0.1)] кПа"
+					user << "\blue Азот: [round(n2_concentration*100)]%"
+					user << "\blue Кислород: [round(o2_concentration*100)]%"
+					user << "\blue Углекислый газ: [round(co2_concentration*100)]%"
+					user << "\blue Плазма: [round(plasma_concentration*100)]%"
 					if(unknown_concentration>0.01)
-						user << "\red Unknown: [round(unknown_concentration*100)]%"
-					user << "\blue Temperature: [round(parent.air.temperature-T0C)]&deg;C"
+						user << "\red Неизвестно: [round(unknown_concentration*100)]%"
+					user << "\blue Температура: [round(parent.air.temperature-T0C)]&deg;C"
 				else
-					user << "\blue Tank is empty!"
+					user << "\blue Бак пуст!"
 	vent
 		icon = 'pipe_vent.dmi'
 		icon_state = "intact"
 
-		name = "Vent"
-		desc = "A large air vent"
+		name = "Вентиляция"
+		desc = "Крупная воздушная вентиляция."
 
+		nominative = "вентиляция" //кто? что? лестница
+		genitive = "вентиляцию" //кого? чего? лестницы
+		dative = "вентиляции"  //кому?  чему? лестнице
+		accusative = "вентиляцию" //кого? что?
+		instrumentative = "вентиляцией" //кем? чем? лестницей
+		prepositive = "вентиляции" //о ком? о чем? лестнице
 		level = 1
 
 		volume = 250
@@ -647,8 +717,15 @@ obj/machinery/atmospherics/pipe
 		icon = 'pipe_manifold.dmi'
 		icon_state = "manifold-f"
 
-		name = "pipe manifold"
-		desc = "A manifold composed of regular pipes"
+		name = "Трубный коллектор"
+		desc = "Коллектор с коннекторами для обычных труб."
+
+		nominative = "трубный коллектор" //кто? что? лестница
+		genitive = "трубного коллектора" //кого? чего? лестницы
+		dative = "трубному коллектору"  //кому?  чему? лестнице
+		accusative = "трубный коллектор" //кого? что?
+		instrumentative = "трубным коллектором" //кем? чем? лестницей
+		prepositive = "трубном коллекторе" //о ком? о чем? лестнице
 
 		volume = 105
 

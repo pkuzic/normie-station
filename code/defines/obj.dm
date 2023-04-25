@@ -681,7 +681,7 @@ obj/item/brain
 	..()
 	spawn(5)
 		if(src.owner)
-			src.name = "мозг [src.owner]"
+			src.name = "РњРѕР·Рі [src.owner]"
 
 /obj/noticeboard
 	name = "Notice Board"

@@ -37,7 +37,7 @@
 
 	// However, if you need to copy-paste a lot of the code below, consider whether it would be better to insert another hook underneath.
 	if(isobj(src.loc))
-		if(src.loc:overrideMobSay(message, src) != "not used") // if the obj has a custom effect
+		if(src.loc:overrideMobSay(message, src) != "не используется") // if the obj has a custom effect
 			return
 
 	//custom modes
@@ -51,9 +51,9 @@
 	var/alt_name = "" // In case your face is burnt or you're wearing a mask
 	if (istype(src, /mob/living/carbon/human) && (name != real_name || face_dmg))
 		if (src:wear_id && src:wear_id:registered)
-			alt_name = " (as [src:wear_id:registered])"
+			alt_name = " (как [src:wear_id:registered])"
 		else
-			alt_name = " (as Unknown)"
+			alt_name = " (как Неизвестный)" //This piece has to check the sex and then choose the right declination - Неизвестный/Неизвестная
 
 	var/italics = 0
 	var/message_range = null
@@ -88,23 +88,26 @@
 			  ":d" = "Mining",
 			  ":q" = "Cargo",
 
+				/*
 			  //kinda localization -- rastaf0
 			  //same keys as above, but on russian keyboard layout. This file uses cp1251 as encoding.
-			  ":�" = "right hand",
-			  ":�" = "left hand",
-			  ":�" = "intercom",
-			  ":�" = "department",
-			  ":�" = "Command",
-			  ":�" = "Science",
-			  ":�" = "Medical",
-			  ":�" = "Engineering",
-			  ":�" = "Security",
-			  ":�" = "whisper",
-			  ":�" = "binary",
-			  ":�" = "alientalk",
-			  ":�" = "Syndicate",
-			  ":�" = "Mining",
-			  ":�" = "Cargo",
+			  //24/04/2023 - since byond has succesfully fucked up the encoding, it is not needed anymore. At some point I should do something about that. If I'll remember
+			  ":ê" = "right hand",
+			  ":ä" = "left hand",
+			  ":ø" = "intercom",
+			  ":ð" = "department",
+			  ":ñ" = "Command",
+			  ":ò" = "Science",
+			  ":ü" = "Medical",
+			  ":ó" = "Engineering",
+			  ":û" = "Security",
+			  ":ö" = "whisper",
+			  ":è" = "binary",
+			  ":ô" = "alientalk",
+			  ":å" = "Syndicate",
+			  ":â" = "Mining",
+			  ":é" = "Cargo",
+			  */
 		)
 
 		message_mode = keys[channel_prefix]
@@ -130,6 +133,7 @@
 		message = Intoxicated(message)
 
 	// :downs:
+	// Need to get rid of this cringe later on - and do something better
 	if (brainloss >= 60)
 		message = dd_replacetext(message, " am ", " ")
 		message = dd_replacetext(message, " is ", " ")
@@ -258,7 +262,7 @@
 		if (!istype(src, /mob/living/carbon/human) || istype(wear_mask, /obj/item/clothing/mask/gas/voice))
 			rendered = "<span class='game say'><span class='name'>[name]</span> <span class='message'>[message_a]</span></span>"
 		else if(face_dmg)
-			rendered = "<span class='game say'><span class='name'>Unknown</span>[alt_name] <span class='message'>[message_a]</span></span>"
+			rendered = "<span class='game say'><span class='name'>Неизвестный</span>[alt_name] <span class='message'>[message_a]</span></span>"
 		else
 			rendered = "<span class='game say'><span class='name'>[real_name]</span>[alt_name] <span class='message'>[message_a]</span></span>"
 
@@ -296,7 +300,7 @@
 	if (!istype(src, /mob/living/carbon/human) || istype(wear_mask, /obj/item/clothing/mask/gas/voice))
 		rendered = "<span class='game say'><span class='name'>[name]</span> <span class='message'>[message]</span></span>"
 	else if (face_dmg)
-		rendered = "<span class='game say'><span class='name'>Unknown</span>[alt_name] <span class='message'>[message]</span></span>"
+		rendered = "<span class='game say'><span class='name'>Неизвестный</span>[alt_name] <span class='message'>[message]</span></span>"
 	else
 		rendered = "<span class='game say'><span class='name'>[real_name]</span>[alt_name] <span class='message'>[message]</span></span>"
 	for (var/client/C)

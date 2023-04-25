@@ -19,58 +19,58 @@ obj/structure
 	if(istype(W, /obj/item/weapon/wrench) && state == 0 && anchored && !istype(src,/obj/structure/girder/displaced))
 		playsound(src.loc, 'Ratchet.ogg', 100, 1)
 		var/turf/T = get_turf(user)
-		user << "\blue Ñåé÷àñ ðàçáèðàþ áàëêó."
+		user << "\blue Ð¯ Ñ€Ð°Ð·Ð±Ð¸Ñ€Ð°ÑŽ Ð±Ð°Ð»ÐºÑƒ..."
 		sleep(40)
 		if(get_turf(user) == T)
-			user << "\blue Òû ðàçáèðàåøü áàëêó!"
+			user << "\blue Ð¯ [usr.gender == 1 ? "Ñ€Ð°Ð·Ð¾Ð±Ñ€Ð°Ð»" : "Ñ€Ð°Ð·Ð¾Ð±Ñ€Ð°Ð»Ð°"] Ð±Ð°Ð»ÐºÑƒ!"
 			new /obj/item/weapon/sheet/metal(get_turf(src))
 			del(src)
 
 	else if(istype(W, /obj/item/weapon/screwdriver) && state == 2 && istype(src,/obj/structure/girder/reinforced))
 		playsound(src.loc, 'Screwdriver.ogg', 100, 1)
 		var/turf/T = get_turf(user)
-		user << "\blue Òåïåðü îòêðó÷èâàþ îïîðíûå ñòîéêè..."
+		user << "\blue Ð¯ Ð¾Ñ‚ÐºÑ€ÑƒÑ‡Ð¸Ð²Ð°ÑŽ Ð¾Ð¿Ð¾Ñ€Ð½Ñ‹Ðµ ÑÑ‚Ð¾Ð¹ÐºÐ¸..."
 		sleep(40)
 		if(get_turf(user) == T)
-			user << "\blue Òû îòêðó÷èâàåøü îïîðíûå ñòîéêè!"
+			user << "\blue Ð¯ [usr.gender == 1 ? "Ð¾Ñ‚ÐºÑ€ÑƒÑ‚Ð¸Ð»" : "Ð¾Ñ‚ÐºÑ€ÑƒÑ‚Ð¸Ð»Ð°"] Ð¾Ð¿Ð¾Ñ€Ð½Ñ‹Ðµ ÑÑ‚Ð¾Ð¹ÐºÐ¸"
 			state = 1
 
 	else if(istype(W, /obj/item/weapon/wirecutters) && istype(src,/obj/structure/girder/reinforced) && state == 1)
 		playsound(src.loc, 'Wirecutter.ogg', 100, 1)
 		var/turf/T = get_turf(user)
-		user << "\blue Óáèðàþ îïîðíûå ñòîéêè..."
+		user << "\blue Ð¯ ÑƒÐ±Ð¸Ñ€Ð°ÑŽ Ð¾Ð¿Ð¾Ñ€Ð½Ñ‹Ðµ ÑÑ‚Ð¾Ð¹ÐºÐ¸..."
 		sleep(40)
 		if(get_turf(user) == T)
-			user << "\blue Òû óáèðàåøü îïîðíûå ñòîéêè!"
+			user << "\blue Ð¯ [usr.gender == 1 ? "ÑƒÐ±Ñ€Ð°Ð»" : "ÑƒÐ±Ñ€Ð°Ð»Ð°"] Ð¾Ð¿Ð¾Ñ€Ð½Ñ‹Ðµ ÑÑ‚Ð¾Ð¹ÐºÐ¸!"
 			new/obj/structure/girder( src.loc )
 			del(src)
 
 	else if(istype(W, /obj/item/weapon/crowbar) && state == 0 && anchored )
 		playsound(src.loc, 'Crowbar.ogg', 100, 1)
 		var/turf/T = get_turf(user)
-		user << "\blue Ñåé÷àñ ñìåùàþ áàëêè..."
+		user << "\blue Ð¯ ÑÐ¼ÐµÑ‰Ð°ÑŽ Ð±Ð°Ð»ÐºÑƒ..."
 		sleep(40)
 		if(get_turf(user) == T)
-			user << "\blue Òû ñìåùàåøü áàëêè!"
+			user << "\blue Ð¯ [usr.gender == 1 ? "ÑÐ¼ÐµÑÑ‚Ð¸Ð»" : "ÑÐ¼ÐµÑÑ‚Ð¸Ð»Ð°"] Ð±Ð°Ð»ÐºÑƒ!"
 			new/obj/structure/girder/displaced( src.loc )
 			del(src)
 
 	else if(istype(W, /obj/item/weapon/wrench) && state == 0 && !anchored )
 		playsound(src.loc, 'Ratchet.ogg', 100, 1)
 		var/turf/T = get_turf(user)
-		user << "\blue Íàêîíåö êðåïëþ áàëêè..."
+		user << "\blue Ð¯ Ð·Ð°ÐºÑ€ÐµÐ¿Ð»ÑÑŽ Ð±Ð°Ð»ÐºÑƒ..."
 		sleep(40)
 		if(get_turf(user) == T)
-			user << "\blue Òû çàêðåïë&#255;åøü áàëêè!"
+			user << "\blue Ð¯ [usr.gender == 1 ? "Ð·Ð°ÐºÑ€ÐµÐ¿Ð¸Ð»" : "Ð·Ð°ÐºÑ€ÐµÐ¿Ð¸Ð»Ð°"] Ð±Ð°Ð»ÐºÑƒ!"
 			new/obj/structure/girder( src.loc )
 			del(src)
 
 	else if((istype(W, /obj/item/weapon/sheet/metal)) && (W:amount >= 2))
 		var/turf/T = get_turf(user)
-		user << "\blue Âîò òåïåðü äîáàâëþ îáøèâî÷êó..."
+		user << "\blue Ð¯ Ð´Ð¾Ð±Ð°Ð²Ð»ÑÑŽ Ð¿Ð¾ÐºÑ€Ñ‹Ñ‚Ð¸Ðµ..."
 		sleep(40)
 		if (W && get_turf(user) == T)
-			user << "\blue Òû äîáàâë&#255;åøü îáøèâêó!"
+			user << "\blue Ð¯ [usr.gender == 1 ? "Ð´Ð¾Ð±Ð°Ð²Ð¸Ð»" : "Ð´Ð¾Ð±Ð°Ð²Ð¸Ð»Ð°"] Ð¿Ð¾ÐºÑ€Ñ‹Ñ‚Ð¸Ðµ!"
 			var/turf/Tsrc = get_turf(src)
 			Tsrc.ReplaceWithWall()
 			W:amount -= 2
@@ -82,10 +82,10 @@ obj/structure
 	else if (istype(W, /obj/item/weapon/sheet/r_metal))
 		var/turf/T = get_turf(user)
 		if (src.icon_state == "reinforced") //Time to finalize!
-			user << "\blue Ñåé÷àñ çàêàí÷èâàþ óñèëåííóþ ñòåíó...."
+			user << "\blue Ð¯ Ð·Ð°ÐºÐ°Ð½Ñ‡Ð¸Ð²Ð°ÑŽ ÑƒÐºÑ€ÐµÐ¿Ð»ÑÑ‚ÑŒ ÑÑ‚ÐµÐ½Ñƒ..."
 			sleep(50)
 			if(W && get_turf(user) == T)
-				user << "\blue Ñòåíà óñèëåíà!"
+				user << "\blue Ð¯ [usr.gender == 1 ? "ÑƒÐºÑ€ÐµÐ¿Ð¸Ð»" : "ÑƒÐºÑ€ÐµÐ¿Ð¸Ð»Ð°"] ÑÑ‚ÐµÐ½Ñƒ!"
 				var/turf/Tsrc = get_turf(src)
 				Tsrc.ReplaceWithRWall()
 				W:amount--
@@ -94,9 +94,9 @@ obj/structure
 				del(src)
 				return
 		else
-			user << "\blue Ñåé÷àñ óêðåïë&#255;þ áàëî÷êè..."
+			user << "\blue Ð¯ ÑƒÐºÑ€ÐµÐ¿Ð»ÑÑŽ Ð±Ð°Ð»ÐºÐ¸..."
 			sleep(60)
-			user << "\blue Áàëêè óñèëåíû!"
+			user << "\blue Ð¯ [usr.gender == 1 ? "ÑƒÐºÑ€ÐµÐ¿Ð¸Ð»" : "ÑƒÐºÑ€ÐµÐ¿Ð¸Ð»Ð°"] Ð±Ð°Ð»ÐºÐ¸!"
 			new/obj/structure/girder/reinforced( src.loc )
 			del(src)
 			return

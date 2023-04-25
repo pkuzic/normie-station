@@ -5,7 +5,7 @@
 	//	message_admins("\red <b>Explosion spawn by [usr.client.key] blocked</b>")
 	//	return
 
-	message_admins("\red <b>Взрыв вызванный [usr.client.key]</b>")
+	message_admins("\red <b>Р’Р·СЂС‹РІ Р·Р°СЃРїР°РІРЅРµРЅ [usr.client.key]</b>")
 proc/explosion(turf/epicenter, devastation_range, heavy_impact_range, light_impact_range, flash_range, force = 0)
 	if(!epicenter)
 		return
@@ -13,7 +13,7 @@ proc/explosion(turf/epicenter, devastation_range, heavy_impact_range, light_impa
 		return
 	spawn(0)
 		if(devastation_range > 1)
-			message_admins("Взрыв размера ([devastation_range], [heavy_impact_range], [light_impact_range]) в зоне [epicenter.loc.name]. (<a href=\"byond://?src=%admin_ref%;teleto=\ref[epicenter]\">Прыгнуть</a>)", admin_ref = 1)
+			message_admins("Р’Р·СЂС‹РІ СЃРёР»С‹ ([devastation_range], [heavy_impact_range], [light_impact_range]) РІ Р·РѕРЅРµ [epicenter.loc.name]. (<a href=\"byond://?src=%admin_ref%;teleto=\ref[epicenter]\">РџСЂС‹Р¶РѕРє</a>)", admin_ref = 1)
 
 		defer_cables_rebuild ++
 

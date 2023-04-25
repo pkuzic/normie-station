@@ -151,12 +151,12 @@
 			if (src.large)
 				src.MouseDrop_T(W:affecting, user)	//act like they were dragged onto the closet
 			else
-				user << "Шкафчик слишком маленький, чтобы вместить <b>[W]</b>"
+				user << "РЁРєР°С„ СЃР»РёС€РєРѕРј РјР°Р»РµРЅСЊРєРёР№, С‡С‚РѕР±С‹ РїРѕРјРµСЃС‚РёС‚СЊ С‚Р°Рј <b>[W]</b>."
 		user.drop_item()
 		if (W)
 			W.loc = src.loc
 	else if(src.broken)
-		user << "\red Упс! Кажетс&#255;, сломано."
+		user << "\red Р”РµР»Р°! РЎР»РѕРјР°РЅРѕ."
 		return
 	else if(istype(W, /obj/item/weapon/card/emag) && !src.broken)
 		src.broken = 1
@@ -164,19 +164,19 @@
 		src.icon_state = src.icon_broken
 		for(var/mob/O in viewers(user, 3))
 			if ((O.client && !( O.blinded )))
-				O << text("\blue Шкафчик сломан [user] с помощью электромагнитной карты!")
+				O << text("\blue <b>[user]</b> РІР·Р»Р°РјС‹РІР°РµС‚ С€РєР°С„ СЃ РїРѕРјРѕС‰СЊСЋ СЌР»РµРєС‚СЂРѕРјР°РіРЅРёС‚РЅРѕР№ РєР°СЂС‚С‹!")
 	else if(src.allowed(user))
 		src.locked = !src.locked
 		for(var/mob/O in viewers(user, 3))
 			if ((O.client && !( O.blinded )))
-				O << text("\blue шкафчик был []крыт <b>[]</b>.", (src.locked ? "за" : "от"), user)
+				O << text("\blue <b>[]</b> []РєСЂС‹РІР°РµС‚ С€РєР°С„.", user, (src.locked ? "Р·Р°" : "РѕС‚"))
 		if(src.locked)
 			src.icon_state = src.icon_locked
 		else
 			src.icon_state = src.icon_closed
 
 	else
-		user << "\red Отказано в доступе!"
+		user << "\red РћС‚РєР°Р·Р°РЅРѕ РІ РґРѕСЃС‚СѓРїРµ!"
 	return
 
 /obj/secure_closet/relaymove(mob/user as mob)
@@ -193,11 +193,11 @@
 		src.icon_state = src.icon_opened
 		src.opened = 1
 	else if(src.locked && world.timeofday - bang_time >= 14)
-		user << "\blue Закрыто!"
+		user << "\blue Р—Р°РєСЂС‹С‚Рѕ!"
 		for(var/mob/M in hearers(src, null))
 			if(!(M.sdisabilities & 4) && M.ear_deaf == 0)
-				M << text("<FONT size=[]>БАХ, бах!</FONT>", max(0, 5 - get_dist(src, M)))
-		user.unlock_medal("Это ловушка!", 0, "Оказатьс&#255; закрытым или заваренным в шкафчик", "просто")
+				M << text("<FONT size=[]>Р‘РђРњ, Р±Р°Рј!</FONT>", max(0, 5 - get_dist(src, M)))
+		user.unlock_medal("Р­С‚Рѕ Р»РѕРІСѓС€РєР°!", 0, "Р‘С‹С‚СЊ Р·Р°РєСЂС‹С‚С‹Рј РёР»Рё Р·Р°РІР°СЂРµРЅРЅС‹Рј РІ С€РєР°С„Сѓ", "РїСЂРѕСЃС‚Рѕ")
 		bang_time = world.timeofday
 		return
 	return
@@ -215,7 +215,7 @@
 	if (user != O)
 		for(var/mob/B in viewers(user, 3))
 			if ((B.client && !( B.blinded )))
-				B << text("\red <b>[]</b> помещает <b>[]</b> внутрь <b>[]</b>!", user, O, src.genitive)
+				B << text("\red <b>[]</b> РїРѕРјРµС‰Р°РµС‚ <b>[]</b> РІРЅСѓС‚СЂСЊ <b>[]</b>!", user, O, src.genitive)
 	src.add_fingerprint(user)
 	return
 /*

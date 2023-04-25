@@ -116,10 +116,10 @@ proc/Airflow(zone/A,zone/B,n)
 					if(M:wear_suit.airflowprot) continue
 				if(M:shoes)
 					if(M:shoes.type == /obj/item/clothing/shoes/magnetic) continue
-				if(M:weakened <= 0) M << "\red The sudden rush of air knocks you over!"
+				if(M:weakened <= 0) M << "\red Внезапный поток воздуха сбивает меня с ног!"
 				M:weakened = max(M:weakened,2)
 			else
-				if(M:weakened <= 0) M << "\red The sudden rush of air knocks you over!"
+				if(M:weakened <= 0) M << "\red Внезапный поток воздуха сбивает меня с ног!"
 				M:weakened = max(M:weakened,5)
 		if(!istype(M,/obj/item) && n < vsc.AF_MOVEMENT_THRESHOLD) continue
 		if(istype(M,/obj/item))
@@ -153,10 +153,10 @@ proc/Airflow(zone/A,zone/B,n)
 					if(M:wear_suit.airflowprot) continue
 				if(M:shoes)
 					if(M:shoes.type == /obj/item/clothing/shoes/magnetic) continue
-				if(M:weakened <= 0) M << "\red The sudden rush of air knocks you over!"
+				if(M:weakened <= 0) M << "\red Внезапный поток воздуха сбивает меня с ног!"
 				M:weakened = max(M:weakened,2)
 			else
-				if(M:weakened <= 0) M << "\red The sudden rush of air knocks you over!"
+				if(M:weakened <= 0) M << "\red Внезапный поток воздуха сбивает меня с ног!"
 				M:weakened = max(M:weakened,5)
 		if(!istype(M,/obj/item) && n < vsc.AF_MOVEMENT_THRESHOLD) continue
 		if(istype(M,/obj/item))
@@ -206,10 +206,10 @@ proc/AirflowSpace(zone/A)
 						if(M:wear_suit.airflowprot) continue
 					if(M:shoes)
 						if(M:shoes.type == /obj/item/clothing/shoes/magnetic) continue
-					if(M:weakened <= 0) M << "\red The sudden rush of air knocks you over!"
+					if(M:weakened <= 0) M << "\red Внезапный поток воздуха сбивает меня с ног!"
 					M:weakened = max(M:weakened,2)
 				else
-					if(M:weakened <= 0) M << "\red The sudden rush of air knocks you over!"
+					if(M:weakened <= 0) M << "\red Внезапный поток воздуха сбивает меня с ног!"
 					M:weakened = max(M:weakened,5)
 
 			if(!istype(M,/obj/item) && n < vsc.AF_MOVEMENT_THRESHOLD) continue
@@ -311,7 +311,7 @@ atom/movable
 						if(src:wear_suit.airflowprot) return
 					if(src:shoes)
 						if(src:shoes.type == /obj/item/clothing/shoes/magnetic) return
-			src << "\red You are sucked away by airflow!"
+			src << "\red Поток воздуха засасывает меня!"
 		airflow_speed = min(round(n),9)
 		var
 			xo = airflow_dest.x - src.x
@@ -358,7 +358,7 @@ atom/movable
 						if(src:wear_suit.airflowprot) return
 					if(src:shoes)
 						if(src:shoes.type == /obj/item/clothing/shoes/magnetic) return
-			src << "\red You are pushed away by airflow!"
+			src << "\red Поток воздуха толкает меня!"
 		airflow_speed = min(round(n),9)
 		var
 			xo = -(airflow_dest.x - src.x)
@@ -393,7 +393,7 @@ atom/movable
 			if(istype(A,/obj/item)) return .
 			if(ismob(src) || (isobj(src) && !istype(src,/obj/item)))
 				for(var/mob/M in hearers(src))
-					M.show_message("\red <B>[src] slams into [A]!</B>",1,"\red You hear a loud slam!",2)
+					M.show_message("\red <B>[src]</b> врезается в <b>[A.genitive]!</B>",1,"\red Я слышу громкий хлопок!",2) //needs sound
 				if(istype(src,/mob/living/carbon/human))
 					playsound(src.loc, "swing_hit", 25, 1, -1)
 					loc:add_blood(src)

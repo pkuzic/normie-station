@@ -1,14 +1,14 @@
 /obj/item/weapon/tank/jetpack
-	name = "ğåàêòèâíûé ğàíåö (Êèñëîğîä)"
+	name = "Ğ ĞµĞ°ĞºÑ‚Ğ¸Ğ²Ğ½Ñ‹Ğ¹ Ñ€Ğ°Ğ½ĞµÑ† (ĞºĞ¸ÑĞ»Ğ¾Ñ€Ğ¾Ğ´)"
 
-	nominative = "ğåàêòèâíûé ğàíåö" //Êòî? ×òî? (åñòü)
-	genitive = "ğåàêòèâíîãî ğàíöà" //Êîãî? ×åãî? (íåò)
-	dative = "ğåàêòèâíîìó ğàíöó"  //Êîìó? ×åìó? (äàì)
-	accusative = "ğåàêòèâíûé ğàíåö" //Êîãî? ×òî? (âèæó)
-	instrumentative = "ğåàêòèâíûì ğàíöîì" //Êåì? ×åì? (ãîğæóñü)
-	prepositive = "ğåàêòèâíîì ğàíöå" //Î êîì? Î ÷åì? (äóìàş)
+	nominative = "Ñ€ĞµĞ°ĞºÑ‚Ğ¸Ğ²Ğ½Ñ‹Ğ¹ Ñ€Ğ°Ğ½ĞµÑ†" //ĞºÑ‚Ğ¾? Ñ‡Ñ‚Ğ¾? Ğ»ĞµÑÑ‚Ğ½Ğ¸Ñ†Ğ°
+	genitive = "Ñ€ĞµĞ°ĞºÑ‚Ğ¸Ğ²Ğ½Ğ¾Ğ³Ğ¾ Ñ€Ğ°Ğ½Ñ†Ğ°" //ĞºĞ¾Ğ³Ğ¾? Ñ‡ĞµĞ³Ğ¾? Ğ»ĞµÑÑ‚Ğ½Ğ¸Ñ†Ñ‹
+	dative = "Ñ€ĞµĞ°ĞºÑ‚Ğ¸Ğ²Ğ½Ğ¾Ğ¼Ñƒ Ñ€Ğ°Ğ½Ñ†Ñƒ"  //ĞºĞ¾Ğ¼Ñƒ?  Ñ‡ĞµĞ¼Ñƒ? Ğ»ĞµÑÑ‚Ğ½Ğ¸Ñ†Ğµ
+	accusative = "Ñ€ĞµĞ°ĞºÑ‚Ğ¸Ğ²Ğ½Ğ¾Ğ³Ğ¾ Ñ€Ğ°Ğ½Ñ†Ğ°" //ĞºĞ¾Ğ³Ğ¾? Ñ‡Ñ‚Ğ¾?
+	instrumentative = "Ñ€ĞµĞ°ĞºÑ‚Ğ¸Ğ²Ğ½Ñ‹Ğ¼ Ñ€Ğ°Ğ½Ñ†Ğ¾Ğ¼" //ĞºĞµĞ¼? Ñ‡ĞµĞ¼? Ğ»ĞµÑÑ‚Ğ½Ğ¸Ñ†ĞµĞ¹
+	prepositive = "Ñ€ĞµĞ°ĞºÑ‚Ğ¸Ğ²Ğ½Ğ¾Ğ¼ Ñ€Ğ°Ğ½Ñ†Ğµ" //Ğ¾ ĞºĞ¾Ğ¼? Ğ¾ Ñ‡ĞµĞ¼? Ğ»ĞµÑÑ‚Ğ½Ğ¸Ñ†Ğµ
 
-	desc = "Ñ ïîìîùüş íåãî ìîæíî ëåòàòü!"
+	desc = "ĞŸĞ¾Ğ·Ğ²Ğ¾Ğ»ÑĞµÑ‚ Ğ±Ğ¾Ñ€Ğ¾Ğ·Ğ´Ğ¸Ñ‚ÑŒ ĞºĞ¾ÑĞ¼Ğ¸Ñ‡ĞµÑĞºĞ¸Ğµ Ğ¿Ñ€Ğ¾ÑÑ‚Ğ¾Ñ€Ñ‹! ĞĞµĞ´Ğ¾Ğ»Ğ³Ğ¾."
 	icon_state = "jetpack0"
 	var/on = 0.0
 	w_class = 4.0
@@ -82,7 +82,7 @@
 // Note that this assumes the ship's top is at z=1 and bottom at z=4
 /obj/item/weapon/tank/jetpack/proc/move_z(cardinal, mob/user as mob)
 	if (user.z > 4)
-		user << "\red Â ıòîì íàïğàâëåíèè íåò íè÷åãî èíòåğåñíîãî."
+		user << "\red ĞĞ¸Ñ‡ĞµĞ³Ğ¾ Ğ¸Ğ½Ñ‚ĞµÑ€ĞµÑĞ½Ğ¾Ğ³Ğ¾ Ğ² ÑÑ‚Ğ¾Ğ¼ Ğ½Ğ°Ğ¿Ñ€Ğ°Ğ²Ğ»ĞµĞ½Ğ¸Ğ¸."
 		return
 	if(allow_thrust(0.01, user))
 		switch(cardinal)
@@ -93,9 +93,9 @@
 					if(T && istype(T, /turf/space) && (istype(user.loc, /turf/space) || istype(user.loc, /turf/space/hull)))
 						user.Move(T)
 					else
-						user << "\red Òû íàòûêàåøüñ&#255; íà ïîêğûòèå êîğàáë&#255;."
+						user << "\red Ğ¯ Ğ²Ñ€ĞµĞ·Ğ°ÑÑÑŒ Ğ² Ğ¾Ğ±ÑˆĞ¸Ğ²ĞºÑƒ ÑÑƒĞ´Ğ½Ğ°."
 				else
-					user << "\red Ãğàâèòàöè&#255; ñóäíà õîğîøî äåğæèò òåá&#255; íà îğáèòå!" // Assuming the ship starts on z level 1, you don't want to go past it
+					user << "\red Ğ“Ñ€Ğ°Ğ²Ğ¸Ñ‚Ğ°Ñ†Ğ¸Ñ ÑÑƒĞ´Ğ½Ğ° Ğ´ĞµÑ€Ğ¶Ğ¸Ñ‚ Ğ¼ĞµĞ½Ñ Ğ½Ğ° Ğ¾Ñ€Ğ±Ğ¸Ñ‚Ğµ!" // Assuming the ship starts on z level 1, you don't want to go past it
 
 			if (DOWN) // Going down!
 				if (user.z != 4 && user.z != 5) // If we aren't at the very bottom of the ship, or out in space
@@ -104,9 +104,9 @@
 					if(T && (istype(T, /turf/space) || istype(T, /turf/space/hull)) && istype(user.loc, /turf/space))
 						user.Move(T)
 					else
-						user << "\red Òû íàòûêàåøüñ&#255; íà ïîêğûòèå êîğàáë&#255;."
+						user << "\red Ğ¯ Ğ²Ñ€ĞµĞ·Ğ°ÑÑÑŒ Ğ² Ğ¾Ğ±ÑˆĞ¸Ğ²ĞºÑƒ ÑÑƒĞ´Ğ½Ğ°."
 				else
-					user << "\red Ãğàâèòàöè&#255; ñóäíà õîğîøî äåğæèò òåá&#255; íà îğáèòå!"
+					user << "\red Ğ“Ñ€Ğ°Ğ²Ğ¸Ñ‚Ğ°Ñ†Ğ¸Ñ ÑÑƒĞ´Ğ½Ğ° Ğ´ĞµÑ€Ğ¶Ğ¸Ñ‚ Ğ¼ĞµĞ½Ñ Ğ½Ğ° Ğ¾Ñ€Ğ±Ğ¸Ñ‚Ğµ!"
 
 
 /obj/item/weapon/tank/jetpack/verb/toggle()

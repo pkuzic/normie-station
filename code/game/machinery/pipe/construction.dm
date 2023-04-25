@@ -54,7 +54,7 @@ Buildable meters
 // rotate the pipe item clockwise
 
 /obj/item/weapon/pipe/verb/rotate()
-	set category = "Взаимодействие"
+	set category = "Р’Р·Р°РёРјРѕРґРµР№СЃС‚РІРёРµ"
 	set src in view(1)
 
 	if ( usr.stat || usr.restrained() )

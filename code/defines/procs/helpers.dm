@@ -263,44 +263,34 @@
 	while(index)
 		t = copytext(t, 1, index) + "#" + copytext(t, index+1)
 		index = findtext(t, "\n")
-
 	index = findtext(t, "\t")
 	while(index)
 		t = copytext(t, 1, index) + "#" + copytext(t, index+1)
 		index = findtext(t, "\t")
-
-	index = findtext(t, "ÿ")
+	index = findtext(t, "Ã¿")
 	while(index)
 		t = copytext(t, 1, index) + "__255;" + copytext(t, index+1)
-		index = findtext(t, "ÿ")
-
+		index = findtext(t, "Ã¿")
 	t = html_encode(t)
-
 	index = findtext(t, "__255;")
 	while(index)
 		t = copytext(t, 1, index) + "&#255;" + copytext(t, index+6)
 		index = findtext(t, "__255;")
-
 	return t
-
 /proc/sanitize_spec(var/t)
 	var/index = findtext(t, "\n")
 	while(index)
 		t = copytext(t, 1, index) + "#" + copytext(t, index+1)
 		index = findtext(t, "\n")
-
 	index = findtext(t, "\t")
 	while(index)
 		t = copytext(t, 1, index) + "#" + copytext(t, index+1)
 		index = findtext(t, "\t")
-
-	index = findtext(t, "ÿ")
+	index = findtext(t, "Ã¿")
 	while(index)
-		t = copytext(t, 1, index) + "ß" + copytext(t, index+1)
-		index = findtext(t, "ÿ")
-
+		t = copytext(t, 1, index) + "ÃŸ" + copytext(t, index+1)
+		index = findtext(t, "Ã¿")
 	t = html_encode(t)
-
 	return t*/
 
 /proc/sanitize(var/t)
@@ -313,25 +303,25 @@
 	while(index)
 		t = copytext(t, 1, index) + "#" + copytext(t, index+1)
 		index = findtext(t, "\t")
-	index = findtext(t, "ÿ")
-	while(index)
+	//index = findtext(t, "Ã¿")
+	/*while(index)
 		t = copytext(t, 1, index) + "____255;" + copytext(t, index+1)
-		index = findtext(t, "ÿ")
+		index = findtext(t, "Ã¿")*/
 
 	t = html_encode(t)
 
-	index = findtext(t, "____255;")
+	/*index = findtext(t, "____255;")
 	while(index)
 		t = copytext(t, 1, index) + "&#255;" + copytext(t, index+8)
-		index = findtext(t, "____255;")
+		index = findtext(t, "____255;")*/
 
 	return t
 
 /proc/sanitize_spec(var/t)
-	var/index = findtext(t, "ÿ")
+	/*var/index = findtext(t, "Ã¿")
 	while(index)
 		t = copytext(t, 1, index) + "____255;" + copytext(t, index+1)
-		index = findtext(t, "ÿ")
+		index = findtext(t, "Ã¿")
 
 	t = html_encode(t)
 
@@ -339,7 +329,7 @@
 	while(index)
 		t = copytext(t, 1, index) + "&#1103;" + copytext(t, index+8)
 		index = findtext(t, "____255;")
-	return t
+	return t*/
 
 /proc/strip_html(var/t, var/limit=MAX_MESSAGE_LEN)
 	t = copytext(t,1,limit)
@@ -398,21 +388,21 @@
 
 /*/proc/capitalize(var/t as text)
 	return uppertext(copytext(t, 1, 2)) + copytext(t, 2)*/ // v1
-	
+
 /proc/capitalize(var/t as text) // -awesome
 	var/ch = copytext(t,1,2)
-	var/lowchars[] = list("à","á","â","ã","ä","å","¸","æ","ç","è","é","ê","ë","ì","í","î","ï","ğ","ñ","ò","ó","ô","õ","ö","÷","ø","ù","ú","û","ü","ı","ş","ÿ","y","ÿ")
-	var/upchars[] =  list("À","Á","Â","Ã","Ä","Å","¨","Æ","Ç","È","É","Ê","Ë","Ì","Í","Î","Ï","Ğ","Ñ","Ò","Ó","Ô","Õ","Ö","×","Ø","Ù","Ú","Û","Ü","İ","Ş","ß","ß","ß")
+	var/lowchars[] = list("Ã ","Ã¡","Ã¢","Ã£","Ã¤","Ã¥","Â¸","Ã¦","Ã§","Ã¨","Ã©","Ãª","Ã«","Ã¬","Ã­","Ã®","Ã¯","Ã°","Ã±","Ã²","Ã³","Ã´","Ãµ","Ã¶","Ã·","Ã¸","Ã¹","Ãº","Ã»","Ã¼","Ã½","Ã¾","Ã¿","y","Ã¿")
+	var/upchars[] =  list("Ã€","Ã","Ã‚","Ãƒ","Ã„","Ã…","Â¨","Ã†","Ã‡","Ãˆ","Ã‰","ÃŠ","Ã‹","ÃŒ","Ã","Ã","Ã","Ã","Ã‘","Ã’","Ã“","Ã”","Ã•","Ã–","Ã—","Ã˜","Ã™","Ãš","Ã›","Ãœ","Ã","Ã","ÃŸ","ÃŸ","ÃŸ")
 	var/n = lowchars.Find(ch)
 	if(n)
 		ch = upchars[n]
 		return ch + copytext(t, 2)
 	return uppertext(copytext(t, 1, 2)) + copytext(t, 2)
-	
+
 /proc/de_capitalize(var/t as text) // for 'me'
 	var/ch = copytext(t,1,2)
-	var/lowchars[] = list("à","á","â","ã","ä","å","¸","æ","ç","è","é","ê","ë","ì","í","î","ï","ğ","ñ","ò","ó","ô","õ","ö","÷","ø","ù","ú","û","ü","ı","ş","ÿ","y","ÿ")
-	var/upchars[] =  list("À","Á","Â","Ã","Ä","Å","¨","Æ","Ç","È","É","Ê","Ë","Ì","Í","Î","Ï","Ğ","Ñ","Ò","Ó","Ô","Õ","Ö","×","Ø","Ù","Ú","Û","Ü","İ","Ş","ß","ß","ß")
+	var/lowchars[] = list("Ã ","Ã¡","Ã¢","Ã£","Ã¤","Ã¥","Â¸","Ã¦","Ã§","Ã¨","Ã©","Ãª","Ã«","Ã¬","Ã­","Ã®","Ã¯","Ã°","Ã±","Ã²","Ã³","Ã´","Ãµ","Ã¶","Ã·","Ã¸","Ã¹","Ãº","Ã»","Ã¼","Ã½","Ã¾","Ã¿","y","Ã¿")
+	var/upchars[] =  list("Ã€","Ã","Ã‚","Ãƒ","Ã„","Ã…","Â¨","Ã†","Ã‡","Ãˆ","Ã‰","ÃŠ","Ã‹","ÃŒ","Ã","Ã","Ã","Ã","Ã‘","Ã’","Ã“","Ã”","Ã•","Ã–","Ã—","Ã˜","Ã™","Ãš","Ã›","Ãœ","Ã","Ã","ÃŸ","ÃŸ","ÃŸ")
 	var/n = upchars.Find(ch)
 	if(n)
 		ch = lowchars[n]
@@ -631,16 +621,13 @@
 	if(!N || !N.loc) return
 	if(M.z != N.z) return
 	var/line = new/list()
-
 	var/dx = abs(M.x - N.x)
 	var/dy = abs(M.y - N.y)
 	var/cx = M.x < N.x ? 1 : -1
 	var/cy = M.y < N.y ? 1 : -1
 	var/slope = dy ? dx/dy : INFINITY
-
 	var/tslope = slope
 	var/turf/tloc = M.loc
-
 	while(tloc != N.loc)
 		if(tslope>0)
 			--tslope

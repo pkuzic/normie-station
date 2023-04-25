@@ -10,15 +10,15 @@
 			O.loc = src
 			src.notices++
 			src.icon_state = text("nboard0[]", src.notices) //update sprite
-			user << "\blue Ты прикрепл&#255;ешь бумагу к доске объ&#255;влений."
+			user << "\blue РЇ РїСЂРёРєСЂРµРїР»СЏСЋ Р±СѓРјР°РіСѓ Рє РґРѕСЃРєРµ РѕР±СЉСЏРІР»РµРЅРёР№."
 		else
-			user << "\red Слишком много бумаги! Мою совсем не замет&#255;т."
+			user << "\red Р•СЃР»Рё СЏ РїСЂРёРєСЂРµРїР»СЋ Р±СѓРјР°РіСѓ Рє СЌС‚РѕР№ РґРѕСЃРєРµ РѕР±СЉСЏРІР»РµРЅРёР№, С‚Рѕ РµС‘ РЅРёРєС‚Рѕ РЅРµ Р·Р°РјРµС‚РёС‚. РќРµ РґРµР»Р°."
 
 /obj/noticeboard/attack_hand(user as mob)
-	var/dat = "<B>Доска объ&#255;влений</B><BR>"
+	var/dat = "<B>Р”РѕСЃРєР° РѕР±СЉСЏРІР»РµРЅРёР№</B><BR>"
 	for(var/obj/item/weapon/paper/P in src)
-		dat += text("<A href='?src=\ref[];read=\ref[]'>[]</A> <A href='?src=\ref[];write=\ref[]'>Write</A> <A href='?src=\ref[];remove=\ref[]'>Убрать</A><BR>", src, P, P.name, src, P, src, P)
-	user << browse("<HEAD><TITLE>Объ&#255;влени&#255;</TITLE></HEAD>[dat]","window=noticeboard")
+		dat += text("<A href='?src=\ref[];read=\ref[]'>[]</A> <A href='?src=\ref[];write=\ref[]'>Write</A> <A href='?src=\ref[];remove=\ref[]'>РЈР±СЂР°С‚СЊ</A><BR>", src, P, P.name, src, P, src, P)
+	user << browse("<HEAD><TITLE>РћР±СЉСЏРІР»РµРЅРёСЏ</TITLE></HEAD>[dat]","window=noticeboard")
 	onclose(user, "noticeboard")
 
 
@@ -27,7 +27,7 @@
 	usr.machine = src
 	if (href_list["remove"])
 		if ((usr.stat || usr.restrained())) //For when a player is handcuffed while they have the notice window open
-			usr << "\red Я не в том состо&#255;нии."
+			usr << "\red РќРµ РјРѕРіСѓ, РїРѕРєР° РјРѕРё СЂСѓРєРё СЃРєРѕРІР°РЅС‹."
 			return
 		var/obj/item/P = locate(href_list["remove"])
 		if ((P && P.loc == src))
@@ -40,7 +40,7 @@
 
 	if(href_list["write"])
 		if ((usr.stat || usr.restrained())) //For when a player is handcuffed while they have the notice window open
-			usr << "\red Я не в том состо&#255;нии."
+			usr << "\red РќРµ РјРѕРіСѓ, РїРѕРєР° РјРѕРё СЂСѓРєРё СЃРєРѕРІР°РЅС‹."
 			return
 		var/obj/item/P = locate(href_list["write"])
 
@@ -53,7 +53,7 @@
 					src.add_fingerprint(usr)
 					P.attackby(usr.l_hand, usr)
 				else
-					usr << "\red И ручечку бы!"
+					usr << "\red Рђ СЂСѓС‡РєСѓ Р±С‹!"
 
 	if (href_list["read"])
 		var/obj/item/weapon/paper/P = locate(href_list["read"])

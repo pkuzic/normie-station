@@ -1,16 +1,16 @@
 /obj/item/device/transfer_valve
 	icon = 'assemblies.dmi'
-	name = "пропускной клапан" // because that's what it is exadv1 and don't you dare change it
+	name = "РїРµСЂРµРїСѓСЃРєРЅРѕР№ РєР»Р°РїР°РЅ Р±Р°РєР°" // because that's what it is exadv1 and don't you dare change it
 
-	nominative = "пропускной клапан" //Кто? Что? (есть)
-	genitive = "пропускного клапана" //Кого? Чего? (нет)
-	dative = "пропускному клапану"  //Кому? Чему? (дам)
-	accusative = "пропускной клапан" //Кого? Что? (вижу)
-	instrumentative = "пропускным клапаном" //Кем? Чем? (горжусь)
-	prepositive = "пропускном клапане" //О ком? О чем? (думаю)
+	nominative = "РїРµСЂРµРїСѓСЃРєРЅРѕР№ РєР»Р°РїР°РЅ Р±Р°РєР°" //РєС‚Рѕ? С‡С‚Рѕ? Р»РµСЃС‚РЅРёС†Р°
+	genitive = "РїРµСЂРµРїСѓСЃРєРЅРѕРіРѕ РєР»Р°РїР°РЅР° Р±Р°РєР°" //РєРѕРіРѕ? С‡РµРіРѕ? Р»РµСЃС‚РЅРёС†С‹
+	dative = "РїРµСЂРµРїСѓСЃРєРЅРѕРјСѓ РєР»Р°РїР°РЅСѓ Р±Р°РєР°"  //РєРѕРјСѓ?  С‡РµРјСѓ? Р»РµСЃС‚РЅРёС†Рµ
+	accusative = "РїРµСЂРµРїСѓСЃРєРЅРѕРіРѕ РєР»Р°РїР°РЅР° Р±Р°РєР°" //РєРѕРіРѕ? С‡С‚Рѕ?
+	instrumentative = "РїРµСЂРµРїСѓСЃРєРЅС‹Рј РєР»Р°РїР°РЅРѕРј Р±Р°РєР°" //РєРµРј? С‡РµРј? Р»РµСЃС‚РЅРёС†РµР№
+	prepositive = "РїСЂРѕРїСѓСЃРєРЅРѕРј РєР»Р°РїР°РЅРѕРј Р±Р°РєР°" //Рѕ РєРѕРј? Рѕ С‡РµРј? Р»РµСЃС‚РЅРёС†Рµ
 
 	icon_state = "valve_1"
-	desc = "Регулирует передачу газа между двум&#255; резервуарами."
+	desc = "Р РµРіСѓР»РёСЂСѓРµС‚ С‚СЂР°РЅСЃРїРѕСЂС‚РёСЂРѕРІРєСѓ РІРѕР·РґСѓС…Р° РјРµР¶РґСѓ РґРІСѓРјСЏ Р±Р°РєР°РјРё."
 	var/obj/item/weapon/tank/tank_one
 	var/obj/item/weapon/tank/tank_two
 	var/obj/item/device/attached_device
@@ -22,35 +22,35 @@
 	attackby(obj/item/item, mob/user)
 		if(istype(item, /obj/item/weapon/tank))
 			if(tank_one && tank_two)
-				user << "\red Дл&#255; начала следует убрать один из резервуаров!"
+				user << "\red Р Р±РµР· С‚РѕРіРѕ РґРІР° Р±Р°РєР° СЃРѕРµРґРёРЅРµРЅС‹, РЅСѓР¶РЅРѕ РѕС‚СЃРѕРµРґРёРЅРёС‚СЊ С…РѕС‚СЊ РѕРґРёРЅ!"
 				return
 
 			if(!tank_one)
 				tank_one = item
 				user.drop_item()
 				item.loc = src
-				user << "\blue Ты присоедин&#255;ешь резервуар к пропускному клапану!"
+				user << "\blue РЇ РїСЂРёСЃРѕРµРґРёРЅСЏСЋ Р±Р°Рє Рє РїРµСЂРµРїСѓСЃРєРЅРѕРјСѓ РєР»Р°РїР°РЅСѓ."
 			else if(!tank_two)
 				tank_two = item
 				user.drop_item()
 				item.loc = src
-				user << "\blue Ты присоедин&#255;ешь резервуар к пропускному клапану!"
+				user << "\blue РЇ РїСЂРёСЃРѕРµРґРёРЅСЏСЋ Р±Р°Рє Рє РїРµСЂРµРїСѓСЃРєРЅРѕРјСѓ РєР»Р°РїР°РЅСѓ."
 
 			update_icon()
 
 		else if(istype(item, /obj/item/device/radio/signaler) || istype(item, /obj/item/device/timer) || istype(item, /obj/item/device/infra) || istype(item, /obj/item/device/prox_sensor))
 			if(attached_device)
-				user << "\red Дл&#255; начала следует убрать одно из устройств из пропускного клапана!"
+				user << "\red Р Р±РµР· С‚РѕРіРѕ СѓСЃС‚СЂРѕР№СЃС‚РІРѕ РїСЂРёСЃРѕРµРґРёРЅРµРЅРѕ Рє РєР»Р°РїР°РЅСѓ, РЅСѓР¶РЅРѕ СЃРЅР°С‡Р°Р»Р° РµРіРѕ РѕС‚СЃРѕРµРґРёРЅРёС‚СЊ!"
 				return
 
 			attached_device = item
 			user.drop_item()
 			item.loc = src
-			user << "\blue Ты подключаешь <b>[item.accusative]</b> к управлению пропускным клапаном!"
+			user << "\blue РЇ РїСЂРёСЃРѕРµРґРёРЅСЏСЋ <b>[item.accusative]</b> Рє РєРѕРЅС‚СЂРѕР»СЊРЅРѕР№ РїР°РЅРµР»Рё РєР»Р°РїР°РЅР°."
 			item.master = src
 
-			bombers += "<b>[key_name(user)]</b> подключает <b>[item.accusative]</b> к управлению пропускным клапаном."
-			message_admins("<b>[key_name_admin(user)]</b> подключает <b>[item.accusative]</b> к пропускному клапану.")
+			bombers += "<b>[key_name(user)]</b> РїСЂРёСЃРѕРµРґРёРЅСЏРµС‚ <b>[item.accusative]</b> Рє РїРµСЂРµРїСѓСЃРєРЅРѕРјСѓ РєР»Р°РїР°РЅСѓ."
+			message_admins("<b>[key_name_admin(user)]</b> РїСЂРёСЃРѕРµРґРёРЅСЏРµС‚ <b>[item.accusative]</b> Рє РїРµСЂРµРїСѓСЃРєРЅРѕРјСѓ РєР»Р°РїР°РЅСѓ.")
 			attacher = key_name(user)
 
 
@@ -60,11 +60,11 @@
 
 	attack_self(mob/user as mob)
 		user.machine = src
-		var/dat = {"<B> Свойства клапана: </B>
-		<BR> <B> Первый резервуар:</B> [tank_one] [tank_one.nominative ? "<A href='?src=\ref[src];tankone=1'>Убрать</A>" : ""]
-		<BR> <B> Второй резервуар:</B> [tank_two] [tank_two.nominative ? "<A href='?src=\ref[src];tanktwo=1'>Убрать</A>" : ""]
-		<BR> <B> Прикреплено ко клапану:</B> [attached_device.nominative ? "<A href='?src=\ref[src];device=1'>[attached_device]</A>" : "Ничего"] [attached_device ? "<A href='?src=\ref[src];rem_device=1'>Убрать</A>" : ""]
-		<BR> <B> Состо&#255;ние клапана: </B> [ valve_open ? "<A href='?src=\ref[src];open=1'>Закрыт</A> <B>Открыт</B>" : "<B>Закрыт</B> <A href='?src=\ref[src];open=1'>Открыт</A>"]"}
+		var/dat = {"<B> РЎРІРѕР№СЃС‚РІР° РєР»Р°РїР°РЅР°: </B>
+		<BR> <B> РџРµСЂРІС‹Р№ Р±Р°Рє:</B> [tank_one] [tank_one.nominative ? "<A href='?src=\ref[src];tankone=1'>РћС‚СЃРѕРµРґРёРЅРёС‚СЊ</A>" : ""]
+		<BR> <B> Р’С‚РѕСЂРѕР№ Р±Р°Рє:</B> [tank_two] [tank_two.nominative ? "<A href='?src=\ref[src];tanktwo=1'>РћС‚СЃРѕРµРґРёРЅРёС‚СЊ</A>" : ""]
+		<BR> <B> РџРѕРґСЃРѕРµРґРёРЅРµРЅРЅРѕРµ СѓСЃС‚СЂРѕР№СЃС‚РІРѕ:</B> [attached_device.nominative ? "<A href='?src=\ref[src];device=1'>[attached_device]</A>" : "РћС‚СЃСѓС‚СЃС‚РІСѓРµС‚"] [attached_device ? "<A href='?src=\ref[src];rem_device=1'>РћС‚СЃРѕРµРґРёРЅРёС‚СЊ</A>" : ""]
+		<BR> <B> РЎС‚Р°С‚СѓСЃ РїСЂРѕРїСѓСЃРєРЅРѕРіРѕ РєР»Р°РїР°РЅР°: </B> [ valve_open ? "<A href='?src=\ref[src];open=1'>Р—Р°РєСЂС‹С‚</A> <B>РћС‚РєСЂС‹С‚</B>" : "<B>Р—Р°РєСЂС‹С‚</B> <A href='?src=\ref[src];open=1'>РћС‚РєСЂС‹С‚</A>"]"}
 
 		user << browse(dat, "window=trans_valve;size=600x300")
 		onclose(user, "trans_valve")
@@ -152,8 +152,8 @@
 				var/turf/bombturf = get_turf(src)
 				var/bombarea = bombturf.loc.name
 
-				bombers += "Клапан бомбы открыт в <b>[bombarea]</b>, крепление сделано: <b>[attacher]</b>. В последний раз трогал: <b>[src.fingerprintslast]</b>"
-				message_admins("Клапан бомбы открыт в <b>[bombarea]</b>, крепление сделано: <b>[attacher]</b>. В последний раз трогал: <b>[src.fingerprintslast]</b>")
+				bombers += "РљР»Р°РїР°РЅ Р±РѕРјР±С‹ РѕС‚РєСЂС‹С‚ РІ <b>[bombarea]</b>, РїСЂРёСЃРѕРµРґРёРЅРёР» СѓСЃС‚СЂРѕР№СЃС‚РІРѕ РєРѕ РєР»Р°РїР°РЅСѓ: <b>[attacher]</b>. РџРѕСЃР»РµРґРЅРёРµ РѕС‚РїРµС‡Р°С‚РєРё: <b>[src.fingerprintslast]</b>"
+				message_admins("РљР»Р°РїР°РЅ Р±РѕРјР±С‹ РѕС‚РєСЂС‹С‚ РІ <b>[bombarea]</b>, РїСЂРёСЃРѕРµРґРёРЅРёР» СѓСЃС‚СЂРѕР№СЃС‚РІРѕ РєРѕ РєР»Р°РїР°РЅСѓ: <b>[attacher]</b>. РџРѕСЃР»РµРґРЅРёРµ РѕС‚РїРµС‡Р°С‚РєРё: <b>[src.fingerprintslast]</b>")
 
 				var/datum/gas_mixture/temp
 				temp = tank_one.air_contents.remove_ratio(1)
