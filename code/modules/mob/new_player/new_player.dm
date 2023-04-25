@@ -71,7 +71,7 @@ mob/new_player
 			var/output = {"
 			<head>
 				<meta charset="UTF-8">
-			</head
+			</head>
 
 			<HR><B>Добро пожаловать!</B><BR><HR>"}
 
@@ -483,8 +483,8 @@ mob/new_player
 	var/title1
 	var/title2
 	var/title3
-	var/h_style = "Короткие волосы"
-	var/f_style = "Без растительности"
+	var/h_style = "Short Hair"
+	var/f_style = "Shaved"
 	var/slotname
 	var/r_hair = 0.0
 	var/g_hair = 0.0
@@ -753,6 +753,10 @@ mob/new_player
 			var/T = row["slot"]
 			var/K = row["slotname"]
 			slots += row["slotname"]
+
+			//src << "[T], [K], [usr.ckey]"
+
+			dat += {"<head><meta charset="UTF-8"></head>"}
 			dat += "<a href='byond://?src=\ref[user];preferences=1;loadslot=[T]'>Загрузить Слот [T]([K]) </a><a href='byond://?src=\ref[user];preferences=1;removeslot=[T]'>(R)</a><br><br>"
 
 		dat += "<a href='byond://?src=\ref[user];preferences=1;loadslot=CLOSE'>Закрыть</a><br>"
@@ -761,7 +765,8 @@ mob/new_player
 	proc/closesave(mob/user)
 		user << browse(null, "window=saves;size=600x640")
 	proc/SetChoices(mob/user, occ=1)
-		var/HTML = "<body>"
+		var/HTML = {"<head><meta charset="UTF-8"></head>"}
+		HTML = "<body>"
 		HTML += "<tt><center>"
 		switch(occ)
 			if(1.0)
@@ -787,7 +792,8 @@ mob/new_player
 		return
 
 	proc/ShowTitle(mob/user,choice=1)
-		var/HTML = "<body>"
+		var/HTML = {"<head><meta charset="UTF-8"></head>"}
+		HTML = "<body>"
 		HTML += "<tt><center>"
 		switch(choice)
 			if(1.0)
@@ -827,7 +833,7 @@ mob/new_player
 	proc/SetJob(mob/user, occ=1, job="Капитан")
 		if ((!( occupations.Find(job) ) && !( assistant_occupations.Find(job) ) && job != "Капитан") && job != "Без предпочтений")
 			return
-		if (job=="AI" && (!config.allow_ai))
+		if (job=="ИИ" && (!config.allow_ai))
 			return
 		if (jobban_isbanned(user, job))
 			return
@@ -1107,7 +1113,7 @@ mob/new_player
 				//var/
 				//Getting rid of bios. I was a fan of bios for a long time, but who the hell reads them?
 				//var/DBQuery/query = dbcon.NewQuery("REPLACE INTO `players` (`ckey`,`slot`,`slotname`,`real_name`, `gender`, `ages`, `occupation1`, `occupation2`, `occupation3`,`hair_red`, `hair_green`, `hair_blue`, `facial_red`, `facial_green`, `facial_blue`, `skin_tone`, `hair_style_name`, `facial_style_name`, `eyes_red`,`eyes_green`, `eyes_blue`, `blood_type`, `be_syndicate`, `be_nuke_agent`, `be_takeover_agent`, `underwear`,`name_is_always_random`,`bios`) VALUES ('[user.ckey]','[slot]',[dbcon.Quote(slotname)] ,[dbcon.Quote(real_name)], '[lowertext(gender)]', '[age]', '[occupation1]','[occupation2]', '[occupation3]', '[r_hair]', '[g_hair]', '[b_hair]', '[r_facial]', '[g_facial]', '[b_facial]', '[s_tone]', '[h_style]', '[f_style]', '[r_eyes]', '[g_eyes]', '[b_eyes]', '[b_type]', '[be_syndicate]', '[be_nuke_agent]', '[be_takeover_agent]', '[underwear]','[be_random_name]',[bio2]);")
-				var/DBQuery/query = dbcon.NewQuery("REPLACE INTO `players` (`ckey`,`slot`,`slotname`,`real_name`, `gender`, `ages`, `occupation1`, `occupation2`, `occupation3`,`hair_red`, `hair_green`, `hair_blue`, `facial_red`, `facial_green`, `facial_blue`, `skin_tone`, `hair_style_name`, `facial_style_name`, `eyes_red`,`eyes_green`, `eyes_blue`, `blood_type`, `be_syndicate`, `be_nuke_agent`, `be_takeover_agent`, `underwear`,`name_is_always_random`) VALUES ('[user.ckey]','[slot]',[dbcon.Quote(slotname)] ,[dbcon.Quote(real_name)], '[lowertext(gender)]', '[age]', '[occupation1]','[occupation2]', '[occupation3]', '[r_hair]', '[g_hair]', '[b_hair]', '[r_facial]', '[g_facial]', '[b_facial]', '[s_tone]', '[h_style]', '[f_style]', '[r_eyes]', '[g_eyes]', '[b_eyes]', '[b_type]', '[be_syndicate]', '[be_nuke_agent]', '[be_takeover_agent]', '[underwear]','[be_random_name]');")
+				var/DBQuery/query = dbcon.NewQuery("REPLACE INTO `players` (`ckey`,`slot`,`slotname`,`real_name`, `gender`, `ages`, `occupation1`, `occupation2`, `occupation3`,`hair_red`, `hair_green`, `hair_blue`, `facial_red`, `facial_green`, `facial_blue`, `skin_tone`, `hair_style_name`, `facial_style_name`, `eyes_red`,`eyes_green`, `eyes_blue`, `blood_type`, `be_syndicate`, `be_nuke_agent`, `be_takeover_agent`, `underwear`,`name_is_always_random`) VALUES ('[user.ckey]','[slot]',[dbcon.Quote(real_name)] ,[dbcon.Quote(real_name)], '[lowertext(gender)]', '[age]', '[occupation1]','[occupation2]', '[occupation3]', '[r_hair]', '[g_hair]', '[b_hair]', '[r_facial]', '[g_facial]', '[b_facial]', '[s_tone]', '[h_style]', '[f_style]', '[r_eyes]', '[g_eyes]', '[b_eyes]', '[b_type]', '[be_syndicate]', '[be_nuke_agent]', '[be_takeover_agent]', '[underwear]','[be_random_name]');")
 				if(!query.Execute())
 					usr << query.ErrorMsg()
 					usr << "Сообщи об ошибке администрации."
