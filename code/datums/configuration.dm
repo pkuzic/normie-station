@@ -40,7 +40,7 @@ var/makejson
 		if (M.config_tag && M.enabled)
 			if(!(M.config_tag in modes))		// ensure each mode is added only once
 				check_diary()
-				diary << "Adding game mode [M.name] ([M.config_tag]) to configuration."
+				diary << "Добавляем режим [M.name] ([M.config_tag]) в конфигурацию."
 				src.modes += M.config_tag
 				src.mode_names[M.config_tag] = M.name
 				src.probabilities[M.config_tag] = M.probability
@@ -53,12 +53,12 @@ var/makejson
 
 	if (!text)
 		check_diary()
-		diary << "No config.txt file found, setting defaults"
+		diary << "Файл config.txt не найден, устанавливаем стандартные настройки."
 		src = new /datum/configuration()
 		return
 
 	check_diary()
-	diary << "Reading configuration file [filename]"
+	diary << "Считаем файл конфигурации ([filename])."
 
 	var/list/CL = dd_text2list(text, "\n")
 
@@ -171,12 +171,12 @@ var/makejson
 					if (prob_name in config.modes)
 						config.probabilities[prob_name] = text2num(prob_value)
 					else
-						diary << "Unknown game mode probability configuration definition: [prob_name]."
+						diary << "Неизвестное определение режима при установке вероятности возникновения режима: [prob_name]."
 				else
-					diary << "Incorrect probability configuration definition: [prob_name]  [prob_value]."
+					diary << "Некорректная настройка вероятности возникновения режима: [prob_name]  [prob_value]."
 			else
 				check_diary()
-				diary << "Unknown setting in configuration: '[name]'"
+				diary << "Неизвестная настройка в конфигурации: '[name]'"
 
 	load_mysql()
 
@@ -245,7 +245,7 @@ var/makejson
 			break
 
 	if (!mode_name)
-		world << "Failed to pick a random game mode."
+		world << "Не удалось выбрать случайный режим."
 		return null
 
 	return src.pick_mode(mode_name)

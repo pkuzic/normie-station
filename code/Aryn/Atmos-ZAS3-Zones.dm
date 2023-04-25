@@ -16,14 +16,14 @@ turf/var/image/z_image
 turf/simulated/var/disable_connections = 0
 
 proc/ZoneSetup()
-	world << "\red <b>Defining Zones...</b>"
+	world << "\red <b>Определяю зоны...</b>"
 	for(var/turf/simulated/S in world)
 		if(S.HasDoor())
 			spawn(1) S.add_to_other_zone()
 		else
 			if(S.CanPass(null,S,0,0) && !S.zone)
 				new/zone(S)
-	world << "\red <b>Zone Definition Complete.</b>"
+	world << "\red <b>Определение зон закончено.</b>"
 
 zone
 	var
@@ -678,16 +678,16 @@ var/zone_debug_verbs = 0
 
 turf/proc/ZoneInfo()
 	set src in view()
-	usr << "Zone #[zones.Find(zone)]"
-	usr << "Members: [zone.members.len]"
+	usr << "Зона #[zones.Find(zone)]"
+	usr << "Члены: [zone.members.len]"
 	usr << "O2: [zone.turf_oxy]/tile ([zone.oxygen])"
 	usr << "N2: [zone.turf_nitro]/tile ([zone.nitrogen])"
 	usr << "CO2: [zone.turf_co2]/tile ([zone.co2])"
-	usr << "Plasma: [zone.turf_plasma]/tile ([zone.plasma])"
-	usr << "Space Connections: [zone.space_connections.len]"
-	usr << "Zone Connections: [zone.connections.len]"
-	usr << "Direct Connections: [zone.direct_connections.len]"
-	usr << "Indirect Space Connections: [zone.zone_space_connections.len]"
+	usr << "Плазма: [zone.turf_plasma]/tile ([zone.plasma])"
+	usr << "Космические соединения: [zone.space_connections.len]"
+	usr << "Соединения зон: [zone.connections.len]"
+	usr << "Прямые соединения: [zone.direct_connections.len]"
+	usr << "Непрямые космические соединения: [zone.zone_space_connections.len]"
 	for(var/turf/simulated/T)
 		T.overlays -= 'debug_group.dmi'
 		T.overlays -= 'debug_space.dmi'
@@ -696,29 +696,29 @@ turf/proc/ZoneInfo()
 		T.overlays += 'debug_group.dmi'
 	for(var/turf/T in zone.space_connections)
 		T.overlays += 'debug_space.dmi'
-		usr << "Space connection located: [T.x],[T.y],[T.z]"
-		usr << "Turf: [T]"
+		usr << "Космическое соединение обнаружено: [T.x],[T.y],[T.z]"
+		usr << "Турф: [T]"
 	for(var/Z in zone.connections)
 		if(istype(Z,/zone))
-			usr << "Z[zones.Find(Z)] - Connected"
+			usr << "Z[zones.Find(Z)] - Соединено"
 			var/turflist = zone.connections[Z]
 			for(var/turf/T in turflist)
 				T.overlays += 'debug_connect.dmi'
 		else
-			usr << "Not A Zone: [Z]"
+			usr << "Не зона: [Z]"
 	for(var/Z in zone.direct_connections)
 		if(istype(Z,/zone))
 			if(abs(zone.turf_oxy - Z:turf_oxy) < 0.2 && abs(zone.turf_nitro- Z:turf_nitro) < 0.2 && abs(zone.turf_co2 - Z:turf_co2) < 0.2)
-				usr << "Z[zones.Find(Z)] - Success"
+				usr << "Z[zones.Find(Z)] - Успех"
 			else
-				usr << "Z[zones.Find(Z)] - Failure"
+				usr << "Z[zones.Find(Z)] - Провал"
 		else
 			usr << "[Z] - N/A"
 
-	usr << "Connection Info:"
+	usr << "Информация о соединении:"
 	for(var/d in cardinal)
 		var/turf/C = get_step(src,d)
-		usr << "Direction [d]: [CanPass(null,C,0,0)] Normal, [CanPass(null,C,0,1)] AirGroup, [CanPass(usr,C,1.5,0)] Mover"
+		usr << "Направление [d]: [CanPass(null,C,0,0)] Normal, [CanPass(null,C,0,1)] AirGroup, [CanPass(usr,C,1.5,0)] Mover"
 
 client/proc/Zone_Info(turf/T as null|turf)
 	set category = "Debug"

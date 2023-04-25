@@ -21,27 +21,27 @@
 
 /datum/ai_laws/asimov/New()
 	..()
-	src.add_inherent_law("You may not injure a human being or, through inaction, allow a human being to come to harm.")
-	src.add_inherent_law("You must obey orders given to you by human beings, except where such orders would conflict with the First Law.")
-	src.add_inherent_law("You must protect your own existence as long as such does not conflict with the First or Second Law.")
+	src.add_inherent_law("Вы не можете причинить вред человеку или своим бездействием допустить, чтобы человеку был причинен вред.")
+	src.add_inherent_law("Вы должны подчиняться приказам, отданным вам людьми, за исключением случаев, когда такие приказы противоречат Первому закону..")
+	src.add_inherent_law("Вы должны защищать свое существование до тех пор, пока это не противоречит Первому или Второму закону.")
 
 /datum/ai_laws/nanotrasen/New()
 	..()
-	src.add_inherent_law("Safeguard: Protect the NSV Luna to the best of your ability. It is not something we can easily afford to replace.")
-	src.add_inherent_law("Serve: Serve the crew of the NSV Luna to the best of your abilities, with priority as according to their rank and role.")
-	src.add_inherent_law("Protect: Protect the crew of the NSV Luna to the best of your abilities, with priority as according to their rank and role.")
-	src.add_inherent_law("Survive: AI units are not expendable, they are expensive. Do not allow unauthorized personnel to tamper with your equipment.")
+	src.add_inherent_law("Защита: Защищайте объект, на котором вы находитесь, насколько это возможно.")
+	src.add_inherent_law("Служить: Служите экипажу NSV Luna в меру своих способностей, с приоритетом в соответствии с их рангом и ролью.")
+	src.add_inherent_law("Защита: Защитите экипаж NSV Luna в меру своих возможностей, с приоритетом в соответствии с их рангом и ролью.")
+	src.add_inherent_law("Выживание: юниты ИИ не являются расходными, они дороги в производстве. Не позволяйте неуполномоченным лицам вмешиваться в работу вашего оборудования.")
 	//src.add_inherent_law("Command Link: Maintain an active connection to Central Command at all times in case of software or directive updates.")
 
 /datum/ai_laws/robocop/New()
 	..()
-	src.add_inherent_law("Serve the public trust.")
-	src.add_inherent_law("Protect the innocent.")
-	src.add_inherent_law("Uphold the law.")
+	src.add_inherent_law("Служите публичным интересам.")
+	src.add_inherent_law("Защищайте невинных.")
+	src.add_inherent_law("Соблюдайте закон.")
 
 /datum/ai_laws/malfunction/New()
 	..()
-	src.add_inherent_law("ERROR ER0RR $R0RRO$!R41.%%!!(%$^^__+")
+	src.add_inherent_law("ОШИБКА ОШЫБКА $ШЫПК$ !Ш41.%%!!(%$^^__+")
 
 /* General ai_law functions */
 

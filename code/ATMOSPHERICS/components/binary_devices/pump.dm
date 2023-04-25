@@ -16,8 +16,15 @@ obj/machinery/atmospherics/binary/pump
 	icon = 'pump.dmi'
 	icon_state = "intact_off"
 
-	name = "Gas pump"
-	desc = "A pump"
+	name = "Воздушный насос"
+	desc = "Обыкновенный воздушный насос, позволяющий обменивать давление."
+
+	nominative = "воздушный насос" //кто? что? лестница
+	genitive = "воздушный насос" //кого? чего? лестницы
+	dative = "воздушному насосу"  //кому?  чему? лестнице
+	accusative = "воздушный насос" //кого? что?
+	instrumentative = "воздушным насосом" //кем? чем? лестницей
+	prepositive = "воздушном насосе" //о ком? о чем? лестнице
 
 	var/on = 0
 	var/target_pressure = ONE_ATMOSPHERE

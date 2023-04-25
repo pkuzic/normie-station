@@ -16,8 +16,15 @@ obj/machinery/atmospherics/binary/volume_pump
 	icon = 'volume_pump.dmi'
 	icon_state = "intact_off"
 
-	name = "Gas pump"
-	desc = "A pump"
+	name = "Воздушный насос"
+	desc = "Альтернативный воздушный насос, позволяющий обменивать давление в большем объеме, чем обыкновенный."
+
+	nominative = "воздушный насос" //кто? что? лестница
+	genitive = "воздушный насос" //кого? чего? лестницы
+	dative = "воздушному насосу"  //кому?  чему? лестнице
+	accusative = "воздушный насос" //кого? что?
+	instrumentative = "воздушным насосом" //кем? чем? лестницей
+	prepositive = "воздушном насосе" //о ком? о чем? лестнице
 
 	var/on = 0
 	var/transfer_rate = 200

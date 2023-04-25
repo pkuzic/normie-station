@@ -2,10 +2,17 @@
 //node2, air2, network2 correspond to output
 
 /obj/machinery/atmospherics/binary/circulator
-	name = "circulator/heat exchanger"
-	desc = "A gas circulator pump and heat exchanger."
+	name = "циркулятор"
+	desc = "Пампа, позволяющая газам циркулировать - или способна так же обменивать тепло."
 	icon = 'pipes.dmi'
 	icon_state = "circ1-off"
+
+	nominative = "циркулятор" //кто? что? лестница
+	genitive = "циркулятора" //кого? чего? лестницы
+	dative = "циркулятору"  //кому?  чему? лестнице
+	accusative = "циркулятор" //кого? что?
+	instrumentative = "циркулятором" //кем? чем? лестницей
+	prepositive = "циркуляторе" //о ком? о чем? лестнице
 
 	var/side = 1 // 1=left 2=right
 	var/status = 0

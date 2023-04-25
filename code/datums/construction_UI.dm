@@ -38,7 +38,7 @@
 	tile_image = image(tile_image_icon, loc, default_state, FLY_LAYER, default_dir)
 	user << tile_image
 
-	var/t = "Click to select what you want to build<br>"
+	var/t = "Выберите, где строить<br>"
 
 	for(var/state in states)
 		var/icon_state = state

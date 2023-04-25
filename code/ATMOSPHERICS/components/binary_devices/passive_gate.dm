@@ -4,8 +4,15 @@ obj/machinery/atmospherics/binary/passive_gate
 	icon = 'passive_gate.dmi'
 	icon_state = "intact_off"
 
-	name = "Passive gate"
-	desc = "A one-way air valve that does not require power"
+	name = "Пассивные врата"
+	desc = "Однонаправленный воздушный клапан, не требующий питания."
+
+	nominative = "пассивные врата" //кто? что? лестница
+	genitive = "пассивные врата" //кого? чего? лестницы
+	dative = "пассивным вратам"  //кому?  чему? лестнице
+	accusative = "пассивные врата" //кого? что?
+	instrumentative = "пассивными вратами" //кем? чем? лестницей
+	prepositive = "пассивных вратах" //о ком? о чем? лестнице
 
 	var/on = 0
 	var/target_pressure = ONE_ATMOSPHERE
