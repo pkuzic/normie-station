@@ -167,8 +167,8 @@ datum
 				set background = 1
 				LoadTweaks()
 
-				world << "\red \b Processing Geometry..."
-				diary << "Processing Geometry..."
+				world << "\red \b Считывание геометрии..."
+				diary << "Считывание геометрии..."
 				sleep(1 * tick_multiplier)
 
 				//var/list/door_tiles = list()
@@ -177,14 +177,14 @@ datum
 				for(var/turf/simulated/S in world)
 					if(!S.blocks_air && !S.parent)
 						assemble_group_turf(S)
-				diary << "First simulated turfs processed in [(world.timeofday-start_time)/10] seconds!"
+				diary << "Симуляция первого порядка прошла за [(world.timeofday-start_time)/10] секунд!"
 				var/start_zone = world.timeofday
 				ZoneSetup()
-				diary << "Zones processed in [(world.timeofday-start_zone)/10] seconds!"
+				diary << "Зоны закончены за [(world.timeofday-start_zone)/10] секунд!"
 				var/start_turfs = world.timeofday
 				for(var/turf/simulated/S in world) //Update all pathing and border information as well
 					S.update_air_properties()
-				diary << "Second simulated turfs processed in [(world.timeofday-start_turfs)/10] seconds!"
+				diary << "Симуляция второго порядка прошла за [(world.timeofday-start_turfs)/10] секунд!"
 /*
 				for(var/obj/movable/floor/S in world)
 					if(!S.parent)
@@ -192,8 +192,8 @@ datum
 				for(var/obj/movable/floor/S in world) //Update all pathing and border information as well
 					S.update_air_properties()
 */
-				world << "\red \b Geometry processed in [(world.timeofday-start_time)/10] seconds!"
-				diary << "Geometry processed in [(world.timeofday-start_time)/10] seconds!"
+				world << "\red \b Считывание геометрии прошло за [(world.timeofday-start_time)/10] секунд!"
+				diary << "Геометрия закончена за [(world.timeofday-start_time)/10] секунд!"
 
 			assemble_group_turf(turf/simulated/base)
 

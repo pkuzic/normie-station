@@ -38,12 +38,12 @@
 	if (istype(W, /obj/item/device/detective_scanner))
 		for(var/mob/O in viewers(src, null))
 			if ((O.client && !( O.blinded )))
-				O << "\red [src] has been scanned by [user] with the [W]"
+				O << "\red <b>[user]</b> сканирует [src] с помощью [W.genitive]."
 	else
 		if (!( istype(W, /obj/item/weapon/grab) ) || !(istype(W, /obj/item/weapon/cleaner)))
 			for(var/mob/O in viewers(src, null))
 				if ((O.client && !( O.blinded )))
-					O << "\red <B>[src] has been hit by [user] with [W]</B>"
+					O << "\red <B>[user]</b> ударяет <b>[src]</b> с помощью <b>[W.genitive]!</B>"
 	return
 
 /atom/proc/add_fingerprint(mob/living/carbon/human/M as mob)
@@ -54,18 +54,18 @@
 		return
 	if (M.gloves)
 		if(src.fingerprintslast != M.key)
-			src.fingerprintshidden += "(Wearing gloves). Real name: [M.real_name], Key: [M.key]"
+			src.fingerprintshidden += "(В перчатках). Настоящее имя: [M.real_name], Ключ: [M.key]"
 			src.fingerprintslast = M.key
 		return 0
 	if (M.mutations & mFingerprints)
 		if(src.fingerprintslast != M.key)
-			src.fingerprintshidden += "(Has no fingerprints) Real name: [M.real_name], Key: [M.key]"
+			src.fingerprintshidden += "(Без отпечатков) Настоящее имя: [M.real_name], Ключ: [M.key]"
 			src.fingerprintslast = M.key
 		return 0
 	if (!( src.fingerprints ))
 		src.fingerprints = text("[]", md5(M.dna.uni_identity))
 		if(src.fingerprintslast != M.key)
-			src.fingerprintshidden += "Real name: [M.real_name], Key: [M.key]"
+			src.fingerprintshidden += "Настоящее имя: [M.real_name], Ключ: [M.key]"
 			src.fingerprintslast = M.key
 		return 1
 	else
@@ -77,7 +77,7 @@
 		src.fingerprints = list2params(L)
 
 		if(src.fingerprintslast != M.key)
-			src.fingerprintshidden += "Real name: [M.real_name], Key: [M.key]"
+			src.fingerprintshidden += "Настоящее имя: [M.real_name], Ключ: [M.key]"
 			src.fingerprintslast = M.key
 	return
 
@@ -194,7 +194,7 @@
 				objects += usr:module_state_3
 				count++
 			if(count > 1)
-				var/input = input("Please, select an item!", "Item", null, null) as obj in objects
+				var/input = input("Я должен выбрать предмет!", "Предмет", null, null) as obj in objects
 				W = input
 			else if(count != 0)
 				for(var/obj in objects)

@@ -46,7 +46,7 @@ var/opt_inactive = null
 /world/proc/KickInactiveClients()
 	for(var/client/C)
 		if(!C.holder && ((C.inactivity/10)/60) >= 15)
-			C << "\red You have been inactive for more than 15 minutes and have been disconnected."
+			C << "\red Ты был неактивен пятнадцать минут, и потому оказался отключен от сервера."
 			del(C)
 
 /// EXPERIMENTAL STUFF

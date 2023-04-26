@@ -488,7 +488,7 @@ turf
 					if(air_check_directions&direction) //Grab all valid bordering tiles
 						var/turf/simulated/enemy_tile = get_step_3d(src, direction)
 						if(dbg_processing && (direction == 16 || direction == 32))
-							world << "Direction [direction]: [enemy_tile]"
+							world << "Направление [direction]: [enemy_tile]"
 						var/connection_difference = 0
 
 						if(istype(enemy_tile))

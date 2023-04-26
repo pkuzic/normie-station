@@ -158,8 +158,8 @@ proc/ClearClosetSave()
 	F["list"]<<l*/
 
 	if(makejson)
-		send2irc(world.url,"Server Rebooting!")
-	world << "\red <B>Rebooting! (This may take a while, just hang on unless you receive an error message!)</B>"
+		send2irc(world.url,"Сервер перезапускается.")
+	world << "<B>Сервер перезапускается.</B>"
 
 
 	spawn(0)
@@ -207,7 +207,7 @@ proc/ClearClosetSave()
 	spawn (20)
 		del(P)
 
-	usr.visible_message("<b>[usr]</b> points to [src]")
+	usr.visible_message("<b>[usr]</b> указывает на <b>[src.accusative].</b>")
 
 /obj/decal/point/point()
 	set src in oview()

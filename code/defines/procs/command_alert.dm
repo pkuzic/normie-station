@@ -1,4 +1,4 @@
-/proc/command_alert(var/text, var/title = "", var/maintitle = "NanoTrasen Update")
+/proc/command_alert(var/text, var/title = "", var/maintitle = "Срочное Объявление")
 	world << "<h1 class='alert'>[maintitle]</h1>"
 
 	if (title && length(title) > 0)

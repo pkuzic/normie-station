@@ -28,7 +28,15 @@
 
 /turf/space
 	icon = 'space.dmi'
-	name = "space"
+	name = "Космос"
+
+	nominative = "космос"
+	genitive = "космоса"
+	dative = "космосу"
+	accusative = "космос"
+	instrumentative = "космосом"
+	prepositive = "космосе"
+
 	icon_state = "placeholder"
 	var/sand = 0
 	temperature = TSPC
@@ -37,7 +45,15 @@
 	mouse_opacity = 2
 
 /turf/space/sand
-	name = "sand"
+	name = "Песок"
+
+	nominative = "песок"
+	genitive = "песка"
+	dative = "песку"
+	accusative = "песок"
+	instrumentative = "песком"
+	prepositive = "песке"
+
 	icon = 'sand.dmi'
 	icon_state = "placeholder"
 	sand = 1
@@ -84,7 +100,15 @@
 	nitrogen = MOLES_N2STANDARD
 
 /turf/simulated/
-	name = "station"
+	name = "Станция"
+
+	nominative = "станция"
+	genitive = "станции"
+	dative = "станции"
+	accusative = "станцию"
+	instrumentative = "станцией"
+	prepositive = "станции"
+
 	var/wet = 0
 	var/image/wet_overlay = null
 
@@ -93,13 +117,29 @@
 	nitrogen = MOLES_N2STANDARD
 
 /turf/simulated/floor/engine
-	name = "reinforced floor"
+	name = "Усиленный пол"
+
+	nominative = "усиленный пол"
+	genitive = "усиленного пола"
+	dative = "усиленному полу"
+	accusative = "усиленный пол"
+	instrumentative = "усиленным полом"
+	prepositive = "усиленном поле"
+
 	icon_state = "engine"
 	thermal_conductivity = 0.025
 	heat_capacity = 325000
 
 /turf/simulated/floor/engine/vacuum
-	name = "vacuum floor"
+	name = "Вакуумный пол"
+
+	nominative = "вакуумный пол"
+	genitive = "вакуумного пола"
+	dative = "вакуумному полу"
+	accusative = "вакуумный пол"
+	instrumentative = "вакуумным полом"
+	prepositive = "вакуумном поле"
+
 	icon_state = "engine"
 	oxygen = 0
 	nitrogen = 0.000
@@ -107,7 +147,15 @@
 
 ///turf/space/hull //TEST
 turf/space/hull
-	name = "Hull Plating"
+	name = "Обшивка"
+
+	nominative = "обшивка"
+	genitive = "обшивки"
+	dative = "обшивке"
+	accusative = "обшивку"
+	instrumentative = "обшивкой"
+	prepositive = "обшивке"
+
 	icon = 'floors.dmi'
 	icon_state = "engine"
 turf/space/hull/New()
@@ -120,7 +168,15 @@ turf/space/hull/New()
 /turf/simulated/floor/
 
 /turf/simulated/floor
-	name = "floor"
+	name = "Пол"
+
+	nominative = "пол"
+	genitive = "пола"
+	dative = "полу"
+	accusative = "пол"
+	instrumentative = "полом"
+	prepositive = "поле"
+
 	icon = 'floors.dmi'
 	icon_state = "floor"
 	thermal_conductivity = 0.040
@@ -158,7 +214,15 @@ turf/space/hull/New()
 			name = "floor"
 
 	open
-		name = "open space"
+		name = "Открытый космос"
+
+		nominative = "открытый космос"
+		genitive = "открытого космоса"
+		dative = "открытому космосу"
+		accusative = "открытый космос"
+		instrumentative = "открытым космосом"
+		prepositive = "открытом космосе"
+
 		intact = 0
 		icon_state = "open"
 		pathweight = 100000 //Seriously, don't try and path over this one numbnuts
@@ -277,7 +341,15 @@ turf/space/hull/New()
 						zone.Connect(src,floorbelow)
 
 	plating
-		name = "Plating"
+		name = "Обшивка"
+
+		nominative = "обшивка"
+		genitive = "обшивки"
+		dative = "обшивке"
+		accusative = "обшивку"
+		instrumentative = "обшивкой"
+		prepositive = "обшивке"
+
 		icon_state = "plating"
 		intact = 0
 
@@ -295,14 +367,22 @@ turf/space/hull/New()
 
 	New()
 		..()
-		name = "plating"
+		name = "Обшивка"
 
 /turf/simulated/floor/grid
 	icon = 'floors.dmi'
 	icon_state = "circuit"
 
 /turf/simulated/wall
-	name = "Wall"
+	name = "Стена"
+
+	nominative = "стена"
+	genitive = "стены"
+	dative = "стене"
+	accusative = "стену"
+	instrumentative = "стеной"
+	prepositive = "стене"
+
 	icon = 'walls.dmi'
 	icon_state = "wall0"
 	opacity = 1
@@ -313,8 +393,17 @@ turf/space/hull/New()
 	thermal_conductivity = WALL_HEAT_TRANSFER_COEFFICIENT
 	heat_capacity = 312500 //a little over 5 cm thick , 312500 for 1 m by 2.5 m by 0.25 m steel wall
 	var/Zombiedamage
+
 /turf/simulated/wall/r_wall
-	name = "Reinforced Wall"
+	name = "Усиленная стена"
+
+	nominative = "усиленная стена"
+	genitive = "усиленной стены"
+	dative = "усиленной стене"
+	accusative = "усиленную стену"
+	instrumentative = "усиленной стеной"
+	prepositive = "усиленной стене"
+
 	icon = 'walls.dmi'
 	icon_state = "r_wall"
 	opacity = 1
@@ -327,7 +416,15 @@ turf/space/hull/New()
 	thermal_conductivity = 0
 	opacity = 0
 	explosionstrength = 5
-	name = "Heat Shielding"
+	name = "Тепловой щит"
+
+	nominative = "тепловой щит"
+	genitive = "теплового щита"
+	dative = "тепловому щиту"
+	accusative = "тепловой щит"
+	instrumentative = "тепловым щитом"
+	prepositive = "тепловом щите"
+
 	icon = 'thermal.dmi'
 	icon_state = "thermal"
 
@@ -337,17 +434,41 @@ turf/space/hull/New()
 	return
 
 /turf/simulated/shuttle
-	name = "Shuttle"
+	name = "Шаттл"
+
+	nominative = "шаттл"
+	genitive = "шаттла"
+	dative = "шаттлу"
+	accusative = "шаттл"
+	instrumentative = "шаттлом"
+	prepositive = "шаттле"
+
 	icon = 'shuttle.dmi'
 	thermal_conductivity = 0.05
 	heat_capacity = 10000000
 
 /turf/simulated/shuttle/floor
-	name = "Shuttle Floor"
+	name = "Пол шаттла"
+
+	nominative = "пол шаттла"
+	genitive = "пола шаттла"
+	dative = "полу шаттла"
+	accusative = "пол шаттла"
+	instrumentative = "полом шаттла"
+	prepositive = "поле шаттла"
+
 	icon_state = "floor"
 
 /turf/simulated/shuttle/wall
-	name = "Shuttle Wall"
+	name = "Стена шаттла"
+
+	nominative = "стена шаттла"
+	genitive = "стены шаттла"
+	dative = "стене шаттла"
+	accusative = "стену шаттла"
+	instrumentative = "стеной шаттла"
+	prepositive = "стене шаттла"
+
 	icon_state = "wall"
 	explosionstrength = 4
 	opacity = 1
@@ -360,26 +481,66 @@ turf/space/hull/New()
 	nitrogen = MOLES_N2STANDARD
 
 /turf/unsimulated/shuttle
-	name = "Shuttle"
+	name = "Шаттл"
+
+	nominative = "шаттл"
+	genitive = "шаттла"
+	dative = "шаттлу"
+	accusative = "шаттл"
+	instrumentative = "шаттлом"
+	prepositive = "шаттле"
+
 	icon = 'shuttle.dmi'
 
 /turf/unsimulated/shuttle/floor
-	name = "Shuttle Floor"
+	name = "Стена шаттла"
+
+	nominative = "стена шаттла"
+	genitive = "стены шаттла"
+	dative = "стене шаттла"
+	accusative = "стену шаттла"
+	instrumentative = "стеной шаттла"
+	prepositive = "стене шаттла"
+
 	icon_state = "floor"
 
 /turf/unsimulated/shuttle/wall
-	name = "Shuttle Wall"
+	name = "Стена шаттла"
+
+	nominative = "стена шаттла"
+	genitive = "стены шаттла"
+	dative = "стене шаттла"
+	accusative = "стену шаттла"
+	instrumentative = "стеной шаттла"
+	prepositive = "стене шаттла"
+
 	icon_state = "wall"
 	opacity = 1
 	density = 1
 
 /turf/unsimulated/floor
-	name = "Floor"
+	name = "Пол"
+
+	nominative = "пол"
+	genitive = "пола"
+	dative = "полу"
+	accusative = "пол"
+	instrumentative = "полом"
+	prepositive = "поле"
+
 	icon = 'floors.dmi'
 	icon_state = "Floor3"
 
 /turf/unsimulated/wall
-	name = "Wall"
+	name = "Стена"
+
+	nominative = "стена"
+	genitive = "стены"
+	dative = "стене"
+	accusative = "стену"
+	instrumentative = "стеной"
+	prepositive = "стене"
+
 	icon = 'walls.dmi'
 	icon_state = "riveted"
 	opacity = 1
@@ -431,13 +592,29 @@ turf/space/hull/New()
 	oxygen = 0.01
 	nitrogen = 0.01
 	var/mapped = 0
-	name = "rocky floor"
+	name = "Каменистая поверхность"
+
+	nominative = "каменистая поверхность"
+	genitive = "каменистой поверхности"
+	dative = "каменистой поверхности"
+	accusative = "каменистую поверхность"
+	instrumentative = "каменистой поверхностью"
+	prepositive = "каменистой поверхности"
+
 	icon = 'mining.dmi'
 	icon_state = "floor"
 
 /turf/simulated/asteroid/wall
 	var/health = 40
-	name = "rocky wall"
+	name = "Каменистая стена"
+
+	nominative = "каменистая стена"
+	genitive = "каменистой стены"
+	dative = "каменистой стене"
+	accusative = "каменистую стену"
+	instrumentative = "каменистой стеной"
+	prepositive = "каменистой стене"
+
 	icon = 'mining.dmi'
 	icon_state = "wall"
 	oxygen = 0.01
@@ -458,10 +635,10 @@ turf/space/hull/New()
 	//if(istype(W, /obj/item/weapon/pickaxe))
 	if(W.minelevel > 2) // quick fix
 		src.health -= 20
-		user << "You use \the [W.name] to hack away part of the unwanted ore."
+		user << "Я использую <b>[W.accusative]<b>, прорываясь через каменистую преграду."
 	else
 		src.health -= 5
-		user << "The [W.name] wasn't very effective against the ore."
+		user << "Похоже, что <b>[W.nominative]<b> тут не поможет."
 	if(src.health < 1)
 		src.mine()
 
@@ -486,13 +663,29 @@ turf/space/hull/New()
 	oxygen = 0.01
 	nitrogen = 0.01
 	level = 1
-	name = "rocky floor"
+	name = "Каменистая поверхность"
+
+	nominative = "каменистая поверхность"
+	genitive = "каменистой поверхности"
+	dative = "каменистой поверхности"
+	accusative = "каменистую поверхность"
+	instrumentative = "каменистой поверхностью"
+	prepositive = "каменистой поверхности"
+
 	icon = 'mining.dmi'
 	icon_state = "floor"
 
 /turf/simulated/asteroid/floor/planet
 	mapped = 1
-	name = "sand"
+	name = "Песок"
+
+	nominative = "песок"
+	genitive = "песка"
+	dative = "песку"
+	accusative = "песок"
+	instrumentative = "песком"
+	prepositive = "песке"
+
 	icon = 'sand.dmi'
 	icon_state = "placeholder"
 	carbon_dioxide = 0.3 * ONE_ATMOSPHERE

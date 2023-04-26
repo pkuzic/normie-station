@@ -35,9 +35,9 @@
 	if (station_name)
 		return station_name
 
-	var/name = ""
+	var/name = "NSV Luna"
 
-	if (prob(10))
+	/*if (prob(10))
 		name += pick("Ultra", "Secret", "Top Secret", "Central", "Main", "Government", "Automated", "Experimental")
 		name += " "
 
@@ -67,6 +67,6 @@
 	if (config && config.server_name)
 		world.name = "[config.server_name]: [name]"
 	else
-		world.name = name
+		world.name = name*/
 
 	return name
