@@ -102,4 +102,4 @@ obj/machinery/aiconstruct/proc/boot()
 		del(src)
 mob/living/verb/head()
 	set hidden = 1
-	usr.unlock_medal("Find Head", 1)
+	//usr.unlock_medal("Find Head", 1)

@@ -203,7 +203,7 @@
 			if(!(M.sdisabilities & 4) && M.ear_deaf == 0)
 				M << text("<FONT size=[]>БАМ, бам!</FONT>", max(0, 5 - get_dist(src, M)))
 
-		user.unlock_medal("Это ловушка!", 0, "Оказаться в заваренном шкафу", "просто")
+		//user.unlock_medal("Это ловушка!", 0, "Оказаться в заваренном шкафу", "просто")
 		bang_time = world.timeofday
 
 /obj/closet/attack_paw(mob/user as mob)

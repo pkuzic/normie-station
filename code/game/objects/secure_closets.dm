@@ -197,7 +197,7 @@
 		for(var/mob/M in hearers(src, null))
 			if(!(M.sdisabilities & 4) && M.ear_deaf == 0)
 				M << text("<FONT size=[]>БАМ, бам!</FONT>", max(0, 5 - get_dist(src, M)))
-		user.unlock_medal("Это ловушка!", 0, "Быть закрытым или заваренным в шкафу", "просто")
+		//user.unlock_medal("Это ловушка!", 0, "Быть закрытым или заваренным в шкафу", "просто")
 		bang_time = world.timeofday
 		return
 	return
