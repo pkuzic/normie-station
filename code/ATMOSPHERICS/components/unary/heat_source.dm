@@ -5,8 +5,15 @@
 	icon_state = "intact_off"
 	density = 1
 
-	name = "Heat Reservoir"
-	desc = "Heats gas when connected to pipe network"
+	name = "Тепловой резервуар"
+	desc = "Обогревает газ, будучи присоединенным к сети."
+
+	nominative = "тепловой резервуар"
+	genitive = "теплового резервуара"
+	dative = "тепловому резервуару"
+	accusative = "тепловой резервуар"
+	instrumentative = "тепловым резервуаром"
+	prepositive = "о тепловом резервуаре"
 
 	var/on = 0
 

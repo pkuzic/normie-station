@@ -148,13 +148,13 @@
 			user << "\blue Я ослабляю усиление стола..."
 			playsound(src.loc, 'Welder.ogg', 50, 1)
 			sleep(50)
-			user << "\blue Я [usr.gender == 1 ? "ослабил" : "ослабила"] усиление стола!"
+			user << "\blue Я [usr.gender == MALE ? "ослабил" : "ослабила"] усиление стола!"
 			src.status = 1
 		else
 			user << "\blue Я усиляю стол..."
 			playsound(src.loc, 'Welder.ogg', 50, 1)
 			sleep(50)
-			user << "\blue Я [usr.gender == 1 ? "усилил" : "усилила"] стол!"
+			user << "\blue Я [usr.gender == MALE ? "усилил" : "усилила"] стол!"
 			src.status = 2
 		return
 
@@ -163,7 +163,7 @@
 			user << "\blue Я разбираю усиленный стол..."
 			playsound(src.loc, 'Ratchet.ogg', 50, 1)
 			sleep(50)
-			user << "\blue Я [usr.gender == 1 ? "разобрал" : "разобрала"] усиленный стол!"
+			user << "\blue Я [usr.gender == MALE ? "разобрал" : "разобрала"] усиленный стол!"
 			new /obj/item/weapon/table_parts/reinforced( src.loc )
 			playsound(src.loc, 'Deconstruct.ogg', 50, 1)
 			del(src)

@@ -150,11 +150,11 @@ var/makejson
 			if ("serversuffix")
 				config.server_suffix = 1
 
-			if ("medalhub")
-				config.medal_hub = value
+			//if ("medalhub")
+			//	config.medal_hub = value
 
-			if ("medalpass")
-				config.medal_password = value
+			//if ("medalpass")
+			//	config.medal_password = value
 
 			if ("hostedby")
 				config.hostedby = value

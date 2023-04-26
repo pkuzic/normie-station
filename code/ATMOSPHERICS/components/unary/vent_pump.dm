@@ -2,13 +2,27 @@
 	icon = 'vent_pump.dmi'
 	icon_state = "off"
 
-	name = "Air Vent"
-	desc = "Has a valve and pump attached to it"
+	name = "Вентиляция"
+	//desc = "Has a valve and pump attached to it"
+
+	nominative = "вентиляция"
+	genitive = "вентиляции"
+	dative = "вентиляции"
+	accusative = "вентиляцию"
+	instrumentative = "вентиляцией"
+	prepositive = "вентиляции"
 
 	level = 1
 
 	high_volume
-		name = "Large Air Vent"
+		name = "Большая вентиляция"
+
+		nominative = "большая вентиляция"
+		genitive = "большой вентиляции"
+		dative = "большой вентиляции"
+		accusative = "большую вентиляцию"
+		instrumentative = "большой вентиляцией"
+		prepositive = "большой вентиляции"
 
 		New()
 			..()
@@ -218,8 +232,15 @@
 	icon = 'vent_pump.dmi'
 	icon_state = "equal"
 
-	name = "Air Vent"
-	desc = "Has a valve and pump attached to it"
+	name = "Вентиляция"
+	//desc = "Has a valve and pump attached to it"
+
+	nominative = "вентиляция"
+	genitive = "вентиляции"
+	dative = "вентиляции"
+	accusative = "вентиляцию"
+	instrumentative = "вентиляцией"
+	prepositive = "вентиляции"
 
 	level = 1
 
@@ -230,7 +251,14 @@
 		layer = TURF_LAYER
 
 	high_volume
-		name = "Large Air Vent"
+		name = "Большая вентиляция"
+
+		nominative = "большая вентиляция"
+		genitive = "большой вентиляции"
+		dative = "большой вентиляции"
+		accusative = "большую вентиляцию"
+		instrumentative = "большой вентиляцией"
+		prepositive = "большой вентиляции"
 
 		New()
 			..()
@@ -276,12 +304,12 @@
 				var/internal_pressure = air_contents.return_pressure()
 
 				if(pressure_checks & 1)
-					if(debug_info) world << "<b>Pressure Check: External</b>"
+					if(debug_info) world << "<b>Режим проверки давления: Внешняя  проверка</b>"
 					if(environment_pressure >= external_pressure_bound)
 						if(debug_info) world << "\red Failed! [environment_pressure] > [external_pressure_bound]"
 						return
 				if(pressure_checks & 2)
-					if(debug_info) world << "<b>Pressure Check: Internal</b>"
+					if(debug_info) world << "<b>Режим проверки давления: Внутренняя  проверка</b>"
 					if(internal_pressure >= internal_pressure_bound)
 						if(debug_info) world << "\red Failed! [internal_pressure] > [internal_pressure_bound]"
 						return
@@ -291,10 +319,10 @@
 					used_pressure = max(environment_pressure,internal_pressure)
 					used_temperature = TCMB
 				if(used_pressure == environment_pressure)
-					if(debug_info) world << "Used Pressure: Environment Pressure ([environment_pressure])"
+					if(debug_info) world << "Целевое давление: Внешнее давление ([environment_pressure])"
 					used_temperature = air_contents.temperature
 				else
-					if(debug_info) world << "Used Pressure: Internal Pressure ([internal_pressure])"
+					if(debug_info) world << "Целевое давление: Внутреннее ([internal_pressure])"
 					used_temperature = environment.temperature
 				var/transfer_moles = used_pressure*air_contents.volume/(max(used_temperature,TCMB) * R_IDEAL_GAS_EQUATION)
 
@@ -412,8 +440,16 @@
 	icon = 'pipe_vent.dmi'
 	icon_state = "intact"
 
-	name = "Vent"
-	desc = "A large air vent"
+	name = "Вентиляция"
+	//desc = "A large air vent"
+
+	nominative = "вентиляция"
+	genitive = "вентиляции"
+	dative = "вентиляции"
+	accusative = "вентиляцию"
+	instrumentative = "вентиляцией"
+	prepositive = "вентиляции"
+
 	level = 1
 	initialize_directions = 2
 	New()
@@ -422,7 +458,12 @@
 		air_contents.volume = 500
 
 	high_volume
-		name = "Large Air Vent"
+		nominative = "большая вентиляция"
+		genitive = "большой вентиляции"
+		dative = "большой вентиляции"
+		accusative = "большую вентиляцию"
+		instrumentative = "большой вентиляцией"
+		prepositive = "большой вентиляции"
 
 		New()
 			..()
@@ -431,7 +472,7 @@
 	attack_alien(mob/user as mob)
 		if(user in range(1,src))
 			for(var/mob/A in viewers())
-				A << "[user] climbs into the [src]"
+				A << "<b>[user]</b> залезает в <b>[src]</b>!"
 			user.loc = src
 			burst = 1
 		update_icon()
@@ -439,7 +480,7 @@
 		..()
 		if(user in src.contents)
 			for(var/mob/A in viewers())
-				A << "[user] bursts from the [src]"
+				A << "<b>[user]</b> вылезает из <b>[src]</b>!"
 			user.loc = src.loc
 			burst = 1
 			update_icon()

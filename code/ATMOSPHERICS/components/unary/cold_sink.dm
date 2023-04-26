@@ -3,8 +3,15 @@
 	icon_state = "intact_off"
 	density = 1
 
-	name = "Cold Sink"
+	name = "Охладитель"
 	desc = "Cools gas when connected to pipe network"
+
+	nominative = "охладитель"
+	genitive = "охладителя"
+	dative = "охладителю"
+	accusative = "охладитель"
+	instrumentative = "охладителем"
+	prepositive = "охладителе"
 
 	var/on = 0
 

@@ -2,8 +2,15 @@
 	icon = 'portables_connector.dmi'
 	icon_state = "intact"
 
-	name = "Connector Port"
-	desc = "For connecting portables devices related to atmospherics control."
+	name = "Соединительный порт"
+	desc = "Для присоединения портативных приспособлений к системе обеспечения газом."
+
+	nominative = "соединительный порт" //кто? что? лестница
+	genitive = "соединительного порта" //кого? чего? лестницы
+	dative = "соединительному порту"  //кому?  чему? лестнице
+	accusative = "соединительный порт" //кого? что?
+	instrumentative = "соединительным портом" //кем? чем? лестницей
+	prepositive = "соединительном порту" //о ком? о чем? лестнице
 
 	dir = SOUTH
 	initialize_directions = SOUTH

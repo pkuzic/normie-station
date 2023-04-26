@@ -22,7 +22,7 @@ obj/structure
 		user << "\blue Я разбираю балку..."
 		sleep(40)
 		if(get_turf(user) == T)
-			user << "\blue Я [usr.gender == 1 ? "разобрал" : "разобрала"] балку!"
+			user << "\blue Я [usr.gender == MALE ? "разобрал" : "разобрала"] балку!"
 			new /obj/item/weapon/sheet/metal(get_turf(src))
 			del(src)
 
@@ -32,7 +32,7 @@ obj/structure
 		user << "\blue Я откручиваю опорные стойки..."
 		sleep(40)
 		if(get_turf(user) == T)
-			user << "\blue Я [usr.gender == 1 ? "открутил" : "открутила"] опорные стойки"
+			user << "\blue Я [usr.gender == MALE ? "открутил" : "открутила"] опорные стойки"
 			state = 1
 
 	else if(istype(W, /obj/item/weapon/wirecutters) && istype(src,/obj/structure/girder/reinforced) && state == 1)
@@ -41,7 +41,7 @@ obj/structure
 		user << "\blue Я убираю опорные стойки..."
 		sleep(40)
 		if(get_turf(user) == T)
-			user << "\blue Я [usr.gender == 1 ? "убрал" : "убрала"] опорные стойки!"
+			user << "\blue Я [usr.gender == MALE ? "убрал" : "убрала"] опорные стойки!"
 			new/obj/structure/girder( src.loc )
 			del(src)
 
@@ -51,7 +51,7 @@ obj/structure
 		user << "\blue Я смещаю балку..."
 		sleep(40)
 		if(get_turf(user) == T)
-			user << "\blue Я [usr.gender == 1 ? "сместил" : "сместила"] балку!"
+			user << "\blue Я [usr.gender == MALE ? "сместил" : "сместила"] балку!"
 			new/obj/structure/girder/displaced( src.loc )
 			del(src)
 
@@ -61,7 +61,7 @@ obj/structure
 		user << "\blue Я закрепляю балку..."
 		sleep(40)
 		if(get_turf(user) == T)
-			user << "\blue Я [usr.gender == 1 ? "закрепил" : "закрепила"] балку!"
+			user << "\blue Я [usr.gender == MALE ? "закрепил" : "закрепила"] балку!"
 			new/obj/structure/girder( src.loc )
 			del(src)
 
@@ -70,7 +70,7 @@ obj/structure
 		user << "\blue Я добавляю покрытие..."
 		sleep(40)
 		if (W && get_turf(user) == T)
-			user << "\blue Я [usr.gender == 1 ? "добавил" : "добавила"] покрытие!"
+			user << "\blue Я [usr.gender == MALE ? "добавил" : "добавила"] покрытие!"
 			var/turf/Tsrc = get_turf(src)
 			Tsrc.ReplaceWithWall()
 			W:amount -= 2
@@ -85,7 +85,7 @@ obj/structure
 			user << "\blue Я заканчиваю укреплять стену..."
 			sleep(50)
 			if(W && get_turf(user) == T)
-				user << "\blue Я [usr.gender == 1 ? "укрепил" : "укрепила"] стену!"
+				user << "\blue Я [usr.gender == MALE ? "укрепил" : "укрепила"] стену!"
 				var/turf/Tsrc = get_turf(src)
 				Tsrc.ReplaceWithRWall()
 				W:amount--
@@ -96,7 +96,7 @@ obj/structure
 		else
 			user << "\blue Я укрепляю балки..."
 			sleep(60)
-			user << "\blue Я [usr.gender == 1 ? "укрепил" : "укрепила"] балки!"
+			user << "\blue Я [usr.gender == MALE ? "укрепил" : "укрепила"] балки!"
 			new/obj/structure/girder/reinforced( src.loc )
 			del(src)
 			return

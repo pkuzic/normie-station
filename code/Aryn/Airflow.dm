@@ -393,7 +393,7 @@ atom/movable
 			if(istype(A,/obj/item)) return .
 			if(ismob(src) || (isobj(src) && !istype(src,/obj/item)))
 				for(var/mob/M in hearers(src))
-					M.show_message("\red <B>[src]</b> врезается в <b>[A.genitive]!</B>",1,"\red Я слышу громкий хлопок!",2) //needs sound
+					M.show_message("\red <B>[src]</b> врезается в <b>[A.nominative]!</B>",1,"\red Я слышу громкий хлопок!",2) //needs sound
 				if(istype(src,/mob/living/carbon/human))
 					playsound(src.loc, "swing_hit", 25, 1, -1)
 					loc:add_blood(src)

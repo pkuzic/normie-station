@@ -76,7 +76,8 @@
 
 	if(istype(M, /mob/living/carbon/human) || istype(M, /mob/living/carbon/monkey))
 		for(var/mob/O in viewers(world.view, src.loc))
-			O << text("<font color='red'>[M] [M.gender == 1 ? "активировал" : "активировала"]  \icon[] [src]</font>", src)
+			O << text("<font color='red'><b>[M]</b> наступает на  \icon[] <b>[src.accusative]</b></font>!", src)
+			O << "[M.gender]"
 		triggered = 1
 		call(src,triggerproc)(M)
 
@@ -1190,13 +1191,13 @@
 			if(!user.hand)
 				which_hand = "r_hand"
 			src.triggered(user, which_hand)
-			user << "\red <B>Я случайно [usr.gender == 1 ? "активировал" : "активировала"] мышеловку!</B>"
+			user << "\red <B>Я случайно [usr.gender == MALE ? "активировал" : "активировала"] мышеловку!</B>"
 			for(var/mob/O in viewers(user, null))
 				if(O == user)
 					continue
 				O.show_message(text("\red <B>[user]</b> случайно активирует мышеловку!"), 1)
 			return
-		user << "\blue Я [usr.gender == 1 ? "деактивировал" : "деактивировала"] мышеловку."
+		user << "\blue Я [usr.gender == MALE ? "деактивировал" : "деактивировала"] мышеловку."
 	armed = !armed
 	playsound(user.loc, 'handcuffs.ogg', 30, 1, -3)
 
@@ -1221,7 +1222,7 @@
 		var/mob/living/carbon/H = AM
 		if(H.m_intent == "run")
 			src.triggered(H)
-			H << "\red <B>Я [usr.gender == 1 ? "наступил" : "наступила"] на мышеловку!</B>"
+			H << "\red <B>Я [usr.gender == MALE ? "наступил" : "наступила"] на мышеловку!</B>"
 			for(var/mob/O in viewers(H, null))
 				if(O == H)
 					continue

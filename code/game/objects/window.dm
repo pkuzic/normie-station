@@ -83,7 +83,7 @@
 
 	..()
 	for(var/mob/O in viewers(src, null))
-		O.show_message(text("\red <B>[AM]</b> врезается в <b>[src.dative]</B>!"), 1)
+		O.show_message(text("\red <B>[AM]</b> попадает прямо по <b>[src.dative]</B>!"), 1)
 	var/tforce = 0
 	if(ismob(AM))
 		tforce = 40

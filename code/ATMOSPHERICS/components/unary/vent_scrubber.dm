@@ -2,8 +2,15 @@
 	icon = 'vent_scrubber.dmi'
 	icon_state = "off"
 
-	name = "Air Scrubber"
-	desc = "Has a valve and pump attached to it"
+	name = "Скруббер воздуха"
+	//desc = "Has a valve and pump attached to it"
+
+	nominative = "скруббер воздуха"
+	genitive = "скруббера воздуха"
+	dative = "скрубберу воздуха"
+	accusative = "скруббер воздуха"
+	instrumentative = "скруббером воздуха"
+	prepositive = "скруббере воздуха"
 
 	level = 1
 

@@ -13,7 +13,7 @@
 	if (istype(W, /obj/item/weapon/mop))
 		if (src.reagents.total_volume >= 2)
 			src.reagents.trans_to(W, 2)
-			user << "\blue Я [usr.gender == 1 ? "намочил" : "намочила"] швабру." //gender check
+			user << "\blue Я [usr.gender == MALE ? "намочил" : "намочила"] швабру." //gender check
 			playsound(src.loc, 'slosh.ogg', 25, 1)
 		if (src.reagents.total_volume < 1)
 			user << "\red Вода закончилась!"

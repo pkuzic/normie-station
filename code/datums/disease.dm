@@ -1,5 +1,5 @@
 /datum/disease
-	var/name = "No disease"
+	var/name = "Нет заболевания"
 	var/stage = 1 //all diseases start at stage 1
 	var/max_stages = 0.0
 	var/cure = null

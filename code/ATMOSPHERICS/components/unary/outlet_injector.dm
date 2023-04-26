@@ -2,8 +2,15 @@
 	icon = 'outlet_injector.dmi'
 	icon_state = "off"
 
-	name = "Air Injector"
-	desc = "Has a valve and pump attached to it"
+	name = "Воздушный инжектор"
+	desc = "Включает встроенный клапан и насос."
+
+	nominative = "воздушный инжектор"
+	genitive = "воздушного инжектора"
+	dative = "воздушному инжектору"
+	accusative = "воздушный инжектор"
+	instrumentative = "воздушным инжектором"
+	prepositive = "воздушном инжекторе"
 
 	var/on = 0
 	var/injecting = 0

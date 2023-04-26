@@ -269,9 +269,9 @@ mob/new_player
 
 			if (ticker.current_state == GAME_STATE_PLAYING)
 				if(rank == "Unassigned")
-					radioalert("Уведомление о прибытии", "[character.real_name] [character.gender == 1 ? "прибыл" : "прибыла"] на судно.")	//unassigneds are not special
+					radioalert("Уведомление о прибытии", "[character.real_name] [character.gender == MALE ? "прибыл" : "прибыла"] на судно.")	//unassigneds are not special
 				else
-					radioalert("Уведомление о прибытии", "[rank] [character.real_name] [character.gender == 1 ? "прибыл" : "прибыла"] на судно.")	//oh no engineers
+					radioalert("Уведомление о прибытии", "[rank] [character.real_name] [character.gender == MALE ? "прибыл" : "прибыла"] на судно.")	//oh no engineers
 
 				/*for (var/mob/living/silicon/ai/A in world) // Use this if we want to revert to the AI announcing new arrivals
 					if (!A.stat)

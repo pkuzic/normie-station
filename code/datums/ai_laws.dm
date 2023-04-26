@@ -1,21 +1,21 @@
 
 /datum/ai_laws
-	var/name = "Unknown Laws"
+	var/name = "Неизвестные законы"
 	var/zeroth = null
 	var/list/inherent = list()
 	var/list/supplied = list()
 
 /datum/ai_laws/asimov
-	name = "Three Laws of Robotics"
+	name = "Три закона робототехники"
 
 /datum/ai_laws/nanotrasen
-	name = "Prime Directives"
+	name = "Основные Директивы"
 
 /datum/ai_laws/robocop
-	name = "Prime Directives"
+	name = "Основные Директивы"
 
 /datum/ai_laws/malfunction
-	name = "*ERROR*"
+	name = "*ОШИБКА*"
 
 /* Initializers */
 

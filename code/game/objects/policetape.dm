@@ -108,7 +108,7 @@
 /obj/item/policetape/proc/breaktape(obj/item/weapon/W as obj, mob/user as mob)
 	if(!W)
 		W = 1
-	user.show_viewers(text("\blue <b>[]</b> ломает ленту!", user))
+	user.show_viewers(text("\blue <b>[]</b> срывает ленту!", user))
 	var/OX = src.x
 	var/OY = src.y
 	if(src.icon_state == "horizontal")

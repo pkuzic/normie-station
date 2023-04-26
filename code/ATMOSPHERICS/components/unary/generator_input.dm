@@ -3,8 +3,15 @@
 	icon_state = "intact"
 	density = 1
 
-	name = "Generator Input"
-	desc = "Placeholder"
+	name = "Вход генератора"
+	//desc = "Placeholder"
+	nominative = "вход генератора"
+	genitive = "входа генератора"
+	dative = "входу генератора"
+	accusative = "вход генератора"
+	instrumentative = "входом генератора"
+	prepositive = "входе генератора"
+
 
 	var/update_cycle
 

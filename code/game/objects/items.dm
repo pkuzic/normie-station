@@ -106,7 +106,7 @@
 				return
 		return
 	if (!(istype(usr, /mob/living/carbon/human) || ticker) && ticker.mode.name != "monkey")
-		usr << "\red Я недостаточно [usr.gender == 1 ? "ловкий" : "ловкая"] для этого!"
+		usr << "\red Я недостаточно [usr.gender == MALE ? "ловкий" : "ловкая"] для этого!"
 		return
 	if (istype(M, /mob/living/carbon/human))
 		var/obj/equip_e/human/O = new /obj/equip_e/human(  )

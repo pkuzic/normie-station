@@ -34,7 +34,16 @@ var/global/list/datum/shuttle/miningshuttles = list()
 
 datum/shuttle
 	var
-		name = "Shuttle"
+		name = "Шаттл"
+
+		nominative = "шаттл"
+		genitive = "шаттла"
+		dative = "шаттлу"
+		accusative = "шаттл"
+		instrumentative = "шаттлом"
+		prepositive = "шаттле"
+
+
 		location = 1 // 0 = Transit, 1 = Start, 2 = dest
 		online = 0
 		direction = 1 // 1 = Start, 2 = Dest
@@ -180,10 +189,10 @@ datum/shuttle
 
 
 proc/CreateShuttles() //Would do this via config, but map changes are rare and need source code anyway
-	var/datum/shuttle/pod1 = new /datum/shuttle("Escape pod 1","/area/shuttle/escape/station/pod1","/area/shuttle/escape/transit/pod1","/area/shuttle/escape/centcom/pod1")
-	var/datum/shuttle/pod2 = new /datum/shuttle("Escape pod 2","/area/shuttle/escape/station/pod2","/area/shuttle/escape/transit/pod2","/area/shuttle/escape/centcom/pod2")
-	var/datum/shuttle/prisonshuttle/prisonshuttle1 = new /datum/shuttle/prisonshuttle("Prison Shuttle","/area/shuttle/prison/station","/area/shuttle/prison/transit","/area/shuttle/prison/prison")
-	var/datum/shuttle/miningshuttle/miningshuttle1 = new /datum/shuttle/miningshuttle("Mining Shuttle","/area/shuttle/mining/station","/area/shuttle/mining/transit","/area/shuttle/mining/asteroid")
+	var/datum/shuttle/pod1 = new /datum/shuttle("Спасательная капсула 1","/area/shuttle/escape/station/pod1","/area/shuttle/escape/transit/pod1","/area/shuttle/escape/centcom/pod1")
+	var/datum/shuttle/pod2 = new /datum/shuttle("Спасательная капсула 2","/area/shuttle/escape/station/pod2","/area/shuttle/escape/transit/pod2","/area/shuttle/escape/centcom/pod2")
+	var/datum/shuttle/prisonshuttle/prisonshuttle1 = new /datum/shuttle/prisonshuttle("Тюремный шаттл","/area/shuttle/prison/station","/area/shuttle/prison/transit","/area/shuttle/prison/prison")
+	var/datum/shuttle/miningshuttle/miningshuttle1 = new /datum/shuttle/miningshuttle("Шахтерский шаттл","/area/shuttle/mining/station","/area/shuttle/mining/transit","/area/shuttle/mining/asteroid")
 	shuttles += pod1
 	shuttles += pod2
 	prisonshuttles += prisonshuttle1
@@ -233,22 +242,22 @@ proc/CreateShuttles() //Would do this via config, but map changes are rare and n
 
 		if(online && timeleft() < last60)
 			if(timeleft > 60)
-				radioalert("Escape Computer", "[round(timeleft()/60,1)] minutes until escape pod launch.")
+				radioalert("Компьютер спасательной капсулы", "<b>[round(timeleft()/60,1)]</b> минут до пуска спасательной капсулы.")
 				if(timeleft() - 60 > 60)
 					last60 = timeleft() - 60
 				else
 					last60 = 60
 			else if(timeleft > 30)
-				radioalert("Escape Computer", "[round(timeleft(),1)] seconds until escape pod launch.")
+				radioalert("Компьютер спасательной капсулы", "[round(timeleft(),1)] секунд до пуска спасательной капсулы.")
 				if(timeleft() - 10 > 10)
 					last60 = timeleft() - 10
 				else
 					last60 = timeleft() - 1
 			else
 				if(timeleft() > 0)
-					radioalert("Escape Computer", "[round(timeleft(),1)] seconds.")
+					radioalert("Компьютер спасательной капсулы", "[round(timeleft(),1)] секунд.")
 				else
-					radioalert("Escape Computer", "Escape pods launched.")
+					radioalert("Компьютер спасательной капсулы", "Спасетльная капсула запущена!")
 				last60 = timeleft() - 1
 
 		if(online && timeleft <= 0)
@@ -262,7 +271,15 @@ proc/CreateShuttles() //Would do this via config, but map changes are rare and n
 	a.autosay(message, from)
 
 /datum/shuttle/prisonshuttle/
-	name = "Prison Shuttle"
+	name = "Тюремный шаттл"
+
+	nominative = "тюремный шаттл"
+	genitive = "тюремного шаттла"
+	dative = "тюремному шаттлу"
+	accusative = "тюремный шаттл"
+	instrumentative = "тюремным шаттлом"
+	prepositive = "тюремном шаттле"
+
 	location = 1 // 0 = Transit, 1 = Start, 2 = dest
 	online = 0
 	direction = 1 // 1 = Start, 2 = Dest
@@ -316,7 +333,7 @@ proc/CreateShuttles() //Would do this via config, but map changes are rare and n
 					start_location.move_contents_to(end_location)
 					location = 0
 					direction = 2
-					radioalert("Prison Notice", "Prisoner Shuttle has departed.")
+					radioalert("Тюремный шаттл", "Тюремный шаттл отбыл.")
 
 			if(0)
 				//world << "DURR 0"
@@ -382,7 +399,7 @@ proc/CreateShuttles() //Would do this via config, but map changes are rare and n
 					online = 0
 					PrisonControl.location = 2
 					PrisonControl.departed = 0
-					radioalert("Prison Notice", "Prisoner Shuttle has arrived at the prison.")
+					radioalert("Тюремный шаттл", "Тюремный шаттл пристыковался к тюремной станции.")
 
 					return 1
 
@@ -399,7 +416,7 @@ proc/CreateShuttles() //Would do this via config, but map changes are rare and n
 					online = 0
 					PrisonControl.location = 1
 					PrisonControl.departed = 0
-					radioalert("Prison Notice", "Prisoner Shuttle has arrived.")
+					radioalert("Тюремный шаттл", "Тюремный шаттл прибыл.")
 
 
 			else
@@ -440,7 +457,15 @@ proc/CreateShuttles() //Would do this via config, but map changes are rare and n
 			departed = 1
 
 /datum/shuttle/miningshuttle/
-	name = "Archaeologist Shuttle"
+	name = "Археологический шаттл"
+
+	nominative = "археологический шаттл"
+	genitive = "археологического шаттла"
+	dative = "археологическому шаттлу"
+	accusative = "археологический шаттл"
+	instrumentative = "археологическим шаттлом"
+	prepositive = "археологическом шаттле"
+
 	location = 1 // 0 = Transit, 1 = Start, 2 = dest
 	online = 0
 	direction = 1 // 1 = Start, 2 = Dest
@@ -493,7 +518,7 @@ proc/CreateShuttles() //Would do this via config, but map changes are rare and n
 					start_location.move_contents_to(end_location)
 					location = 0
 					direction = 2
-					radioalert("Archaeologist Notice", "Archaeologist Shuttle has departed.")
+					radioalert("Археологический шаттл", "Археологический шаттл отбыл.")
 
 			if(0)
 				//world << "DURR 0"
@@ -535,7 +560,7 @@ proc/CreateShuttles() //Would do this via config, but map changes are rare and n
 					online = 0
 					MiningControl.location = 2
 					MiningControl.departed = 0
-					radioalert("Archaeologist Notice", "Archaeologist Shuttle has arrived at the asteroid.")
+					radioalert("Археологический шаттл", "Археологический шаттл прибыл на астероид.")
 
 					return 1
 
@@ -552,7 +577,7 @@ proc/CreateShuttles() //Would do this via config, but map changes are rare and n
 					online = 0
 					MiningControl.location = 1
 					MiningControl.departed = 0
-					radioalert("Archaeologist Notice", "Archaeologist Shuttle has arrived.")
+					radioalert("Археологический шаттл", "Археологический шаттл прибыл.")
 
 			else
 				return 1

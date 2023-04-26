@@ -36,8 +36,16 @@
 
 
 /obj/item/policetaperoll
-	name = "police tape roll"
-	desc = "A roll of police tape used to block off crime scenes from the public."
+	name = "рулон ленты"
+	desc = "Рулон ленты, позволяющий ограждать зону от нежелательной публики."
+
+	nominative = "рулон ленты"
+	genitive = "рулона ленты"
+	dative = "рулону ленты"
+	accusative = "рулон ленты"
+	instrumentative = "рулоном ленты"
+	prepositive = "рулоне ленты"
+
 	icon = 'policetape.dmi'
 	icon_state = "rollstart"
 	flags = FPRINT
@@ -49,8 +57,16 @@
 	var/tapeendz = 0
 
 /obj/item/policetape
-	name = "police tape"
-	desc = "A length of police tape.  Do not cross."
+	name = "лента"
+
+	nominative = "лента"
+	genitive = "ленты"
+	dative = "ленте"
+	accusative = "ленту"
+	instrumentative = "лентой"
+	prepositive = "о ленте"
+
+	desc = "Оградительная лента."
 	icon = 'policetape.dmi'
 	anchored = 1
 	density = 1
@@ -66,8 +82,16 @@
 	anchored = 1
 
 /obj/blob/idle
-	name = "blob"
-	desc = "it looks... frightened"
+	name = "блоб"
+
+	nominative = "блоб"
+	genitive = "блоба"
+	dative = "блобу"
+	accusative = "блоб"
+	instrumentative = "блобом"
+	prepositive = "блобе"
+
+	desc = "Выглядит пугающе."
 	icon_state = "blobidle0"
 
 /obj/mark
@@ -87,9 +111,16 @@
 	//state = 2 for observing
 
 /obj/bhole
-	name = "black hole"
+	name = "Чёрная дыра"
 	icon = 'objects.dmi'
-	desc = "FUCK FUCK FUCK AAAHHH"
+
+	nominative = "чёрная дыра"
+	genitive = "чёрной дыры"
+	dative = "чёрной дыре"
+	accusative = "чёрную дыру"
+	instrumentative = "чёрной дырой"
+	prepositive = "чёрной дыре"
+
 	icon_state = "bhole2"
 	opacity = 0
 	density = 0
@@ -100,10 +131,25 @@
 
 
 /obj/beam
-	name = "beam"
+	name = "Луч"
+
+	nominative = "луч"
+	genitive = "луча"
+	dative = "лучу"
+	accusative = "луч"
+	instrumentative = "лучом"
+	prepositive = "луче"
 
 /obj/beam/a_laser
-	name = "a laser"
+	name = "Лазер"
+
+	nominative = "лазер"
+	genitive = "лазера"
+	dative = "лазеру"
+	accusative = "лазер"
+	instrumentative = "лазером"
+	prepositive = "лазере"
+
 	icon = 'projectiles.dmi'
 	icon_state = "laser"
 	density = 1
@@ -115,7 +161,15 @@
 	flags = TABLEPASS
 
 /obj/beam/i_beam
-	name = "i beam"
+	name = "Инфракрасный луч"
+
+	nominative = "инфракрасный луч"
+	genitive = "инфракрасного луча"
+	dative = "инфракрасному лучу"
+	accusative = "инфракрасный луч"
+	instrumentative = "инфракрасным лучом"
+	prepositive = "инфракрасном луче"
+
 	icon = 'projectiles.dmi'
 	icon_state = "ibeam"
 	var/obj/beam/i_beam/next = null
@@ -128,8 +182,16 @@
 
 
 /obj/bedsheetbin
-	name = "linen bin"
-	desc = "A bin for containing bedsheets."
+	name = "Бельевая корзина"
+	desc = "Корзина для хранения белья."
+
+	nominative = "бельевая корзина"
+	genitive = "бельевой корзины"
+	dative = "бельевой корзине"
+	accusative = "бельевую корзину"
+	instrumentative = "бельевой корзиной"
+	prepositive = "бельевой корзине"
+
 	icon = 'items.dmi'
 	icon_state = "bedbin"
 	var/amount = 23.0
@@ -137,12 +199,28 @@
 
 /obj/begin
 	name = "begin"
+
+	nominative = "begin"
+	genitive = "begin"
+	dative = "begin"
+	accusative = "begin"
+	instrumentative = "begin"
+	prepositive = "begin"
+
 	icon = 'stationobjs.dmi'
 	icon_state = "begin"
 	anchored = 1.0
 
 /obj/bullet
-	name = "bullet"
+	name = "Пуля"
+
+	nominative = "пуля"
+	genitive = "пули"
+	dative = "пуле"
+	accusative = "пулю"
+	instrumentative = "пулей"
+	prepositive = "пуле"
+
 	icon = 'projectiles.dmi'
 	icon_state = "bullet"
 	density = 1
@@ -156,27 +234,67 @@
 
 
 /obj/bullet/electrode
-	name = "electrode"
+	name = "Электрод"
+
+	nominative = "электрод"
+	genitive = "электрода"
+	dative = "электроду"
+	accusative = "электрод"
+	instrumentative = "электродом"
+	prepositive = "электроде"
+
 	icon_state = "spark"
 
 /obj/bullet/teleshot
-	name = "teleshot"
+	name = "Телевыстрел"
+
+	nominative = "телевыстрел"
+	genitive = "телевыстрела"
+	dative = "телевыстрелу"
+	accusative = "телевыстрел"
+	instrumentative = "телевыстрелом"
+	prepositive = "телевыстреле"
+
 	icon_state = "spark"
 	var/failchance = 5
 	var/obj/item/target = null
 
 /obj/bullet/cbbolt
-	name = "crossbow bolt"
+	name = "Арбалетный болт"
+
+	nominative = "арбалетный болт"
+	genitive = "арбалетного болта"
+	dative = "арбалетному болту"
+	accusative = "арбалетный болт"
+	instrumentative = "арбалетным болтом"
+	prepositive = "арбалетном болте"
+
 	icon_state = "cbbolt"
 
 /obj/datacore
 	name = "datacore"
+
+	nominative = "datacore"
+	genitive = "datacore"
+	dative = "datacore"
+	accusative = "datacore"
+	instrumentative = "datacore"
+	prepositive = "datacore"
+
 	var/list/medical = list(  )
 	var/list/general = list(  )
 	var/list/security = list(  )
 
 /obj/equip_e
 	name = "equip e"
+
+	nominative = "equip e"
+	genitive = "equip e"
+	dative = "equip e"
+	accusative = "equip e"
+	instrumentative = "equip e"
+	prepositive = "equip e"
+
 	var/mob/source = null
 	var/s_loc = null
 	var/t_loc = null
@@ -184,16 +302,40 @@
 	var/place = null
 
 /obj/equip_e/human
-	name = "human"
+	name = "человек"
+
+	nominative = "человек"
+	genitive = "человека"
+	dative = "человеку"
+	accusative = "человека"
+	instrumentative = "человеком"
+	prepositive = "человеке"
+
 	var/mob/living/carbon/human/target = null
 
 /obj/equip_e/monkey
-	name = "monkey"
+	name = "обезьяна"
+
+	nominative = "обезьяна"
+	genitive = "обезьяны"
+	dative = "обезьяне"
+	accusative = "обезьяну"
+	instrumentative = "обезьяной"
+	prepositive = "обезьяне"
+
 	var/mob/living/carbon/monkey/target = null
 
 /obj/grille
-	desc = "A piece of metal with evenly spaced gridlike holes in it. Blocks large object but lets small items, gas, or energy beams through."
-	name = "grille"
+	desc = "Кусок металла с равномерно расположенными отверстиями в виде сетки. Блокирует крупные объекты, но пропускает мелкие предметы, газ или энергетические лучи.."
+	name = "решётка"
+
+	nominative = "решётка"
+	genitive = "решётки"
+	dative = "решётке"
+	accusative = "решётку"
+	instrumentative = "решёткой"
+	prepositive = "решётке"
+
 	icon = 'structures.dmi'
 	icon_state = "grille"
 	density = 1
@@ -205,7 +347,15 @@
 	pressure_resistance = 5*ONE_ATMOSPHERE
 
 /obj/item
-	name = "item"
+	name = "Предмет"
+
+	nominative = "предмет"
+	genitive = "предмета"
+	dative = "предмету"
+	accusative = "предмет"
+	instrumentative = "предметом"
+	prepositive = "о предмете"
+
 	icon = 'items.dmi'
 	var/icon_old = null
 	var/abstract = 0.0
@@ -228,8 +378,16 @@
 	icon = 'device.dmi'
 
 /obj/item/device/detective_scanner
-	name = "Scanner"
-	desc = "Used to scan objects for DNA and fingerprints"
+	name = "Сканер"
+	desc = "Используется для сканирования объектов на наличие ДНК и отпечатков пальцев."
+
+	nominative = "сканер"
+	genitive = "сканера"
+	dative = "сканеру"
+	accusative = "сканер"
+	instrumentative = "сканером"
+	prepositive = "сканере"
+
 	icon_state = "forensic0"
 	var/amount = 20.0
 	var/printing = 0.0
@@ -239,7 +397,17 @@
 
 
 /obj/item/device/flash
-	name = "flash"
+	name = "Ослепитель"
+	desc = "И кто придумал настолько примитивное и глупое название подобной вещи?"
+
+	nominative = "ослепитель"
+	genitive = "ослепителя"
+	dative = "ослепителю"
+	accusative = "ослепитель"
+	instrumentative = "ослепителем"
+	prepositive = "ослепителе"
+
+
 	icon_state = "flash"
 	var/l_time = 1.0
 	var/shots = 5.0
@@ -252,8 +420,16 @@
 	var/status = 1
 
 /obj/item/device/flashlight
-	name = "flashlight"
-	desc = "A hand-held emergency light."
+	name = "Фонарь"
+	desc = "Ручной аварийный свет."
+
+	nominative = "фонарь"
+	genitive = "фонаря"
+	dative = "фонарю"
+	accusative = "фонарь"
+	instrumentative = "фонарем"
+	prepositive = "фонаре"
+
 	icon_state = "flight0"
 	var/on = 0
 	w_class = 2
@@ -263,10 +439,19 @@
 	g_amt = 20
 
 /obj/item/device/healthanalyzer
-	name = "Health Analyzer"
+	name = "Анализатор здоровья"
+
+	desc = "Ручной сканер тела, способный дать оценку состояния здоровья субъекта."
+
+	nominative = "анализатор здоровья"
+	genitive = "анализатора здоровья"
+	dative = "анализатору здоровья"
+	accusative = "анализатор здоровья"
+	instrumentative = "анализатором здоровья"
+	prepositive = "анализаторе здоровья"
+
 	icon_state = "health"
 	item_state = "analyzer"
-	desc = "A hand-held body scanner able to distinguish vital signs of the subject."
 	flags = FPRINT | ONBELT | TABLEPASS | CONDUCT
 	throwforce = 3
 	w_class = 1.0
@@ -275,8 +460,17 @@
 	m_amt = 200
 
 /obj/item/device/igniter
-	name = "igniter"
-	desc = "A small electronic device able to ignite combustable substances."
+	name = "Поджигатель"
+	desc = "Маленькое электронное приспособление, способное выдать искру."
+
+	nominative = "поджигатель"
+	genitive = "поджигателя"
+	dative = "поджигателю"
+	accusative = "поджигателя"
+	instrumentative = "поджигателем"
+	prepositive = "поджигателе"
+
+
 	icon_state = "igniter"
 	var/status = 1.0
 	flags = FPRINT | TABLEPASS| CONDUCT
@@ -289,8 +483,16 @@
 
 
 /obj/item/device/infra
-	name = "Infrared Beam (Security)"
-	desc = "Emits a visible or invisible beam and is triggered when the beam is interrupted."
+	name = "Инфракрасный луч"
+	desc = "Излучает видимый или невидимый луч, реагирующий на контакт."
+
+	nominative = "инфракрасный луч"
+	genitive = "инфракрасного луча"
+	dative = "инфракрасному лучу"
+	accusative = "инфракрасный луч"
+	instrumentative = "инфракрасным лучом"
+	prepositive = "инфракрасном луче"
+
 	icon_state = "infrared0"
 	var/obj/beam/i_beam/first = null
 	var/state = 0.0
@@ -301,8 +503,16 @@
 	m_amt = 150
 
 /obj/item/device/infra_sensor
-	name = "Infrared Sensor"
-	desc = "Scans for infrared beams in the vicinity."
+	name = "Инфракрасный сенсор"
+	desc = "Ищет инфракрасные лучи в пределах видимости."
+
+	nominative = "инфракрасный сенсор"
+	genitive = "инфракрасного сенсора"
+	dative = "инфракрасному сенсору"
+	accusative = "инфракрасный сенсор"
+	instrumentative = "инфракрасным сенсором"
+	prepositive = "инфракрасном сенсоре"
+
 	icon_state = "infra_sensor"
 	var/passive = 1.0
 	flags = FPRINT | TABLEPASS| CONDUCT
@@ -310,8 +520,16 @@
 	m_amt = 150
 
 /obj/item/device/t_scanner
-	name = "T-ray scanner"
-	desc = "A terahertz-ray emitter and scanner used to detect underfloor objects such as cables and pipes."
+	name = "Т-лучевой сканер"
+	desc = "Излучатель терагерцового излучения, используемый для обнаружения объектов под полом, таких как кабели и трубы."
+
+	nominative = "т-лучевой сканер"
+	genitive = "т-лучевого сканера"
+	dative = "т-лучевому сканеру"
+	accusative = "т-лучевой сканер"
+	instrumentative = "т-лучевым сканером"
+	prepositive = "о т-лучевом сканере"
+
 	icon_state = "t-ray0"
 	var/on = 0
 	flags = FPRINT|ONBELT|TABLEPASS
@@ -319,8 +537,17 @@
 	item_state = "electronic"
 	m_amt = 150
 
-/obj/item/device/multitool
-	name = "multitool"
+/obj/item/device/multitool //would need to get rid of this thing. might make a good plush toy for engineers
+	name = "Мультитул"
+	desc = "Многофункциональный инструмент"
+
+	nominative = "мультитул"
+	genitive = "мультитула"
+	dative = "мультитулу"
+	accusative = "мультитул"
+	instrumentative = "мультитулом"
+	prepositive = "мультитуле"
+
 	icon_state = "multitool"
 	flags = FPRINT | TABLEPASS| CONDUCT
 	force = 5.0
@@ -328,13 +555,21 @@
 	throwforce = 5.0
 	throw_range = 15
 	throw_speed = 3
-	desc = "You can use this on airlocks or APCs to try to hack them without cutting wires."
 	m_amt = 50
 	g_amt = 20
 
 // So far, its functionality is found only in code/game/machinery/doors/airlock.dm
-/obj/item/device/hacktool
-	name = "hacktool"
+/obj/item/device/hacktool //same - get rid of this one
+	name = "Хактул"
+	desc = "Предмет сомнительного происхождения, из него торчат провода и антенны."
+
+	nominative = "хактул"
+	genitive = "хактула"
+	dative = "хактулу"
+	accusative = "хактул"
+	instrumentative = "хактулом"
+	prepositive = "хактуле"
+
 	icon_state = "hacktool"
 	flags = FPRINT | TABLEPASS | CONDUCT
 	var/in_use = 0
@@ -343,12 +578,19 @@
 	throwforce = 5.0
 	throw_range = 15
 	throw_speed = 3
-	desc = "An item of dubious origins, with wires and antennas protruding out of it."
 	m_amt = 60
 	g_amt = 20
 
 /obj/item/device/prox_sensor
-	name = "Proximity Sensor"
+	name = "Датчик приближения"
+
+	nominative = "датчик приближения"
+	genitive = "датчика приближения"
+	dative = "датчику приближения"
+	accusative = "датчик приближения"
+	instrumentative = "датчиком приближения"
+	prepositive = "датчике приближения"
+
 	icon_state = "motion0"
 	var/state = 0.0
 	var/timing = 0.0
@@ -360,7 +602,15 @@
 
 
 /obj/item/device/timer
-	name = "timer"
+	name = "Таймер"
+
+	nominative = "таймер"
+	genitive = "таймера"
+	dative = "таймеру"
+	accusative = "таймер"
+	instrumentative = "таймером"
+	prepositive = "таймере"
+
 	icon_state = "timer0"
 	item_state = "electronic"
 	var/timing = 0.0
@@ -408,14 +658,30 @@
 		name = "Bot No-Path"
 
 /obj/laser
-	name = "laser"
+	name = "Лазер"
+
+	nominative = "лазер"
+	genitive = "лазера"
+	dative = "лазеру"
+	accusative = "лазер"
+	instrumentative = "лазером"
+	prepositive = "лазере"
+
 	icon = 'projectiles.dmi'
 	var/damage = 0.0
 	var/range = 10.0
 
 /obj/lattice
-	desc = "A lightweight support lattice."
-	name = "lattice"
+	desc = "Легкая опорная решетка."
+	name = "Решётка"
+
+	nominative = "решётка"
+	genitive = "решётки"
+	dative = "решётке"
+	accusative = "решётку"
+	instrumentative = "решёткой"
+	prepositive = "решётке"
+
 	icon = 'structures.dmi'
 	icon_state = "lattice"
 	density = 0
@@ -433,7 +699,15 @@
 	var/list/container = list(  )
 
 /obj/m_tray
-	name = "morgue tray"
+	name = "Погребальный поднос"
+
+	nominative = "погребальный поднос"
+	genitive = "погребального подноса"
+	dative = "погребальному подносу"
+	accusative = "погребальный поднос"
+	instrumentative = "погребальным подносом"
+	prepositive = "погребальном подносе"
+
 	icon = 'stationobjs.dmi'
 	icon_state = "morguet"
 	density = 1
@@ -442,7 +716,15 @@
 	anchored = 1.0
 
 /obj/c_tray
-	name = "crematorium tray"
+	name = "Крематорный поднос"
+
+	nominative = "крематорный поднос"
+	genitive = "крематорного подноса"
+	dative = "крематорному подносу"
+	accusative = "крематорный поднос"
+	instrumentative = "крематорным подносом"
+	prepositive = "крематорном подносе"
+
 	icon = 'stationobjs.dmi'
 	icon_state = "cremat"
 	density = 1
@@ -456,7 +738,15 @@
 	icon_state = "x"
 
 /obj/morgue
-	name = "morgue"
+	name = "Камера морга"
+
+	nominative = "крематорный поднос"
+	genitive = "крематорного подноса"
+	dative = "крематорному подносу"
+	accusative = "крематорный поднос"
+	instrumentative = "крематорным подносом"
+	prepositive = "крематорном подносе"
+
 	icon = 'stationobjs.dmi'
 	icon_state = "morgue1"
 	density = 1
@@ -464,8 +754,15 @@
 	anchored = 1.0
 
 /obj/crematorium
-	name = "crematorium"
-	desc = "A human incinerator."
+	name = "Камера крематория"
+
+	nominative = "камера крематория"
+	genitive = "камеры крематория"
+	dative = "камере крематория"
+	accusative = "камеру крематория"
+	instrumentative = "камерой крематория"
+	prepositive = "камере крематория"
+
 	icon = 'stationobjs.dmi'
 	icon_state = "crema1"
 	density = 1
@@ -476,8 +773,16 @@
 	var/locked = 0
 
 /obj/mine
-	name = "Mine"
-	desc = "I Better stay away from that thing."
+	name = "Мина"
+	desc = "Что будет, если наступить?"
+
+	nominative = "мина"
+	genitive = "мины"
+	dative = "мине"
+	accusative = "мину"
+	instrumentative = "миной"
+	prepositive = "мине"
+
 	density = 1
 	anchored = 1
 	layer = 3
@@ -486,20 +791,41 @@
 	var/triggerproc = "explode" //name of the proc thats called when the mine is triggered
 	var/triggered = 0
 
-/obj/mine/dnascramble
+/*/obj/mine/dnascramble
 	name = "Radiation Mine"
 	icon_state = "uglymine"
 	triggerproc = "triggerrad"
+
+	nominative = "мина"
+	genitive = "мины"
+	dative = "мине"
+	accusative = "мину"
+	instrumentative = "миной"
+	prepositive = "мине"
 
 /obj/mine/plasma
 	name = "Plasma Mine"
 	icon_state = "uglymine"
 	triggerproc = "triggerplasma"
 
+	nominative = "мина"
+	genitive = "мины"
+	dative = "мине"
+	accusative = "мину"
+	instrumentative = "миной"
+	prepositive = "мине"
+
 /obj/mine/kick
 	name = "Kick Mine"
 	icon_state = "uglymine"
 	triggerproc = "triggerkick"
+
+	nominative = "мина"
+	genitive = "мины"
+	dative = "мине"
+	accusative = "мину"
+	instrumentative = "миной"
+	prepositive = "мине"
 
 /obj/mine/n2o
 	name = "N2O Mine"
@@ -511,6 +837,13 @@
 	icon_state = "uglymine"
 	triggerproc = "triggerstun"
 
+	nominative = "мина"
+	genitive = "мины"
+	dative = "мине"
+	accusative = "мину"
+	instrumentative = "миной"
+	prepositive = "мине"*/
+
 /obj/overlay
 	name = "overlays"
 
@@ -519,7 +852,15 @@
 	anchored = 1.0
 
 /obj/rack
-	name = "rack"
+	name = "Стойка"
+
+	nominative = "стойка"
+	genitive = "стойки"
+	dative = "стойке"
+	accusative = "стойку"
+	instrumentative = "стойкой"
+	prepositive = "стойке"
+
 	icon = 'objects.dmi'
 	icon_state = "rack"
 	density = 1
@@ -527,7 +868,15 @@
 	anchored = 1.0
 
 /obj/screen
-	name = "screen"
+	name = "Экран"
+
+	nominative = "экран"
+	genitive = "экрана"
+	dative = "экрану"
+	accusative = "экран"
+	instrumentative = "экраном"
+	prepositive = "экране"
+
 	icon = 'screen1.dmi'
 	layer = 20.0
 	var/id = 0.0
@@ -564,7 +913,15 @@
 	anchored = 1.0
 
 /obj/stool
-	name = "stool"
+	name = "Стул"
+
+	nominative = "стул"
+	genitive = "стула"
+	dative = "стулу"
+	accusative = "стул"
+	instrumentative = "стулом"
+	prepositive = "стуле"
+
 	icon = 'objects.dmi'
 	icon_state = "stool"
 	flags = FPRINT
@@ -572,26 +929,55 @@
 	pressure_resistance = 3*ONE_ATMOSPHERE
 
 /obj/stool/barstool
-	name = "barstool"
+	name = "Барный стул"
+
+	nominative = "барный стул"
+	genitive = "барного стула"
+	dative = "барному стулу"
+	accusative = "барный стул"
+	instrumentative = "барным стулом"
+	prepositive = "барном стуле"
+
 	icon_state = "barstool"
 
 /obj/stool/bed
-	name = "bed"
-	desc = "This is used to lie in, sleep in or strap on."
+	name = "Кровать"
+
+	nominative = "кровать"
+	genitive = "кровати"
+	dative = "кровати"
+	accusative = "кровать"
+	instrumentative = "кроватью"
+	prepositive = "кровати"
+
 	icon_state = "bed"
-	anchored = 1.0
 	var/list/buckled_mobs = list(  )
 
 /obj/stool/chair
-	name = "chair"
-	desc = "You sit in this. Either by will or force."
+	name = "Стул"
+
+	nominative = "стул"
+	genitive = "стула"
+	dative = "стулу"
+	accusative = "стул"
+	instrumentative = "стулом"
+	prepositive = "стуле"
+
 	icon_state = "chair"
 	var/status = 0.0
-	anchored = 1.0
 	var/list/buckled_mobs = list(  )
 
 /obj/stool/chair/e_chair
-	name = "electrified chair"
+	name = "Электрический стул"
+	desc = "Страшный сон несправедливо приговоренного."
+
+	nominative = "электрический стул"
+	genitive = "электрического стула"
+	dative = "электрическому стулу"
+	accusative = "электрический стул"
+	instrumentative = "электрическим стулом"
+	prepositive = "электрическом стуле"
+
 	icon_state = "e_chair0"
 	var/atom/movable/overlay/overl = null
 	var/on = 0.0
@@ -599,8 +985,14 @@
 	var/last_time = 1.0
 
 /obj/stool/chair/comfy
-	name = "comfy chair"
-	desc = "It looks comfy."
+	name = "Кресло"
+
+	nominative = "кресло"
+	genitive = "кресла"
+	dative = "креслу"
+	accusative = "кресло"
+	instrumentative = "креслом"
+	prepositive = "кресле"
 
 /obj/stool/chair/comfy/brown
 	icon_state = "comfychair_brown"
@@ -618,46 +1010,92 @@
 	icon_state = "comfychair_lime"
 
 /obj/table
-	name = "table"
+	name = "Стол"
+
+	nominative = "стол"
+	genitive = "стола"
+	dative = "столу"
+	accusative = "стол"
+	instrumentative = "столом"
+	prepositive = "столе"
+
 	icon = 'structures.dmi'
 	icon_state = "table"
 	density = 1
 	anchored = 1.0
 
 /obj/table/reinforced
-	name = "reinforced table"
+	name = "Усиленный стол"
+
+	nominative = "усиленный стол"
+	genitive = "усиленного стола"
+	dative = "усиленному столу"
+	accusative = "усиленный стол"
+	instrumentative = "усиленным столом"
+	prepositive = "усиленном столе"
+
 	icon_state = "reinf_table"
 	var/status = 2
 
-/obj/table/woodentable
-	name = "wooden table"
+/obj/table/woodentable //make it burnable
+	name = "деревянный стол"
 	icon_state = "woodentable"
 
+	nominative = "деревянный стол"
+	genitive = "деревянного стола"
+	dative = "деревянному столу"
+	accusative = "деревянный стол"
+	instrumentative = "деревянным столом"
+	prepositive = "деревянном столе"
+
 /obj/mopbucket
-	desc = "Fill it with water, but don't forget a mop!"
-	name = "mop bucket"
+	name = "Ведро на колёсиках"
+	desc = "Лучший друг уборщиков нашего времени."
+
+	nominative = "ведро на колёсиках"
+	genitive = "ведра на колёсиках"
+	dative = "ведру на колёсиках"
+	accusative = "ведро на колёсиках"
+	instrumentative = "ведром на колёсиках"
+	prepositive = "ведре на колёсиках"
+
 	icon = 'janitor.dmi'
 	icon_state = "mopbucket"
 	density = 1
 	flags = FPRINT
 	pressure_resistance = ONE_ATMOSPHERE
-	flags = FPRINT | TABLEPASS | OPENCONTAINER
+	flags = FPRINT | OPENCONTAINER //removed TABLEPASS
 
 /obj/kitchenspike
-	name = "a meat spike"
+	name = "Свежеватель"
+
+	nominative = "свежеватель"
+	genitive = "свежевателя"
+	dative = "свежевателю"
+	accusative = "свежеватель"
+	instrumentative = "свежевателем"
+	prepositive = "свежевателе"
+
 	icon = 'kitchen.dmi'
 	icon_state = "spike"
-	desc = "A spike for collecting meat from animals"
+	desc = "Для дальнейшей разделки туш."
 	density = 1
 	anchored = 1
 	var/meat = 0
 	var/occupied = 0
 
 /obj/displaycase
-	name = "Display Case"
+	name = "Витрина"
 	icon = 'stationobjs.dmi'
 	icon_state = "glassbox1"
-	desc = "A display case for prized possessions."
+
+	nominative = "витрина"
+	genitive = "витрины"
+	dative = "витрине"
+	accusative = "витрину"
+	instrumentative = "витриной"
+	prepositive = "витрине"
+
 	density = 1
 	anchored = 1
 	var/health = 30
@@ -665,7 +1103,15 @@
 	var/destroyed = 0
 
 obj/item/brain
-	name = "brain"
+	name = "Мозг"
+
+	nominative = "мозг"
+	genitive = "мозга"
+	dative = "мозгу"
+	accusative = "мозг"
+	instrumentative = "мозгом"
+	prepositive = "мозге"
+
 	icon = 'surgery.dmi'
 	icon_state = "brain2"
 	flags = TABLEPASS
@@ -681,24 +1127,34 @@ obj/item/brain
 	..()
 	spawn(5)
 		if(src.owner)
-			src.name = "Мозг [src.owner]"
+			//src.name = "Мозг [src.owner]"
+			src.name = "Мозг"
+			src.desc = "Сходу сложно сказать, чей это мозг. Чей-то да был."
 
 /obj/noticeboard
-	name = "Notice Board"
+	name = "Доска объявлений"
+
+	nominative = "доска объявлений"
+	genitive = "доски объявлений"
+	dative = "доске объявлений"
+	accusative = "доску объявлений"
+	instrumentative = "доской объявлений"
+	prepositive = "доске объявлений"
+
 	icon = 'stationobjs.dmi'
 	icon_state = "nboard00"
 	flags = FPRINT
-	desc = "A board for pinning important notices upon."
+	desc = "Доска для размещения разнообразных объявлений - важных и не только."
 	density = 0
 	anchored = 1
 	var/notices = 0
 
-/obj/deskclutter
+/*/obj/deskclutter //trash
 	name = "desk clutter"
 	icon = 'items.dmi'
 	icon_state = "deskclutter"
 	desc = "Some clutter that has accumalated over the years..."
-	anchored = 1
+	anchored = 1*/
 
 
 
@@ -706,7 +1162,15 @@ obj/item/brain
 
 
 /obj/item/weapon/ore
-	name = "Rock"
+	name = "Камень"
+
+	nominative = "камень"
+	genitive = "камня"
+	dative = "камню"
+	accusative = "камень"
+	instrumentative = "камнем"
+	prepositive = "камне"
+
 	icon = 'rubble.dmi'
 	icon_state = "ore"
 	var/amt = 1

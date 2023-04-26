@@ -207,14 +207,14 @@ datum/mind
 				if ("кража")
 					var/list/possible_items = list(
 						"the captain's antique laser gun" = new /datum/objective/steal/captainslaser,
-						"a small plasma tank" = new /datum/objective/steal/plasmatank,
-						"a hand teleporter" = new /datum/objective/steal/handtele,
-						"a rapid construction device" = new /datum/objective/steal/RCD,
+					//	"a small plasma tank" = new /datum/objective/steal/plasmatank,
+					//	"a hand teleporter" = new /datum/objective/steal/handtele,
+				//		"a rapid construction device" = new /datum/objective/steal/RCD,
 					//	"a burger made of human organs" = new /datum/objective/steal/burger,
-						"a cyborg shell" = new /datum/objective/steal/cyborg,
-						"a finished AI Construct" = new /datum/objective/steal/AI,
-						"some space drugs" = new /datum/objective/steal/drugs,
-						"some polytrinic acid" = new /datum/objective/steal/pacid,
+				//		"a cyborg shell" = new /datum/objective/steal/cyborg,
+				//		"a finished AI Construct" = new /datum/objective/steal/AI,
+				//		"some space drugs" = new /datum/objective/steal/drugs,
+				//		"some polytrinic acid" = new /datum/objective/steal/pacid,
 					)
 					var/new_target = input("Выберите цель:", "Цель") as null|anything in possible_items
 					if (!new_target) return
@@ -285,7 +285,7 @@ datum/mind
 				if ("traitor")
 					current_mode.equip_traitor(current)
 					current_mode.traitors += src
-					current << "<B>Я предательь.</B>"
+					current << "<B>Я предатель.</B>"
 					special_role = "traitor"
 
 					var/obj_count = 1

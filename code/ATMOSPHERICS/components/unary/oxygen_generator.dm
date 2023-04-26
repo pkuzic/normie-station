@@ -3,8 +3,15 @@ obj/machinery/atmospherics/unary/oxygen_generator
 	icon_state = "intact_off"
 	density = 1
 
-	name = "Oxygen Generator"
-	desc = ""
+	name = "Генератор кислорода"
+	//desc = ""
+
+	nominative = "генератор кислорода"
+	genitive = "генератора кислорода"
+	dative = "генератору кислорода"
+	accusative = "генератор кислорода"
+	instrumentative = "генератором кислорода"
+	prepositive = "генераторе кислорода"
 
 	dir = SOUTH
 	initialize_directions = SOUTH

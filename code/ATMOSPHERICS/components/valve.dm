@@ -2,8 +2,15 @@ obj/machinery/atmospherics/valve
 	icon = 'valve.dmi'
 	icon_state = "valve0"
 
-	name = "manual valve"
-	desc = "A pipe valve"
+	name = "Ручной клапан"
+	desc = "Трубный сегмент с ручным клапаном."
+
+	nominative = "ручной клапан" //кто? что? лестница
+	genitive = "ручного клапана" //кого? чего? лестницы
+	dative = "ручному клапану"  //кому?  чему? лестнице
+	accusative = "ручного клапана" //кого? что?
+	instrumentative = "ручным клапаном" //кем? чем? лестницей
+	prepositive = "ручном клапане" //о ком? о чем? лестнице
 
 	dir = SOUTH
 	initialize_directions = SOUTH|NORTH
@@ -210,8 +217,16 @@ obj/machinery/atmospherics/valve
 		usr << "[desc] It is [ open? "open" : "closed"]."
 
 	digital		// can be controlled by AI
-		name = "digital valve"
-		desc = "A digitally controlled valve."
+		name = "цифровой клапан"
+		desc = "Клапан, управляемый с помощью цифрового интерфейса."
+
+		nominative = "цифровой клапан" //кто? что? лестница
+		genitive = "цифрового клапана" //кого? чего? лестницы
+		dative = "цифровому клапану"  //кому?  чему? лестнице
+		accusative = "цифрового клапана" //кого? что?
+		instrumentative = "цифровым клапаном" //кем? чем? лестницей
+		prepositive = "цифровом клапане" //о ком? о чем? лестнице
+
 		icon = 'digital_valve.dmi'
 
 		attack_ai(mob/user as mob)

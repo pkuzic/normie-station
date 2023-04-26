@@ -8,8 +8,15 @@
 	icon = 'cold_sink.dmi'
 	icon_state = "intact_off"
 
-	name = "Thermal Transfer Plate"
-	desc = "Transfers heat to and from an area"
+	name = "Пластина термопередачи"
+	desc = "Обменивает тепло между зонами."
+
+	nominative = "пластина термопередачи"
+	genitive = "пластины термопередачи"
+	dative = "пластине термопередачи"
+	accusative = "пластину термопередачи"
+	instrumentative = "пластиной термопередачи"
+	prepositive = "пластине термопередачи"
 
 	update_icon()
 		if(node)

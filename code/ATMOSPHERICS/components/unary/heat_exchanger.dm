@@ -4,8 +4,15 @@
 	icon_state = "intact"
 	density = 1
 
-	name = "Heat Exchanger"
-	desc = "Exchanges heat between two input gases. Setup for fast heat transfer"
+	name = "Теплообменник"
+	desc = "Обменивает тепло между двумя точками входа."
+
+	nominative = "теплообменник"
+	genitive = "теплообменника"
+	dative = "теплообменнику"
+	accusative = "теплообменник"
+	instrumentative = "теплообменником"
+	prepositive = "теплообменнике"
 
 	var/obj/machinery/atmospherics/unary/heat_exchanger/partner = null
 	var/update_cycle
