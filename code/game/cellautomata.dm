@@ -157,9 +157,9 @@ proc/ClearClosetSave()
 	var/savefile/F = new("closet.sav")
 	F["list"]<<l*/
 
-	if(makejson)
-		send2irc(world.url,"Сервер перезапускается.")
-	world << "<B>Сервер перезапускается.</B>"
+	/*if(makejson)
+		send2irc(world.url,"Конец.")*/
+	world << "<B>Конец.</B>"
 
 
 	spawn(0)

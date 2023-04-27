@@ -43,7 +43,7 @@
 		if (!( istype(W, /obj/item/weapon/grab) ) || !(istype(W, /obj/item/weapon/cleaner)))
 			for(var/mob/O in viewers(src, null))
 				if ((O.client && !( O.blinded )))
-					O << "\red <B>[user]</b> ударяет <b>[src]</b> с помощью <b>[W.genitive]!</B>"
+					O << "\red <B>[user]</b> ударяет <b>[src.accusative]</b> с помощью <b>[W.genitive]!</B>"
 	return
 
 /atom/proc/add_fingerprint(mob/living/carbon/human/M as mob)

@@ -311,7 +311,7 @@ atom/movable
 						if(src:wear_suit.airflowprot) return
 					if(src:shoes)
 						if(src:shoes.type == /obj/item/clothing/shoes/magnetic) return
-			src << "\red Поток воздуха засасывает меня!"
+			src << "\red Поток воздуха сбивает меня с ног!"
 		airflow_speed = min(round(n),9)
 		var
 			xo = airflow_dest.x - src.x
@@ -358,7 +358,7 @@ atom/movable
 						if(src:wear_suit.airflowprot) return
 					if(src:shoes)
 						if(src:shoes.type == /obj/item/clothing/shoes/magnetic) return
-			src << "\red Поток воздуха толкает меня!"
+			src << "\red Поток воздуха сбивает меня с ног!"
 		airflow_speed = min(round(n),9)
 		var
 			xo = -(airflow_dest.x - src.x)

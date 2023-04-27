@@ -308,60 +308,60 @@
 
 	if(ismuton(NOBREATHBLOCK,M))
 		if(prob(15))
-			M << "\blue You stop breathing"
+			M << "\blue Я больше не дышу."
 			M.mutations |= mNobreath
 	if(ismuton(REMOTEVIEWBLOCK,M))
 		if(prob(15))
-			M << "\blue Your mind expands"
+			M << "\blue Я чувствую, как мой разум расширяется."
 			M.mutations |= mRemote
 	if(ismuton(REGENERATEBLOCK,M))
 		if(prob(15))
-			M << "\blue You feel strange"
+			M << "\blue Я ощущаю себя странно."
 			M.mutations |= mRegen
 	if(ismuton(INCREASERUNBLOCK,M))
 		if(prob(15))
-			M << "\blue You feel quick"
+			M << "\blue Я ощущаю себя умнее."
 			M.mutations |= mRun
 	if(ismuton(REMOTETALKBLOCK,M))
 		if(prob(15))
-			M << "\blue You expand your mind outwards"
+			M << "\blue Я ощущаю себя странно."
 			M.mutations |= mRemotetalk
 	if(ismuton(MORPHBLOCK,M))
 		if(prob(15))
 			M.mutations |= mMorph
-			M << "\blue Your skin feels strange"
+			M << "\blue Я ощущаю себя странно."
 	if(ismuton(BLENDBLOCK,M))
 		if(prob(15))
 			M.mutations |= mBlend
-			M << "\blue You feel alone"
+			M << "\blue Я чувствую себя одиноко."
 	if(ismuton(HALLUCINATIONBLOCK,M))
 		if(prob(15))
 			M.mutations |= mHallucination
-			M << "\blue Your mind says 'Hello'"
+			M << "\blue Я слышу голос в своей голове."
 	if(ismuton(NOPRINTSBLOCK,M))
 		if(prob(15))
 			M.mutations |= mFingerprints
-			M << "\blue Your fingers feel numb"
+			M << "\blue Я ощущаю, как мои пальцы немеют."
 	if(ismuton(SHOCKIMMUNITYBLOCK,M))
 		if(prob(15))
 			M.mutations |= mShock
-			M << "\blue You feel strange"
+			M << "\blue Я ощущаю себя странно."
 	if(ismuton(SMALLSIZEBLOCK,M))
 		if(prob(15))
-			M << "\blue Your skin feels rubbery"
+			M << "\blue Я ощущаю себя странно."
 			M.mutations |= mSmallsize
 
 
 
 	if (isblockon(getblock(M.dna.struc_enzymes, HULKBLOCK,3),HULKBLOCK))
 		if(inj || prob(15))
-			M << "\blue Your muscles hurt."
+			M << "\blue Мои мышцы болят."
 			M.mutations |= 8
 	if (isblockon(getblock(M.dna.struc_enzymes, HEADACHEBLOCK,3),HEADACHEBLOCK))
 		M.disabilities |= 2
-		M << "\red You get a headache."
+		M << "\red Я ощущаю головную боль."
 	if (isblockon(getblock(M.dna.struc_enzymes, FAKEBLOCK,3),FAKEBLOCK))
-		M << "\red You feel strange."
+		M << "\red Я ощущаю себя странно."
 		if (prob(95))
 			if(prob(50))
 				randmutb(M)
@@ -371,38 +371,38 @@
 			randmutg(M)
 	if (isblockon(getblock(M.dna.struc_enzymes, COUGHBLOCK,3),COUGHBLOCK))
 		M.disabilities |= 4
-		M << "\red You start coughing."
+		M << "\red Я чувствую тягу к кашлю."
 	if (isblockon(getblock(M.dna.struc_enzymes, CLUMSYBLOCK,3),CLUMSYBLOCK))
-		M << "\red You feel lightheaded."
+		M << "\red Я чувствую, как моя голова становится легче."
 		M.mutations |= 16
 	if (isblockon(getblock(M.dna.struc_enzymes, TWITCHBLOCK,3),TWITCHBLOCK))
 		M.disabilities |= 8
-		M << "\red You twitch."
+		M << "\red Я начинаю дрожать."
 	if (isblockon(getblock(M.dna.struc_enzymes, XRAYBLOCK,3),XRAYBLOCK))
 		if(inj || prob(30))
-			M << "\blue The walls suddenly disappear."
+			M << "\blue Я вижу через стены."
 			M.sight |= (SEE_MOBS|SEE_OBJS|SEE_TURFS)
 			M.see_in_dark = 8
 			M.see_invisible = 2
 			M.mutations |= 4
 	if (isblockon(getblock(M.dna.struc_enzymes, NERVOUSBLOCK,3),NERVOUSBLOCK))
 		M.disabilities |= 16
-		M << "\red You feel nervous."
+		M << "\red Я ощущаю тревожность."
 	if (isblockon(getblock(M.dna.struc_enzymes, FIREBLOCK,3),FIREBLOCK))
 		if(inj || prob(30))
-			M << "\blue Your body feels warm."
+			M << "\blue Я чувствую себя теплее."
 			M.mutations |= 2
 	if (isblockon(getblock(M.dna.struc_enzymes, BLINDBLOCK,3),BLINDBLOCK))
 		M.sdisabilities |= 1
-		M << "\red You can't seem to see anything."
+		M << "\red Я ничего не вижу."
 	if (isblockon(getblock(M.dna.struc_enzymes, TELEBLOCK,3),TELEBLOCK))
 		if(inj || prob(15))
-			M << "\blue You feel smarter."
+			M << "\blue Я ощущаю себя умнее."
 			M.mutations |= 1
 	if (isblockon(getblock(M.dna.struc_enzymes, DEAFBLOCK,3),DEAFBLOCK))
 		M.sdisabilities |= 4
 		M.ear_deaf = 1
-		M << "\red Its kinda quiet..."
+		M << "\red Вокруг меня ни звука."
 
 //////////////////////////////////////////////////////////// Monkey Block
 	if (isblockon(getblock(M.dna.struc_enzymes, 14,3),14) && istype(M, /mob/living/carbon/human))
@@ -456,7 +456,7 @@
 			O.loc = C
 			C.occupant = O
 			connected = null
-		O.name = "monkey ([copytext(md5(M.real_name), 2, 6)])"
+		O.name = "обезьяна ([copytext(md5(M.real_name), 2, 6)])"
 		O.toxloss += (M.toxloss + 20)
 		O.bruteloss += (M.bruteloss + 40)
 		O.oxyloss += M.oxyloss
@@ -580,10 +580,10 @@
 	if (usr.stat != 0)
 		return
 	if (src.occupant)
-		usr << "\blue <B>The scanner is already occupied!</B>"
+		usr << "\blue <B>Сканер и без того занят!</B>"
 		return
 	if (usr.abiotic())
-		usr << "\blue <B>Subject cannot have abiotic items on.</B>"
+		usr << "\blue <B>Испытуемый должен быть оголенным.</B>"
 		return
 	usr.pulling = null
 	usr.client.perspective = EYE_PERSPECTIVE
@@ -602,10 +602,10 @@
 	if ((!( istype(G, /obj/item/weapon/grab) ) || !( ismob(G.affecting) )))
 		return
 	if (src.occupant)
-		user << "\blue <B>The scanner is already occupied!</B>"
+		user << "\blue <B>Сканер и без того занят!</B>"
 		return
 	if (G.affecting.abiotic())
-		user << "\blue <B>Subject cannot have abiotic items on.</B>"
+		user << "\blue <B>Испытуемый должен быть оголенным.</B>"
 		return
 	var/mob/M = G.affecting
 	if (M.client)
@@ -717,7 +717,7 @@
 		user.drop_item()
 		W.loc = src
 		src.diskette = W
-		user << "You insert [W]."
+		user << "\blue Я вставляю внутрь [W]."
 		src.updateUsrDialog()
 
 /obj/machinery/scan_consolenew/process() //not really used right now
@@ -742,47 +742,47 @@
 		src.delete = src.delete
 
 	else if (!src.delete && src.temphtml) //Window in buffer - its a menu, dont add clear message
-		dat = "[src.temphtml]<BR><BR><A href='?src=\ref[src];clear=1'>Main Menu</A>"
+		dat = {"[src.temphtml]<head><meta charset="UTF-8"></head<BR><BR><A href='?src=\ref[src];clear=1'>Основное меню</A>"}
 	else
 		if (src.connected) //Is something connected?
 			var/mob/occupant = src.connected.occupant
-			dat = "<font color='blue'><B>Occupant Statistics:</B></FONT><BR>" //Blah obvious
+			dat = "<font color='blue'><B>Показатели испытуемого:</B></FONT><BR>" //Blah obvious
 			if (occupant) //is there REALLY someone in there?
 				if (!istype(occupant,/mob/living/carbon/human))
 					sleep(1)
 				var/t1
 				switch(occupant.stat) // obvious, see what their status is
 					if(0)
-						t1 = "Conscious"
+						t1 = "В сознании"
 					if(1)
-						t1 = "Unconscious"
+						t1 = "Без сознания"
 					else
-						t1 = "*dead*"
-				dat += text("[]\tHealth %: [] ([])</FONT><BR>", (occupant.health > 50 ? "<font color='blue'>" : "<font color='red'>"), occupant.health, t1)
-				dat += text("<font color='green'>Radiation Level: []%</FONT><BR><BR>", occupant.radiation)
-				dat += text("Unique Enzymes : <font color='blue'>[]</FONT><BR>", uppertext(occupant.dna.unique_enzymes))
-				dat += text("Unique Identifier: <font color='blue'>[]</FONT><BR>", occupant.dna.uni_identity)
-				dat += text("Structural Enzymes: <font color='blue'>[]</FONT><BR><BR>", occupant.dna.struc_enzymes)
-				dat += text("<A href='?src=\ref[];unimenu=1'>Modify Unique Identifier</A><BR>", src)
-				dat += text("<A href='?src=\ref[];strucmenu=1'>Modify Structural Enzymes</A><BR><BR>", src)
-				dat += text("<A href='?src=\ref[];buffermenu=1'>View/Edit/Transfer Buffer</A><BR><BR>", src)
-				dat += text("<A href='?src=\ref[];genpulse=1'>Pulse Radiation</A><BR>", src)
-				dat += text("<A href='?src=\ref[];radset=1'>Radiation Emitter Settings</A><BR><BR>", src)
-				dat += text("<A href='?src=\ref[];rejuv=1'>Inject Rejuvenators</A><BR><BR>", src)
+						t1 = "<font color='red'>Без признаков жизни</font>"
+				dat += text("[]\tЗдоровье %: [] ([])</FONT><BR>", (occupant.health > 50 ? "<font color='blue'>" : "<font color='red'>"), occupant.health, t1)
+				dat += text("<font color='green'>Уровень излучения: []%</FONT><BR><BR>", occupant.radiation)
+				dat += text("Уникальные ферменты : <font color='blue'>[]</FONT><BR>", uppertext(occupant.dna.unique_enzymes))
+				dat += text("Уникальный иденификатор: <font color='blue'>[]</FONT><BR>", occupant.dna.uni_identity)
+				dat += text("Структурные ферменты: <font color='blue'>[]</FONT><BR><BR>", occupant.dna.struc_enzymes)
+				dat += text("<A href='?src=\ref[];unimenu=1'>Изменить Уникальные идентификатор</A><BR>", src)
+				dat += text("<A href='?src=\ref[];strucmenu=1'>Изменить Структурные ферменты</A><BR><BR>", src)
+				dat += text("<A href='?src=\ref[];buffermenu=1'>Просмотр/Изменение/Буфер</A><BR><BR>", src)
+				dat += text("<A href='?src=\ref[];genpulse=1'>Импульс излучения</A><BR>", src)
+				dat += text("<A href='?src=\ref[];radset=1'>Настройки излучения</A><BR><BR>", src)
+				dat += text("<A href='?src=\ref[];rejuv=1'>Иньекция медсредств</A><BR><BR>", src)
 			else
-				dat += "The scanner is empty.<BR><BR>"
-				dat += text("<A href='?src=\ref[];buffermenu=1'>View/Edit/Transfer Buffer</A><BR><BR>", src)
-				dat += text("<A href='?src=\ref[];radset=1'>Radiation Emitter Settings</A><BR><BR>", src)
+				dat += "Сканер пуст.<BR><BR>"
+				dat += text("<A href='?src=\ref[];buffermenu=1'>Просмотр/Изменение/Буфер</A><BR><BR>", src)
+				dat += text("<A href='?src=\ref[];radset=1'>Настройки излучения</A><BR><BR>", src)
 			if (!( src.connected.locked ))
-				dat += text("<A href='?src=\ref[];locked=1'>Lock (Unlocked)</A><BR>", src)
+				dat += text("<A href='?src=\ref[];locked=1'>Заблокировать (Разблокировано)</A><BR>", src)
 			else
-				dat += text("<A href='?src=\ref[];locked=1'>Unlock (Locked)</A><BR>", src)
+				dat += text("<A href='?src=\ref[];locked=1'>Разблокировать (Заблокировано)</A><BR>", src)
 				//Other stuff goes here
 			if (!isnull(src.diskette))
-				dat += text("<A href='?src=\ref[];eject_disk=1'>Eject Disk</A><BR>", src)
-			dat += text("<BR><BR><A href='?src=\ref[];mach_close=scannernew'>Close</A>", user)
+				dat += text("<A href='?src=\ref[];eject_disk=1'>Извлечь диск</A><BR>", src)
+			dat += text("<BR><BR><A href='?src=\ref[];mach_close=scannernew'>Закрыть</A>", user)
 		else
-			dat = "<font color='red'> Error: No DNA Modifier connected. </FONT>"
+			dat = "<font color='red'> Ошибка: Нет присоединенного хранилища ДНК. </FONT>"
 	user << browse(dat, "window=scannernew;size=1000x625")
 	onclose(user, "scannernew")
 	return
@@ -826,10 +826,10 @@
 			if(src.connected.occupant == usr)
 				usr << browse(null, "window=scannernew;size=1000x625")
 				return
-			src.temphtml = text("Radiation Duration: <B><font color='green'>[]</B></FONT><BR>", src.radduration)
-			src.temphtml += text("Radiation Intensity: <font color='green'><B>[]</B></FONT><BR><BR>", src.radstrength)
-			src.temphtml += text("<A href='?src=\ref[];radleminus=1'>--</A> Duration <A href='?src=\ref[];radleplus=1'>++</A><BR>", src, src)
-			src.temphtml += text("<A href='?src=\ref[];radinminus=1'>--</A> Intesity <A href='?src=\ref[];radinplus=1'>++</A><BR>", src, src)
+			src.temphtml = text("Длительность радиации: <B><font color='green'>[]</B></FONT><BR>", src.radduration)
+			src.temphtml += text("Интенсивность радиации: <font color='green'><B>[]</B></FONT><BR><BR>", src.radstrength)
+			src.temphtml += text("<A href='?src=\ref[];radleminus=1'>--</A> Длительность <A href='?src=\ref[];radleplus=1'>++</A><BR>", src, src)
+			src.temphtml += text("<A href='?src=\ref[];radinminus=1'>--</A> Интенсивность <A href='?src=\ref[];radinplus=1'>++</A><BR>", src, src)
 			src.delete = 0
 		if (href_list["radleplus"])
 			if(src.connected.occupant == usr)
@@ -871,13 +871,13 @@
 				temphtml = null
 				delete = 0
 				return null
-			src.temphtml = text("Unique Identifier: <font color='blue'>[getleftblocks(src.connected.occupant.dna.uni_identity,uniblock,3)][src.subblock == 1 ? "<U><B>"+getblock(getblock(src.connected.occupant.dna.uni_identity,src.uniblock,3),1,1)+"</U></B>" : getblock(getblock(src.connected.occupant.dna.uni_identity,src.uniblock,3),1,1)][src.subblock == 2 ? "<U><B>"+getblock(getblock(src.connected.occupant.dna.uni_identity,src.uniblock,3),2,1)+"</U></B>" : getblock(getblock(src.connected.occupant.dna.uni_identity,src.uniblock,3),2,1)][src.subblock == 3 ? "<U><B>"+getblock(getblock(src.connected.occupant.dna.uni_identity,src.uniblock,3),3,1)+"</U></B>" : getblock(getblock(src.connected.occupant.dna.uni_identity,src.uniblock,3),3,1)][getrightblocks(src.connected.occupant.dna.uni_identity,uniblock,3)]</FONT><BR><BR>")
-			src.temphtml += text("Selected Block: <font color='blue'><B>[]</B></FONT><BR>", src.uniblock)
-			src.temphtml += text("<A href='?src=\ref[];unimenuminus=1'><-</A> Block <A href='?src=\ref[];unimenuplus=1'>-></A><BR><BR>", src, src)
-			src.temphtml += text("Selected Sub-Block: <font color='blue'><B>[]</B></FONT><BR>", src.subblock)
-			src.temphtml += text("<A href='?src=\ref[];unimenusubminus=1'><-</A> Sub-Block <A href='?src=\ref[];unimenusubplus=1'>-></A><BR><BR>", src, src)
-			src.temphtml += "<B>Modify Block:</B><BR>"
-			src.temphtml += text("<A href='?src=\ref[];unipulse=1'>Radiation</A><BR>", src)
+			src.temphtml = text("Уникальный идентификатор: <font color='blue'>[getleftblocks(src.connected.occupant.dna.uni_identity,uniblock,3)][src.subblock == 1 ? "<U><B>"+getblock(getblock(src.connected.occupant.dna.uni_identity,src.uniblock,3),1,1)+"</U></B>" : getblock(getblock(src.connected.occupant.dna.uni_identity,src.uniblock,3),1,1)][src.subblock == 2 ? "<U><B>"+getblock(getblock(src.connected.occupant.dna.uni_identity,src.uniblock,3),2,1)+"</U></B>" : getblock(getblock(src.connected.occupant.dna.uni_identity,src.uniblock,3),2,1)][src.subblock == 3 ? "<U><B>"+getblock(getblock(src.connected.occupant.dna.uni_identity,src.uniblock,3),3,1)+"</U></B>" : getblock(getblock(src.connected.occupant.dna.uni_identity,src.uniblock,3),3,1)][getrightblocks(src.connected.occupant.dna.uni_identity,uniblock,3)]</FONT><BR><BR>")
+			src.temphtml += text("Выбранный блок: <font color='blue'><B>[]</B></FONT><BR>", src.uniblock)
+			src.temphtml += text("<A href='?src=\ref[];unimenuminus=1'><-</A> Блок <A href='?src=\ref[];unimenuplus=1'>-></A><BR><BR>", src, src)
+			src.temphtml += text("Выбранный под-блок: <font color='blue'><B>[]</B></FONT><BR>", src.subblock)
+			src.temphtml += text("<A href='?src=\ref[];unimenusubminus=1'><-</A> Под-блок <A href='?src=\ref[];unimenusubplus=1'>-></A><BR><BR>", src, src)
+			src.temphtml += "<B>Модифицировать блок:</B><BR>"
+			src.temphtml += text("<A href='?src=\ref[];unipulse=1'>Радиация</A><BR>", src)
 			src.delete = 0
 		if (href_list["unimenuplus"])
 			if (src.uniblock < 13)
@@ -901,7 +901,8 @@
 			var/tstructure2
 			block = getblock(getblock(src.connected.occupant.dna.uni_identity,src.uniblock,3),src.subblock,1)
 			src.delete = 1
-			src.temphtml = text("Working ... Please wait ([] Seconds)", src.radduration)
+			//src.temphtml = text("В процессе ... подождите ([] Seconds)", src.radduration)
+			src.temphtml = text("В процессе...")
 			usr << browse(temphtml, "window=scannernew;size=550x650")
 			onclose(usr, "scannernew")
 			sleep(10*src.radduration)
@@ -939,7 +940,7 @@
 			var/mob/living/carbon/human/H = src.connected.occupant
 			if (H.reagents.get_reagent_amount("inaprovaline") < 60)
 				H.reagents.add_reagent("inaprovaline", 30)
-			usr << text("Occupant now has [] units of inaprovaline in \his bloodstream.", H.reagents.get_reagent_amount("inaprovaline"))
+			usr << text("Испытуемый теперь имеет [] единиц инапровалина в своём кровотоке.", H.reagents.get_reagent_amount("inaprovaline"))
 			src.delete = 0
 		////////////////////////////////////////////////////////
 		if (href_list["strucmenu"])
@@ -950,17 +951,17 @@
 				temphtml = null
 				delete = 0
 				return null
-			src.temphtml = text("Structural Enzymes: <font color='blue'>[getleftblocks(src.connected.occupant.dna.struc_enzymes,strucblock,3)][src.subblock == 1 ? "<U><B>"+getblock(getblock(src.connected.occupant.dna.struc_enzymes,src.strucblock,3),1,1)+"</U></B>" : getblock(getblock(src.connected.occupant.dna.struc_enzymes,src.strucblock,3),1,1)][src.subblock == 2 ? "<U><B>"+getblock(getblock(src.connected.occupant.dna.struc_enzymes,src.strucblock,3),2,1)+"</U></B>" : getblock(getblock(src.connected.occupant.dna.struc_enzymes,src.strucblock,3),2,1)][src.subblock == 3 ? "<U><B>"+getblock(getblock(src.connected.occupant.dna.struc_enzymes,src.strucblock,3),3,1)+"</U></B>" : getblock(getblock(src.connected.occupant.dna.struc_enzymes,src.strucblock,3),3,1)][getrightblocks(src.connected.occupant.dna.struc_enzymes,strucblock,3)]</FONT><BR><BR>")
+			src.temphtml = text("Структурные ферменты: <font color='blue'>[getleftblocks(src.connected.occupant.dna.struc_enzymes,strucblock,3)][src.subblock == 1 ? "<U><B>"+getblock(getblock(src.connected.occupant.dna.struc_enzymes,src.strucblock,3),1,1)+"</U></B>" : getblock(getblock(src.connected.occupant.dna.struc_enzymes,src.strucblock,3),1,1)][src.subblock == 2 ? "<U><B>"+getblock(getblock(src.connected.occupant.dna.struc_enzymes,src.strucblock,3),2,1)+"</U></B>" : getblock(getblock(src.connected.occupant.dna.struc_enzymes,src.strucblock,3),2,1)][src.subblock == 3 ? "<U><B>"+getblock(getblock(src.connected.occupant.dna.struc_enzymes,src.strucblock,3),3,1)+"</U></B>" : getblock(getblock(src.connected.occupant.dna.struc_enzymes,src.strucblock,3),3,1)][getrightblocks(src.connected.occupant.dna.struc_enzymes,strucblock,3)]</FONT><BR><BR>")
 			//src.temphtml = text("Structural Enzymes: <font color='blue'>[]</FONT><BR><BR>", src.connected.occupant.dna.struc_enzymes)
-			src.temphtml += text("Selected Block: <font color='blue'><B>[src.strucblock]</B></FONT><BR>")
-			src.temphtml += text("<A href='?src=\ref[];strucmenuminus=1'><-</A> <A href='?src=\ref[src];setblock=1'>Block</A> <A href='?src=\ref[];strucmenuplus=1'>-></A><BR><BR>", src, src)
-			src.temphtml += text("Selected Sub-Block: <font color='blue'><B>[]</B></FONT><BR>", src.subblock)
-			src.temphtml += text("<A href='?src=\ref[];strucmenusubminus=1'><-</A> Sub-Block <A href='?src=\ref[];strucmenusubplus=1'>-></A><BR><BR>", src, src)
-			src.temphtml += "<B>Modify Block:</B><BR>"
-			src.temphtml += text("<A href='?src=\ref[];strucpulse=1'>Radiation</A><BR>", src)
+			src.temphtml += text("Выбранный блок: <font color='blue'><B>[src.strucblock]</B></FONT><BR>")
+			src.temphtml += text("<A href='?src=\ref[];strucmenuminus=1'><-</A> <A href='?src=\ref[src];setblock=1'>Блок</A> <A href='?src=\ref[];strucmenuplus=1'>-></A><BR><BR>", src, src)
+			src.temphtml += text("Выбранный под-блок: <font color='blue'><B>[]</B></FONT><BR>", src.subblock)
+			src.temphtml += text("<A href='?src=\ref[];strucmenusubminus=1'><-</A> Под-блок <A href='?src=\ref[];strucmenusubplus=1'>-></A><BR><BR>", src, src)
+			src.temphtml += "<B>Модифицировать блок:</B><BR>"
+			src.temphtml += text("<A href='?src=\ref[];strucpulse=1'>Радиация</A><BR>", src)
 			src.delete = 0
 		if (href_list["setblock"])
-			var/i = text2num(input("Which block do you want to select ?"))
+			var/i = text2num(input("Какой блок вы желаете выбрать?"))
 			if(i>0 && i<STRUCDNASIZE)
 				src.strucblock = i
 
@@ -987,7 +988,8 @@
 			var/oldblock
 			block = getblock(getblock(src.connected.occupant.dna.struc_enzymes,src.strucblock,3),src.subblock,1)
 			src.delete = 1
-			src.temphtml = text("Working ... Please wait ([] Seconds)", src.radduration)
+			//src.temphtml = text("Working ... Please wait ([] Seconds)", src.radduration)
+			src.temphtml = text("В процессе...")
 			usr << browse(temphtml, "window=scannernew;size=550x650")
 			onclose(usr, "scannernew")
 			sleep(10*src.radduration)
@@ -1040,47 +1042,47 @@
 			if(src.connected.occupant == usr)
 				usr << browse(null, "window=scannernew;size=550x625")
 				return
-			src.temphtml = "<B>Buffer 1:</B><BR>"
+			src.temphtml = "<B>Буфер 1:</B><BR>"
 			if (!(src.buffer1))
-				src.temphtml += "Buffer Empty<BR>"
+				src.temphtml += "Буфер пуст<BR>"
 			else
-				src.temphtml += text("Data: <font color='blue'>[]</FONT><BR>", src.buffer1)
-				src.temphtml += text("By: <font color='blue'>[]</FONT><BR>", src.buffer1owner)
-				src.temphtml += text("Label: <font color='blue'>[]</FONT><BR>", src.buffer1label)
-			if (src.connected.occupant) src.temphtml += text("Save : <A href='?src=\ref[];b1addui=1'>UI</A> - <A href='?src=\ref[];b1adduiue=1'>UI+UE</A> - <A href='?src=\ref[];b1addse=1'>SE</A><BR>", src, src, src)
-			if (src.buffer1) src.temphtml += text("Transfer to: <A href='?src=\ref[];b1transfer=1'>Occupant</A> - <A href='?src=\ref[];b1injector=1'>Injector</A><BR>", src, src)
+				src.temphtml += text("Данные: <font color='blue'>[]</FONT><BR>", src.buffer1)
+				src.temphtml += text("Владелец: <font color='blue'>[]</FONT><BR>", src.buffer1owner)
+				src.temphtml += text("Подпись: <font color='blue'>[]</FONT><BR>", src.buffer1label)
+			if (src.connected.occupant) src.temphtml += text("Сохранить : <A href='?src=\ref[];b1addui=1'>УИ</A> - <A href='?src=\ref[];b1adduiue=1'>УИ+УФ</A> - <A href='?src=\ref[];b1addse=1'>SE</A><BR>", src, src, src)
+			if (src.buffer1) src.temphtml += text("Передать: <A href='?src=\ref[];b1transfer=1'>Испытуеый</A> - <A href='?src=\ref[];b1injector=1'>Иньектор</A><BR>", src, src)
 			//if (src.buffer1) src.temphtml += text("<A href='?src=\ref[];b1iso=1'>Isolate Block</A><BR>", src)
-			if (src.diskette) src.temphtml += "Disk: <A href='?src=\ref[src];save_disk=1'>Save To</a> | <A href='?src=\ref[src];load_disk=1'>Load From</a><br>"
-			if (src.buffer1) src.temphtml += text("<A href='?src=\ref[];b1label=1'>Edit Label</A><BR>", src)
-			if (src.buffer1) src.temphtml += text("<A href='?src=\ref[];b1clear=1'>Clear Buffer</A><BR><BR>", src)
+			if (src.diskette) src.temphtml += "Диск: <A href='?src=\ref[src];save_disk=1'>Сохранить</a> | <A href='?src=\ref[src];load_disk=1'>Загрузить</a><br>"
+			if (src.buffer1) src.temphtml += text("<A href='?src=\ref[];b1label=1'>Изменить подпись</A><BR>", src)
+			if (src.buffer1) src.temphtml += text("<A href='?src=\ref[];b1clear=1'>Очистить буфер</A><BR><BR>", src)
 			if (!src.buffer1) src.temphtml += "<BR>"
-			src.temphtml += "<B>Buffer 2:</B><BR>"
+			src.temphtml += "<B>Буфер 2:</B><BR>"
 			if (!(src.buffer2))
-				src.temphtml += "Buffer Empty<BR>"
+				src.temphtml += "Буфер пуст<BR>"
 			else
-				src.temphtml += text("Data: <font color='blue'>[]</FONT><BR>", src.buffer2)
-				src.temphtml += text("By: <font color='blue'>[]</FONT><BR>", src.buffer2owner)
-				src.temphtml += text("Label: <font color='blue'>[]</FONT><BR>", src.buffer2label)
-			if (src.connected.occupant) src.temphtml += text("Save : <A href='?src=\ref[];b2addui=1'>UI</A> - <A href='?src=\ref[];b2adduiue=1'>UI+UE</A> - <A href='?src=\ref[];b2addse=1'>SE</A><BR>", src, src, src)
-			if (src.buffer2) src.temphtml += text("Transfer to: <A href='?src=\ref[];b2transfer=1'>Occupant</A> - <A href='?src=\ref[];b2injector=1'>Injector</A><BR>", src, src)
+				src.temphtml += text("Данные: <font color='blue'>[]</FONT><BR>", src.buffer2)
+				src.temphtml += text("Владелец: <font color='blue'>[]</FONT><BR>", src.buffer2owner)
+				src.temphtml += text("Подпись: <font color='blue'>[]</FONT><BR>", src.buffer2label)
+			if (src.connected.occupant) src.temphtml += text("Сохранить : <A href='?src=\ref[];b2addui=1'>УИ</A> - <A href='?src=\ref[];b2adduiue=1'>УИ+УФ</A> - <A href='?src=\ref[];b2addse=1'>SE</A><BR>", src, src, src)
+			if (src.buffer2) src.temphtml += text("Передать: <A href='?src=\ref[];b2transfer=1'>Испытуеый</A> - <A href='?src=\ref[];b2injector=1'>Иньектор</A><BR>", src, src)
 			//if (src.buffer2) src.temphtml += text("<A href='?src=\ref[];b2iso=1'>Isolate Block</A><BR>", src)
-			if (src.diskette) src.temphtml += "Disk: <A href='?src=\ref[src];save_disk=2'>Save To</a> | <A href='?src=\ref[src];load_disk=2'>Load From</a><br>"
-			if (src.buffer2) src.temphtml += text("<A href='?src=\ref[];b2label=1'>Edit Label</A><BR>", src)
-			if (src.buffer2) src.temphtml += text("<A href='?src=\ref[];b2clear=1'>Clear Buffer</A><BR><BR>", src)
+			if (src.diskette) src.temphtml += "Диск: <A href='?src=\ref[src];save_disk=2'>Сохранить</a> | <A href='?src=\ref[src];load_disk=2'>Загрузить</a><br>"
+			if (src.buffer2) src.temphtml += text("<A href='?src=\ref[];b2label=1'>Изменить подпись</A><BR>", src)
+			if (src.buffer2) src.temphtml += text("<A href='?src=\ref[];b2clear=1'>Очистить буфер</A><BR><BR>", src)
 			if (!src.buffer2) src.temphtml += "<BR>"
-			src.temphtml += "<B>Buffer 3:</B><BR>"
+			src.temphtml += "<B>Буфер 3:</B><BR>"
 			if (!(src.buffer3))
-				src.temphtml += "Buffer Empty<BR>"
+				src.temphtml += "Буфер пуст<BR>"
 			else
-				src.temphtml += text("Data: <font color='blue'>[]</FONT><BR>", src.buffer3)
-				src.temphtml += text("By: <font color='blue'>[]</FONT><BR>", src.buffer3owner)
-				src.temphtml += text("Label: <font color='blue'>[]</FONT><BR>", src.buffer3label)
-			if (src.connected.occupant) src.temphtml += text("Save : <A href='?src=\ref[];b3addui=1'>UI</A> - <A href='?src=\ref[];b3adduiue=1'>UI+UE</A> - <A href='?src=\ref[];b3addse=1'>SE</A><BR>", src, src, src)
-			if (src.buffer3) src.temphtml += text("Transfer to: <A href='?src=\ref[];b3transfer=1'>Occupant</A> - <A href='?src=\ref[];b3injector=1'>Injector</A><BR>", src, src)
+				src.temphtml += text("Данные: <font color='blue'>[]</FONT><BR>", src.buffer3)
+				src.temphtml += text("Владелец: <font color='blue'>[]</FONT><BR>", src.buffer3owner)
+				src.temphtml += text("Подпись: <font color='blue'>[]</FONT><BR>", src.buffer3label)
+			if (src.connected.occupant) src.temphtml += text("Сохранить : <A href='?src=\ref[];b3addui=1'>УИ</A> - <A href='?src=\ref[];b3adduiue=1'>УИ+УФ</A> - <A href='?src=\ref[];b3addse=1'>SE</A><BR>", src, src, src)
+			if (src.buffer3) src.temphtml += text("Передать: <A href='?src=\ref[];b3transfer=1'>Испытуемый</A> - <A href='?src=\ref[];b3injector=1'>Иньектор</A><BR>", src, src)
 			//if (src.buffer3) src.temphtml += text("<A href='?src=\ref[];b3iso=1'>Isolate Block</A><BR>", src)
-			if (src.diskette) src.temphtml += "Disk: <A href='?src=\ref[src];save_disk=3'>Save To</a> | <A href='?src=\ref[src];load_disk=3'>Load From</a><br>"
-			if (src.buffer3) src.temphtml += text("<A href='?src=\ref[];b3label=1'>Edit Label</A><BR>", src)
-			if (src.buffer3) src.temphtml += text("<A href='?src=\ref[];b3clear=1'>Clear Buffer</A><BR><BR>", src)
+			if (src.diskette) src.temphtml += "Диск: <A href='?src=\ref[src];save_disk=3'>Сохранить</a> | <A href='?src=\ref[src];load_disk=3'>Загрузить</a><br>"
+			if (src.buffer3) src.temphtml += text("<A href='?src=\ref[];b3label=1'>Изменить подпись</A><BR>", src)
+			if (src.buffer3) src.temphtml += text("<A href='?src=\ref[];b3clear=1'>Очистить буфер</A><BR><BR>", src)
 			if (!src.buffer3) src.temphtml += "<BR>"
 		if (href_list["b1addui"])
 			src.buffer1iue = 0
@@ -1089,7 +1091,7 @@
 				src.buffer1owner = src.connected.occupant.name
 			else
 				src.buffer1owner = src.connected.occupant.real_name
-			src.buffer1label = "Unique Identifier"
+			src.buffer1label = "Уникальный идентификатор"
 			src.buffer1type = "ui"
 			dopage(src,"buffermenu")
 		if (href_list["b1adduiue"])
@@ -1098,7 +1100,7 @@
 				src.buffer1owner = src.connected.occupant.name
 			else
 				src.buffer1owner = src.connected.occupant.real_name
-			src.buffer1label = "Unique Identifier & Unique Enzymes"
+			src.buffer1label = "Уникальный идентификатор & Уникальные ферменты"
 			src.buffer1type = "ui"
 			src.buffer1iue = 1
 			dopage(src,"buffermenu")
@@ -1108,7 +1110,7 @@
 				src.buffer2owner = src.connected.occupant.name
 			else
 				src.buffer2owner = src.connected.occupant.real_name
-			src.buffer2label = "Unique Identifier & Unique Enzymes"
+			src.buffer2label = "Уникальный идентификатор & Уникальные ферменты"
 			src.buffer2type = "ui"
 			src.buffer2iue = 1
 			dopage(src,"buffermenu")
@@ -1118,7 +1120,7 @@
 				src.buffer3owner = src.connected.occupant.name
 			else
 				src.buffer3owner = src.connected.occupant.real_name
-			src.buffer3label = "Unique Identifier & Unique Enzymes"
+			src.buffer3label = "Уникальный идентификатор & Уникальные ферменты"
 			src.buffer3type = "ui"
 			src.buffer3iue = 1
 			dopage(src,"buffermenu")
@@ -1130,7 +1132,7 @@
 					src.buffer2owner = src.connected.occupant.name
 				else
 					src.buffer2owner = src.connected.occupant.real_name
-				src.buffer2label = "Unique Identifier"
+				src.buffer2label = "Уникальный идентификатор"
 				src.buffer2type = "ui"
 			dopage(src,"buffermenu")
 		if (href_list["b3addui"])
@@ -1140,7 +1142,7 @@
 				src.buffer3owner = src.connected.occupant.name
 			else
 				src.buffer3owner = src.connected.occupant.real_name
-			src.buffer3label = "Unique Identifier"
+			src.buffer3label = "Уникальный идентификатор"
 			src.buffer3type = "ui"
 			dopage(src,"buffermenu")
 		if (href_list["b1addse"])
@@ -1150,7 +1152,7 @@
 				src.buffer1owner = src.connected.occupant.name
 			else
 				src.buffer1owner = src.connected.occupant.real_name
-			src.buffer1label = "Structural Enzymes"
+			src.buffer1label = "Структурный Ферменты"
 			src.buffer1type = "se"
 			dopage(src,"buffermenu")
 		if (href_list["b2addse"])
@@ -1161,7 +1163,7 @@
 					src.buffer2owner = src.connected.occupant.name
 				else
 					src.buffer2owner = src.connected.occupant.real_name
-				src.buffer2label = "Structural Enzymes"
+				src.buffer2label = "Структурный Ферменты"
 				src.buffer2type = "se"
 			dopage(src,"buffermenu")
 		if (href_list["b3addse"])
@@ -1171,7 +1173,7 @@
 				src.buffer3owner = src.connected.occupant.name
 			else
 				src.buffer3owner = src.connected.occupant.real_name
-			src.buffer3label = "Structural Enzymes"
+			src.buffer3label = "Структурный Ферменты"
 			src.buffer3type = "se"
 			dopage(src,"buffermenu")
 		if (href_list["b1clear"])
@@ -1193,13 +1195,13 @@
 			src.buffer3iue = null
 			dopage(src,"buffermenu")
 		if (href_list["b1label"])
-			src.buffer1label = input("New Label:","Edit Label","Infos here")
+			src.buffer1label = input("Новая подпись:","Изменить подпись","Infos here")
 			dopage(src,"buffermenu")
 		if (href_list["b2label"])
-			src.buffer2label = input("New Label:","Edit Label","Infos here")
+			src.buffer2label = input("Новая подпись:","Изменить подпись","Infos here")
 			dopage(src,"buffermenu")
 		if (href_list["b3label"])
-			src.buffer3label = input("New Label:","Edit Label","Infos here")
+			src.buffer3label = input("Новая подпись:","Изменить подпись","Infos here")
 			dopage(src,"buffermenu")
 		if (href_list["b1transfer"])
 			if (!src.connected.occupant)
@@ -1213,7 +1215,7 @@
 			else if (src.buffer1type == "se")
 				src.connected.occupant.dna.struc_enzymes = src.buffer1
 				domutcheck(src.connected.occupant,src.connected)
-			src.temphtml = "Transfered."
+			src.temphtml = "Передано."
 			src.connected.occupant.radiation += rand(20,50)
 			src.delete = 0
 		if (href_list["b2transfer"])
@@ -1228,7 +1230,7 @@
 			else if (src.buffer2type == "se")
 				src.connected.occupant.dna.struc_enzymes = src.buffer2
 				domutcheck(src.connected.occupant,src.connected)
-			src.temphtml = "Transfered."
+			src.temphtml = "Передано."
 			src.connected.occupant.radiation += rand(20,50)
 			src.delete = 0
 		if (href_list["b3transfer"])
@@ -1243,7 +1245,7 @@
 			else if (src.buffer3type == "se")
 				src.connected.occupant.dna.struc_enzymes = src.buffer3
 				domutcheck(src.connected.occupant,src.connected)
-			src.temphtml = "Transfered."
+			src.temphtml = "Передано."
 			src.connected.occupant.radiation += rand(20,50)
 			src.delete = 0
 		if (href_list["b1injector"])
@@ -1254,13 +1256,13 @@
 				I.loc = src.loc
 				I.name += " ([src.buffer1label])"
 				if (src.buffer1iue) I.ue = src.buffer1owner //lazy haw haw
-				src.temphtml = "Injector created."
+				src.temphtml = "Иньектор создан."
 				src.delete = 0
 				src.injectorready = 0
 				spawn(1200)
 					src.injectorready = 1
 			else
-				src.temphtml = "Replicator not ready yet."
+				src.temphtml = "Репликатор еще не готов."
 				src.delete = 0
 		if (href_list["b2injector"])
 			if (src.injectorready)
@@ -1270,13 +1272,13 @@
 				I.loc = src.loc
 				I.name += " ([src.buffer2label])"
 				if (src.buffer2iue) I.ue = src.buffer2owner //lazy haw haw
-				src.temphtml = "Injector created."
+				src.temphtml = "Иньектор создан."
 				src.delete = 0
 				src.injectorready = 0
 				spawn(1200)
 					src.injectorready = 1
 			else
-				src.temphtml = "Replicator not ready yet."
+				src.temphtml = "Репликатор еще не готов."
 				src.delete = 0
 		if (href_list["b3injector"])
 			if (src.injectorready)
@@ -1286,13 +1288,13 @@
 				I.loc = src.loc
 				I.name += " ([src.buffer3label])"
 				if (src.buffer3iue) I.ue = src.buffer3owner //lazy haw haw
-				src.temphtml = "Injector created."
+				src.temphtml = "Иньектор создан."
 				src.delete = 0
 				src.injectorready = 0
 				spawn(1200)
 					src.injectorready = 1
 			else
-				src.temphtml = "Replicator not ready yet."
+				src.temphtml = "Репликатор еще не готов."
 				src.delete = 0
 		////////////////////////////////////////////////////////
 		if (href_list["load_disk"])
@@ -1317,7 +1319,7 @@
 					src.buffer3type = src.diskette.data_type
 					src.buffer3iue = src.diskette.ue
 					src.buffer3owner = src.diskette.owner
-			src.temphtml = "Data loaded."
+			src.temphtml = "Данные загружены."
 
 		if (href_list["save_disk"])
 			var/buffernum = text2num(href_list["save_disk"])
@@ -1335,7 +1337,7 @@
 						src.diskette.data_type = src.buffer1type
 						src.diskette.ue = src.buffer1iue
 						src.diskette.owner = src.buffer1owner
-						src.diskette.name = "data disk - '[src.buffer1owner]'"
+						src.diskette.name = "диск с данными - '[src.buffer1owner]'"
 				if(2)
 					if(!buffer2)
 						saved = 0
@@ -1344,7 +1346,7 @@
 						src.diskette.data_type = src.buffer2type
 						src.diskette.ue = src.buffer2iue
 						src.diskette.owner = src.buffer2owner
-						src.diskette.name = "data disk - '[src.buffer2owner]'"
+						src.diskette.name = "диск с данными - '[src.buffer2owner]'"
 				if(3)
 					if(!buffer3)
 						saved = 0
@@ -1353,11 +1355,11 @@
 						src.diskette.data_type = src.buffer3type
 						src.diskette.ue = src.buffer3iue
 						src.diskette.owner = src.buffer3owner
-						src.diskette.name = "data disk - '[src.buffer3owner]'"
+						src.diskette.name = "диск с данными - '[src.buffer3owner]'"
 			if(!saved)
-				src.temphtml = "\red ERROR:Data equals null"
+				src.temphtml = "\red ОШИБКА:Нет записанных данных"
 			else
-				src.temphtml = "Data saved."
+				src.temphtml = "Данные сохранены."
 		if (href_list["eject_disk"])
 			if (!src.diskette)
 				return

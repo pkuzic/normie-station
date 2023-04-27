@@ -1,8 +1,15 @@
 #define REGULATE_RATE 5
 
 /obj/item/weapon/smokebomb
-	desc = "It is set to detonate in 2 seconds."
-	name = "smoke bomb"
+	name = "Дымовая граната"
+
+	nominative = "граната"
+	genitive = "гранаты"
+	dative = "гранате"
+	accusative = "гранату"
+	instrumentative = "гранатой"
+	prepositive = "гранате"
+
 	icon = 'grenade.dmi'
 	icon_state = "flashbang"
 	var/state = null
@@ -15,8 +22,15 @@
 	var/datum/effects/system/bad_smoke_spread/smoke
 
 /obj/item/weapon/incendiarygrenade
-	desc = "It is set to detonate in 3 seconds."
-	name = "incendiary grenade"
+	name = "Зажигательная граната"
+
+	nominative = "граната"
+	genitive = "гранаты"
+	dative = "гранате"
+	accusative = "гранату"
+	instrumentative = "гранатой"
+	prepositive = "гранате"
+
 	icon = 'grenade.dmi'
 	icon_state = "flashbang"
 	var/state = null
@@ -29,8 +43,15 @@
 	flags =  FPRINT | TABLEPASS | CONDUCT | ONBELT
 
 /obj/item/weapon/mustardbomb
-	desc = "It is set to detonate in 4 seconds."
-	name = "mustard gas bomb"
+	name = "Граната с горчичным газом"
+
+	nominative = "граната"
+	genitive = "гранаты"
+	dative = "гранате"
+	accusative = "гранату"
+	instrumentative = "гранатой"
+	prepositive = "гранате"
+
 	icon = 'grenade.dmi'
 	icon_state = "flashbang"
 	var/state = null
@@ -58,12 +79,10 @@
 	if (istype(W, /obj/item/weapon/screwdriver))
 		if (src.det_time == 60)
 			src.det_time = 20
-			user.show_message("\blue You set the smoke bomb for a 2 second detonation time.")
-			src.desc = "It is set to detonate in 2 seconds."
+			user.show_message("\blue Я [usr.gender == MALE ? "установил" : "установила"] таймер взрыва на <b>две</b> секунды.")
 		else
 			src.det_time = 60
-			user.show_message("\blue You set the smoke bomb for a 6 second detonation time.")
-			src.desc = "It is set to detonate in 6 seconds."
+			user.show_message("\blue Я [usr.gender == MALE ? "установил" : "установила"] таймер взрыва на <b>шесть</b> секунд.")
 		src.add_fingerprint(user)
 	return
 
@@ -71,19 +90,18 @@
 	if (istype(W, /obj/item/weapon/screwdriver))
 		if (src.det_time == 60)
 			src.det_time = 30
-			user.show_message("\blue You set the incendiary grenade for a 3 second detonation time.")
-			src.desc = "It is set to detonate in 3 seconds."
+			user.show_message("\blue Я [usr.gender == MALE ? "установил" : "установила"] таймер взрыва на <b>две</b> секунды.")
 		else
 			src.det_time = 60
-			user.show_message("\blue You set the incendiary grenade for a 6 second detonation time.")
-			src.desc = "It is set to detonate in 6 seconds."
+			user.show_message("\blue Я [usr.gender == MALE ? "установил" : "установила"] таймер взрыва на <b>шесть</b> секунд.")
 		src.add_fingerprint(user)
 	return
 
 /obj/item/weapon/smokebomb/afterattack(atom/target as mob|obj|turf|area, mob/user as mob)
 	if (user.equipped() == src)
 		if (!( src.state ))
-			user << "\red You prime the smoke bomb! [det_time/10] seconds!"
+			//user << "\red You prime the smoke bomb! [det_time/10] seconds!"
+			user << "\red <b>Пора бросать</b>!"
 			src.state = 1
 			src.icon_state = "flashbang1"
 			playsound(src.loc, 'armbomb.ogg', 75, 1, -3)
@@ -100,7 +118,8 @@
 /obj/item/weapon/incendiarygrenade/afterattack(atom/target as mob|obj|turf|area, mob/user as mob)
 	if (user.equipped() == src)
 		if (!( src.state ))
-			user << "\red You prime the incendiary grenade! [det_time/10] seconds!"
+			//user << "\red You prime the incendiary grenade! [det_time/10] seconds!"
+			user << "\red <b>Пора бросать</b>!"
 			src.state = 1
 			src.icon_state = "flashbang1"
 			playsound(src.loc, 'armbomb.ogg', 75, 1, -3)
@@ -182,7 +201,9 @@
 
 /obj/item/weapon/smokebomb/attack_self(mob/user as mob)
 	if (!src.state)
-		user << "\red You prime the smoke bomb! [det_time/10] seconds!"
+		//user << "\red You prime the smoke bomb! [det_time/10] seconds!"
+		user << "\red <b>Пора бросать</b>!"
+
 		src.state = 1
 		src.icon_state = "flashbang1"
 		add_fingerprint(user)
@@ -193,7 +214,9 @@
 
 /obj/item/weapon/incendiarygrenade/attack_self(mob/user as mob)
 	if (!src.state)
-		user << "\red You prime the incendiary grenade! [det_time/10] seconds!"
+		//user << "\red You prime the incendiary grenade! [det_time/10] seconds!"
+		user << "\red <b>Пора бросать</b>!"
+
 		src.state = 1
 		src.icon_state = "flashbang1"
 		add_fingerprint(user)
@@ -210,19 +233,19 @@
 	if (istype(W, /obj/item/weapon/screwdriver))
 		if (src.det_time == 80)
 			src.det_time = 40
-			user.show_message("\blue You set the mustard gas bomb for a 4 second detonation time.")
-			src.desc = "It is set to detonate in 4 seconds."
+			user.show_message("\blue Я [usr.gender == MALE ? "установил" : "установила"] таймер взрыва на <b>четыре</b> секунды.")
+			//src.desc = "It is set to detonate in 4 seconds."
 		else
 			src.det_time = 80
-			user.show_message("\blue You set the mustard gas bomb for a 8 second detonation time.")
-			src.desc = "It is set to detonate in 8 seconds."
+			user.show_message("\blue Я [usr.gender == MALE ? "установил" : "установила"] таймер взрыва на <b>восемь</b> секунд.")
+			//src.desc = "It is set to detonate in 8 seconds."
 		src.add_fingerprint(user)
 	return
 
 /obj/item/weapon/mustardbomb/afterattack(atom/target as mob|obj|turf|area, mob/user as mob)
 	if (user.equipped() == src)
 		if (!( src.state ))
-			user << "\red You prime the mustard gas bomb! [det_time/10] seconds!"
+			//user << "\red You prime the mustard gas bomb! [det_time/10] seconds!"
 			src.state = 1
 			src.icon_state = "flashbang1"
 			playsound(src.loc, 'armbomb.ogg', 75, 1, -3)
@@ -265,7 +288,7 @@
 
 /obj/item/weapon/mustardbomb/attack_self(mob/user as mob)
 	if (!src.state)
-		user << "\red You prime the mustard gas bomb! [det_time/10] seconds!"
+		//user << "\red You prime the mustard gas bomb! [det_time/10] seconds!"
 		src.state = 1
 		src.icon_state = "flashbang1"
 		add_fingerprint(user)
@@ -275,7 +298,15 @@
 	return
 
 /obj/item/weapon/storage/beakerbox
-	name = "Beaker Box"
+	name = "Коробка для мензурок"
+
+	nominative = "коробка"
+	genitive = "коробки"
+	dative = "коробке"
+	accusative = "коробку"
+	instrumentative = "коробкой"
+	prepositive = "коробке"
+
 	icon_state = "beaker"
 	item_state = "syringe_kit"
 
@@ -290,7 +321,15 @@
 	new /obj/item/weapon/reagent_containers/glass/beaker( src )
 
 /obj/item/weapon/storage/pillbottlebox
-	name = "Pill Bottle Box"
+	name = "Коробка для медикаментов"
+
+	nominative = "коробка"
+	genitive = "коробки"
+	dative = "коробке"
+	accusative = "коробку"
+	instrumentative = "коробкой"
+	prepositive = "коробке"
+
 	icon_state = "pillbottle"
 	item_state = "syringe_kit"
 
@@ -305,14 +344,22 @@
 	new /obj/item/weapon/storage/pill_bottle( src )
 
 /obj/item/weapon/storage/trashcan
-	name = "disposal unit"
+	name = "Утилизационный бак"
+	desc = "Компактный бак для утилизации отходов."
+
+	nominative = "мусорник"
+	genitive = "мусорника"
+	dative = "мусорнику"
+	accusative = "мусорник"
+	instrumentative = "мусорником"
+	prepositive = "мусорнике"
+
 	w_class = 4.0
 	anchored = 1.0
 	density = 1.0
 	var/processing = null
 	var/locked = 1
 	req_access = list(access_janitor)
-	desc = "A compact incineration device, used to dispose of garbage."
 	icon = 'stationobjs.dmi'
 	icon_state = "trashcan"
 	item_state = "syringe_kit"
@@ -320,15 +367,15 @@
 /obj/item/weapon/storage/trashcan/attackby(obj/item/weapon/W as obj, mob/user as mob)
 
 	if (src.contents.len >= 7)
-		user << "The trashcan is full!"
+		user << "\red Бак переполнен!"
 		return
 	if (istype(W, /obj/item/weapon/disk/nuclear))
-		user << "This is far too important to throw away!"
+		user << "\red Ну уж нет."
 		return
 	if (istype(W, /obj/item/weapon/storage/))
 		return
 	if (istype(W, /obj/item/weapon/grab))
-		user << "You cannot fit the person inside."
+		user << "\red Места маловато."
 		return
 	var/t
 	for(var/obj/item/weapon/O in src)
@@ -336,7 +383,7 @@
 		//Foreach goto(46)
 	t += W.w_class
 	if (t > 30)
-		user << "You cannot fit the item inside. (Remove larger classed items)"
+		user << "\red Нельзя."
 		return
 	user.u_equip(W)
 	W.loc = src
@@ -345,7 +392,7 @@
 	src.orient2hud(user)
 	W.dropped(user)
 	add_fingerprint(user)
-	user.visible_message("\blue [user] has put [W] in [src]!")
+	user.visible_message("\blue <b>[user]</b> кладет <b>[W.accusative]</b> в <b>[src.nominative]</b>!")
 
 	if (src.contents.len >= 7)
 		src.locked = 1
@@ -360,12 +407,12 @@
 	if(src.allowed(usr))
 		locked = !locked
 	else
-		user << "\red Access denied."
+		user << "\red В доступе отказано."
 		return
 	if (src.processing)
 		return
 	if (src.contents.len >= 7)
-		user << "\blue You begin the emptying procedure."
+		user << "\blue Я начинаю вычищать мусорник."
 		var/area/A = src.loc.loc		// make sure it's in an area
 		if(!A || !isarea(A))
 			return
@@ -382,7 +429,7 @@
 		return
 	else
 		src.icon_state = "trashcan"
-		user << "\blue Due to conservation measures, the unit is unable to start until it is completely filled."
+		user << "\red Нельзя очищать до тех пор, пока мусорник не заполнится."
 		return
 
 

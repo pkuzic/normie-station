@@ -181,7 +181,7 @@
 	if ((istype(W, /obj/item/device/analyzer) || (istype(W, /obj/item/device/pda))) && get_dist(user, src) <= 1)
 
 		for (var/mob/O in viewers(user, null))
-			O << "\red [user] скансирует [W] с помощью íà \icon[icon] [src]"
+			O << "\red [user] скансирует [W] с помощью íà \icon[icon] [src.genitive]"
 
 		var/pressure = air_contents.return_pressure()
 
