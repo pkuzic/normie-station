@@ -1,5 +1,13 @@
 /obj/machinery/atmospherics/unary/cryo_cell
-	name = "cryo cell"
+	name = "Криокапсула"
+
+	nominative = "криокапсула"
+	genitive = "криокапсулы"
+	dative = "криокапсуле"
+	accusative = "криокапсулу"
+	instrumentative = "криокапсулой"
+	prepositive = "о криокапсуле"
+
 	icon = 'Cryogenic2.dmi'
 	icon_state = "celltop-P"
 	density = 1
@@ -18,7 +26,6 @@
 
 
 	New()
-
 		..()
 		build_icon()
 		initialize_directions = SOUTH
@@ -72,7 +79,7 @@
 		var/temp_text = ""
 		if(src.occupant)
 			if(src.occupant.health <= -100)
-				health_text = "<FONT color=red>Dead</FONT>"
+				health_text = "<FONT color=red>Мёртв</FONT>"
 			else if(src.occupant.health < 0)
 				health_text = "<FONT color=red>[src.occupant.health]</FONT>"
 			else
@@ -84,14 +91,14 @@
 		else
 			temp_text = "<FONT color=blue>[air_contents.temperature]</FONT>"
 		if(src.beaker)
-			beaker_text = "<B>Beaker:</B> <A href='?src=\ref[src];eject=1'>Eject</A>"
+			beaker_text = "<B>Мензурка:</B> <A href='?src=\ref[src];eject=1'>Извлечь</A>"
 		else
-			beaker_text = "<B>Beaker:</B> <FONT color=red>No beaker loaded</FONT>"
-		var/dat = {"<B>Cryo cell control system</B><BR>
-			<B>Current cell temperature:</B> [temp_text]K<BR>
-			<B>Cryo status:</B> [ src.on ? "<A href='?src=\ref[src];start=1'>Off</A> <B>On</B>" : "<B>Off</B> <A href='?src=\ref[src];start=1'>On</A>"]<BR>
+			beaker_text = "<B>Мензурка:</B> <FONT color=red>Не обнаружена</FONT>"
+		var/dat = {"<head><meta charset="UTF-8"></head><B>Система управления криокапсулой</B><BR>
+			<B>Текущая температура капсулы:</B> [temp_text]K<BR>
+			<B>Режим управления:</B> [ src.on ? "<A href='?src=\ref[src];start=1'>Откл</A> <B>On</B>" : "<B>Off</B> <A href='?src=\ref[src];start=1'>Вкл</A>"]<BR>
 			[beaker_text]<BR><BR>
-			<B>Current occupant:</B> [src.occupant ? "<BR>Name: [src.occupant]<BR>Health: [health_text]<BR>Oxygen deprivation: [src.occupant.oxyloss]<BR>Brute damage: [src.occupant.bruteloss]<BR>Fire damage: [src.occupant.fireloss]<BR>Toxin damage: [src.occupant.toxloss]<BR>Body temperature: [src.occupant.bodytemperature]" : "<FONT color=red>None</FONT>"]<BR>
+			<B>Текущий пациент:</B> [src.occupant ? "<BR>Имя: [src.occupant]<BR>Здоровье: [health_text]<BR>Кислородное голодание: [src.occupant.oxyloss]<BR>Физический урон: [src.occupant.bruteloss]<BR>Ожоги: [src.occupant.fireloss]<BR>Урон токсинами: [src.occupant.toxloss]<BR>Температура тела: [src.occupant.bodytemperature]" : "<FONT color=red>Нет</FONT>"]<BR>
 
 		"}
 
@@ -114,21 +121,21 @@
 	attackby(var/obj/item/weapon/G as obj, var/mob/user as mob)
 		if(istype(G, /obj/item/weapon/reagent_containers/glass))
 			if(src.beaker)
-				user << "A beaker is already loaded into the machine."
+				user << "\blue Мензурка уже загружена в капсулу."
 				return
 
 			src.beaker =  G
 			user.drop_item()
 			G.loc = src
-			user.visible_message("[user] adds a beaker to \the [src]!", "You add a beaker to the [src]!")
+			user.visible_message("<b>[user]</b> вставляет мензурку в <b>[src]</b>!", "\blue Я вставляю мензурку в <b>[src]<b>")
 		else if(istype(G, /obj/item/weapon/grab))
 			if(!ismob(G:affecting))
 				return
 			if (src.occupant)
-				user << "\blue <B>The cryo cell is already occupied!</B>"
+				user << "\blue <B>Крио капсула уже занята!</B>"
 				return
 			if (G:affecting.abiotic())
-				user << "Subject may not have abiotic items on."
+				user << "Субъект должен быть раздет."
 				return
 			var/mob/M = G:affecting
 			if (M.client)
@@ -243,13 +250,13 @@
 			if (usr.stat != 0 || stat & (NOPOWER|BROKEN))
 				return
 			if (src.occupant)
-				usr << "\blue <B>The cell is already occupied!</B>"
+				usr << "\blue <B>Капсула уже занята.</B>"
 				return
 			if (usr.abiotic())
-				usr << "Subject may not have abiotic items on."
+				usr << "\blue <B>Субъект должен быть раздет.</B>"
 				return
 			if(!src.node)
-				usr << "The cell is not corrrectly connected to its pipe network!"
+				usr << "\blue <B>Капсула не подключена к трубной системе.</B>"
 				return
 			usr.pulling = null
 			usr.client.perspective = EYE_PERSPECTIVE

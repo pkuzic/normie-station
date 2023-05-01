@@ -2,7 +2,16 @@
 // Gimmicks moved to obj\clothing\gimmick.dm for all of your gay fantasy roleplay dress-up shenanigans.
 
 /obj/item/clothing
-	name = "clothing"
+	name = "Одежда"
+
+	nominative = "одежда"
+	genitive = "одежды"
+	dative = "одежде"
+	accusative = "одежду"
+	instrumentative = "одеждой"
+	prepositive = "одежде"
+
+
 //	var/obj/item/clothing/master = null
 
 	var/see_face = 1.0
@@ -21,16 +30,32 @@
 /obj/item/clothing/temperature_expose(datum/gas_mixture/air, exposed_temperature, exposed_volume)
 	if(exposed_temperature >= 373.15 && protective_temperature < exposed_temperature)
 		for(var/mob/M in viewers(5, src))
-			M << "\red \the [src] burns up."
+			M << "\red Пламя не щадит <b[src.accusative]</b>!"
 		del(src)
 
 /obj/item/clothing/ears
-	name = "ears"
+	name = "Уши"
+
+	nominative = "уши"
+	genitive = "ушей"
+	dative = "ушам"
+	accusative = "уши"
+	instrumentative = "ушами"
+	prepositive = "ушах"
+
 	w_class = 1.0
 	throwforce = 2
 
 /obj/item/clothing/ears/earmuffs
-	name = "earmuffs"
+	name = "Противошумные наушники"
+
+	nominative = "противошумные наушники"
+	genitive = "противошумных наушников"
+	dative = "противошумным наушникам"
+	accusative = "противошумные наушники"
+	instrumentative = "противошумными наушниками"
+	prepositive = "противошумных наушниках"
+
 	icon_state = "earmuffs"
 	protective_temperature = 500
 	item_state = "earmuffs"

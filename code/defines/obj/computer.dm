@@ -1,5 +1,13 @@
 /obj/machinery/computer
-	name = "computer"
+	name = "Компьютер"
+
+	nominative = "компьютер"
+	genitive = "компьютера"
+	dative = "компьютеру"
+	accusative = "компьютер"
+	instrumentative = "компьютером"
+	prepositive = "компьютере"
+
 	icon = 'computer.dmi'
 	density = 1
 	anchored = 1.0
@@ -30,11 +38,19 @@
  */
 
 /obj/machinery/computer/arcade
-	name = "arcade machine"
+	name = "Аркада"
+
+	nominative = "аркада"
+	genitive = "аркады"
+	dative = "аркаде"
+	accusative = "аркаду"
+	instrumentative = "аркадой"
+	prepositive = "аркаде"
+
 	icon = 'computer.dmi'
 	icon_state = "arcade"
-	var/enemy_name = "Space Villain"
-	var/temp = "Winners Don't Use Spacedrugs" //Temporary message, for attack messages, etc
+	var/enemy_name = "Космический Зладей"
+	var/temp = "Победители не злоупотребляют наркотиками" //Temporary message, for attack messages, etc
 	var/player_hp = 30 //Player health/attack points
 	var/player_mp = 10
 	var/enemy_hp = 45 //Enemy health/attack points
@@ -46,38 +62,38 @@
 	brightnessblue = 0
 
 /obj/machinery/computer/aiupload
-	name = "AI Upload"
+	//name = "AI Upload"
 	icon_state = "aiupload"
 	brightnessred = 0
 	brightnessgreen = 2
 	brightnessblue = 0
 
 /obj/machinery/computer/atmosphere
-	name = "atmos"
+	//name = "atmos"
 
 /obj/machinery/computer/atmosphere/alerts
-	name = "Alert Computer"
+	//name = "Alert Computer"
 	icon_state = "atmos"
 	var/alarms = list("Fire"=list(), "Atmosphere"=list())
 
 /obj/machinery/computer/atmosphere/mixer
 	//Controller for a single gas mixer.
 	icon_state = "mixer"
-	name = "Gas Mixer Control Computer"
+	//name = "Gas Mixer Control Computer"
 	var/frequency = "1437"
 	var/list/rates = list(50, 50)
 	var/obj/machinery/atmospherics/mixer/mixer = null
 	var/targettag = ""
 
 /obj/machinery/computer/general_alert
-	name = "General Alert Computer"
+	//name = "General Alert Computer"
 	icon_state = "alert:0"
 	var/list/priority_alarms = list()
 	var/list/minor_alarms = list()
 	var/receive_frequency = "1437"
 
 /obj/machinery/computer/atmosphere/siphonswitch
-	name = "Area Air Control"
+	//name = "Area Air Control"
 	icon_state = "atmos"
 	var/otherarea
 	var/area/area
@@ -86,7 +102,7 @@
 	name = "Master Air Control"
 
 /obj/machinery/computer/card
-	name = "Identification Computer"
+	//name = "Identification Computer"
 	icon_state = "id"
 	var/obj/item/weapon/card/id/scan = null
 	var/obj/item/weapon/card/id/modify = null
@@ -99,7 +115,7 @@
 	brightnessblue = 2
 
 /obj/machinery/computer/communications
-	name = "Communications Console"
+	//name = "Communications Console"
 	icon_state = "comm"
 	req_access = list(access_heads)
 	brightnessred = 0
@@ -125,10 +141,10 @@
 	var/status_display_freq = "1435"
 	var/stat_msg1
 	var/stat_msg2
-	
+
 /obj/machinery/computer/communications/laptop
-	name = "Communications Laptop"
-	desc = "A laptop running a Communications program"
+	//name = "Communications Laptop"
+	//desc = "A laptop running a Communications program"
 	icon = 'laptop.dmi'
 	icon_state = "laptop_comm"
 
@@ -136,22 +152,22 @@
 		..()
 
 /obj/machinery/computer/data
-	name = "data"
+	//name = "data"
 	icon_state = "aiupload"
 
 	var/list/topics = list(  )
 
 /obj/machinery/computer/data/weapon
-	name = "weapon"
+	//name = "weapon"
 
 /obj/machinery/computer/data/weapon/info
-	name = "Research Computer"
+	//name = "Research Computer"
 
 /obj/machinery/computer/data/weapon/log
-	name = "Log Computer"
+	//name = "Log Computer"
 
 /obj/machinery/computer/dna
-	name = "DNA operations computer"
+	//name = "DNA operations computer"
 	icon_state = "dna"
 	var/obj/item/weapon/card/data/scan = null
 	var/obj/item/weapon/card/data/modify = null
@@ -160,7 +176,7 @@
 	var/temp = null
 
 /obj/machinery/computer/hologram_comp
-	name = "Hologram Computer"
+	//name = "Hologram Computer"
 	icon = 'stationobjs.dmi'
 	icon_state = "holo_console0"
 	var/obj/machinery/hologram_proj/projector = null
@@ -172,7 +188,7 @@
 	var/h_b = 245.0
 
 /obj/machinery/computer/med_data
-	name = "Medical Records"
+	//name = "Medical Records"
 	icon_state = "medical"
 	req_access = list(access_medical)
 	brightnessred = 0
@@ -190,8 +206,8 @@
 	var/obj/item/weapon/disk/data/diskette = null
 
 /obj/machinery/computer/med_data/cmo
-	name = "Medical Laptop"
-	desc = "A laptop running a Medical Records program"
+	//name = "Medical Laptop"
+	//desc = "A laptop running a Medical Records program"
 	icon = 'laptop.dmi'
 	icon_state = "laptop_med"
 
@@ -199,7 +215,7 @@
 		..()
 
 /obj/machinery/computer/pod
-	name = "Pod Launch Control"
+	//name = "Pod Launch Control"
 	icon_state = "computer_generic"
 	var/id = 1.0
 	var/obj/machinery/mass_driver/connected = null
@@ -208,15 +224,15 @@
 
 /obj/machinery/computer/pod/old
 	icon_state = "old"
-	name = "DoorMex Control Computer"
+	//name = "DoorMex Control Computer"
 
 /obj/machinery/computer/pod/old/syndicate
-	name = "ProComp Executive IIc"
-	desc = "The Syndicate operate on a tight budget. Operates external airlocks."
+	//name = "ProComp Executive IIc"
+	//desc = "The Syndicate operate on a tight budget. Operates external airlocks."
 
 /obj/machinery/computer/pod/old/swf
-	name = "Magix System IV"
-	desc = "An arcane artifact that holds much magic. Running E-Knock 2.2: Sorceror's Edition"
+	//name = "Magix System IV"
+	//desc = "An arcane artifact that holds much magic. Running E-Knock 2.2: Sorceror's Edition"
 
 /obj/machinery/computer/prison_shuttle
 	name = "Prison Shuttle"
@@ -224,7 +240,7 @@
 	var/allowedtocall = 0
 
 /obj/machinery/computer/secure_data
-	name = "Security Records"
+	//name = "Security Records"
 	icon_state = "security"
 	req_access = list(access_security)
 	brightnessred = 2
@@ -247,7 +263,7 @@
 	icon_state = "messyfiles"
 
 /obj/machinery/computer/security
-	name = "Security Cameras"
+	//name = "Security Cameras"
 	icon_state = "seccam"
 	var/obj/machinery/camera/current = null
 	var/last_pic = 1.0
@@ -255,8 +271,8 @@
 	var/maplevel = 1
 
 /obj/machinery/computer/security/laptop
-	name = "Secure Cameras Laptop"
-	desc = "A laptop running a Security Cameras program"
+	//name = "Secure Cameras Laptop"
+	//desc = "A laptop running a Security Cameras program"
 	icon = 'laptop.dmi'
 	icon_state = "laptop_cam"
 
@@ -264,24 +280,24 @@
 		..()
 
 /obj/machinery/computer/security/wooden_tv
-	name = "Security Cameras"
+	//name = "Security Cameras"
 	icon_state = "security_det"
 
 /obj/machinery/computer/security/telescreen
-	name = "Telescreen"
+	//name = "Telescreen"
 	icon = 'stationobjs.dmi'
 	icon_state = "telescreen"
 	network = "thunder"
 	density = 0
 
 /obj/machinery/computer/shuttle
-	name = "Shuttle"
+	//name = "Shuttle"
 	icon_state = "shuttle"
 	var/auth_need = 3.0
 	var/list/authorized = list(  )
 
 /obj/machinery/computer/teleporter
-	name = "Teleporter"
+	//name = "Teleporter"
 	icon_state = "teleport"
 	var/obj/item/locked = null
 	var/id = null
@@ -293,6 +309,6 @@
 		src.broken = 1*/
 
 /obj/machinery/computer/teleporter/interserver
-	name = "Interserver Teleporter"
+	//name = "Interserver Teleporter"
 	icon_state = "teleport"
 	var/addr = null

@@ -197,7 +197,7 @@
 		return
 
 	if (!src.open() && world.timeofday - bang_time >= 14)
-		user << "\blue Не раскрывается!"
+		user << "\blue Не получается!"
 
 		for (var/mob/M in hearers(src, null))
 			if(!(M.sdisabilities & 4) && M.ear_deaf == 0)
@@ -213,4 +213,4 @@
 	src.add_fingerprint(user)
 
 	if (!src.toggle())
-		usr << "\blue Не раскрывается!"
+		usr << "\blue Не получается!"

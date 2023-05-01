@@ -1,6 +1,14 @@
 /obj/closet
-	desc = "It's a closet!"
-	name = "Closet"
+	//desc = "It's a closet!"
+	name = "Шкаф"
+
+	nominative = "шкаф"
+	genitive = "шкафа"
+	dative = "шкафу"
+	accusative = "шкаф"
+	instrumentative = "шкафом"
+	prepositive = "шкафе"
+
 	icon = 'closet.dmi'
 	icon_state = "closed"
 	density = 1
@@ -14,8 +22,8 @@
 
 
 /obj/closet/portal
-	desc = "It's a closet!"
-	name = "Closet"
+	//desc = "It's a closet!"
+	//name = "Closet"
 	icon = 'closet.dmi'
 	icon_state = "closed"
 	density = 1
@@ -29,200 +37,224 @@
 	flags = FPRINT
 
 
-/obj/spresent
+/*/obj/spresent
 	desc = "It's a ... present?"
 	name = "strange present"
 	icon = 'items.dmi'
 	icon_state = "strangepresent"
 	density = 1
-	anchored = 0
+	anchored = 0*/
 
 /obj/closet/gmcloset
-	desc = "A bulky (yet mobile) closet. Comes with formal clothes"
-	name = "Formal closet"
+	//desc = "A bulky (yet mobile) closet. Comes with formal clothes"
+	//name = "Formal closet"
 
 /obj/closet/emcloset
-	desc = "A bulky (yet mobile) closet. Comes prestocked with a gasmask and o2 tank for emergencies."
-	name = "Emergency Closet"
+	//desc = "A bulky (yet mobile) closet. Comes prestocked with a gasmask and o2 tank for emergencies."
+	//name = "Emergency Closet"
 	icon_state = "emergency"
 	icon_closed = "emergency"
 	icon_opened = "emergencyopen"
 
 /obj/closet/jcloset
-	desc = "A bulky (yet mobile) closet. Comes with janitor's clothes and biohazard gear."
-	name = "Custodial Closet"
+	//desc = "A bulky (yet mobile) closet. Comes with janitor's clothes and biohazard gear."
+	//name = "Custodial Closet"
 
 /obj/closet/lawcloset
-	desc = "A bulky (yet mobile) closet. Comes with lawyer apparel and items."
-	name = "Legal Closet"
+	//desc = "A bulky (yet mobile) closet. Comes with lawyer apparel and items."
+	//name = "Legal Closet"
 
 /obj/closet/coffin
-	desc = "A burial receptacle for the dearly departed."
-	name = "coffin"
+	desc = "Гвозди в набор не включены."
+	name = "Гроб"
+
+	nominative = "гроб"
+	genitive = "гроба"
+	dative = "гробу"
+	accusative = "гроб"
+	instrumentative = "гробом"
+	prepositive = "гробе"
+
 	icon_state = "coffin"
 	icon_closed = "coffin"
 	icon_opened = "coffin_open"
 
 /obj/closet/l3closet
-	desc = "A bulky (yet mobile) closet. Comes prestocked with level 3 biohazard gear for emergencies."
-	name = "Level 3 Biohazard Suit"
+	//desc = "A bulky (yet mobile) closet. Comes prestocked with level 3 biohazard gear for emergencies."
+	//name = "Level 3 Biohazard Suit"
 	icon_state = "bio"
 	icon_closed = "bio"
 	icon_opened = "bioopen"
 
 /obj/closet/syndicate
-	desc = "Syndicate preparations closet."
-	name = "Weapons Closet"
+	//desc = "Syndicate preparations closet."
+	//name = "Weapons Closet"
 	icon_state = "syndicate"
 	icon_closed = "syndicate"
 	icon_opened = "syndicateopen"
 
 /obj/closet/syndicate/personal
-	desc = "Gear preparations closet."
+	//desc = "Gear preparations closet."
 
 /obj/closet/syndicate/nuclear
-	desc = "Nuclear preparations closet."
+	//desc = "Nuclear preparations closet."
 
 /obj/closet/thunderdome
-	desc = "Everything you need!"
+	//desc = "Everything you need!"
 	icon_state = "syndicate"
 	icon_closed = "syndicate"
 	icon_opened = "syndicateopen"
-	desc = "Thunderdome closet."
+	//desc = "Thunderdome closet."
 	anchored = 1
 
 /obj/closet/thunderdome/tdred
-	desc = "Everything you need!"
+	//desc = "Everything you need!"
 	icon_state = "syndicate"
 	icon_closed = "syndicate"
 	icon_opened = "syndicateopen"
-	desc = "Thunderdome closet."
+	//desc = "Thunderdome closet."
 
 /obj/closet/thunderdome/tdgreen
-	desc = "Everything you need!"
+	//desc = "Everything you need!"
 	icon_state = "syndicate1"
 	icon_closed = "syndicate1"
 	icon_opened = "syndicate1open"
-	desc = "Thunderdome closet."
+	//desc = "Thunderdome closet."
 
 /obj/closet/malf/suits
-	desc = "Gear preperations closet."
+	//desc = "Gear preperations closet."
 	icon_state = "syndicate"
 	icon_closed = "syndicate"
 	icon_opened = "syndicateopen"
 
 /obj/closet/wardrobe
-	desc = "A bulky (yet mobile) wardrobe closet. Comes prestocked with 6 changes of clothes."
-	name = "Wardrobe"
+	//desc = "A bulky (yet mobile) wardrobe closet. Comes prestocked with 6 changes of clothes."
+	name = "Гардероб"
+
+	nominative = "гардероб"
+	genitive = "гардероба"
+	dative = "гардеробу"
+	accusative = "гардероб"
+	instrumentative = "гардеробом"
+	prepositive = "гардеробе"
+
 	icon_state = "blue"
 	icon_closed = "blue"
 
 /obj/closet/wardrobe/black
-	name = "Black Wardrobe"
+	//name = "Black Wardrobe"
 	icon_state = "black"
 	icon_closed = "black"
 
 /obj/closet/wardrobe/Counselor_black
-	name = "Counselor Wardrobe"
+	//name = "Counselor Wardrobe"
 	icon_state = "black"
 	icon_closed = "black"
 
 /obj/closet/wardrobe/green
-	name = "Green Wardrobe"
+	//name = "Green Wardrobe"
 	icon_state = "green"
 	icon_closed = "green"
 
 /obj/closet/wardrobe/mixed
-	name = "Mixed Wardrobe"
+	//name = "Mixed Wardrobe"
 	icon_state = "mixed"
 	icon_closed = "mixed"
 
 /obj/closet/wardrobe/orange
-	name = "Prisoners Wardrobe"
+	//name = "Prisoners Wardrobe"
 	icon_state = "orange"
 	icon_closed = "orange"
 
 /obj/closet/wardrobe/pink
-	name = "Pink Wardrobe"
+	//name = "Pink Wardrobe"
 	icon_state = "pink"
 	icon_closed = "pink"
 
 /obj/closet/wardrobe/quartermasters
-	name = "Quartermasters Wardrobe"
+	//name = "Quartermasters Wardrobe"
 	icon_state = "yellow"
 	icon_closed = "yellow"
 
 /obj/closet/wardrobe/red
-	name = "Red Wardrobe"
+	//name = "Red Wardrobe"
 	icon_state = "red"
 	icon_closed = "red"
 
 /obj/closet/wardrobe/forensics_red
-	name = "Forensics Wardrobe"
+	//name = "Forensics Wardrobe"
 	icon_state = "red"
 	icon_closed = "red"
 
 
 /obj/closet/wardrobe/white
-	name = "Medical Wardrobe"
+	//name = "Medical Wardrobe"
 	icon_state = "white"
 	icon_closed = "white"
 
 /obj/closet/wardrobe/chemistry_white
-	name = "Chemistry Wardrobe"
+	//name = "Chemistry Wardrobe"
 	icon_state = "white"
 	icon_closed = "white"
 
 /obj/closet/wardrobe/toxins_white
-	name = "Toxins Wardrobe"
+	//name = "Toxins Wardrobe"
 	icon_state = "white"
 	icon_closed = "white"
 
 /obj/closet/wardrobe/robotics_white
-	name = "Robotics Wardrobe"
+	//name = "Robotics Wardrobe"
 	icon_state = "white"
 	icon_closed = "white"
 
 /obj/closet/wardrobe/genetics_white
-	name = "Genetics Wardrobe"
+	//name = "Genetics Wardrobe"
 	icon_state = "white"
 	icon_closed = "white"
 
 
 /obj/closet/wardrobe/yellow
-	name = "Yellow Wardrobe"
+	//name = "Yellow Wardrobe"
 	icon_state = "yellow"
 	icon_closed = "yellow"
 
 /obj/closet/wardrobe/engineering_yellow
-	name = "Engineering Wardrobe"
+	//name = "Engineering Wardrobe"
 	icon_state = "yellow"
 	icon_closed = "yellow"
 
 /obj/closet/wardrobe/atmospherics_yellow
-	name = "Atmospherics Wardrobe"
+	//name = "Atmospherics Wardrobe"
 	icon_state = "yellow"
 	icon_closed = "yellow"
 
 /obj/closet/wardrobe/hydroponics
-	name = "Hydroponics Wardrobe"
+	//name = "Hydroponics Wardrobe"
 	icon_state = "green"
 	icon_closed = "green"
 
 /obj/closet/wardrobe/grey
-	name = "Grey Wardrobe"
+	//name = "Grey Wardrobe"
 	icon_state = "grey"
 	icon_closed = "grey"
 
 /obj/closet/wardrobe/bar
-	name = "Bar Wardrobe"
+	//name = "Bar Wardrobe"
 	icon_state = "black"
 	icon_closed = "black"
 
 
 /obj/secure_closet
-	desc = "An immobile card-locked storage closet."
-	name = "Security Locker"
+	//desc = "An immobile card-locked storage closet."
+	name = "Защищенный шкаф"
+
+	nominative = "шкаф"
+	genitive = "шкафа"
+	dative = "шкафу"
+	accusative = "шкаф"
+	instrumentative = "шкафом"
+	prepositive = "шкафе"
+
 	icon = 'closet.dmi'
 	icon_state = "secure1"
 	density = 1
@@ -238,33 +270,33 @@
 	var/icon_off = "secureoff"
 
 /obj/secure_closet/courtroom
-	name = "Courtroom Locker"
+	//name = "Courtroom Locker"
 	req_access = list(access_heads)
 
 /obj/secure_closet/animal
-	name = "Animal Control"
+	//name = "Animal Control"
 	req_access = list(access_medical)
 
 /obj/secure_closet/brig
-	name = "Brig Locker"
+	//name = "Brig Locker"
 	req_access = list(access_brig)
 	var/id = null
 
 /obj/secure_closet/highsec
-	name = "Head of Personnel"
+	//name = "Head of Personnel"
 	req_access = list(access_heads)
 
 /obj/secure_closet/hos
-	name = "Head Of Security"
+	//name = "Head Of Security"
 	req_access = list(access_heads)
 
 /obj/secure_closet/captains
-	name = "Captain's Closet"
+	//name = "Captain's Closet"
 	req_access = list(access_captain)
 
 
 /obj/secure_closet/medical	//Empty medical closet
-	name = "Medical Closet"
+	//name = "Medical Closet"
 	icon_state = "medical1"
 	icon_closed = "medical"
 	icon_locked = "medical1"
@@ -274,7 +306,7 @@
 	req_access = list(access_medical)
 
 /obj/secure_closet/medical1
-	name = "Medicine Closet"
+	//name = "Medicine Closet"
 	icon_state = "medical1"
 	icon_closed = "medical"
 	icon_locked = "medical1"
@@ -283,7 +315,7 @@
 	icon_off = "medical1"
 	req_access = list(access_medical)
 /obj/secure_closet/medical3
-	name = "Blood Freezer"
+	//name = "Blood Freezer"
 	icon_state = "medical1"
 	icon_closed = "medical"
 	icon_locked = "medical1"
@@ -292,7 +324,7 @@
 	icon_off = "medical1"
 	req_access = list(access_medical)
 /obj/secure_closet/chemical
-	name = "Chemical Closet"
+	//name = "Chemical Closet"
 	icon_state = "medical1"
 	icon_closed = "medical"
 	icon_locked = "medical1"
@@ -302,7 +334,7 @@
 	req_access = list(access_medical)
 
 /obj/secure_closet/medical2
-	name = "Anesthetic"
+	//name = "Anesthetic"
 	icon_state = "medical1"
 	icon_closed = "medical"
 	icon_locked = "medical1"
@@ -312,43 +344,43 @@
 	req_access = list(access_medical)
 
 /obj/secure_closet/personal
-	desc = "The first card swiped gains control."
-	name = "Personal Closet"
+	//desc = "The first card swiped gains control."
+	//name = "Personal Closet"
 
 
 /obj/secure_closet/security1
-	name = "Security Equipment"
+	//name = "Security Equipment"
 	req_access = list(access_security)
 
 /obj/secure_closet/security_foren
-	name = "Forensics Locker"
+	//name = "Forensics Locker"
 	req_access = list(access_forensics_lockers)
 
 /obj/secure_closet/security_det
-	name = "Detective's Locker"
+	//name = "Detective's Locker"
 	req_access = list(access_detectives_office)
 
 /obj/secure_closet/scientist
-	name = "Scientist Locker"
+	//name = "Scientist Locker"
 
 	req_access = list(access_tox_storage)
 /obj/secure_closet/chemtoxin
-	name = "Chemistry Locker"
+	//name = "Chemistry Locker"
 
 	req_access = list(access_medical)
 /obj/secure_closet/bar
-	name = "Booze"
+	//name = "Booze"
 	req_access = list(access_bar)
 
 /obj/secure_closet/kitchen
-	name = "Kitchen Cabinet"
+	//name = "Kitchen Cabinet"
 	req_access = list(access_kitchen)
 
 /obj/secure_closet/meat
-	name = "Meat Locker"
+	//name = "Meat Locker"
 
 /obj/secure_closet/fridge
-	name = "Refrigerator"
+	//name = "Refrigerator"
 	icon_state = "fridge1"
 	icon_closed = "fridge"
 	icon_locked = "fridge1"
@@ -357,7 +389,7 @@
 	icon_off = "fridge1"
 
 /obj/secure_closet/wall
-	name = "wall locker"
+	//name = "wall locker"
 	req_access = list(access_security)
 	icon_state = "wall-locker1"
 	density = 1

@@ -1,5 +1,13 @@
 /obj/machinery/door
-	name = "Door"
+	name = "Шлюз"
+
+	nominative = "шлюз"
+	genitive = "шлюза"
+	dative = "шлюзу"
+	accusative = "шлюз"
+	instrumentative = "шлюзом"
+	prepositive = "шлюзе"
+
 	icon = 'doorint.dmi'
 	icon_state = "door1"
 	opacity = 1
@@ -14,7 +22,15 @@
 	var/locked = 0 // Currently in use for airlocks and window doors (alien weeds forcing the window doors open)
 	var/forcecrush = 0
 /obj/machinery/door/firedoor
-	name = "Firelock"
+	name = "Противопожарный шлюз"
+
+	nominative = "противопожарный шлюз"
+	genitive = "противопожарного шлюза"
+	dative = "противопожарному шлюзу"
+	accusative = "противопожарный шлюз"
+	instrumentative = "противопожарным шлюзом"
+	prepositive = "противопожарном шлюзе"
+
 	explosionstrength = 4
 	icon = 'Doorfire.dmi'
 	icon_state = "door0"

@@ -742,7 +742,7 @@
 		src.delete = src.delete
 
 	else if (!src.delete && src.temphtml) //Window in buffer - its a menu, dont add clear message
-		dat = {"[src.temphtml]<head><meta charset="UTF-8"></head<BR><BR><A href='?src=\ref[src];clear=1'>Основное меню</A>"}
+		dat = {"[src.temphtml]<head><meta charset="UTF-8"></head><BR><BR><A href='?src=\ref[src];clear=1'>Основное меню</A>"}
 	else
 		if (src.connected) //Is something connected?
 			var/mob/occupant = src.connected.occupant

@@ -4,13 +4,13 @@
 
 	if(istype(W, /obj/item/weapon/cell))
 		if(charging)
-			user << "There is already a cell in the charger."
+			user << "Зарядчик уже занят."
 			return
 		else
 			user.drop_item()
 			W.loc = src
 			charging = W
-			user.visible_message("[user] inserts a cell into the charger.", "You insert a cell into the charger.")
+			user.visible_message("\blue<b>[user]</b> вставляет батарейку в зарядчик.", "\blue Я вставляю батарейку в зарядчик.")
 			chargelevel = -1
 		updateicon()
 
@@ -49,7 +49,7 @@
 		charging.updateicon()
 
 		src.charging = null
-		user.visible_message("[user] removes the cell from the charger.", "You remove the cell from the charger.")
+		user.visible_message("\blue<b>[user]</b> вынимает батарейку из зарядчика.", "\blue Я вынимаю батарейку из зарядчика.")
 		chargelevel = -1
 		updateicon()
 obj/machinery/cell_charger/attack_ai()

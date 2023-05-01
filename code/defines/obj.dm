@@ -302,7 +302,7 @@
 	var/place = null
 
 /obj/equip_e/human
-	name = "человек"
+	name = "Человек"
 
 	nominative = "человек"
 	genitive = "человека"
@@ -314,7 +314,7 @@
 	var/mob/living/carbon/human/target = null
 
 /obj/equip_e/monkey
-	name = "обезьяна"
+	name = "Обезьяна"
 
 	nominative = "обезьяна"
 	genitive = "обезьяны"
@@ -326,8 +326,8 @@
 	var/mob/living/carbon/monkey/target = null
 
 /obj/grille
-	desc = "Кусок металла с равномерно расположенными отверстиями в виде сетки. Блокирует крупные объекты, но пропускает мелкие предметы, газ или энергетические лучи.."
-	name = "решётка"
+	desc = "Кусок металла с равномерно расположенными отверстиями в виде сетки. Блокирует крупные объекты, но пропускает мелкие предметы, газ или лучи."
+	name = "Решётка"
 
 	nominative = "решётка"
 	genitive = "решётки"

@@ -36,7 +36,7 @@
 	//actually throw it!
 	if (item)
 		item.layer = initial(item.layer)
-		src.visible_message("\red <b>[src]</b> бросает <b>[item.nominative]</b>.")
+		src.visible_message("\red <b>[src]</b> метает <b>[item.nominative]</b>.")
 
 		if(istype(src.loc, /turf/space)) //they're in space, move em one space in the opposite direction
 			src.inertia_dir = get_dir(target, src)

@@ -1680,7 +1680,7 @@
 "aGp" = (/obj/disposalpipe/segment,/obj/cabling/power{icon_state = "2-8"},/turf/simulated/floor{icon_state = "carpetW"},/area/security/detectives_office)
 "aGq" = (/obj/table/woodentable{tag = "icon-wood_1tileendtable (EAST)"; icon_state = "wood_1tileendtable"; dir = 4},/obj/machinery/light/lamp/green{pixel_y = 6},/turf/simulated/floor{icon_state = "carpet2"},/area/security/detectives_office)
 "aGr" = (/obj/table/woodentable{tag = "icon-wood_1tilethick (WEST)"; icon_state = "wood_1tilethick"; dir = 8},/obj/machinery/computer/forensic_scanning/detective,/turf/simulated/floor{icon_state = "carpetE"},/area/security/detectives_office)
-"aGs" = (/obj/table/woodentable{tag = "icon-wood_1tilethick (SOUTHWEST)"; icon_state = "wood_1tilethick"; dir = 10},/obj/deskclutter,/obj/item/weapon/clipboard,/turf/simulated/floor{icon_state = "grimy"},/area/security/detectives_office)
+"aGs" = (/obj/table/woodentable{tag = "icon-wood_1tilethick (SOUTHWEST)"; icon_state = "wood_1tilethick"; dir = 10},/obj/item/weapon/clipboard,/turf/simulated/floor{icon_state = "grimy"},/area/security/detectives_office)
 "aGt" = (/obj/cabling/power{icon_state = "1-4"},/turf/simulated/floor,/area/security/security_lobby)
 "aGu" = (/obj/machinery/door/airlock/glass/security{name = "Head of Security's Office"; req_access_txt = "3"},/obj/cabling/power{icon_state = "4-8"},/turf/simulated/floor,/area/security/head_of_security_office)
 "aGv" = (/obj/cabling/power{icon_state = "4-8"},/turf/simulated/floor,/area/security/head_of_security_office)
