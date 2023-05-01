@@ -73,7 +73,7 @@
 	using.layer = 19
 	adding += using
 
-	using = new h_type(src) //Lower hud bar
+	/*using = new h_type(src) //Lower hud bar
 	using.dir = EAST
 	using.screen_loc = "WEST,SOUTH-1 to EAST,SOUTH-1"
 	using.layer = 19
@@ -83,10 +83,10 @@
 	using.dir = NORTHWEST
 	using.screen_loc = "EAST+1,SOUTH-1"
 	using.layer = 19
-	adding += using
+	adding += using*/
 
 	using = new h_type( src )
-	using.name = "arrowleft"
+/*	using.name = "arrowleft"
 	using.icon_state = "s_arrow"
 	using.dir = WEST
 	using.screen_loc = ui_iarrowleft
@@ -99,7 +99,7 @@
 	using.dir = EAST
 	using.screen_loc = ui_iarrowright
 	using.layer = 19
-	adding += using
+	adding += using*/
 
 	using = new h_type( src )
 	using.name = "drop"

@@ -1,42 +1,55 @@
+/* left panel */
 
-#define ui_dropbutton "SOUTH-1,7"
-#define ui_swapbutton "SOUTH-1,7"
-#define ui_iclothing "SOUTH-1,2"
-#define ui_oclothing "SOUTH,2"
-//#define ui_headset "SOUTH,8"
-#define ui_rhand "SOUTH,1"
-#define ui_lhand "SOUTH,3"
-#define ui_id "SOUTH-1,1"
-#define ui_mask "SOUTH+1,1"
-#define ui_back "SOUTH+1,3"
-#define ui_storage1 "SOUTH-1,4"
-#define ui_storage2 "SOUTH-1,5"
-#define ui_sstore1 "SOUTH+1,4"
-#define ui_hstore1 "SOUTH+1,5"
-#define ui_resist "EAST+1,SOUTH-1"
-#define ui_gloves "SOUTH,5"
-#define ui_glasses "SOUTH,7"
-#define ui_ears "SOUTH,6"
-#define ui_head "SOUTH+1,2"
-#define ui_shoes "SOUTH,4"
-#define ui_belt "SOUTH-1,3"
-#define ui_throw "SOUTH-1,8"
+//head section
+#define ui_head "NORTH-1,-1" //1
+#define ui_glasses "NORTH-2,0" //3
+#define ui_mask "NORTH-2,-1"//2
+#define ui_ears "NORTH-2,-2" //6
+
+//hand section
+#define ui_gloves "NORTH-3,-1" //11
+#define ui_rhand "NORTH-3,-2"
+#define ui_lhand "NORTH-3,0"
+#define ui_hand "NORTH-4,-1"
+//#define ui_swapbutton "NORTH-6, -1"
+#define ui_iclothing "NORTH-5,-1" //5
+#define ui_storage1 "NORTH-5,-2" //12
+#define ui_storage2 "NORTH-5,0" //13
+#define ui_oclothing "NORTH-6,-1" //4
+#define ui_back "NORTH-6,0"//9
+#define ui_sstore1 "NORTH-6,-2" //6
+#define ui_belt "NORTH-7,0" //7
+#define ui_trousers "NORTH-7,-1" //new - trousers/pants/штаны
+#define ui_id "NORTH-7,-2"//10
+#define ui_shoes "NORTH-8,-1" //8
+
+#define ui_movi "NORTH-10,0"
+#define ui_acti "NORTH-10,-1"
+#define ui_resist "NORTH-10,-2"
+#define ui_throw "NORTH-11,-2"
+#define ui_dropbutton "NORTH-11,-1"
+#define ui_pull "NORTH-11,0"
+
+/* right panel */
 #define ui_oxygen "EAST+1, NORTH-4"
 #define ui_toxin "EAST+1, NORTH-6"
 #define ui_internal "EAST+1, NORTH-2"
 #define ui_fire "EAST+1, NORTH-8"
 #define ui_temp "EAST+1, NORTH-10"
 #define ui_health "EAST+1, NORTH-11"
-#define ui_pull "SOUTH-1,10"
-#define ui_hand "SOUTH-1,6"
 #define ui_sleep "EAST+1, NORTH-13"
 #define ui_rest "EAST+1, NORTH-14"
 
-#define ui_acti "SOUTH-1,12"
-#define ui_movi "SOUTH-1,14"
+//#define ui_headset "SOUTH,8"
+//#define ui_hstore1 "SOUTH+1,5" //wtf is that
 
-#define ui_iarrowleft "SOUTH-1,11"
+// END OF INTERFACE
+
+//change intention arrow
+
+/*#define ui_iarrowleft "SOUTH-1,11"
 #define ui_iarrowright "SOUTH-1,13"
+*/
 
 
 /*
@@ -117,7 +130,7 @@ obj/hud/New()
 		if(mymob:gloves) mymob:gloves:screen_loc = ui_gloves
 		if(mymob:ears) mymob:ears:screen_loc = ui_ears
 		if(mymob:s_store) mymob:s_store:screen_loc = ui_sstore1
-		if(mymob:h_store) mymob:h_store:screen_loc = ui_hstore1
+	//	if(mymob:h_store) mymob:h_store:screen_loc = ui_hstore1
 		if(mymob:glasses) mymob:glasses:screen_loc = ui_glasses
 	else
 		if(mymob:shoes) mymob:shoes:screen_loc = null

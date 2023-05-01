@@ -90,7 +90,7 @@
 	using.layer = 19
 	adding += using
 
-	using = new h_type( src )
+	/*using = new h_type( src )
 	using.name = "arrowleft"
 	using.icon = 'screen1_alien.dmi'
 	using.icon_state = "s_arrow"
@@ -106,7 +106,7 @@
 	using.dir = EAST
 	using.screen_loc = ui_iarrowright
 	using.layer = 19
-	adding += using
+	adding += using*/
 
 
 	using = new h_type( src )

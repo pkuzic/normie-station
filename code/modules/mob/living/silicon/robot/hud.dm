@@ -73,7 +73,7 @@
 	using.layer = 19
 	adding += using
 
-	using = new h_type(src) //Lower hud bar
+	/*using = new h_type(src) //Lower hud bar
 	using.dir = EAST
 	using.icon = 'screen1_robot.dmi'
 	using.screen_loc = "WEST,SOUTH-1 to EAST,SOUTH-1"
@@ -85,7 +85,7 @@
 	using.icon = 'screen1_robot.dmi'
 	using.screen_loc = "EAST+1,SOUTH-1"
 	using.layer = 19
-	adding += using
+	adding += using*/
 
 	using = new h_type( src )
 	using.name = "module2"

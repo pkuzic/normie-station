@@ -171,12 +171,24 @@
 	move_intent = using
 
 	using = new h_type(src) //Right hud bar
-	using.dir = SOUTH
+	using.dir = WEST
 	using.screen_loc = "EAST+1,SOUTH to EAST+1,NORTH"
 	using.layer = 19
 	adding += using
 
-	using = new h_type(src) //Lower hud bar
+	using = new h_type(src) //Left hud bar
+	using.dir = EAST
+	using.screen_loc = "WEST-1,NORTH to WEST-1,SOUTH"
+	using.layer = 19
+	adding += using
+
+	using = new h_type(src) //Left hud bar
+	using.dir = NORTHWEST
+	using.screen_loc = "WEST-3,NORTH to WEST-2,SOUTH"
+	using.layer = 19
+	adding += using
+
+	/*using = new h_type(src) //Lower hud bar
 	using.dir = EAST
 	using.screen_loc = "WEST,SOUTH-1 to EAST,SOUTH-1"
 	using.layer = 19
@@ -186,9 +198,9 @@
 	using.dir = NORTHWEST
 	using.screen_loc = "EAST+1,SOUTH-1"
 	using.layer = 19
-	adding += using
+	adding += using*/
 
-	using = new h_type( src )
+	/*using = new h_type( src )
 	using.name = "arrowleft"
 	using.icon_state = "s_arrow"
 	using.dir = WEST
@@ -202,7 +214,7 @@
 	using.dir = EAST
 	using.screen_loc = ui_iarrowright
 	using.layer = 19
-	adding += using
+	adding += using*/
 
 	using = new h_type( src )
 	using.name = "drop"
@@ -216,6 +228,14 @@
 	using.dir = SOUTH
 	using.icon_state = "center"
 	using.screen_loc = ui_iclothing
+	using.layer = 19
+	adding += using
+
+	using = new h_type( src )
+	using.name = "trousers"
+	using.dir = SOUTH
+	using.icon_state = "trousers"
+	using.screen_loc = ui_trousers
 	using.layer = 19
 	adding += using
 
@@ -298,13 +318,13 @@
 	using.layer = 19
 	src.other += using
 
-	using = new src.h_type( src )
+	/*using = new src.h_type( src )
 	using.name = "hat storage"
 	//using.icon = ui_style
 	using.icon_state = "hat_slot"
 	using.screen_loc = ui_hstore1
 	using.layer = 19
-	src.other += using
+	src.other += using*/
 
 	using = new h_type( src )
 	using.name = "resist"

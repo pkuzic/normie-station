@@ -74,21 +74,21 @@
 	using.layer = 19
 	adding += using
 
-	using = new h_type(src) //Lower hud bar
+	/*using = new h_type(src) //Lower hud bar
 	using.dir = EAST
 	using.icon = 'screen1_alien.dmi'
 	using.screen_loc = "WEST,SOUTH-1 to EAST,SOUTH-1"
 	using.layer = 19
-	adding += using
+	adding += using*/
 
-	using = new h_type(src) //Corner Button
+	/*using = new h_type(src) //Corner Button
 	using.dir = NORTHWEST
 	using.icon = 'screen1_alien.dmi'
 	using.screen_loc = "EAST+1,SOUTH-1"
 	using.layer = 19
-	adding += using
+	adding += using*/
 
-	using = new h_type( src )
+	/*using = new h_type( src )
 	using.name = "arrowleft"
 	using.icon = 'screen1_alien.dmi'
 	using.icon_state = "s_arrow"
@@ -104,7 +104,7 @@
 	using.dir = EAST
 	using.screen_loc = ui_iarrowright
 	using.layer = 19
-	adding += using
+	adding += using*/
 
 	using = new h_type( src )
 	using.name = "drop"
