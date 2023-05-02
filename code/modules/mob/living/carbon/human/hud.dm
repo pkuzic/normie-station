@@ -176,17 +176,44 @@
 	using.layer = 19
 	adding += using
 
-	using = new h_type(src) //Left hud bar
-	using.dir = EAST
-	using.screen_loc = "WEST-1,NORTH to WEST-1,SOUTH"
+	using = new h_type(src) //RIGHT - INTERFACE SHADOW
+	using.icon_state = "interface_shadow"
+	using.dir = WEST
+	using.screen_loc = "EAST,SOUTH to EAST,NORTH"
 	using.layer = 19
 	adding += using
 
-	using = new h_type(src) //Left hud bar
-	using.dir = NORTHWEST
-	using.screen_loc = "WEST-3,NORTH to WEST-2,SOUTH"
+	/* left side */
+	using = new h_type(src) //LEFT - THIRD LINE - RIGHT SIDE
+	using.icon_state = "interface_leftside"
+	using.dir = EAST
+	using.screen_loc = "WEST-1,NORTH to WEST-1, SOUTH"
 	using.layer = 19
 	adding += using
+
+	using = new h_type(src) //LEFT - THIRD LINE - LEFT SIDE
+	using.icon_state = "interface_leftside"
+	using.dir = WEST
+	using.screen_loc = "WEST-3,NORTH to WEST-3, SOUTH"
+	using.layer = 19
+	adding += using
+
+	using = new h_type(src) //LEFT - FILLING
+	using.icon_state = "interface_leftside"
+	using.dir = SOUTHEAST
+	using.screen_loc = "WEST-2,NORTH to WEST-2, SOUTH"
+	using.layer = 19
+	adding += using
+
+	using = new h_type(src) //LEFT - INTERFACE SHADOW
+	using.icon_state = "interface_shadow"
+	using.dir = EAST
+	using.screen_loc = "WEST,NORTH to WEST, SOUTH"
+	using.layer = 19
+	using.mouse_opacity = 0
+	adding += using
+
+
 
 	/*using = new h_type(src) //Lower hud bar
 	using.dir = EAST
